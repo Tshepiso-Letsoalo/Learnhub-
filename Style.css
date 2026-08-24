@@ -135,3 +135,31 @@ footer {
     margin-top: 25px;
   }
 }
+.course-card {
+  background: white;
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.course-card h3 {
+  color: #2563eb;
+  margin-bottom: 12px;
+}
+
+.course-card p {
+  margin: 8px 0;
+  color: #4b5563;
+}
+
+.course-card button {
+  margin-top: 15px;
+}
