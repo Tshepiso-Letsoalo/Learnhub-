@@ -358,10 +358,7 @@ p {
     Next
   </button>
   </div>
-  <button onclick="alert('Courses coming soon!')">
-    📖 Start Learning
-  </button>
-
+<button onclick="document.getElementById('lesson1').scrollIntoView({behavior:'smooth'})">📖 Start Learning</button>
   <button onclick="showProgress()">
   📊 My Progress
   
@@ -372,15 +369,13 @@ p {
   </button>
 </div>
   <script>
-  function showProgress() {
-    alert("Keep going! You are making great progress in LearnHub.");
-  }function startLearning() {
-  alert("Welcome to Lesson 1!");
-  }
-  <script>
 function showProgress() {
-  alert("Your progress will appear here!");
+  alert("Keep going! You are making great progress in LearnHub.");
 }
-</script>
-</body>
+
+function startLearning() {
+  alert("Welcome to Lesson 1!");
+}
+  </script>
+  </body>
 </html>
