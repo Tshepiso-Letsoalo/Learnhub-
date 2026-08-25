@@ -1,389 +1,349 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 🐍 COMPLETE PYTHON COURSE -->
 
-  <title>LearnHub - Learn. Build. Grow.</title>
+<section id="python-course">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f7fb;
-      color: #222;
-    }
+  <h1>🐍 LearnHub Python Course</h1>
+  <p>Learn Python step by step from beginner to advanced beginner.</p>
 
-    header {
-      background: #2563eb;
-      color: white;
-      text-align: center;
-      padding: 30px 15px;
-    }
+  <!-- LESSON 1 -->
+  <section id="pythonLesson1">
+    <h2>🐍 Python Lesson 1: Hello World</h2>
 
-    header h1 {
-      margin: 0;
-      font-size: 36px;
-    }
+    <p>Python can display text using <b>print()</b>.</p>
 
-    header p {
-      font-size: 18px;
-    }
-
-    nav {
-      background: white;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    nav button,
-    button {
-      background: #2563eb;
-      color: white;
-      border: none;
-      padding: 12px 18px;
-      margin: 6px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 15px;
-    }
-
-    button:hover {
-      opacity: 0.9;
-    }
-
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    section {
-      background: white;
-      margin: 20px 0;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    }
-
-    .lesson {
-      border-left: 5px solid #2563eb;
-    }
-
-    pre {
-      background: #111827;
-      color: #f9fafb;
-      padding: 15px;
-      border-radius: 8px;
-      overflow-x: auto;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #111827;
-      color: white;
-      margin-top: 30px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <h1>🚀 LearnHub</h1>
-    <p>Learn. Build. Grow.</p>
-  </header>
-
-  <nav>
-    <button onclick="document.getElementById('web-course').scrollIntoView({behavior:'smooth'})">
-      💻 Web Development
-    </button>
-
-    <button onclick="document.getElementById('python-course').scrollIntoView({behavior:'smooth'})">
-      🐍 Python
-    </button>
-
-    <button onclick="showProgress()">
-      📊 My Progress
-    </button>
-  </nav>
-
-  <main>
-
-    <!-- WEB DEVELOPMENT -->
-    <section id="web-course">
-      <h2>💻 Web Development</h2>
-
-      <p>
-        Learn the basics of building websites using HTML, CSS and JavaScript.
-      </p>
-
-      <div class="lesson">
-        <h3>Lesson 1: HTML Basics</h3>
-
-        <p>
-          HTML is used to create the structure of a webpage.
-        </p>
-
-        <pre><code>
-&lt;h1&gt;Hello LearnHub!&lt;/h1&gt;
-&lt;p&gt;Welcome to my website.&lt;/p&gt;
-        </code></pre>
-
-        <button onclick="alert('🎉 HTML is the structure of a webpage!')">
-          ▶️ Try Lesson
-        </button>
-
-        <button onclick="completeLesson('Web Development Lesson 1')">
-          ✅ Complete Lesson 1
-        </button>
-      </div>
-
-      <div class="lesson">
-        <h3>Lesson 2: CSS Basics</h3>
-
-        <p>
-          CSS is used to style webpages.
-        </p>
-
-        <pre><code>
-body {
-  background: lightblue;
-}
-        </code></pre>
-
-        <button onclick="alert('🎨 CSS makes websites look beautiful!')">
-          ▶️ Try Lesson
-        </button>
-
-        <button onclick="completeLesson('Web Development Lesson 2')">
-          ✅ Complete Lesson 2
-        </button>
-      </div>
-
-      <div class="lesson">
-        <h3>Lesson 3: JavaScript Basics</h3>
-
-        <p>
-          JavaScript makes webpages interactive.
-        </p>
-
-        <pre><code>
-alert("Hello from JavaScript!");
-        </code></pre>
-
-        <button onclick="alert('⚡ JavaScript makes websites interactive!')">
-          ▶️ Try Lesson
-        </button>
-
-        <button onclick="completeLesson('Web Development Lesson 3')">
-          ✅ Complete Lesson 3
-        </button>
-      </div>
-    </section>
-
-
-    <!-- PYTHON COURSE -->
-    <section id="python-course">
-
-      <h2>🐍 Python Basics</h2>
-
-      <p>
-        Learn Python programming step by step.
-      </p>
-
-      <!-- PYTHON LESSON 1 -->
-      <div class="lesson">
-        <h3>🐍 Lesson 1: Introduction to Python</h3>
-
-        <p>
-          Python is a programming language used for websites,
-          applications, automation and AI.
-        </p>
-
-        <pre><code>
+    <pre><code>
 name = "LearnHub"
 print(name)
-        </code></pre>
+    </code></pre>
 
-        <button onclick="alert('Hello from Python! 🐍')">
-          ▶️ Try Python
-        </button>
+    <button onclick="alert('LearnHub')">
+      ▶️ Try Python
+    </button>
 
-        <button onclick="completeLesson('Python Lesson 1')">
-          ✅ Complete Python Lesson 1
-        </button>
-      </div>
+    <button onclick="alert('🎉 Python Lesson 1 completed! 🐍')">
+      ✅ Complete Python Lesson 1
+    </button>
+  </section>
 
 
-      <!-- PYTHON LESSON 2 -->
-      <div class="lesson">
-        <h3>🐍 Lesson 2: Variables</h3>
+  <!-- LESSON 2 -->
+  <section id="pythonLesson2">
+    <h2>🐍 Python Lesson 2: Variables</h2>
 
-        <p>
-          Variables store information in Python.
-        </p>
+    <p>A variable stores information.</p>
 
-        <pre><code>
-name = "Student"
-age = 18
+    <pre><code>
+name = "Tshepiso"
+age = 29
 
 print(name)
 print(age)
-        </code></pre>
+    </code></pre>
 
-        <button onclick="alert('Variables store information! 🐍')">
-          ▶️ Try Python
-        </button>
+    <button onclick="alert('Tshepiso\\n29')">
+      ▶️ Run Python
+    </button>
 
-        <button onclick="completeLesson('Python Lesson 2')">
-          ✅ Complete Python Lesson 2
-        </button>
-      </div>
-
-
-      <!-- PYTHON LESSON 3 -->
-      <div class="lesson">
-        <h3>🐍 Lesson 3: Input</h3>
-
-        <p>
-          Python can ask the user for information using input().
-        </p>
-
-        <pre><code>
-name = input("What is your name? ")
-print("Hello " + name)
-        </code></pre>
-
-        <button onclick="let name = prompt('What is your name?'); if (name) alert('Hello ' + name + '! 🐍');">
-          ▶️ Try Python
-        </button>
-
-        <button onclick="completeLesson('Python Lesson 3')">
-          ✅ Complete Python Lesson 3
-        </button>
-      </div>
+    <button onclick="alert('🎉 Python Lesson 2 completed! 🐍')">
+      ✅ Complete Python Lesson 2
+    </button>
+  </section>
 
 
-      <!-- PYTHON LESSON 4 -->
-      <div class="lesson">
-        <h3>🐍 Lesson 4: If Statements</h3>
+  <!-- LESSON 3 -->
+  <section id="pythonLesson3">
+    <h2>🐍 Python Lesson 3: Numbers and Calculations</h2>
 
-        <p>
-          An if statement allows Python to make decisions.
-        </p>
+    <p>Python can perform calculations.</p>
 
-        <pre><code>
-age = 18
+    <pre><code>
+a = 10
+b = 5
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+    </code></pre>
+
+    <button onclick="alert('Addition: 15\\nSubtraction: 5\\nMultiplication: 50\\nDivision: 2')">
+      ▶️ Run Python
+    </button>
+
+    <button onclick="alert('🎉 Python Lesson 3 completed! 🐍')">
+      ✅ Complete Python Lesson 3
+    </button>
+  </section>
+
+
+  <!-- LESSON 4 -->
+  <section id="pythonLesson4">
+    <h2>🐍 Python Lesson 4: If Statements</h2>
+
+    <p>
+      An <b>if statement</b> tells Python to run code when a condition is true.
+    </p>
+
+    <pre><code>
+age = 20
 
 if age >= 18:
     print("You are an adult")
-        </code></pre>
+    </code></pre>
 
-        <button onclick="alert('If the condition is true, Python runs the code! 🐍')">
-          ▶️ Try Python
-        </button>
+    <button onclick="alert('You are an adult 🐍')">
+      ▶️ Run Python
+    </button>
 
-        <button onclick="completeLesson('Python Lesson 4')">
-          ✅ Complete Python Lesson 4
-        </button>
-      </div>
-
-    </section>
+    <button onclick="alert('🎉 Python Lesson 4 completed! 🐍')">
+      ✅ Complete Python Lesson 4
+    </button>
+  </section>
 
 
-    <!-- PROGRESS -->
-    <section id="progress">
+  <!-- LESSON 5 -->
+  <section id="pythonLesson5">
+    <h2>🐍 Python Lesson 5: Functions</h2>
 
-      <h2>📊 My Progress</h2>
+    <p>
+      A function is a block of code that performs a specific task.
+    </p>
 
-      <p id="progressText">
-        Completed lessons: 0
-      </p>
+    <pre><code>
+def hello():
+    print("Hello Tshepiso! 🐍")
+    print("Welcome to LearnHub!")
 
-      <button onclick="showProgress()">
-        📊 Check My Progress
-      </button>
+hello()
+    </code></pre>
 
-    </section>
+    <button onclick="alert('Hello Tshepiso! 🐍\\nWelcome to LearnHub!')">
+      ▶️ Run Python
+    </button>
 
-
-    <!-- CERTIFICATE -->
-    <section id="certificate">
-
-      <h2>🏆 Course Certificate</h2>
-
-      <p>
-        Keep completing lessons to unlock your LearnHub certificate.
-      </p>
-
-      <button onclick="showCertificate()">
-        📜 Get My Certificate
-      </button>
-
-    </section>
-
-  </main>
+    <button onclick="alert('🎉 Python Lesson 5 completed! 🐍')">
+      ✅ Complete Python Lesson 5
+    </button>
+  </section>
 
 
-  <footer>
-    <p>© 2026 LearnHub | Learn. Build. Grow. 🚀</p>
-  </footer>
+  <!-- LESSON 6 -->
+  <section id="pythonLesson6">
+    <h2>🐍 Python Lesson 6: Lists</h2>
+
+    <p>
+      A list stores multiple items in one variable.
+    </p>
+
+    <pre><code>
+fruits = ["Apple", "Banana", "Orange"]
+
+print(fruits)
+print(fruits[0])
+    </code></pre>
+
+    <button onclick="alert('Apple, Banana, Orange\\nFirst fruit: Apple')">
+      ▶️ Run Python
+    </button>
+
+    <button onclick="alert('🎉 Python Lesson 6 completed! 🐍')">
+      ✅ Complete Python Lesson 6
+    </button>
+  </section>
 
 
-  <script>
+  <!-- LESSON 7 -->
+  <section id="pythonLesson7">
+    <h2>🐍 Python Lesson 7: For Loops</h2>
 
-    let completedLessons = [];
+    <p>
+      A loop allows Python to repeat code.
+    </p>
 
-    function completeLesson(lesson) {
+    <pre><code>
+fruits = ["Apple", "Banana", "Orange"]
 
-      if (!completedLessons.includes(lesson)) {
-        completedLessons.push(lesson);
-      }
+for fruit in fruits:
+    print(fruit)
+    </code></pre>
 
-      document.getElementById("progressText").innerText =
-        "Completed lessons: " + completedLessons.length;
+    <button onclick="alert('Apple\\nBanana\\nOrange')">
+      ▶️ Run Python
+    </button>
 
-      alert("🎉 " + lesson + " completed!");
-    }
-
-
-    function showProgress() {
-
-      if (completedLessons.length === 0) {
-        alert("📚 You haven't completed any lessons yet. Keep learning!");
-      } else {
-        alert(
-          "🎉 You have completed " +
-          completedLessons.length +
-          " lesson(s)!"
-        );
-      }
-
-    }
+    <button onclick="alert('🎉 Python Lesson 7 completed! 🐍')">
+      ✅ Complete Python Lesson 7
+    </button>
+  </section>
 
 
-    function showCertificate() {
+  <!-- LESSON 8 -->
+  <section id="pythonLesson8">
+    <h2>🐍 Python Lesson 8: While Loops</h2>
 
-      if (completedLessons.length >= 7) {
+    <p>
+      A while loop repeats code while a condition is true.
+    </p>
 
-        alert(
-          "🏆 Congratulations! You completed the LearnHub course!"
-        );
+    <pre><code>
+number = 1
 
-      } else {
+while number <= 5:
+    print(number)
+    number = number + 1
+    </code></pre>
 
-        alert(
-          "📚 Keep learning! Complete all 7 lessons to unlock your certificate."
-        );
+    <button onclick="alert('1\\n2\\n3\\n4\\n5')">
+      ▶️ Run Python
+    </button>
 
-      }
+    <button onclick="alert('🎉 Python Lesson 8 completed! 🐍')">
+      ✅ Complete Python Lesson 8
+    </button>
+  </section>
 
-    }
 
-  </script>
+  <!-- LESSON 9 -->
+  <section id="pythonLesson9">
+    <h2>🐍 Python Lesson 9: User Input</h2>
 
-</body>
-</html>
+    <p>
+      Python can ask the user for information using <b>input()</b>.
+    </p>
+
+    <pre><code>
+name = input("What is your name? ")
+
+print("Hello " + name)
+    </code></pre>
+
+    <button onclick="let name = prompt('What is your name?'); if(name) alert('Hello ' + name + '! 🐍')">
+      ▶️ Try Python
+    </button>
+
+    <button onclick="alert('🎉 Python Lesson 9 completed! 🐍')">
+      ✅ Complete Python Lesson 9
+    </button>
+  </section>
+
+
+  <!-- LESSON 10 -->
+  <section id="pythonLesson10">
+    <h2>🐍 Python Lesson 10: Dictionaries</h2>
+
+    <p>
+      A dictionary stores information using keys and values.
+    </p>
+
+    <pre><code>
+student = {
+    "name": "Tshepiso",
+    "course": "Python",
+    "level": "Beginner"
+}
+
+print(student["name"])
+print(student["course"])
+    </code></pre>
+
+    <button onclick="alert('Name: Tshepiso\\nCourse: Python')">
+      ▶️ Run Python
+    </button>
+
+    <button onclick="alert('🎉 Python Lesson 10 completed! 🐍')">
+      ✅ Complete Python Lesson 10
+    </button>
+  </section>
+
+
+  <!-- LESSON 11 -->
+  <section id="pythonLesson11">
+    <h2>🐍 Python Lesson 11: Functions with Parameters</h2>
+
+    <p>
+      A function can receive information called a parameter.
+    </p>
+
+    <pre><code>
+def greet(name):
+    print("Hello " + name)
+
+greet("Tshepiso")
+    </code></pre>
+
+    <button onclick="alert('Hello Tshepiso! 🐍')">
+      ▶️ Run Python
+    </button>
+
+    <button onclick="alert('🎉 Python Lesson 11 completed! 🐍')">
+      ✅ Complete Python Lesson 11
+    </button>
+  </section>
+
+
+  <!-- LESSON 12 -->
+  <section id="pythonLesson12">
+    <h2>🐍 Python Lesson 12: Mini Project</h2>
+
+    <p>
+      Now we combine variables, conditions and functions.
+    </p>
+
+    <pre><code>
+def check_age(age):
+
+    if age >= 18:
+        print("You are an adult.")
+    else:
+        print("You are under 18.")
+
+check_age(20)
+    </code></pre>
+
+    <button onclick="alert('You are an adult. 🐍')">
+      ▶️ Run Python
+    </button>
+
+    <button onclick="alert('🎉 Python Lesson 12 completed! 🐍')">
+      ✅ Complete Python Lesson 12
+    </button>
+  </section>
+
+
+  <!-- FINAL -->
+  <section id="pythonFinal">
+    <h2>🏆 Python Course Complete!</h2>
+
+    <p>
+      Congratulations! 🎉
+    </p>
+
+    <p>
+      You have reached the end of the LearnHub beginner Python course.
+    </p>
+
+    <p>
+      You learned:
+    </p>
+
+    <ul>
+      <li>✅ print()</li>
+      <li>✅ Variables</li>
+      <li>✅ Numbers and calculations</li>
+      <li>✅ If statements</li>
+      <li>✅ Functions</li>
+      <li>✅ Lists</li>
+      <li>✅ For loops</li>
+      <li>✅ While loops</li>
+      <li>✅ User input</li>
+      <li>✅ Dictionaries</li>
+      <li>✅ Function parameters</li>
+      <li>✅ Mini projects</li>
+    </ul>
+
+    <button onclick="alert('🏆 CONGRATULATIONS TSHEPISO! 🐍🎉\\nYou completed the LearnHub Python Course!')">
+      🏆 Finish Python Course
+    </button>
+  </section>
+
+</section>
