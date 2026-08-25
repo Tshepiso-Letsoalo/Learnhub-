@@ -1,529 +1,402 @@
 <!DOCTYPE html>
-<style>
-  <script>
-  function showProgress() {
-    alert("Keep going! You are making great progress in LearnHub.");
-  }
-</script>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f4f7fb;
-  color: #222;
-}
-
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 20px;
-  color: #666;
-}
-
-.courses {
-  display: grid;
-  gap: 20px;
-  margin-top: 40px;
-}
-
-.courses button {
-  padding: 20px;
-  font-size: 18px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  background: white;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.courses button:hover {
-  transform: scale(1.02);
-}
-  </style>
 <html lang="en">
-  <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #222;
-  }
-
-  header {
-    background: #2563eb;
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
-
-  header h1 {
-    margin: 0;
-    font-size: 28px;
-  }
-
-  button {
-    display: block;
-    width: 90%;
-    max-width: 400px;
-    margin: 15px auto;
-    padding: 15px;
-    border: none;
-    border-radius: 12px;
-    background: #2563eb;
-    color: white;
-    font-size: 17px;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background: #1d4ed8;
-  }
-  </style>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>LearnHub | Learn. Grow. Succeed.</title>
-<link rel="stylesheet" href="style.css"></head>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 38px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    nav {
+      background: white;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 25px 20px;
+    }
+
+    section {
+      background: white;
+      margin: 25px 0;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .course-card {
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin: 15px auto;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    pre {
+      background: #111827;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+
+    footer {
+      text-align: center;
+      background: #111827;
+      color: white;
+      padding: 25px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
 
 <body>
-  <div class="container">
-  <h1>🎓 LearnHub</h1>
-  <p>Learn. Practice. Grow.</p>
 
-  <div class="courses">
-    <button>💻 Coding</button>
-    <button>🤖 Artificial Intelligence</button>
-    <button>📚 School Subjects</button>
-    <button>💼 Career Skills</button>
-  </div>
-  </div>
-<nav>
-  <div class="nav-container">
-    <h2>📚 LearnHub</h2>
-
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="#courses">Courses</a>
-      <a href="#about">About</a>
-      <a href="#profile">Profile</a>
-    </div>
-  </div>
-</nav>
   <header>
-    <h1>📚 LearnHub</h1>
+    <h1>🎓 LearnHub</h1>
     <p>Learn. Grow. Succeed.</p>
   </header>
 
+  <nav>
+    <a href="#courses">Courses</a>
+    <a href="#lessons">Lessons</a>
+    <a href="#progress">Progress</a>
+    <a href="#certificate">Certificate</a>
+  </nav>
+
   <main>
-    <h2>Welcome to LearnHub</h2>
-    <p>Learn new skills through simple, practical tutorials.</p>
 
-    <h2 id="courses">Popular Courses</h2>
+    <!-- COURSES -->
+    <section id="courses">
+      <h2>📚 LearnHub Courses</h2>
 
-  <div class="course-card">
-  <h3>💻 Web Development</h3>
-  <p>Learn HTML, CSS and JavaScript from beginner level.</p>
-  <p><strong>Level:</strong> Beginner</p>
-  <button onclick="startLearning()">📖 Start Learning</button>
-</div>
+      <div class="course-grid">
 
-<div class="course-card">
-  <h3>🤖 Artificial Intelligence</h3>
-  <p>Learn the basics of AI, machine learning and modern technology.</p>
-  <p><strong>Level:</strong> Beginner</p>
-  <button>Start Learning</button>
-</div>
+        <div class="course-card">
+          <h3>💻 Web Development</h3>
+          <p>Learn HTML, CSS and JavaScript.</p>
+          <strong>Beginner</strong>
+          <button onclick="startLearning()">Start Course</button>
+        </div>
 
-<div class="course-card">
-  <h3>🐍 Python Programming</h3>
-  <p>Learn Python programming through simple practical lessons.</p>
-  <p><strong>Level:</strong> Beginner</p>
-  <button>Start Learning</button>
-</div>
-    </div>
-  </main>
+        <div class="course-card">
+          <h3>🐍 Python Programming</h3>
+          <p>Learn Python programming from the basics.</p>
+          <strong>Beginner</strong>
+          <button onclick="comingSoon('Python Programming')">
+            Start Course
+          </button>
+        </div>
 
-  <footer>
-    <p>© 2026 LearnHub</p>
-  </footer>
-<div style="text-align:center; padding:30px;">
-  <h2>📚 Welcome to LearnHub</h2>
-  <p>Learn. Practice. Grow.</p>
-<h2>📚 Courses</h2>
+        <div class="course-card">
+          <h3>🤖 Artificial Intelligence</h3>
+          <p>Learn AI and modern technology.</p>
+          <strong>Beginner</strong>
+          <button onclick="comingSoon('Artificial Intelligence')">
+            Start Course
+          </button>
+        </div>
 
-<div>
-  <button onclick="alert('Coding lessons coming soon!')">
-    💻 Coding
-  <div style="background:white; padding:20px; margin:15px auto; width:85%; max-width:400px; border-radius:15px;">
-  <h3>💻 Coding Basics</h3>
-  <p>Learn the basics of coding step by step.</p>
-<div id="lesson1" style="background:#eef4ff; padding:15px; margin:10px 0; border-radius:12px;">
-  <p>
-    Coding is the process of giving instructions to a computer
-    so it can perform a task.
-  </p>
+        <div class="course-card">
+          <h3>💼 Career Skills</h3>
+          <p>Build useful skills for your career.</p>
+          <strong>Beginner</strong>
+          <button onclick="comingSoon('Career Skills')">
+            Start Course
+          </button>
+        </div>
 
-  <p><strong>Example:</strong></p>
+      </div>
+    </section>
 
-  <p>
-    HTML is used to create the structure of a webpage.
-  </p>
+    <!-- LESSONS -->
+    <section id="lessons">
+      <h2>📖 Web Development Lessons</h2>
 
-  <p><strong>🎯 Your first challenge:</strong></p>
+      <h3 id="lesson1">Lesson 1: HTML Basics</h3>
+      <p>
+        HTML is used to create the structure of web pages.
+      </p>
 
-  <p>
-    Can you find the word <strong>HTML</strong> in this page's code?
-  </p>
+      <ul>
+        <li>Headings</li>
+        <li>Paragraphs</li>
+        <li>Buttons</li>
+        <li>Images</li>
+        <li>Links</li>
+      </ul>
 
-  <button onclick="alert('🎉 Well done! You completed Lesson 1!')">
-    ✅ Complete Lesson
-  </button>
-</div>
-  <div style="background:#f0fff4; padding:15px; margin:10px 0; border-radius:12px;">
-  <h3>🌐 Lesson 2: HTML Basics</h3>
+      <button onclick="completeLesson(1)">
+        ✅ Complete Lesson 1
+      </button>
 
-  <p>HTML is used to build the structure of webpages.</p>
+      <hr>
 
-  <p><strong>Example:</strong></p>
+      <h3 id="lesson2">Lesson 2: CSS Basics</h3>
+      <p>
+        CSS is used to style and design websites.
+      </p>
 
-  <p>&lt;h1&gt;Hello LearnHub!&lt;/h1&gt;</p>
+      <ul>
+        <li>🎨 Colors</li>
+        <li>🔤 Fonts</li>
+        <li>📏 Sizes</li>
+        <li>📦 Spacing</li>
+        <li>📐 Layout</li>
+      </ul>
 
-  <p>This creates a large heading on a webpage.</p>
-
-  <p><strong>🎯 Quick Quiz:</strong></p>
-
-  <p>What is HTML mainly used for?</p>
-
-  <button onclick="alert('🎉 Correct! HTML creates the structure of webpages.')">
-    A. Building webpages
-  </button>
-
-  <button onclick="alert('❌ Try again. Think about the structure of a webpage.')">
-    B. Playing music
-  </button>
-  </div>r
-  <div class="lesson">
-  <h3>CSS Lesson 3: Colors and Backgrounds</h3>
-  <p>Learn how to change text colors and background colors using CSS.</p>
-  <button onclick="alert('Great job! You completed CSS Lesson 3.')">
-    Complete Lesson
-  </button>
-  </div>
-  </div>
-
-  <div class="lesson">
-  <h3>CSS Lesson 4: Fonts and Text</h3>
-  <p>Learn how to change font size, font family, and text alignment with CSS.</p>
-  <button onclick="alert('Great job! You completed CSS Lesson 4.')">
-    Complete Lesson
-  </button>
-  </div>
-  <button onclick="alert('Computer lessons coming soon!')">
-    🖥️ Computer Skills
-  </button>
-<div class="lesson">
-  <h3>CSS Lesson 5: Margins and Padding</h3>
-  <p>Learn how margins create space outside elements and padding creates space inside elements.</p>
-  <button onclick="alert('Great job! You completed CSS Lesson 5.')">
-    Complete Lesson
-  </button>
-</div>
-   
-  <h3>CSS Lesson 6: Borders</h3>
-  <p>Learn how to add borders around elements and change their style, width, and color.</p>
-  <button onclick="alert('Great job! You completed CSS Lesson 6.')">
-    Complete Lesson
-  </button>
- </div>
-    <div class="lesson">
-  <h3>CSS Lesson 7: Width and Height</h3>
-  <p>Learn how to control the width and height of elements using CSS.</p>
-  <button onclick="alert('Great job! You completed CSS Lesson 7.')">
-    Complete Lesson
-  </button>
-    </div>
-    <div class="lesson">
-  <h3>CSS Lesson 8: Display</h3>
-  <p>Learn how CSS controls how elements appear on a webpage using display properties.</p>
-  <button onclick="alert('Great job! You completed CSS Lesson 8.')">
-    Complete Lesson
-  </button>
-    </div>
-  <div class="lesson">
-  <h3>CSS Lesson 9: Flexbox</h3>
-  <p>Learn how to arrange elements in rows and columns using CSS Flexbox.</p>
-  <button onclick="alert('Great job! You completed CSS Lesson 9.')">
-    Complete Lesson
-  </button>
-  </div>
-  <div class="lesson">
-  <h3>CSS Lesson 10: Responsive Design</h3>
-  <p>Learn how to make your website look good on phones, tablets, and computers.</p>
-  <button onclick="alert('Congratulations! You completed all CSS lessons.')">
-    Complete Lesson
-  </button>
-  </div>
-  <div class="lesson">
-  <h3>JavaScript Lesson 1: Introduction</h3>
-  <p>Learn what JavaScript is and how it makes websites interactive.</p>
-  <button onclick="alert('Great job! You completed JavaScript Lesson 1.')">
-    Complete Lesson
-  </button>
-  </div>
-  <div class="lesson">
-  <h3>JavaScript Lesson 2: Variables</h3>
-  <p>Learn how variables store information such as names, numbers, and other values.</p>
-  <button onclick="alert('Great job! You completed JavaScript Lesson 2.')">
-    Complete Lesson
-  </button>
-  </div>
-  <button onclick="alert('AI lessons coming soon!')">
-    🤖 Artificial Intelligence
-  </button>
-</div>
-  <div class="lesson">
-  <h3>JavaScript Lesson 3: Data Types</h3>
-  <p>Learn about strings, numbers, booleans, and other types of data in JavaScript.</p>
-  <button onclick="alert('Great job! You completed JavaScript Lesson 3.')">
-    Complete Lesson
-  </button>
-  </div>
-  <div class="lesson">
-  <h3>JavaScript Lesson 4: Operators</h3>
-  <p>Learn how to use arithmetic and comparison operators in JavaScript.</p>
-  <button onclick="alert('Great job! You completed JavaScript Lesson 4.')">
-    Complete Lesson
-  </button>
-  </div>
-  <div class="lesson">
-  <h3>JavaScript Lesson 5: Conditions</h3>
-  <p>Learn how to use if and else statements to make decisions in JavaScript.</p>
-  <button onclick="alert('Great job! You completed JavaScript Lesson 5.')">
-    Complete Lesson
-  </button>
-  </div>
-  <div class="lesson">
-  <h3>JavaScript Lesson 6: Loops</h3>
-  <p>Learn how loops repeat code and help automate tasks in JavaScript.</p>
-  <button onclick="alert('Great job! You completed JavaScript Lesson 6.')">
-    Complete Lesson
-  </button>
-  </div>
-  <div class="lesson">
-  <h3>JavaScript Lesson 7: Functions</h3>
-  <p>Learn how functions group reusable code and make programs easier to manage.</p>
-  <button onclick="alert('Great job! You completed JavaScript Lesson 7.')">
-    Complete Lesson
-  </button>
-  </div>
-  <div class="lesson">
-  <h3>JavaScript Lesson 8: Arrays</h3>
-  <p>Learn how arrays store multiple values in one JavaScript variable.</p>
-  <button onclick="alert('Great job! You completed JavaScript Lesson 8.')">
-    Complete Lesson
-  </button>
-  </div>
-  <div class="lesson">
-  <h3>JavaScript Lesson 9: Objects</h3>
-  <p>Learn how JavaScript objects store related information using properties and values.</p>
-  <button onclick="alert('Great job! You completed JavaScript Lesson 9.')">
-    Complete Lesson
-  </button>
-  </div>
-  <div class="lesson">
-  <h3>JavaScript Lesson 10: Events</h3>
-  <p>Learn how JavaScript responds to actions such as clicks, typing, and mouse movements.</p>
-  <button onclick="alert('Congratulations! You completed all JavaScript lessons.')">
-    Complete Lesson
-  </button>
-  </div>
-  <div class="progress">
-  <p>LearnHub Progress: Keep learning! 🚀</p>
-  </div>
-  <div class="navigation">
-  <button onclick="alert('You are at the end of the lessons!')">
-    Previous
-  </button>
-
-  <button onclick="alert('You have completed the current lesson!')">
-    Next
-  </button>
-  </div>
-<button onclick="document.getElementById('lesson1').scrollIntoView({behavior:'smooth'})">📖 Start Learning</button>
-  <button onclick="showProgress()">
-  📊 My Progress
-  
-  </button>
-
-  <button onclick="alert('Quizzes coming soon!')">
-    🧠 Take a Quiz
-  </button>
-</div>
-  <script>
-function showProgress() {
-  alert("Keep going! You are making great progress in LearnHub.");
-}
-
-function startLearning() {
-  alert("Welcome to Lesson 1!");
-}
-    <section id="lesson2">
-  <h2>🎨 Lesson 2: CSS Basics</h2>
-
-  <p>CSS is used to style and design web pages.</p>
-
-  <h3>What can CSS change?</h3>
-
-  <ul>
-    <li>🎨 Colors</li>
-    <li>🔤 Fonts</li>
-    <li>📏 Sizes</li>
-    <li>📦 Spacing</li>
-    <li>📐 Layout</li>
-  </ul>
-
-  <h3>Example</h3>
-
-  <pre><code>
+      <pre><code>
 p {
   color: blue;
   font-size: 20px;
 }
-  </code></pre>
+      </code></pre>
 
-  <button onclick="alert('Great job! You completed Lesson 2!')">
-    ✅ Complete Lesson 2
-  </button>
-    <section id="lesson3">
-  <h2>⚡ Lesson 3: JavaScript Basics</h2>
+      <button onclick="completeLesson(2)">
+        ✅ Complete Lesson 2
+      </button>
 
-  <p>JavaScript makes websites interactive and allows them to respond to users.</p>
+      <hr>
 
-  <h3>What can JavaScript do?</h3>
+      <h3 id="lesson3">Lesson 3: JavaScript Basics</h3>
+      <p>
+        JavaScript makes websites interactive.
+      </p>
 
-  <ul>
-    <li>🖱️ Respond to button clicks</li>
-    <li>💬 Show messages</li>
-    <li>🧮 Perform calculations</li>
-    <li>🎮 Create interactive features</li>
-    <li>🌐 Control webpage content</li>
-  </ul>
+      <ul>
+        <li>🖱️ Button interactions</li>
+        <li>💬 Messages</li>
+        <li>🧮 Calculations</li>
+        <li>🎮 Interactive features</li>
+      </ul>
 
-  <h3>Example</h3>
-
-  <pre><code>
+      <pre><code>
 function sayHello() {
   alert("Hello from LearnHub!");
 }
-  </code></pre>
+      </code></pre>
 
-  <button onclick="alert('Hello from LearnHub!')">
-    ▶️ Try JavaScript
-  </button>
+      <button onclick="alert('Hello from LearnHub!')">
+        ▶️ Try JavaScript
+      </button>
 
-  <br><br>
-
-  <button onclick="alert('🎉 Congratulations! You completed Lesson 3!')">
-    ✅ Complete Lesson 3
-  </button>
+      <button onclick="completeLesson(3)">
+        ✅ Complete Lesson 3
+      </button>
     </section>
 
-<script>
-function showProgress() {
-  alert(
-    "📊 LEARNHUB PROGRESS\n\n" +
-    "HTML: Lesson 1 — Completed ✅\n" +
-    "CSS: Lesson 2 — Completed ✅\n" +
-    "JavaScript: Lesson 3 — Completed ✅\n\n" +
-    "🏆 Keep learning to unlock your certificate!"
-  );
-}
+    <!-- PROGRESS -->
+    <section id="progress">
+      <h2>📊 My Progress</h2>
 
-function startLearning() {
-  alert("Welcome to Lesson 1!");
-}
-<section id="certificate">
-  <h2>🏆 Course Certificate</h2>
+      <p id="progressText">
+        Completed lessons: 0 / 3
+      </p>
 
-  <p>Complete all required lessons to unlock your certificate.</p>
+      <button onclick="showProgress()">
+        📊 Check My Progress
+      </button>
+    </section>
 
-  <button onclick="showCertificate()">
-    📜 Get My Certificate
-  </button>
-</section>
+    <!-- CERTIFICATE -->
+    <section id="certificate">
+      <h2>🏆 Course Certificate</h2>
 
-<script>
-function showProgress() {
-  alert(
-    "📊 LEARNHUB PROGRESS\n\n" +
-    "HTML: Lesson 1 — Completed ✅\n" +
-    "CSS: Lesson 2 — Completed ✅\n" +
-    "JavaScript: Lesson 3 — Completed ✅\n\n" +
-    "🏆 Keep learning to unlock your certificate!"
-  const learnerName = prompt("Enter your full name:");
+      <p>
+        Complete all 3 Web Development lessons to unlock your certificate.
+      </p>
 
-  if (!learnerName) {
-    alert("Please enter your name to receive your certificate.");
-    return;
-  }
+      <button onclick="showCertificate()">
+        📜 Get My Certificate
+      </button>
+    </section>
 
-  alert(
-    "🏆 LEARNHUB CERTIFICATE\n\n" +
-    "Congratulations, " + learnerName + "! 🎉\n\n" +
-    "You have completed the LearnHub course.\n\n" +
-    "Certificate of Completion\n\n" +
-    "Keep learning. Keep growing. Keep building! 🚀"
+  </main>
+
+  <footer>
+    <p>🎓 LearnHub — Learn. Grow. Succeed.</p>
+  </footer>
+
   <script>
-function showProgress() {
-  alert(
-    "📊 LEARNHUB PROGRESS\n\n" +
-    "HTML: Lesson 1 — Completed ✅\n" +
-    "CSS: Lesson 2 — Completed ✅\n" +
-    "JavaScript: Lesson 3 — Completed ✅\n\n" +
-    "🏆 Keep learning to unlock your certificate!"
-  );
-}
 
-function startLearning() {
-  alert("Welcome to Lesson 1!");
-}
+    let completedLessons = [];
 
-function showCertificate() {
-  const learnerName = prompt("Enter your full name:");
+    function startLearning() {
+      document.getElementById("lessons").scrollIntoView({
+        behavior: "smooth"
+      });
 
-  if (!learnerName) {
-    alert("Please enter your name to receive your certificate.");
-    return;
-  }
+      alert("Welcome to Web Development! 🚀");
+    }
 
-  alert(
-    "🏆 LEARNHUB CERTIFICATE\n\n" +
-    "Congratulations, " + learnerName + "! 🎉\n\n" +
-    "You have completed the LearnHub course.\n\n" +
-    "Certificate of Completion\n\n" +
-    "Keep learning. Keep growing. Keep building! 🚀"
-  );
-}
-</script>
+    function comingSoon(courseName) {
+      alert(courseName + " is coming soon! 🚀");
+    }
 
-<section id="certificate">
-  <h2>🏆 Course Certificate</h2>
+    function completeLesson(lessonNumber) {
 
-  <p>Complete all required lessons to unlock your certificate.</p>
+      if (!completedLessons.includes(lessonNumber)) {
+        completedLessons.push(lessonNumber);
+      }
 
-  <button onclick="showCertificate()">
-    📜 Get My Certificate
-  </button>
-</section>
+      updateProgress();
+
+      alert(
+        "🎉 Lesson " +
+        lessonNumber +
+        " completed!"
+      );
+    }
+
+    function updateProgress() {
+
+      document.getElementById("progressText").textContent =
+        "Completed lessons: " +
+        completedLessons.length +
+        " / 3";
+    }
+
+    function showProgress() {
+
+      if (completedLessons.length === 3) {
+
+        alert(
+          "📊 LEARNHUB PROGRESS\n\n" +
+          "Lesson 1: Completed ✅\n" +
+          "Lesson 2: Completed ✅\n" +
+          "Lesson 3: Completed ✅\n\n" +
+          "🏆 Course completed!\n" +
+          "Your certificate is now unlocked."
+        );
+
+      } else {
+
+        alert(
+          "📊 LEARNHUB PROGRESS\n\n" +
+          "Completed: " +
+          completedLessons.length +
+          " / 3 lessons\n\n" +
+          "Keep learning! 🚀"
+        );
+      }
+    }
+
+    function showCertificate() {
+
+      if (completedLessons.length < 3) {
+
+        alert(
+          "🔒 Certificate Locked\n\n" +
+          "Please complete all 3 lessons first."
+        );
+
+        return;
+      }
+
+      const learnerName = prompt(
+        "Enter your full name:"
+      );
+
+      if (!learnerName) {
+
+        alert(
+          "Please enter your name to receive your certificate."
+        );
+
+        return;
+      }
+
+      const certificateNumber =
+        "LH-" +
+        Date.now();
+
+      const completionDate =
+        new Date().toLocaleDateString();
+
+      alert(
+        "🏆 LEARNHUB CERTIFICATE\n\n" +
+        "Certificate of Completion\n\n" +
+        "Awarded to:\n" +
+        learnerName +
+        "\n\n" +
+        "Course:\n" +
+        "Web Development\n\n" +
+        "Completion Date:\n" +
+        completionDate +
+        "\n\n" +
+        "Certificate No:\n" +
+        certificateNumber +
+        "\n\n" +
+        "🎉 Congratulations!"
+      );
+    }
+
+  </script>
 
 </body>
-</html>
+</html>      
