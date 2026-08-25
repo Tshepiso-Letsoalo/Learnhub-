@@ -1,5 +1,5 @@
 <!-- =========================================================
-     🏆 LEARNHUB PROFESSIONAL CERTIFICATE
+     🏆 LEARNHUB CERTIFICATE
      ========================================================= -->
 
 <section id="pythonCertificate" class="certificate-section">
@@ -9,15 +9,13 @@
     <!-- HEADER -->
     <div class="certificate-header">
 
-      <div class="certificate-logo">
-        🎓
-      </div>
+      <div class="certificate-logo">🎓</div>
 
       <h1>LEARNHUB ACADEMY</h1>
 
-      <p class="certificate-title">
+      <div class="certificate-title">
         CERTIFICATE OF COMPLETION
-      </p>
+      </div>
 
       <p class="certificate-subtitle">
         This certificate is proudly presented to
@@ -47,7 +45,11 @@
       </p>
 
 
-      <!-- CERTIFICATE INFORMATION -->
+      <!-- =====================================================
+           CERTIFICATE INFORMATION
+           NO LEARNING HOURS
+           ===================================================== -->
+
       <div class="certificate-info">
 
         <div class="certificate-info-item">
@@ -70,12 +72,15 @@
       </div>
 
 
-      <!-- SIGNATURES -->
+      <!-- =====================================================
+           SIGNATURES
+           ===================================================== -->
+
       <div class="certificate-signatures">
 
         <div class="signature-box">
 
-          <div class="signature-line">
+          <div class="signature-symbol">
             ✍️
           </div>
 
@@ -92,7 +97,7 @@
 
         <div class="signature-box">
 
-          <div class="signature-line">
+          <div class="signature-symbol">
             ✍️
           </div>
 
@@ -109,10 +114,15 @@
       </div>
 
 
-      <!-- QR CODE VERIFICATION AREA -->
+      <!-- =====================================================
+           QR CODE
+           ===================================================== -->
+
       <div class="qr-verification">
 
-        <div id="certificateQRCode" class="qr-code">
+        <div
+          id="certificateQRCode"
+          class="qr-code">
         </div>
 
         <div class="qr-text">
@@ -137,25 +147,34 @@
       </div>
 
 
-      <!-- CONTACT DETAILS -->
+      <!-- =====================================================
+           CONTACT DETAILS
+           ===================================================== -->
+
       <div class="certificate-contact">
 
         <div>
           📧
-          <strong>letsoalotshepiso221@gmail.com</strong>
+          <strong>
+            letsoalotshepiso221@gmail.com
+          </strong>
         </div>
 
         <div>
           📱
           <strong id="certificatePhone">
-            YOUR EXISTING PHONE NUMBER
+            YOUR PHONE NUMBER
           </strong>
         </div>
 
       </div>
 
 
-      <!-- COMPLETED BADGE -->
+      <!-- =====================================================
+           COMPLETED BADGE
+           BOTTOM RIGHT
+           ===================================================== -->
+
       <div class="completion-area">
 
         <div class="completed-badge">
@@ -184,7 +203,7 @@
 
 
 <!-- =========================================================
-     🎨 CERTIFICATE STYLING
+     🎨 CERTIFICATE CSS
      ========================================================= -->
 
 <style>
@@ -201,7 +220,7 @@
   margin: 0 auto;
   background: #ffffff;
   border: 8px solid #07543f;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
   position: relative;
   overflow: hidden;
 }
@@ -215,11 +234,13 @@
 }
 
 
-/* HEADER */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .certificate-header {
   text-align: center;
-  padding: 35px 25px 20px;
+  padding: 35px 25px 22px;
   background: linear-gradient(
     135deg,
     #07543f,
@@ -262,10 +283,12 @@
 }
 
 
-/* BODY */
+/* =========================================================
+   BODY
+   ========================================================= */
 
 .certificate-body {
-  padding: 35px 55px 40px;
+  padding: 38px 55px 35px;
   text-align: center;
   position: relative;
 }
@@ -290,11 +313,14 @@
 }
 
 
-/* INFORMATION */
+/* =========================================================
+   CERTIFICATE INFORMATION
+   ========================================================= */
 
 .certificate-info {
   display: flex;
   justify-content: center;
+  align-items: stretch;
   gap: 15px;
   flex-wrap: wrap;
   margin: 28px 0;
@@ -302,7 +328,7 @@
 
 .certificate-info-item {
   min-width: 170px;
-  padding: 12px 18px;
+  padding: 13px 18px;
   border: 1px solid #e5a72b;
   border-radius: 8px;
   background: #fafafa;
@@ -322,13 +348,16 @@
 }
 
 
-/* SIGNATURES */
+/* =========================================================
+   SIGNATURES
+   ========================================================= */
 
 .certificate-signatures {
   display: flex;
   justify-content: space-around;
-  gap: 40px;
-  margin: 35px 0 25px;
+  align-items: flex-end;
+  gap: 45px;
+  margin: 38px 0 25px;
 }
 
 .signature-box {
@@ -336,9 +365,9 @@
   text-align: center;
 }
 
-.signature-line {
-  font-size: 30px;
-  height: 40px;
+.signature-symbol {
+  height: 42px;
+  font-size: 29px;
   color: #07543f;
 }
 
@@ -356,14 +385,18 @@
 }
 
 
-/* QR VERIFICATION */
+/* =========================================================
+   QR CODE AREA
+   ========================================================= */
 
 .qr-verification {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
+
   border-top: 2px solid #e5a72b;
+
   padding: 18px 10px 5px;
   margin-top: 10px;
 }
@@ -372,16 +405,25 @@
   width: 100px;
   height: 100px;
   min-width: 100px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   background: white;
+
   border: 3px solid #07543f;
+
   padding: 5px;
+
   box-sizing: content-box;
 }
 
-.qr-code img,
+.qr-code img {
+  width: 100px !important;
+  height: 100px !important;
+}
+
 .qr-code canvas {
   width: 100px !important;
   height: 100px !important;
@@ -411,16 +453,22 @@
 }
 
 
-/* CONTACT */
+/* =========================================================
+   CONTACT DETAILS
+   ========================================================= */
 
 .certificate-contact {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   flex-wrap: wrap;
+
   margin-top: 20px;
   padding-top: 12px;
+
   border-top: 1px solid #ddd;
+
   font-size: 12px;
   color: #07543f;
 }
@@ -430,27 +478,38 @@
 }
 
 
-/* COMPLETED BADGE */
+/* =========================================================
+   COMPLETED BADGE
+   ========================================================= */
 
 .completion-area {
   display: flex;
   justify-content: flex-end;
-  margin-top: 15px;
+  margin-top: 18px;
+  padding-right: 5px;
 }
 
 .completed-badge {
   width: 125px;
   height: 125px;
+
   border-radius: 50%;
+
   background: #07543f;
+
   border: 5px solid #e5a72b;
+
   outline: 3px solid #07543f;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   color: white;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.18);
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.18);
 }
 
 .completed-check {
@@ -474,12 +533,14 @@
 }
 
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 650px) {
 
   .certificate-body {
-    padding: 30px 25px;
+    padding: 30px 22px;
   }
 
   .certificate-header h1 {
@@ -496,6 +557,15 @@
 
   .certificate-body h3 {
     font-size: 21px;
+  }
+
+  .certificate-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .certificate-info-item {
+    width: 85%;
   }
 
   .certificate-signatures {
@@ -519,7 +589,9 @@
 }
 
 
-/* PRINT */
+/* =========================================================
+   PRINT
+   ========================================================= */
 
 @media print {
 
@@ -550,95 +622,141 @@
 
 
 <!-- =========================================================
-     📱 REAL QR CODE GENERATOR
+     📱 QR CODE LIBRARY
      ========================================================= -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+
+<!-- =========================================================
+     📱 QR CODE GENERATOR
+     ========================================================= -->
 
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  const certificateId = "LH-CERT-2026-000125";
+  const certificateId =
+    "LH-CERT-2026-000125";
 
-  const learnerNameElement =
-    document.getElementById("certificateLearnerName");
+  const learnerElement =
+    document.getElementById(
+      "certificateLearnerName"
+    );
 
   const courseElement =
-    document.getElementById("certificateCourse");
-
-  const dateElement =
-    document.getElementById("certificateDate");
+    document.getElementById(
+      "certificateCourse"
+    );
 
   const scoreElement =
-    document.getElementById("certificateScore");
+    document.getElementById(
+      "certificateScore"
+    );
 
-  const certificateIdElement =
-    document.getElementById("certificateId");
-
-  const qrCertificateId =
-    document.getElementById("qrCertificateId");
-
-  /*
-   * QR CONTENT
-   *
-   * This QR contains certificate information.
-   * It does NOT pretend that LearnHub already has
-   * an online verification database.
-   */
+  const dateElement =
+    document.getElementById(
+      "certificateDate"
+    );
 
   const learnerName =
-    learnerNameElement ?
-    learnerNameElement.textContent.trim() :
-    "LearnHub Learner";
+    learnerElement
+      ? learnerElement.textContent.trim()
+      : "LearnHub Learner";
 
   const course =
-    courseElement ?
-    courseElement.textContent.trim() :
-    "Python Programming Basics";
+    courseElement
+      ? courseElement.textContent.trim()
+      : "Python Programming Basics";
 
   const score =
-    scoreElement ?
-    scoreElement.textContent.trim() :
-    "100%";
+    scoreElement
+      ? scoreElement.textContent.trim()
+      : "100%";
 
   const completionDate =
-    dateElement ?
-    dateElement.textContent.trim() :
-    new Date().toLocaleDateString();
+    dateElement &&
+    dateElement.textContent.trim()
+      ? dateElement.textContent.trim()
+      : new Date().toLocaleDateString();
 
-  const verificationData =
-    "LEARNHUB CERTIFICATE" +
-    "\nCertificate ID: " + certificateId +
-    "\nLearner: " + learnerName +
-    "\nCourse: " + course +
-    "\nScore: " + score +
-    "\nCompleted: " + completionDate;
+
+  /* QR INFORMATION */
+
+  const qrData =
+    "LEARNHUB ACADEMY" +
+    "\nCERTIFICATE OF COMPLETION" +
+    "\nCertificate ID: " +
+    certificateId +
+    "\nLearner: " +
+    learnerName +
+    "\nCourse: " +
+    course +
+    "\nFinal Score: " +
+    score +
+    "\nCompletion Date: " +
+    completionDate;
+
+
+  /* CREATE QR */
 
   const qrContainer =
-    document.getElementById("certificateQRCode");
+    document.getElementById(
+      "certificateQRCode"
+    );
 
-  if (qrContainer && typeof QRCode !== "undefined") {
+  if (
+    qrContainer &&
+    typeof QRCode !== "undefined"
+  ) {
 
     qrContainer.innerHTML = "";
 
     new QRCode(qrContainer, {
-      text: verificationData,
+
+      text: qrData,
+
       width: 100,
+
       height: 100,
-      correctLevel: QRCode.CorrectLevel.H
+
+      correctLevel:
+        QRCode.CorrectLevel.H
+
     });
 
   }
 
+
+  /* UPDATE CERTIFICATE ID */
+
+  const certificateIdElement =
+    document.getElementById(
+      "certificateId"
+    );
+
   if (certificateIdElement) {
-    certificateIdElement.textContent = certificateId;
+
+    certificateIdElement.textContent =
+      certificateId;
+
   }
 
-  if (qrCertificateId) {
-    qrCertificateId.textContent = certificateId;
+
+  /* UPDATE QR ID */
+
+  const qrIdElement =
+    document.getElementById(
+      "qrCertificateId"
+    );
+
+  if (qrIdElement) {
+
+    qrIdElement.textContent =
+      certificateId;
+
   }
 
 });
 
-  </script>
+     </script>
