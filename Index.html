@@ -3,1247 +3,1493 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>LearnHub Academy</title>
 
-<!-- QR CODE LIBRARY -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
 <style>
+*{box-sizing:border-box}
 
-* {
-  box-sizing: border-box;
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#f3f6f5;
+color:#222;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f4f7f6;
-  color: #333;
+header{
+background:linear-gradient(135deg,#07543f,#0b7658);
+color:#fff;
+text-align:center;
+padding:28px 15px;
 }
 
-header {
-  background: linear-gradient(135deg, #07543f, #0b7658);
-  color: white;
-  text-align: center;
-  padding: 30px 15px;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 34px;
-}
+header h1{margin:0;font-size:32px}
+header p{margin:8px 0 0}
 
-header p {
-  margin: 8px 0 0;
+nav{
+background:#063d2f;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:8px;
+padding:12px;
 }
 
-nav {
-  background: #063d2f;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 12px;
+nav button{
+border:0;
+border-radius:8px;
+padding:10px 13px;
+background:#e5a72b;
+color:#07543f;
+font-weight:bold;
+cursor:pointer;
 }
 
-nav button {
-  background: #e5a72b;
-  color: #07543f;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 14px;
-  font-weight: bold;
-  cursor: pointer;
+main{
+max-width:1100px;
+margin:auto;
+padding:25px 15px;
 }
 
-main {
-  max-width: 1100px;
-  margin: auto;
-  padding: 25px 15px;
-}
+.section{display:none}
+#home{display:block}
 
-.section {
-  display: none;
+.card{
+background:#fff;
+border-radius:16px;
+padding:25px;
+margin-bottom:20px;
+box-shadow:0 5px 18px rgba(0,0,0,.08);
 }
 
-.home-section {
-  display: block;
+.hero{
+text-align:center;
+padding:45px 20px;
 }
 
-.hero {
-  background: white;
-  padding: 35px 20px;
-  border-radius: 18px;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0,0,0,.08);
-}
+h2,h3{color:#07543f}
 
-.hero h2 {
-  color: #07543f;
-  font-size: 30px;
+button{
+cursor:pointer;
 }
 
-.action-button,
-.complete-button {
-  background: #07543f;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 18px;
-  cursor: pointer;
-  font-weight: bold;
-  margin: 5px;
+.primary{
+background:#07543f;
+color:#fff;
+border:0;
+border-radius:8px;
+padding:12px 18px;
+font-weight:bold;
 }
 
-.action-button:hover,
-.complete-button:hover {
-  opacity: .9;
+.gold{
+background:#e5a72b;
+color:#07543f;
+border:0;
+border-radius:8px;
+padding:12px 18px;
+font-weight:bold;
 }
 
-.course-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  margin-top: 25px;
+pre{
+background:#1e1e1e;
+color:#fff;
+padding:15px;
+border-radius:8px;
+overflow:auto;
 }
 
-.course-card,
-.lesson-card,
-.progress-card {
-  background: white;
-  padding: 22px;
-  border-radius: 15px;
-  box-shadow: 0 5px 18px rgba(0,0,0,.08);
-  margin-bottom: 20px;
-}
+/* PROGRESS */
 
-.course-card h3,
-.lesson-card h2,
-.lesson-card h3,
-.progress-card h2 {
-  color: #07543f;
+.progress-track{
+height:20px;
+background:#ddd;
+border-radius:20px;
+overflow:hidden;
 }
 
-pre {
-  background: #1e1e1e;
-  color: #f5f5f5;
-  padding: 15px;
-  border-radius: 8px;
-  overflow-x: auto;
+.progress-fill{
+height:100%;
+width:0;
+background:#07543f;
+transition:.3s;
 }
 
-.complete-button.completed {
-  background: #e5a72b;
-  color: #07543f;
-}
+/* PROFILE */
 
-.progress-bar {
-  width: 100%;
-  height: 20px;
-  background: #ddd;
-  border-radius: 20px;
-  overflow: hidden;
+.profile-top{
+display:flex;
+align-items:center;
+gap:20px;
 }
 
-.progress-fill {
-  height: 100%;
-  width: 0%;
-  background: #07543f;
-  transition: .3s;
+.avatar{
+width:90px;
+height:90px;
+border-radius:50%;
+background:#e5a72b;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:45px;
 }
 
-/* ================= CERTIFICATE ================= */
+.profile-info{flex:1}
 
-.certificate-section {
-  display: none;
+.skill{
+display:inline-block;
+background:#e5f2ed;
+color:#07543f;
+padding:8px 13px;
+border-radius:20px;
+margin:4px;
+font-size:13px;
+font-weight:bold;
 }
 
-.certificate-card {
-  max-width: 950px;
-  margin: auto;
-  background: white;
-  border: 8px solid #07543f;
-  box-shadow: 0 10px 35px rgba(0,0,0,.18);
-}
+/* CV BUILDER */
 
-.certificate-header {
-  background: linear-gradient(135deg, #07543f, #0b7658);
-  color: white;
-  text-align: center;
-  padding: 30px 20px;
+.cv-builder-header{
+background:linear-gradient(135deg,#07543f,#0b7658);
+color:white;
+padding:35px;
+border-radius:18px;
+text-align:center;
+margin-bottom:20px;
 }
 
-.certificate-logo {
-  width: 65px;
-  height: 65px;
-  margin: auto;
-  background: #e5a72b;
-  border: 4px solid white;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
+.cv-builder-header h2{
+color:white;
+font-size:32px;
 }
 
-.certificate-header h1 {
-  margin: 10px 0;
-  font-size: 30px;
+.form-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
 }
 
-.certificate-title {
-  color: #e5a72b;
-  font-size: 21px;
-  font-weight: bold;
+.form-group{
+display:flex;
+flex-direction:column;
 }
 
-.certificate-body {
-  padding: 40px 50px;
-  text-align: center;
+.form-group.full{
+grid-column:1/-1;
 }
 
-.certificate-body h2 {
-  color: #07543f;
-  font-family: Georgia, serif;
-  font-size: 36px;
-  margin: 10px 0;
+.form-group label{
+font-weight:bold;
+color:#07543f;
+margin-bottom:6px;
 }
 
-.certificate-body h3 {
-  color: #07543f;
-  font-size: 25px;
+.form-group input,
+.form-group textarea{
+padding:12px;
+border:1px solid #ccc;
+border-radius:8px;
+font-family:inherit;
 }
 
-.certificate-info {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin: 30px 0;
+.form-group textarea{
+min-height:110px;
+resize:vertical;
 }
 
-.certificate-info-item {
-  min-width: 220px;
-  padding: 15px;
-  border: 1px solid #e5a72b;
-  border-radius: 8px;
-  background: #fafafa;
+.cv-actions{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:20px;
 }
 
-.certificate-info-item span {
-  display: block;
-  color: #777;
-  font-size: 11px;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
+/* GENERATED CV */
 
-.certificate-info-item strong {
-  color: #07543f;
+#cvOutput{
+display:none;
 }
 
-/* SIGNATURES */
-
-.certificate-signatures {
-  display: flex;
-  justify-content: space-around;
-  gap: 40px;
-  margin: 35px 0;
+.cv-paper{
+background:white;
+max-width:850px;
+margin:auto;
+padding:45px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
-.signature-box {
-  width: 240px;
+.cv-name{
+font-size:36px;
+font-weight:bold;
+color:#07543f;
+margin:0;
 }
 
-.signature-symbol {
-  font-size: 30px;
-  height: 40px;
+.cv-title{
+font-size:18px;
+color:#666;
+margin-top:6px;
 }
 
-.signature-name {
-  border-top: 2px solid #07543f;
-  padding-top: 7px;
-  color: #07543f;
-  font-weight: bold;
+.cv-contact{
+margin-top:12px;
+padding-bottom:18px;
+border-bottom:3px solid #e5a72b;
+font-size:13px;
+line-height:1.8;
 }
 
-.signature-role {
-  font-size: 11px;
-  color: #777;
+.cv-section{
+margin-top:25px;
 }
-
-/* QR */
 
-.qr-verification {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  border-top: 2px solid #e5a72b;
-  padding-top: 18px;
-  margin-top: 15px;
+.cv-section h3{
+border-bottom:2px solid #e5a72b;
+padding-bottom:6px;
 }
 
-.qr-code {
-  width: 110px;
-  height: 110px;
-  min-width: 110px;
-  background: white;
-  border: 3px solid #07543f;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.cv-section p{
+line-height:1.6;
+white-space:pre-line;
 }
 
-.qr-code img,
-.qr-code canvas {
-  width: 100px !important;
-  height: 100px !important;
+.cv-entry{
+margin-bottom:15px;
 }
 
-.qr-text {
-  text-align: left;
-  color: #07543f;
+.cv-entry strong{
+color:#07543f;
+font-size:16px;
 }
 
-.qr-text strong {
-  display: block;
-  font-size: 15px;
-  margin-bottom: 6px;
+.cv-entry small{
+display:block;
+color:#777;
+margin:4px 0;
 }
 
-.qr-text p {
-  font-size: 12px;
-  color: #555;
-  margin: 4px 0;
-}
+/* CAREER CENTER */
 
-.qr-text small {
-  font-size: 10px;
-  color: #555;
+.search-box{
+display:flex;
+gap:10px;
+margin-bottom:20px;
 }
-
-/* CONTACT */
 
-.certificate-contact {
-  border-top: 1px solid #ddd;
-  padding-top: 15px;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  font-size: 12px;
-  color: #07543f;
+.search-box input,
+.search-box select{
+padding:12px;
+border:1px solid #ccc;
+border-radius:8px;
 }
 
-/* COMPLETED */
+.search-box input{flex:1}
 
-.completion-area {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
+.job-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px;
 }
 
-.completed-badge {
-  width: 125px;
-  height: 125px;
-  border-radius: 50%;
-  background: #07543f;
-  border: 5px solid #e5a72b;
-  outline: 3px solid #07543f;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
+.job-card{
+background:white;
+padding:20px;
+border-radius:14px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
-.completed-check {
-  font-size: 28px;
-  color: #e5a72b;
+.job-type{
+display:inline-block;
+padding:5px 10px;
+border-radius:20px;
+font-size:11px;
+font-weight:bold;
+background:#e5f2ed;
+color:#07543f;
 }
 
-.completed-text {
-  font-size: 14px;
-  font-weight: bold;
-}
+/* CERTIFICATE */
 
-.stars {
-  color: #e5a72b;
+.certificate-card{
+background:#fff;
+border:8px solid #07543f;
+max-width:950px;
+margin:auto;
+box-shadow:0 8px 25px rgba(0,0,0,.15);
 }
 
-/* ================= CAREER CENTER ================= */
+.certificate-header{
+background:linear-gradient(135deg,#07543f,#0b7658);
+color:white;
+text-align:center;
+padding:30px;
+}
 
-.career-header {
-  background: linear-gradient(135deg, #07543f, #0b7658);
-  color: white;
-  text-align: center;
-  padding: 35px 20px;
-  border-radius: 18px;
+.certificate-header h1{
+margin:10px 0;
 }
 
-.career-header h2 {
-  font-size: 32px;
+.certificate-title{
+color:#e5a72b;
+font-size:21px;
+font-weight:bold;
 }
 
-.career-icon {
-  font-size: 50px;
+.certificate-body{
+padding:40px;
+text-align:center;
 }
 
-.career-search {
-  display: flex;
-  gap: 10px;
-  margin: 25px 0;
+.certificate-body h2{
+font-family:Georgia,serif;
+font-size:36px;
 }
 
-.career-search input,
-.career-search select {
-  padding: 13px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+.certificate-info{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin:30px 0;
 }
 
-.career-search input {
-  flex: 1;
+.info-box{
+border:1px solid #e5a72b;
+padding:15px;
+min-width:220px;
 }
 
-.career-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
+.info-box span{
+display:block;
+font-size:11px;
+color:#777;
+text-transform:uppercase;
 }
 
-.career-buttons button {
-  background: #07543f;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 20px;
-  cursor: pointer;
+.info-box strong{
+color:#07543f;
 }
 
-.career-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+.signatures{
+display:flex;
+justify-content:space-around;
+gap:30px;
+margin:35px 0;
 }
 
-.career-card {
-  background: white;
-  padding: 22px;
-  border-radius: 15px;
-  box-shadow: 0 5px 18px rgba(0,0,0,.08);
+.signature{
+width:240px;
 }
 
-.career-card h3 {
-  color: #07543f;
+.signature-line{
+border-top:2px solid #07543f;
+padding-top:7px;
+font-weight:bold;
+color:#07543f;
 }
 
-.career-badge {
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: bold;
+.qr-area{
+border-top:2px solid #e5a72b;
+padding-top:18px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
 }
 
-.job {
-  background: #e5f2ed;
-  color: #07543f;
+.qr-box{
+width:110px;
+height:110px;
+border:3px solid #07543f;
+padding:5px;
+background:white;
 }
 
-.internship {
-  background: #fff0c8;
-  color: #795b00;
+.qr-box img{
+width:100px;
+height:100px;
 }
 
-.learnership {
-  background: #eee6ff;
-  color: #573b91;
+.completed{
+display:flex;
+justify-content:flex-end;
+margin-top:25px;
 }
 
-.apply-button {
-  width: 100%;
-  padding: 12px;
-  background: #07543f;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
+.completed-badge{
+width:120px;
+height:120px;
+border-radius:50%;
+background:#07543f;
+border:5px solid #e5a72b;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+color:white;
+font-weight:bold;
 }
 
-footer {
-  background: #07543f;
-  color: white;
-  text-align: center;
-  padding: 25px;
-  margin-top: 30px;
+footer{
+background:#07543f;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:30px;
 }
 
-/* MOBILE */
+@media(max-width:700px){
 
-@media(max-width:650px) {
+.form-grid{
+grid-template-columns:1fr;
+}
 
-  .certificate-body {
-    padding: 30px 18px;
-  }
+.form-group.full{
+grid-column:auto;
+}
 
-  .certificate-signatures {
-    flex-direction: column;
-    align-items: center;
-  }
+.profile-top{
+flex-direction:column;
+text-align:center;
+}
 
-  .qr-verification {
-    flex-direction: column;
-  }
+.signatures{
+flex-direction:column;
+align-items:center;
+}
 
-  .qr-text {
-    text-align: center;
-  }
+.qr-area{
+flex-direction:column;
+}
 
-  .completion-area {
-    justify-content: center;
-  }
+.certificate-body{
+padding:25px 15px;
+}
 
-  .career-search {
-    flex-direction: column;
-  }
+.cv-paper{
+padding:25px 18px;
+}
 
+.search-box{
+flex-direction:column;
 }
 
-/* PRINT CERTIFICATE */
+}
 
-@media print {
+@media print{
 
-  body * {
-    visibility: hidden;
-  }
+body *{
+visibility:hidden;
+}
 
-  #certificate,
-  #certificate * {
-    visibility: visible;
-  }
+#cvOutput,
+#cvOutput *{
+visibility:visible;
+}
 
-  #certificate {
-    display: block !important;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-  }
+#cvOutput{
+display:block!important;
+position:absolute;
+left:0;
+top:0;
+width:100%;
+}
 
+.cv-paper{
+box-shadow:none;
 }
 
+}
 </style>
 </head>
 
 <body>
 
 <header>
-
-  <h1>🎓 LearnHub Academy</h1>
-
-  <p>
-    Learn. Build. Get Certified. Grow Your Career.
-  </p>
-
+<h1>🎓 LearnHub Academy</h1>
+<p>Learn. Build. Get Certified. Grow Your Career.</p>
 </header>
 
 <nav>
-
-  <button onclick="showSection('home')">
-    🏠 Home
-  </button>
-
-  <button onclick="showSection('web')">
-    🌐 Web Development
-  </button>
-
-  <button onclick="showSection('python')">
-    🐍 Python
-  </button>
-
-  <button onclick="showSection('progress')">
-    📊 Progress
-  </button>
-
-  <button onclick="showSection('career')">
-    💼 Career Center
-  </button>
-
-  <button onclick="showCertificate()">
-    🏆 Certificate
-  </button>
-
+<button onclick="show('home')">🏠 Home</button>
+<button onclick="show('python')">🐍 Python</button>
+<button onclick="show('web')">🌐 Web</button>
+<button onclick="show('progress')">📊 Progress</button>
+<button onclick="show('profile')">👤 Career Profile</button>
+<button onclick="show('cv')">📄 CV Builder</button>
+<button onclick="show('career')">💼 Career Center</button>
+<button onclick="showCertificate()">🏆 Certificate</button>
 </nav>
 
 <main>
 
-<!-- ================= HOME ================= -->
+<!-- HOME -->
 
-<section id="home" class="section home-section">
+<section id="home" class="section">
 
-  <div class="hero">
+<div class="card hero">
 
-    <h2>
-      Welcome to LearnHub 👋
-    </h2>
+<h2>Welcome to LearnHub 👋</h2>
 
-    <p>
-      Your learning and career platform.
-    </p>
+<p>
+Your learning, skills and career platform.
+</p>
 
-    <p>
-      Learn practical skills, complete courses,
-      earn certificates and grow your career.
-    </p>
+<button class="primary" onclick="show('python')">
+🐍 Learn Python
+</button>
 
-    <button class="action-button"
-            onclick="showSection('python')">
-      🐍 Start Python
-    </button>
+<button class="primary" onclick="show('cv')">
+📄 Build My CV
+</button>
 
-    <button class="action-button"
-            onclick="showSection('web')">
-      🌐 Start Web Development
-    </button>
+</div>
 
-    <button class="action-button"
-            onclick="showSection('career')">
-      💼 Career Center
-    </button>
+<div class="card">
 
-  </div>
+<h2>🚀 LearnHub Features</h2>
 
-  <div class="course-grid">
+<div class="job-grid">
 
-    <div class="course-card">
+<div>
+<h3>🐍 Programming</h3>
+<p>Learn Python and practical programming.</p>
+</div>
 
-      <h3>🐍 Python Programming</h3>
+<div>
+<h3>🌐 Web Development</h3>
+<p>Learn HTML, CSS and JavaScript.</p>
+</div>
 
-      <p>
-        Learn Python programming from the basics.
-      </p>
+<div>
+<h3>👤 Career Profile</h3>
+<p>Create your professional profile.</p>
+</div>
 
-      <button class="action-button"
-              onclick="showSection('python')">
-        Open Python
-      </button>
+<div>
+<h3>📄 CV Builder</h3>
+<p>Create a professional CV from your information.</p>
+</div>
 
-    </div>
+</div>
 
-    <div class="course-card">
-
-      <h3>🌐 Web Development</h3>
-
-      <p>
-        Learn HTML, CSS and JavaScript.
-      </p>
-
-      <button class="action-button"
-              onclick="showSection('web')">
-        Open Web Development
-      </button>
-
-    </div>
-
-    <div class="course-card">
-
-      <h3>💼 Career Center</h3>
-
-      <p>
-        Explore jobs, internships and learnerships.
-      </p>
-
-      <button class="action-button"
-              onclick="showSection('career')">
-        Explore Careers
-      </button>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- ================= WEB DEVELOPMENT ================= -->
-
-<section id="web" class="section">
-
-  <div class="lesson-card">
-
-    <h2>🌐 Web Development Course</h2>
-
-    <h3>Lesson 1 — HTML Basics</h3>
-
-    <p>
-      HTML creates the structure of a webpage.
-    </p>
-
-    <pre><code>&lt;h1&gt;Hello LearnHub&lt;/h1&gt;
-
-&lt;p&gt;Welcome to my website.&lt;/p&gt;</code></pre>
-
-    <button id="web1Button"
-            class="complete-button"
-            onclick="completeLesson('web1')">
-      ✅ Complete Lesson 1
-    </button>
-
-  </div>
-
-  <div class="lesson-card">
-
-    <h3>Lesson 2 — CSS Basics</h3>
-
-    <p>
-      CSS controls how a webpage looks.
-    </p>
-
-    <pre><code>body {
-  background: white;
-  color: green;
-}</code></pre>
-
-    <button id="web2Button"
-            class="complete-button"
-            onclick="completeLesson('web2')">
-      ✅ Complete Lesson 2
-    </button>
-
-  </div>
-
-  <div class="lesson-card">
-
-    <h3>Lesson 3 — JavaScript Basics</h3>
-
-    <p>
-      JavaScript makes websites interactive.
-    </p>
-
-    <pre><code>function hello() {
-  alert("Hello from LearnHub!");
-}</code></pre>
-
-    <button id="web3Button"
-            class="complete-button"
-            onclick="completeLesson('web3')">
-      ✅ Complete Lesson 3
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- ================= PYTHON ================= -->
+<!-- PYTHON -->
 
 <section id="python" class="section">
 
-  <div class="lesson-card">
+<div class="card">
 
-    <h2>🐍 Python Programming Basics</h2>
+<h2>🐍 Python Programming</h2>
 
-    <h3>Lesson 1 — Python Basics</h3>
+<h3>Lesson 1 — Python Basics</h3>
 
-    <p>
-      Python is a powerful programming language
-      used in software development, automation,
-      data science and artificial intelligence.
-    </p>
+<p>Python is a programming language used to build software and applications.</p>
 
-    <pre><code>name = "LearnHub"
+<pre>name = "LearnHub"
+print(name)</pre>
 
-print(name)</code></pre>
+<button class="primary"
+id="python1"
+onclick="complete('python1')">
+✅ Complete Lesson 1
+</button>
 
-    <button id="python1Button"
-            class="complete-button"
-            onclick="completeLesson('python1')">
-      ✅ Complete Python Lesson 1
-    </button>
+</div>
 
-  </div>
+<div class="card">
 
+<h3>Lesson 2 — Variables</h3>
 
-  <div class="lesson-card">
-
-    <h3>Lesson 2 — Variables</h3>
-
-    <p>
-      Variables store information that your program
-      can use.
-    </p>
-
-    <pre><code>name = "LearnHub"
+<pre>name = "LearnHub"
 age = 18
 
 print(name)
-print(age)</code></pre>
+print(age)</pre>
 
-    <button id="python2Button"
-            class="complete-button"
-            onclick="completeLesson('python2')">
-      ✅ Complete Python Lesson 2
-    </button>
+<button class="primary"
+id="python2"
+onclick="complete('python2')">
+✅ Complete Lesson 2
+</button>
 
-  </div>
+</div>
 
+<div class="card">
 
-  <div class="lesson-card">
+<h3>Lesson 3 — Conditions</h3>
 
-    <h3>Lesson 3 — Conditions</h3>
-
-    <p>
-      Conditions allow Python to make decisions.
-    </p>
-
-    <pre><code>age = 18
+<pre>age = 18
 
 if age >= 18:
-    print("You are an adult")</code></pre>
+    print("You are an adult")</pre>
 
-    <button id="python3Button"
-            class="complete-button"
-            onclick="completeLesson('python3')">
-      ✅ Complete Python Lesson 3
-    </button>
+<button class="primary"
+id="python3"
+onclick="complete('python3')">
+✅ Complete Lesson 3
+</button>
 
-  </div>
+</div>
 
 </section>
 
 
-<!-- ================= PROGRESS ================= -->
+<!-- WEB -->
+
+<section id="web" class="section">
+
+<div class="card">
+
+<h2>🌐 Web Development</h2>
+
+<h3>HTML</h3>
+
+<pre>&lt;h1&gt;Hello LearnHub&lt;/h1&gt;
+&lt;p&gt;Welcome to my website.&lt;/p&gt;</pre>
+
+<button class="primary"
+onclick="complete('web1')">
+✅ Complete HTML Lesson
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>CSS</h3>
+
+<pre>body {
+  background: white;
+  color: green;
+}</pre>
+
+<button class="primary"
+onclick="complete('web2')">
+✅ Complete CSS Lesson
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>JavaScript</h3>
+
+<pre>function hello(){
+  alert("Hello LearnHub!");
+}</pre>
+
+<button class="primary"
+onclick="complete('web3')">
+✅ Complete JavaScript Lesson
+</button>
+
+</div>
+
+</section>
+
+
+<!-- PROGRESS -->
 
 <section id="progress" class="section">
 
-  <div class="progress-card">
+<div class="card">
 
-    <h2>📊 My LearnHub Progress</h2>
+<h2>📊 My Progress</h2>
 
-    <p>
-      Lessons completed:
-      <strong id="completedCount">0</strong>
-    </p>
+<p>
+Lessons completed:
+<strong id="count">0</strong>
+</p>
 
-    <div class="progress-bar">
+<div class="progress-track">
 
-      <div id="progressFill"
-           class="progress-fill">
-      </div>
+<div id="progress"
+class="progress-fill">
+</div>
 
-    </div>
+</div>
 
-    <p id="progressText">
-      0% Complete
-    </p>
+<p id="percent">0% Complete</p>
 
-  </div>
+</div>
 
 </section>
 
 
-<!-- ================= CERTIFICATE ================= -->
+<!-- PROFILE -->
 
-<section id="certificate"
-         class="certificate-section">
+<section id="profile" class="section">
 
-  <div class="certificate-card">
+<div class="card">
 
-    <div class="certificate-header">
+<div class="profile-top">
 
-      <div class="certificate-logo">
-        🎓
-      </div>
+<div class="avatar">👤</div>
 
-      <h1>
-        LEARNHUB ACADEMY
-      </h1>
+<div class="profile-info">
 
-      <div class="certificate-title">
-        CERTIFICATE OF COMPLETION
-      </div>
+<h2 id="profileName">
+Tshepiso Letsoalo
+</h2>
 
-      <p>
-        This certificate is proudly presented to
-      </p>
+<p id="profileCareer">
+Aspiring Software Developer
+</p>
 
-    </div>
+<p>📍 South Africa</p>
 
+</div>
 
-    <div class="certificate-body">
+<button class="primary"
+onclick="editProfile()">
+✏️ Edit
+</button>
 
-      <h2 id="learnerName">
-        Tshepiso Letsoalo
-      </h2>
+</div>
 
-      <p>
-        for successfully completing the
-      </p>
+</div>
 
-      <h3>
-        Python Programming Basics
-      </h3>
+<div class="card">
 
-      <p>
-        and demonstrating successful completion
-        of the required learning activities.
-      </p>
+<h3>📝 Professional Summary</h3>
 
+<textarea
+id="summary"
+style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;min-height:120px;">Aspiring software developer building practical skills in Python, web development and technology.</textarea>
 
-      <!--
-        IMPORTANT:
-        NO FINAL SCORE HERE.
-        NO LEARNING HOURS HERE.
-      -->
+</div>
 
-      <div class="certificate-info">
+<div class="card">
 
-        <div class="certificate-info-item">
+<h3>🛠️ Skills</h3>
 
-          <span>
-            Completion Date
-          </span>
+<span class="skill">Python</span>
+<span class="skill">HTML</span>
+<span class="skill">CSS</span>
+<span class="skill">JavaScript</span>
+<span class="skill">Web Development</span>
 
-          <strong id="certificateDate">
-          </strong>
+</div>
 
-        </div>
+<div class="card">
 
+<h3>🎓 Education</h3>
 
-        <div class="certificate-info-item">
+<textarea
+id="education"
+style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;min-height:100px;"
+placeholder="Enter your education and qualifications..."></textarea>
 
-          <span>
-            Certificate ID
-          </span>
+</div>
 
-          <strong id="certificateId">
-            LH-CERT-2026-000125
-          </strong>
+<div class="card">
 
-        </div>
+<h3>💼 Work Experience</h3>
 
-      </div>
+<textarea
+id="experience"
+style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;min-height:120px;"
+placeholder="Enter your work experience..."></textarea>
 
+</div>
 
-      <!-- SIGNATURES -->
+<button class="primary"
+onclick="saveProfile()">
+💾 Save Profile
+</button>
 
-      <div class="certificate-signatures">
-
-        <div class="signature-box">
-
-          <div class="signature-symbol">
-            ✍️
-          </div>
-
-          <div class="signature-name">
-            LearnHub Developer
-          </div>
-
-          <div class="signature-role">
-            Course &amp; Platform Developer
-          </div>
-
-        </div>
-
-
-        <div class="signature-box">
-
-          <div class="signature-symbol">
-            ✍️
-          </div>
-
-          <div class="signature-name">
-            LearnHub Academy
-          </div>
-
-          <div class="signature-role">
-            Learning &amp; Development
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- QR CODE -->
-
-      <div class="qr-verification">
-
-        <div id="certificateQRCode"
-             class="qr-code">
-        </div>
-
-        <div class="qr-text">
-
-          <strong>
-            🔐 CERTIFICATE QR CODE
-          </strong>
-
-          <p>
-            Scan this QR code to view
-            this certificate information.
-          </p>
-
-          <small>
-            Certificate ID:
-            LH-CERT-2026-000125
-          </small>
-
-        </div>
-
-      </div>
-
-
-      <!-- CONTACT -->
-
-      <div class="certificate-contact">
-
-        <div>
-          📧
-          <strong>
-            letsoalotshepiso221@gmail.com
-          </strong>
-        </div>
-
-        <div>
-          📱
-          <strong>
-            LearnHub Academy
-          </strong>
-        </div>
-
-      </div>
-
-
-      <!-- COMPLETED BOTTOM RIGHT -->
-
-      <div class="completion-area">
-
-        <div class="completed-badge">
-
-          <div class="completed-check">
-            ✓
-          </div>
-
-          <div class="completed-text">
-            COMPLETED
-          </div>
-
-          <div class="stars">
-            ★ ★ ★
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <br>
-
-      <button class="action-button"
-              onclick="window.print()">
-        🖨️ Print Certificate
-      </button>
-
-    </div>
-
-  </div>
+<button class="gold"
+onclick="show('cv')">
+📄 Build My CV
+</button>
 
 </section>
 
 
-<!-- ================= CAREER CENTER ================= -->
+<!-- ================= CV BUILDER ================= -->
+
+<section id="cv" class="section">
+
+<div class="cv-builder-header">
+
+<h2>📄 LearnHub CV Builder</h2>
+
+<p>
+Create your professional CV using your LearnHub profile.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>👤 Personal Information</h2>
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label>Full Name</label>
+
+<input
+id="cvName"
+value="Tshepiso Letsoalo"
+placeholder="Your full name">
+
+</div>
+
+<div class="form-group">
+
+<label>Professional Title</label>
+
+<input
+id="cvTitle"
+value="Software Developer"
+placeholder="e.g. Software Developer">
+
+</div>
+
+<div class="form-group">
+
+<label>Email</label>
+
+<input
+id="cvEmail"
+value="letsoalotshepiso221@gmail.com"
+type="email">
+
+</div>
+
+<div class="form-group">
+
+<label>Phone</label>
+
+<input
+id="cvPhone"
+value="079 945 9656 / 069 348 4366">
+
+</div>
+
+<div class="form-group">
+
+<label>Location</label>
+
+<input
+id="cvLocation"
+value="Polokwane, Limpopo, South Africa">
+
+</div>
+
+<div class="form-group">
+
+<label>LinkedIn</label>
+
+<input
+id="cvLinkedIn"
+placeholder="LinkedIn profile">
+
+</div>
+
+<div class="form-group full">
+
+<label>Professional Summary</label>
+
+<textarea id="cvSummary">Aspiring software developer with practical skills in Python, web development and technology. Passionate about learning, building useful digital solutions and growing professionally.</textarea>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>🎓 Education</h2>
+
+<div class="form-group">
+
+<textarea id="cvEducation"
+placeholder="Example:
+NQF Level 5
+System Development
+Add your institution and dates here."></textarea>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>💼 Work Experience</h2>
+
+<div class="form-group">
+
+<textarea id="cvExperience"
+placeholder="Example:
+System Developer Intern
+Company Name
+Responsibilities and achievements..."></textarea>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>🛠️ Skills</h2>
+
+<div class="form-group">
+
+<textarea id="cvSkills">Python
+HTML
+CSS
+JavaScript
+Web Development
+GitHub
+Problem Solving
+Software Development</textarea>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>💻 Projects</h2>
+
+<div class="form-group">
+
+<textarea id="cvProjects"
+placeholder="Example:
+LearnHub Academy
+Developed a learning platform with courses, certificates and career features."></textarea>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>🏆 Certificates</h2>
+
+<div class="form-group">
+
+<textarea id="cvCertificates">LearnHub Academy — Python Programming Basics
+Certificate ID: LH-CERT-2026-000125</textarea>
+
+</div>
+
+<div class="cv-actions">
+
+<button class="primary"
+onclick="generateCV()">
+✨ Generate My CV
+</button>
+
+<button class="gold"
+onclick="loadProfileIntoCV()">
+↻ Load My Profile
+</button>
+
+</div>
+
+</div>
+
+
+<div id="cvOutput">
+
+<div class="cv-paper">
+
+<h1 class="cv-name"
+id="outName">
+Tshepiso Letsoalo
+</h1>
+
+<div class="cv-title"
+id="outTitle">
+Software Developer
+</div>
+
+<div class="cv-contact">
+
+<span id="outEmail"></span>
+&nbsp; | &nbsp;
+<span id="outPhone"></span>
+&nbsp; | &nbsp;
+<span id="outLocation"></span>
+
+<br>
+
+<span id="outLinkedIn"></span>
+
+</div>
+
+
+<div class="cv-section">
+
+<h3>PROFESSIONAL SUMMARY</h3>
+
+<p id="outSummary"></p>
+
+</div>
+
+
+<div class="cv-section">
+
+<h3>SKILLS</h3>
+
+<p id="outSkills"></p>
+
+</div>
+
+
+<div class="cv-section">
+
+<h3>WORK EXPERIENCE</h3>
+
+<p id="outExperience"></p>
+
+</div>
+
+
+<div class="cv-section">
+
+<h3>EDUCATION</h3>
+
+<p id="outEducation"></p>
+
+</div>
+
+
+<div class="cv-section">
+
+<h3>PROJECTS</h3>
+
+<p id="outProjects"></p>
+
+</div>
+
+
+<div class="cv-section">
+
+<h3>CERTIFICATES</h3>
+
+<p id="outCertificates"></p>
+
+</div>
+
+
+<div class="cv-actions">
+
+<button class="primary"
+onclick="window.print()">
+🖨️ Print / Save PDF
+</button>
+
+<button class="gold"
+onclick="editCV()">
+✏️ Edit CV
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CAREER -->
 
 <section id="career" class="section">
 
-  <div class="career-header">
+<div class="card">
 
-    <div class="career-icon">
-      💼
-    </div>
+<h2>💼 LearnHub Career Center</h2>
 
-    <h2>
-      LearnHub Career Center
-    </h2>
+<p>
+Explore career opportunities.
+</p>
 
-    <p>
-      Find jobs, internships and learnership opportunities.
-    </p>
+<div class="search-box">
 
-  </div>
+<input
+id="jobSearch"
+oninput="searchJobs()"
+placeholder="🔎 Search jobs, internships or learnerships">
 
+<select id="jobType"
+onchange="searchJobs()">
 
-  <div class="career-search">
+<option value="all">All</option>
+<option value="job">Jobs</option>
+<option value="internship">Internships</option>
+<option value="learnership">Learnerships</option>
 
-    <input
-      id="careerSearch"
-      type="text"
-      placeholder="🔎 Search opportunities..."
-    >
+</select>
 
-    <select id="careerType">
+</div>
 
-      <option value="all">
-        All Opportunities
-      </option>
+</div>
 
-      <option value="job">
-        Jobs
-      </option>
+<div id="jobs" class="job-grid">
 
-      <option value="internship">
-        Internships
-      </option>
+<div class="job-card"
+data-type="job"
+data-name="software developer">
 
-      <option value="learnership">
-        Learnerships
-      </option>
+<span class="job-type">JOB</span>
 
-    </select>
+<h3>Junior Software Developer</h3>
 
-  </div>
+<p>Entry-level software development opportunity.</p>
 
+<p>📍 South Africa</p>
 
-  <div class="career-buttons">
+<button class="primary"
+onclick="alert('💼 Opportunity selected. Connect this button to a verified application page when the employer is added.')">
+View Opportunity
+</button>
 
-    <button onclick="filterCareer('all')">
-      🌟 All
-    </button>
-
-    <button onclick="filterCareer('job')">
-      💼 Jobs
-    </button>
-
-    <button onclick="filterCareer('internship')">
-      🎓 Internships
-    </button>
-
-    <button onclick="filterCareer('learnership')">
-      📚 Learnerships
-    </button>
-
-  </div>
+</div>
 
 
-  <div id="careerGrid"
-       class="career-grid">
+<div class="job-card"
+data-type="internship"
+data-name="software it internship">
+
+<span class="job-type">INTERNSHIP</span>
+
+<h3>IT & Software Internship</h3>
+
+<p>Gain practical workplace technology experience.</p>
+
+<p>📍 South Africa</p>
+
+<button class="primary"
+onclick="alert('🎓 Internship opportunity selected.')">
+View Opportunity
+</button>
+
+</div>
 
 
-    <div class="career-card"
-         data-type="job"
-         data-search="software developer programming IT">
+<div class="job-card"
+data-type="learnership"
+data-name="business administration learnership">
 
-      <span class="career-badge job">
-        💼 JOB
-      </span>
+<span class="job-type">LEARNERSHIP</span>
 
-      <h3>
-        Junior Software Developer
-      </h3>
+<h3>Business Administration Learnership</h3>
 
-      <p>
-        Entry-level software development
-        opportunity.
-      </p>
+<p>Develop practical business and administration skills.</p>
 
-      <p>
-        📍 South Africa
-      </p>
+<p>📍 South Africa</p>
 
-      <button class="apply-button"
-              onclick="viewOpportunity('Junior Software Developer')">
-        View Opportunity
-      </button>
+<button class="primary"
+onclick="alert('📚 Learnership opportunity selected.')">
+View Opportunity
+</button>
 
-    </div>
+</div>
+
+</div>
+
+</section>
 
 
-    <div class="career-card"
-         data-type="internship"
-         data-search="IT technology software internship">
+<!-- CERTIFICATE -->
 
-      <span class="career-badge internship">
-        🎓 INTERNSHIP
-      </span>
+<section id="certificate" class="section">
 
-      <h3>
-        IT &amp; Software Internship
-      </h3>
+<div class="certificate-card">
 
-      <p>
-        Gain practical workplace experience
-        in technology.
-      </p>
+<div class="certificate-header">
 
-      <p>
-        📍 South Africa
-      </p>
+<div style="font-size:50px">🎓</div>
 
-      <button class="apply-button"
-              onclick="viewOpportunity('IT & Software Internship')">
-        View Opportunity
-      </button>
+<h1>LEARNHUB ACADEMY</h1>
 
-    </div>
+<div class="certificate-title">
+CERTIFICATE OF COMPLETION
+</div>
 
+<p>This certificate is proudly presented to</p>
 
-    <div class="career-card"
-         data-type="learnership"
-         data-search="business administration office">
+</div>
 
-      <span class="career-badge learnership">
-        📚 LEARNERSHIP
-      </span>
+<div class="certificate-body">
 
-      <h3>
-        Business Administration Learnership
-      </h3>
+<h2>Tshepiso Letsoalo</h2>
 
-      <p>
-        Build workplace skills in
-        administration and business.
-      </p>
+<p>for successfully completing</p>
 
-      <p>
-        📍 South Africa
-      </p>
+<h2 style="font-size:26px">
+Python Programming Basics
+</h2>
 
-      <button class="apply-button"
-              onclick="viewOpportunity('Business Administration Learnership')">
-        View Opportunity
-      </button>
-
-    </div>
+<p>
+and demonstrating successful completion
+of the required learning activities.
+</p>
 
 
-    <div class="career-card"
-         data-type="learnership"
-         data-search="logistics warehouse transport supply chain">
+<!-- NO LEARNING HOURS -->
+<!-- NO FINAL SCORE -->
 
-      <span class="career-badge learnership">
-        📚 LEARNERSHIP
-      </span>
+<div class="certificate-info">
 
-      <h3>
-        Logistics &amp; Supply Chain Learnership
-      </h3>
+<div class="info-box">
 
-      <p>
-        Develop practical logistics and
-        supply chain skills.
-      </p>
+<span>Completion Date</span>
 
-      <p>
-        📍 South Africa
-      </p>
+<strong id="certificateDate"></strong>
 
-      <button class="apply-button"
-              onclick="viewOpportunity('Logisti     
+</div>
+
+<div class="info-box">
+
+<span>Certificate ID</span>
+
+<strong>
+LH-CERT-2026-000125
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="signatures">
+
+<div class="signature">
+
+<div style="font-size:30px">✍️</div>
+
+<div class="signature-line">
+LearnHub Developer
+</div>
+
+<small>
+Course & Platform Developer
+</small>
+
+</div>
+
+
+<div class="signature">
+
+<div style="font-size:30px">✍️</div>
+
+<div class="signature-line">
+LearnHub Academy
+</div>
+
+<small>
+Learning & Development
+</small>
+
+</div>
+
+</div>
+
+
+<div class="qr-area">
+
+<div id="qr"
+class="qr-box">
+</div>
+
+<div>
+
+<strong style="color:#07543f">
+🔐 CERTIFICATE QR CODE
+</strong>
+
+<p style="font-size:12px">
+Scan to view the certificate information.
+</p>
+
+<small>
+Certificate ID: LH-CERT-2026-000125
+</small>
+
+</div>
+
+</div>
+
+
+<p style="margin-top:20px;color:#07543f;font-size:13px">
+📧 letsoalotshepiso221@gmail.com
+</p>
+
+
+<div class="completed">
+
+<div class="completed-badge">
+
+<div style="font-size:25px">✓</div>
+
+<div>COMPLETED</div>
+
+<div style="color:#e5a72b">
+★ ★ ★
+</div>
+
+</div>
+
+</div>
+
+<br>
+
+<button class="primary"
+onclick="window.print()">
+🖨️ Print Certificate
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+🎓 <strong>LearnHub Academy</strong>
+
+<br><br>
+
+Learn. Build. Get Certified. Grow Your Career.
+
+<br><br>
+
+📧 letsoalotshepiso221@gmail.com
+
+</footer>
+
+
+<script>
+
+/* ================= NAVIGATION ================= */
+
+function show(id){
+
+document.querySelectorAll(".section")
+.forEach(function(s){
+s.style.display="none";
+});
+
+const target=document.getElementById(id);
+
+if(target){
+target.style.display="block";
+}
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* ================= LESSONS ================= */
+
+let completed=
+JSON.parse(
+localStorage.getItem("learnhubLessons")
+)||[];
+
+
+function complete(id){
+
+if(!completed.includes(id)){
+
+completed.push(id);
+
+localStorage.setItem(
+"learnhubLessons",
+JSON.stringify(completed)
+);
+
+alert("🎉 Lesson completed!");
+
+}
+
+updateProgress();
+
+}
+
+
+function updateProgress(){
+
+const count=document.getElementById("count");
+
+const bar=document.getElementById("progress");
+
+const percent=document.getElementById("percent");
+
+const total=6;
+
+const value=completed.length;
+
+const percentage=
+Math.round((value/total)*100);
+
+if(count)count.textContent=value;
+
+if(bar)bar.style.width=percentage+"%";
+
+if(percent)
+percent.textContent=percentage+"% Complete";
+
+completed.forEach(function(id){
+
+const button=
+document.getElementById(id);
+
+if(button){
+
+button.textContent="✅ Completed";
+
+}
+
+});
+
+}
+
+
+/* ================= PROFILE ================= */
+
+function editProfile(){
+
+const name=prompt(
+"Enter your full name:",
+document.getElementById("profileName").textContent
+);
+
+if(name){
+
+document.getElementById(
+"profileName"
+).textContent=name;
+
+}
+
+const career=prompt(
+"Enter your career title:",
+document.getElementById("profileCareer").textContent
+);
+  
