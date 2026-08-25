@@ -469,20 +469,50 @@ function showProgress() {
     "CSS: Lesson 2 — Completed ✅\n" +
     "JavaScript: Lesson 3 — Completed ✅\n\n" +
     "🏆 Keep learning to unlock your certificate!"
+  const learnerName = prompt("Enter your full name:");
+
+  if (!learnerName) {
+    alert("Please enter your name to receive your certificate.");
+    return;
+  }
+
+  alert(
+    "🏆 LEARNHUB CERTIFICATE\n\n" +
+    "Congratulations, " + learnerName + "! 🎉\n\n" +
+    "You have completed the LearnHub course.\n\n" +
+    "Certificate of Completion\n\n" +
+    "Keep learning. Keep growing. Keep building! 🚀"
+  <script>
+function showProgress() {
+  alert(
+    "📊 LEARNHUB PROGRESS\n\n" +
+    "HTML: Lesson 1 — Completed ✅\n" +
+    "CSS: Lesson 2 — Completed ✅\n" +
+    "JavaScript: Lesson 3 — Completed ✅\n\n" +
+    "🏆 Keep learning to unlock your certificate!"
   );
 }
 
 function startLearning() {
   alert("Welcome to Lesson 1!");
 }
- function showCertificate() {
+
+function showCertificate() {
+  const learnerName = prompt("Enter your full name:");
+
+  if (!learnerName) {
+    alert("Please enter your name to receive your certificate.");
+    return;
+  }
+
   alert(
     "🏆 LEARNHUB CERTIFICATE\n\n" +
-    "Congratulations! 🎉\n\n" +
+    "Congratulations, " + learnerName + "! 🎉\n\n" +
     "You have completed the LearnHub course.\n\n" +
+    "Certificate of Completion\n\n" +
     "Keep learning. Keep growing. Keep building! 🚀"
   );
-  }   
+}
 </script>
 
 <section id="certificate">
