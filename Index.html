@@ -1,1614 +1,439 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 🏆 LEARNHUB CERTIFICATE -->
+<section id="pythonCertificate" class="certificate-section">
 
-<title>LearnHub Academy</title>
+  <div class="certificate-card">
+
+    <div class="certificate-header">
+      <div class="certificate-logo">🎓</div>
+      <h1>LEARNHUB ACADEMY</h1>
+      <p class="certificate-title">CERTIFICATE OF COMPLETION</p>
+    </div>
+
+    <div class="certificate-body">
+
+      <p class="awarded-text">This certificate is proudly awarded to</p>
+
+      <h2 id="certificateLearnerName">Student Name</h2>
+
+      <div class="certificate-info">
+
+        <p>
+          <strong>🆔 Learner ID:</strong>
+          <span id="certificateLearnerId">LH-000001</span>
+        </p>
+
+        <p>
+          <strong>📜 Certificate ID:</strong>
+          <span id="certificateId">LH-CERT-2026-000001</span>
+        </p>
+
+        <p>
+          <strong>🔐 Verification Code:</strong>
+          <span id="verificationCode">LH-VR-000001</span>
+        </p>
+
+        <p>
+          <strong>📚 Course:</strong>
+          <span id="certificateCourse">Python Programming</span>
+        </p>
+
+        <p>
+          <strong>📅 Issue Date:</strong>
+          <span id="certificateDate"></span>
+        </p>
+
+      </div>
+
+      <p class="completion-message">
+        This certificate confirms that the learner has successfully
+        completed the required LearnHub course lessons and learning
+        activities.
+      </p>
+
+      <!-- CONDITIONS -->
+      <div class="certificate-conditions">
+
+        <h3>Certificate Conditions</h3>
+
+        <ul>
+          <li>Required course lessons must be completed.</li>
+          <li>Required learning activities must be completed.</li>
+          <li>The certificate belongs to the learner identified above.</li>
+          <li>Certificate authenticity can be checked using the verification code.</li>
+        </ul>
+
+      </div>
+
+      <!-- QR VERIFICATION -->
+      <div class="certificate-verification">
+
+        <h3>🔎 Verify Certificate</h3>
+
+        <p>Scan the QR code to verify this certificate.</p>
+
+        <div id="certificateQRCode"></div>
+
+        <p class="verification-small">
+          Certificate ID:
+          <strong id="qrCertificateId">LH-CERT-2026-000001</strong>
+        </p>
+
+      </div>
+
+      <!-- SIGNATURES -->
+      <div class="certificate-signatures">
+
+        <div class="signature-box">
+          <div class="signature-line"></div>
+          <strong>Tshepiso Letsoalo</strong>
+          <span>Founder & Developer</span>
+        </div>
+
+        <div class="signature-box">
+          <div class="signature-line"></div>
+          <strong>LearnHub Academy</strong>
+          <span>Official Certificate</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="certificate-footer">
+      <p>© 2026 LearnHub Academy</p>
+      <p>Digital Learning & Skills Development</p>
+    </div>
+
+  </div>
+
+  <button class="print-certificate-btn" onclick="printCertificate()">
+    🖨️ Print / Save Certificate
+  </button>
+
+</section>
+
+
+<!-- QR CODE LIBRARY -->
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+
+<script>
+/* ==========================================
+   LEARNHUB CERTIFICATE SYSTEM
+   ========================================== */
+
+function createLearnHubCertificate() {
+
+  /*
+     You can later connect these values
+     to your learner registration system.
+  */
+
+  const learnerName =
+    localStorage.getItem("learnerName") || "Student Name";
+
+  const learnerId =
+    localStorage.getItem("learnerId") || "LH-000001";
+
+  const certificateId =
+    localStorage.getItem("certificateId") ||
+    "LH-CERT-2026-000001";
+
+  const verificationCode =
+    localStorage.getItem("verificationCode") ||
+    "LH-VR-000001";
+
+  const course =
+    localStorage.getItem("certificateCourse") ||
+    "Python Programming";
+
+  const issueDate =
+    localStorage.getItem("certificateDate") ||
+    new Date().toLocaleDateString("en-ZA");
+
+
+  /* DISPLAY CERTIFICATE INFORMATION */
+
+  document.getElementById("certificateLearnerName").textContent =
+    learnerName;
+
+  document.getElementById("certificateLearnerId").textContent =
+    learnerId;
+
+  document.getElementById("certificateId").textContent =
+    certificateId;
+
+  document.getElementById("verificationCode").textContent =
+    verificationCode;
+
+  document.getElementById("certificateCourse").textContent =
+    course;
+
+  document.getElementById("certificateDate").textContent =
+    issueDate;
+
+  document.getElementById("qrCertificateId").textContent =
+    certificateId;
+
+
+  /* CREATE QR CODE */
+
+  const qrContainer =
+    document.getElementById("certificateQRCode");
+
+  qrContainer.innerHTML = "";
+
+
+  /*
+     The QR contains a verification link.
+
+     Example:
+     https://my-learnhub-app.netlify.app/verify.html
+     ?certificate=LH-CERT-2026-000001
+  */
+
+  const verificationURL =
+    window.location.origin +
+    "/verify.html?certificate=" +
+    encodeURIComponent(certificateId) +
+    "&learner=" +
+    encodeURIComponent(learnerName) +
+    "&code=" +
+    encodeURIComponent(verificationCode);
+
+
+  new QRCode(qrContainer, {
+    text: verificationURL,
+    width: 150,
+    height: 150,
+    correctLevel: QRCode.CorrectLevel.H
+  });
+
+}
+
+
+/* PRINT CERTIFICATE */
+
+function printCertificate() {
+  window.print();
+}
+
+
+/* CREATE CERTIFICATE WHEN PAGE LOADS */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  createLearnHubCertificate();
+
+});
+</script>
+
 
 <style>
 
-* {
-  box-sizing: border-box;
-}
+/* ==========================================
+   LEARNHUB CERTIFICATE DESIGN
+   ========================================== */
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f3f6fb;
-  color: #202633;
-}
-
-header {
-  background: linear-gradient(135deg, #101c3d, #315aa0);
-  color: white;
-  text-align: center;
+.certificate-section {
   padding: 40px 15px;
+  text-align: center;
 }
 
-header h1 {
-  font-size: 42px;
-  margin: 0;
+.certificate-card {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  border: 8px solid #222;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.18);
 }
 
-header p {
+.certificate-body {
+  border: 2px solid #d4af37;
+  padding: 35px;
+  margin: 10px;
+}
+
+.certificate-logo {
+  font-size: 55px;
+}
+
+.certificate-header h1 {
+  margin: 5px 0;
+  font-size: 34px;
+  letter-spacing: 2px;
+}
+
+.certificate-title {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.awarded-text {
+  margin-top: 25px;
   font-size: 18px;
 }
 
-nav {
-  background: white;
-  padding: 12px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 5px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+#certificateLearnerName {
+  font-size: 38px;
+  margin: 15px 0 25px;
+  font-family: Georgia, serif;
 }
 
-button {
-  background: #17264f;
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  margin: 5px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-button:hover {
-  opacity: .88;
-  transform: translateY(-1px);
-}
-
-.container {
-  max-width: 1100px;
+.certificate-info {
+  max-width: 650px;
   margin: auto;
-  padding: 20px;
-}
-
-section {
-  background: white;
-  padding: 25px;
-  border-radius: 16px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,.08);
-}
-
-.hidden {
-  display: none;
-}
-
-.card {
-  background: #f8faff;
-  padding: 20px;
-  border-radius: 12px;
-  margin: 15px 0;
-  border: 1px solid #dfe6f0;
-}
-
-pre {
-  background: #111827;
-  color: white;
-  padding: 18px;
-  border-radius: 10px;
-  overflow-x: auto;
-}
-
-.progress-container {
-  height: 25px;
-  background: #ddd;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.progress-bar {
-  height: 100%;
-  width: 0%;
-  background: #1e9e57;
-  transition: width .5s;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 14px;
-  border: 1px solid #ccd3df;
-  border-radius: 8px;
+  text-align: left;
   font-size: 16px;
 }
 
-.question {
-  padding: 18px;
+.certificate-info p {
+  padding: 7px;
   border-bottom: 1px solid #ddd;
 }
 
-.question label {
-  display: block;
-  padding: 8px;
+.completion-message {
+  margin: 25px auto;
+  max-width: 700px;
+  line-height: 1.6;
 }
 
-.score-box {
+.certificate-conditions {
+  text-align: left;
+  max-width: 700px;
+  margin: 25px auto;
+  padding: 18px;
+  border-radius: 12px;
+  background: #f7f7f7;
+}
+
+.certificate-conditions h3 {
   text-align: center;
-  padding: 30px;
-  background: #eef5ff;
-  border-radius: 15px;
-  margin-top: 20px;
 }
 
-.score-number {
-  font-size: 48px;
+.certificate-conditions li {
+  margin: 8px 0;
+}
+
+.certificate-verification {
+  margin: 30px auto;
+}
+
+#certificateQRCode {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.verification-small {
+  font-size: 13px;
+}
+
+.certificate-signatures {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  margin-top: 45px;
+}
+
+.signature-box {
+  width: 40%;
+}
+
+.signature-line {
+  border-top: 2px solid #222;
+  margin-bottom: 8px;
+}
+
+.signature-box span {
+  display: block;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.certificate-footer {
+  padding: 15px;
+  font-size: 13px;
+}
+
+.print-certificate-btn {
+  margin-top: 20px;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
   font-weight: bold;
 }
 
-.badge {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 20px;
-  background: #17264f;
-  color: white;
-  margin: 5px;
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .certificate-card {
+    border-width: 4px;
+  }
+
+  .certificate-body {
+    padding: 18px;
+  }
+
+  .certificate-header h1 {
+    font-size: 24px;
+  }
+
+  .certificate-title {
+    font-size: 16px;
+  }
+
+  #certificateLearnerName {
+    font-size: 27px;
+  }
+
+  .certificate-signatures {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .signature-box {
+    width: 80%;
+  }
+
 }
 
-footer {
-  background: #17264f;
-  color: white;
-  text-align: center;
-  padding: 25px;
-}
 
-/* CERTIFICATE */
-
-.certificate {
-  max-width: 900px;
-  margin: 25px auto;
-  padding: 55px 30px;
-  text-align: center;
-  background: #fffdf4;
-  border: 12px double #c89b3c;
-  box-shadow: 0 8px 30px rgba(0,0,0,.18);
-}
-
-.certificate-badge {
-  width: 90px;
-  height: 90px;
-  margin: auto;
-  border-radius: 50%;
-  background: #17264f;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  border: 6px solid #d5aa45;
-}
-
-.certificate h1 {
-  color: #17264f;
-  font-size: 38px;
-}
-
-.student-name {
-  font-family: Georgia, serif;
-  font-size: 40px;
-  color: #17264f;
-  border-bottom: 2px solid #d5aa45;
-  display: inline-block;
-  padding: 5px 35px;
-}
-
-.certificate-details {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 35px;
-  margin: 30px 0;
-}
-
-.certificate-detail strong {
-  display: block;
-  font-size: 20px;
-  color: #17264f;
-}
-
-.signature-area {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.signature {
-  width: 250px;
-  border-top: 2px solid #333;
-  padding-top: 8px;
-}
-
-.signature-name {
-  font-family: "Brush Script MT", cursive;
-  font-size: 25px;
-}
-
-.certificate-id {
-  font-size: 12px;
-  color: #777;
-}
+/* PRINT */
 
 @media print {
 
-  header,
-  nav,
-  footer,
-  .no-print {
-    display: none !important;
+  body * {
+    visibility: hidden;
   }
 
-  body {
-    background: white;
+  #pythonCertificate,
+  #pythonCertificate * {
+    visibility: visible;
   }
 
-  section {
+  #pythonCertificate {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .print-certificate-btn {
+    display: none;
+  }
+
+  .certificate-card {
     box-shadow: none;
-  }
-
-  .certificate {
-    box-shadow: none;
-    margin: 0;
-    min-height: 90vh;
-  }
-
-}
-
-@media(max-width:600px) {
-
-  header h1 {
-    font-size: 30px;
-  }
-
-  .certificate h1 {
-    font-size: 28px;
-  }
-
-  .student-name {
-    font-size: 30px;
   }
 
 }
 
 </style>
-</head>
-
-
-<body>
-
-
-<header>
-
-<h1>📚 LearnHub Academy</h1>
-
-<p>Learn • Practice • Grow 🚀</p>
-
-</header>
-
-
-<nav>
-
-<button onclick="showPage('home')">
-🏠 Home
-</button>
-
-<button onclick="showPage('courses')">
-📚 Courses
-</button>
-
-<button onclick="showPage('python')">
-🐍 Python
-</button>
-
-<button onclick="showPage('web')">
-🌐 Web Development
-</button>
-
-<button onclick="showPage('webQuiz')">
-🧠 Web Quiz
-</button>
-
-<button onclick="showPage('progress')">
-📊 Progress
-</button>
-
-<button onclick="showPage('certificate')">
-🏆 Certificate
-</button>
-
-</nav>
-
-
-<main class="container">
-
-
-<!-- HOME -->
-
-<section id="home">
-
-<h2>👋 Welcome to LearnHub!</h2>
-
-<p>
-Welcome to your digital learning journey.
-</p>
-
-<p>
-Learn programming and technology skills step by step.
-</p>
-
-<button onclick="showPage('courses')">
-🚀 Explore Courses
-</button>
-
-</section>
-
-
-<!-- COURSES -->
-
-<section id="courses" class="hidden">
-
-<h2>📚 LearnHub Courses</h2>
-
-
-<div class="card">
-
-<h3>🐍 Python Beginner</h3>
-
-<p>
-Learn the fundamentals of Python programming.
-</p>
-
-<button onclick="showPage('python')">
-▶️ Start Python
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>🌐 Web Development Beginner</h3>
-
-<p>
-Learn HTML, CSS and JavaScript.
-</p>
-
-<button onclick="showPage('web')">
-▶️ Start Web Development
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>🤖 Artificial Intelligence</h3>
-
-<p>
-AI learning module coming next.
-</p>
-
-<button onclick="alert('🤖 AI course coming next!')">
-Coming Soon
-</button>
-
-</div>
-
-
-</section>
-
-
-<!-- PYTHON -->
-
-<section id="python" class="hidden">
-
-<h2>🐍 Python Beginner Course</h2>
-
-<p>
-Your Python course remains available.
-</p>
-
-<div class="card">
-
-<h3>Lesson 1 — Python Basics</h3>
-
-<pre><code>name = "LearnHub"
-print(name)</code></pre>
-
-<button onclick="completePython(1)">
-✅ Complete Lesson 1
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>Lesson 2 — Variables</h3>
-
-<pre><code>name = "Tshepiso"
-age = 29
-
-print(name)
-print(age)</code></pre>
-
-<button onclick="completePython(2)">
-✅ Complete Lesson 2
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>Lesson 3 — Conditions</h3>
-
-<pre><code>age = 20
-
-if age >= 18:
-    print("Adult")</code></pre>
-
-<button onclick="completePython(3)">
-✅ Complete Lesson 3
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>Lesson 4 — Functions</h3>
-
-<pre><code>def hello():
-    print("Hello!")
-
-hello()</code></pre>
-
-<button onclick="completePython(4)">
-✅ Complete Lesson 4
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>Lesson 5 — Lists</h3>
-
-<pre><code>fruits = ["Apple", "Banana", "Orange"]
-
-print(fruits)</code></pre>
-
-<button onclick="completePython(5)">
-✅ Complete Lesson 5
-</button>
-
-</div>
-
-
-<button onclick="alert('🎉 Python course section is ready!')">
-🐍 Python Completed
-</button>
-
-</section>
-
-
-<!-- WEB DEVELOPMENT -->
-
-<section id="web" class="hidden">
-
-<h2>🌐 Web Development Beginner Course</h2>
-
-<p>
-Learn how websites are built using HTML, CSS and JavaScript.
-</p>
-
-
-<div class="card">
-
-<h3>🌐 Lesson 1 — What is HTML?</h3>
-
-<p>
-HTML creates the structure of a webpage.
-</p>
-
-<pre><code>&lt;h1&gt;Hello LearnHub&lt;/h1&gt;
-
-&lt;p&gt;Welcome to my website.&lt;/p&gt;</code></pre>
-
-<button onclick="completeWeb(1)">
-✅ Complete Lesson 1
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>🏗️ Lesson 2 — HTML Structure</h3>
-
-<pre><code>&lt;html&gt;
-
-&lt;head&gt;
-&lt;title&gt;My Website&lt;/title&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-
-&lt;h1&gt;LearnHub&lt;/h1&gt;
-
-&lt;/body&gt;
-
-&lt;/html&gt;</code></pre>
-
-<button onclick="completeWeb(2)">
-✅ Complete Lesson 2
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>🔗 Lesson 3 — Links</h3>
-
-<pre><code>&lt;a href="https://example.com"&gt;
-Visit Website
-&lt;/a&gt;</code></pre>
-
-<button onclick="completeWeb(3)">
-✅ Complete Lesson 3
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>🖼️ Lesson 4 — Images</h3>
-
-<pre><code>&lt;img
-src="image.jpg"
-alt="My Image"
-&gt;</code></pre>
-
-<button onclick="completeWeb(4)">
-✅ Complete Lesson 4
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>📝 Lesson 5 — Forms</h3>
-
-<pre><code>&lt;input
-type="text"
-placeholder="Enter your name"
-&gt;</code></pre>
-
-<button onclick="completeWeb(5)">
-✅ Complete Lesson 5
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>🎨 Lesson 6 — CSS</h3>
-
-<p>
-CSS controls how your website looks.
-</p>
-
-<pre><code>body {
-  background: white;
-}
-
-h1 {
-  font-size: 40px;
-}</code></pre>
-
-<button onclick="completeWeb(6)">
-✅ Complete Lesson 6
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>🎨 Lesson 7 — Colors</h3>
-
-<pre><code>h1 {
-  color: blue;
-}
-
-p {
-  color: black;
-}</code></pre>
-
-<button onclick="completeWeb(7)">
-✅ Complete Lesson 7
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>📦 Lesson 8 — CSS Boxes</h3>
-
-<pre><code>.card {
-  padding: 20px;
-  margin: 10px;
-  border-radius: 10px;
-}</code></pre>
-
-<button onclick="completeWeb(8)">
-✅ Complete Lesson 8
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>⚡ Lesson 9 — JavaScript</h3>
-
-<p>
-JavaScript makes websites interactive.
-</p>
-
-<pre><code>&lt;button
-onclick="alert('Hello!')"&gt;
-
-Click Me
-
-&lt;/button&gt;</code></pre>
-
-<button onclick="completeWeb(9)">
-✅ Complete Lesson 9
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>🔘 Lesson 10 — JavaScript Buttons</h3>
-
-<pre><code>function hello() {
-
-  alert("Hello LearnHub!");
-
-}</code></pre>
-
-<button onclick="completeWeb(10)">
-✅ Complete Lesson 10
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>🎯 Lesson 11 — Variables in JavaScript</h3>
-
-<pre><code>let name = "LearnHub";
-
-console.log(name);</code></pre>
-
-<button onclick="completeWeb(11)">
-✅ Complete Lesson 11
-</button>
-
-</div>
-
-
-<div class="card">
-
-<h3>🚀 Lesson 12 — Mini Website</h3>
-
-<pre><code>&lt;h1&gt;My Website&lt;/h1&gt;
-
-&lt;p&gt;
-Welcome to my website!
-&lt;/p&gt;
-
-&lt;button
-onclick="alert('Welcome!')"&gt;
-
-Click Me
-
-&lt;/button&gt;</code></pre>
-
-<button onclick="completeWeb(12)">
-✅ Complete Lesson 12
-</button>
-
-</div>
-
-
-<button onclick="showPage('webQuiz')">
-🧠 Take Web Development Quiz
-</button>
-
-</section>
-
-
-<!-- WEB QUIZ -->
-
-<section id="webQuiz" class="hidden">
-
-<h2>🧠 Web Development Final Quiz</h2>
-
-<p>
-Answer all questions.
-</p>
-
-<p>
-<strong>Pass mark: 4 / 5</strong>
-</p>
-
-
-<div class="question">
-
-<h3>1. What creates the structure of a webpage?</h3>
-
-<label>
-<input type="radio" name="w1" value="correct">
-HTML
-</label>
-
-<label>
-<input type="radio" name="w1" value="wrong">
-CSS
-</label>
-
-<label>
-<input type="radio" name="w1" value="wrong">
-Python
-</label>
-
-</div>
-
-
-<div class="question">
-
-<h3>2. What controls website appearance?</h3>
-
-<label>
-<input type="radio" name="w2" value="wrong">
-HTML
-</label>
-
-<label>
-<input type="radio" name="w2" value="correct">
-CSS
-</label>
-
-<label>
-<input type="radio" name="w2" value="wrong">
-Python
-</label>
-
-</div>
-
-
-<div class="question">
-
-<h3>3. What makes webpages interactive?</h3>
-
-<label>
-<input type="radio" name="w3" value="wrong">
-HTML
-</label>
-
-<label>
-<input type="radio" name="w3" value="wrong">
-CSS
-</label>
-
-<label>
-<input type="radio" name="w3" value="correct">
-JavaScript
-</label>
-
-</div>
-
-
-<div class="question">
-
-<h3>4. Which tag creates a heading?</h3>
-
-<label>
-<input type="radio" name="w4" value="correct">
-&lt;h1&gt;
-</label>
-
-<label>
-<input type="radio" name="w4" value="wrong">
-&lt;p&gt;
-</label>
-
-<label>
-<input type="radio" name="w4" value="wrong">
-&lt;img&gt;
-</label>
-
-</div>
-
-
-<div class="question">
-
-<h3>5. Which language can show an alert?</h3>
-
-<label>
-<input type="radio" name="w5" value="wrong">
-HTML only
-</label>
-
-<label>
-<input type="radio" name="w5" value="correct">
-JavaScript
-</label>
-
-<label>
-<input type="radio" name="w5" value="wrong">
-CSS
-</label>
-
-</div>
-
-
-<button onclick="calculateWebScore()">
-📝 Submit Web Quiz
-</button>
-
-
-<div id="webScoreBox" class="score-box hidden">
-
-<h2>📊 WEB DEVELOPMENT RESULTS</h2>
-
-<div
-id="webScoreNumber"
-class="score-number"
->
-0 / 5
-</div>
-
-<h2 id="webPercentage">
-0%
-</h2>
-
-<h2 id="webPassFail"></h2>
-
-<p id="webResultMessage"></p>
-
-<button onclick="showPage('certificate')">
-🏆 Certificate
-</button>
-
-</div>
-
-</section>
-
-
-<!-- PROGRESS -->
-
-<section id="progress" class="hidden">
-
-<h2>📊 My Progress</h2>
-
-<h3>
-🐍 Python Progress
-</h3>
-
-<p id="pythonProgress">
-Lessons completed: 0 / 5
-</p>
-
-
-<h3>
-🌐 Web Development Progress
-</h3>
-
-<p id="webProgress">
-Lessons completed: 0 / 12
-</p>
-
-
-<div class="card">
-
-<h3>🏆 Your Achievements</h3>
-
-<span class="badge">
-📚 Learner
-</span>
-
-<span class="badge">
-💻 Developer
-</span>
-
-<span class="badge">
-🚀 LearnHub Student
-</span>
-
-</div>
-
-</section>
-
-
-<!-- CERTIFICATE -->
-
-<section id="certificate" class="hidden">
-
-<div class="no-print">
-
-<h2>🏆 LearnHub Certificate</h2>
-
-<p>
-Choose which certificate you want to generate.
-</p>
-
-<input
-type="text"
-id="studentName"
-placeholder="Enter student's full name"
->
-
-<br>
-
-
-<button onclick="generatePythonCertificate()">
-🐍 Python Certificate
-</button>
-
-
-<button onclick="generateWebCertificate()">
-🌐 Web Development Certificate
-</button>
-
-</div>
-
-
-<div id="certificateWrapper" class="hidden">
-
-<div class="certificate">
-
-<div class="certificate-badge">
-🏆
-</div>
-
-<p>
-<strong>LEARNHUB ACADEMY</strong>
-</p>
-
-<h1>
-CERTIFICATE OF COMPLETION
-</h1>
-
-<p>
-This certificate is proudly presented to
-</p>
-
-
-<div
-id="certificateName"
-class="student-name"
->
-Student Name
-</div>
-
-
-<p>
-for successfully completing
-</p>
-
-
-<h2 id="certificateCourse">
-LearnHub Course
-</h2>
-
-
-<p>
-This learner successfully completed the
-LearnHub learning programme and demonstrated
-understanding of the required course concepts.
-</p>
-
-
-<div class="certificate-details">
-
-<div>
-<span>FINAL SCORE</span>
-
-<strong id="certificateScore">
-5 / 5
-</strong>
-</div>
-
-
-<div>
-<span>RESULT</span>
-
-<strong>
-PASSED
-</strong>
-</div>
-
-
-<div>
-<span>PERCENTAGE</span>
-
-<strong id="certificatePercentage">
-100%
-</strong>
-</div>
-
-</div>
-
-
-<p>
-🏆 Congratulations on your achievement!
-</p>
-
-
-<div class="signature-area">
-
-
-<div class="signature">
-
-<div class="signature-name">
-Tshepiso Letsoalo
-</div>
-
-<strong>
-Tshepiso Letsoalo
-</strong>
-
-<br>
-
-Founder & Developer
-
-<br>
-
-LearnHub
-
-</div>
-
-
-<div class="signature">
-
-<div class="signature-name">
-LearnHub
-</div>
-
-<strong>
-LearnHub Academy
-</strong>
-
-<br>
-
-Course Certification
-
-</div>
-
-
-</div>
-
-
-<p>
-
-<strong>
-Completion Date:
-</strong>
-
-<span id="certificateDate">
-</span>
-
-</p>
-
-
-<p class="certificate-id">
-
-Certificate ID:
-<span id="certificateId">
-</span>
-
-</p>
-
-
-<p>
-Learn • Practice • Grow 🚀
-</p>
-
-</div>
-
-
-<div class="no-print">
-
-<button onclick="window.print()">
-🖨️ Print / Save Certificate
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-
-</main>
-
-
-<footer>
-
-<p>
-📚 LearnHub Academy
-</p>
-
-<p>
-Learn • Practice • Grow 🚀
-</p>
-
-<p>
-© 2026 LearnHub
-</p>
-
-</footer>
-
-
-<script>
-
-
-/* PAGE NAVIGATION */
-
-function showPage(pageId) {
-
-const pages = [
-"home",
-"courses",
-"python",
-"web",
-"webQuiz",
-"progress",
-"certificate"
-];
-
-pages.forEach(function(page) {
-
-document
-.getElementById(page)
-.classList.add("hidden");
-
-});
-
-
-document
-.getElementById(pageId)
-.classList.remove("hidden");
-
-window.scrollTo({
-top: 0,
-behavior: "smooth"
-});
-
-}
-
-
-/* PYTHON PROGRESS */
-
-let pythonLessons =
-Number(
-localStorage.getItem(
-"learnhubPythonLessons"
-)
-) || 0;
-
-
-function completePython(number) {
-
-if (number > pythonLessons) {
-pythonLessons = number;
-}
-
-localStorage.setItem(
-"learnhubPythonLessons",
-pythonLessons
-);
-
-updateProgress();
-
-alert(
-"🎉 Python Lesson " +
-number +
-" completed!"
-);
-
-}
-
-
-/* WEB PROGRESS */
-
-let webLessons =
-Number(
-localStorage.getItem(
-"learnhubWebLessons"
-)
-) || 0;
-
-
-function completeWeb(number) {
-
-if (number > webLessons) {
-webLessons = number;
-}
-
-localStorage.setItem(
-"learnhubWebLessons",
-webLessons
-);
-
-updateProgress();
-
-alert(
-"🎉 Web Development Lesson " +
-number +
-" completed!"
-);
-
-}
-
-
-/* PROGRESS */
-
-function updateProgress() {
-
-document.getElementById(
-"pythonProgress"
-).innerText =
-"Lessons completed: " +
-pythonLessons +
-" / 5";
-
-
-document.getElementById(
-"webProgress"
-).innerText =
-"Lessons completed: " +
-webLessons +
-" / 12";
-
-}
-
-updateProgress();
-
-
-/* WEB QUIZ */
-
-function calculateWebScore() {
-
-let score = 0;
-
-
-for (
-let i = 1;
-i <= 5;
-i++
-) {
-
-const answer =
-document.querySelector(
-'input[name="w' +
-i +
-'"]:checked'
-);
-
-
-if (!answer) {
-
-alert(
-"⚠️ Please answer all 5 questions."
-);
-
-return;
-
-}
-
-
-if (
-answer.value === "correct"
-) {
-
-score++;
-
-}
-
-}
-
-
-const percentage =
-score * 20;
-
-
-const passed =
-score >= 4;
-
-
-localStorage.setItem(
-"learnhubWebScore",
-score
-);
-
-
-localStorage.setItem(
-"learnhubWebPercentage",
-percentage
-);
-
-
-localStorage.setItem(
-"learnhubWebPassed",
-passed
-);
-
-
-document
-.getElementById(
-"webScoreBox"
-)
-.classList.remove("hidden");
-
-
-document.getElementById(
-"webScoreNumber"
-).innerText =
-score + " / 5";
-
-
-document.getElementById(
-"webPercentage"
-).innerText =
-percentage + "%";
-
-
-if (passed) {
-
-document.getElementById(
-"webPassFail"
-).innerText =
-"✅ PASSED";
-
-
-document.getElementById(
-"webResultMessage"
-).innerText =
-"🎉 Excellent! You passed the Web Development quiz!";
-
-}
-
-else {
-
-document.getElementById(
-"webPassFail"
-).innerText =
-"❌ NOT PASSED";
-
-
-document.getElementById(
-"webResultMessage"
-).innerText =
-"📚 You need 4/5 to pass. Keep learning and try again.";
-
-}
-
-}
-
-
-/* PYTHON CERTIFICATE */
-
-function generatePythonCertificate() {
-
-const passed =
-localStorage.getItem(
-"learnhubPythonPassed"
-);
-
-
-if (passed !== "true") {
-
-alert(
-"📚 Please pass the Python quiz first."
-);
-
-return;
-
-}
-
-
-const name =
-document.getElementById(
-"studentName"
-).value.trim();
-
-
-if (name === "") {
-
-alert(
-"⚠️ Enter the student's name first."
-);
-
-return;
-
-}
-
-
-const score =
-localStorage.getItem(
-"learnhubPythonScore"
-);
-
-
-const percentage =
-localStorage.getItem(
-"learnhubPythonPercentage"
-);
-
-
-createCertificate(
-name,
-"🐍 LearnHub Python Beginner Course",
-score,
-percentage
-);
-
-}
-
-
-/* WEB CERTIFICATE */
-
-function generateWebCertificate() {
-
-const passed =
-localStorage.getItem(
-"learnhubWebPassed"
-);
-
-
-if (passed !== "true") {
-
-alert(
-"📚 Please pass the Web Development quiz first."
-);
-
-return;
-
-}
-
-
-const name =
-document.getElementById(
-"studentName"
-).value.trim();
-
-
-if (name === "") {
-
-alert(
-"⚠️ Enter the student's name first."
-);
-
-return;
-
-}
-
-
-const score =
-localStorage.getItem(
-"learnhubWebScore"
-);
-
-
-const percentage =
-localStorage.getItem(
-"learnhubWebPercentage"
-);
-
-
-createCertificate(
-name,
-"🌐 LearnHub Web Development Beginner Course",
-score,
-percentage
-);
-
-}
-
-
-/* CREATE CERTIFICATE */
-
-function createCertificate(
-name,
-course,
-score,
-percentage
-) {
-
-const date =
-new Date().toLocaleDateString();
-
-
-const certificateId =
-"LH-" +
-Date.now()
-.toString()
-.slice(-9);
-
-
-document.getElementById(
-"certificateName"
-).innerText =
-name;
-
-
-document.getElementById(
-"certificateCourse"
-).innerText =
-course;
-
-
-document.getElementById(
-"certificateScore"
-).innerText =
-score + " / 5";
-
-
-document.getElementById(
-"certificatePercentage"
-).innerText =
-percentage + "%";
-
-
-document.getElementById(
-"certificateDate"
-).innerText =
-date;
-
-
-document.getElementById(
-"certificateId"
-).innerText =
-certificateId;
-
-
-document
-.getElementById(
-"certificateWrapper"
-)
-.classList.remove("hidden");
-
-
-alert(
-"🏆 Congratulations " +
-name +
-"! Your certificate is ready!"
-);
-
-}
-
-</script>
-
-</body>
-  </html>
