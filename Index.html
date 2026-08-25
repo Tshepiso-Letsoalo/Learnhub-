@@ -1,153 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>LearnHub</title>
+<title>LearnHub</title>
 
-  <style>
+<style>
 
-    * {
-      box-sizing: border-box;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f7fb;
-      color: #222;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f5fa;
+  color: #202633;
+}
 
-    header {
-      background: #182848;
-      color: white;
-      text-align: center;
-      padding: 30px 15px;
-    }
+header {
+  background: linear-gradient(135deg, #101c3d, #284b8f);
+  color: white;
+  text-align: center;
+  padding: 35px 15px;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 34px;
-    }
+header h1 {
+  margin: 0;
+  font-size: 38px;
+}
 
-    nav {
-      background: white;
-      padding: 12px;
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 2px 8px rgba(0,0,0,.12);
-    }
+header p {
+  font-size: 18px;
+}
 
-    nav button,
-    button {
-      background: #182848;
-      color: white;
-      border: none;
-      padding: 12px 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      margin: 5px;
-    }
+nav {
+  background: white;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
 
-    button:hover {
-      opacity: .85;
-    }
+button {
+  background: #17264f;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 5px;
+}
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
+button:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
 
-    .card,
-    section {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      margin-bottom: 20px;
-      box-shadow: 0 3px 12px rgba(0,0,0,.08);
-    }
+.container {
+  max-width: 1050px;
+  margin: auto;
+  padding: 20px;
+}
 
-    .hidden {
-      display: none;
-    }
+section {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
 
-    pre {
-      background: #111827;
-      color: white;
-      padding: 18px;
-      border-radius: 10px;
-      overflow-x: auto;
-    }
+.hidden {
+  display: none;
+}
 
-    .progress-container {
-      width: 100%;
-      height: 25px;
-      background: #ddd;
-      border-radius: 20px;
-      overflow: hidden;
-    }
+.card {
+  background: #f8faff;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 15px 0;
+  border: 1px solid #e2e7f0;
+}
 
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: #28a745;
-      transition: width .5s;
-    }
+pre {
+  background: #111827;
+  color: #f8fafc;
+  padding: 18px;
+  border-radius: 10px;
+  overflow-x: auto;
+}
 
-    .question {
-      margin-bottom: 25px;
-      padding: 15px;
-      border-bottom: 1px solid #ddd;
-    }
+.progress-container {
+  width: 100%;
+  height: 25px;
+  background: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+}
 
-    .question label {
-      display: block;
-      margin: 10px 0;
-      padding: 8px;
-      cursor: pointer;
-    }
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: #1e9e57;
+  transition: width 0.5s;
+}
 
-    input[type="text"] {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-    }
+.question {
+  padding: 18px;
+  margin: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
 
-    #scoreBox {
-      text-align: center;
-      padding: 25px;
-      border-radius: 12px;
-      background: #eef3ff;
-      margin-top: 20px;
-    }
+.question label {
+  display: block;
+  padding: 8px;
+  cursor: pointer;
+}
 
-    #certificate {
-      text-align: center;
-      border: 5px solid #182848;
-      padding: 35px;
-    }
+input[type="text"] {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccd3df;
+  border-radius: 8px;
+  font-size: 16px;
+}
 
-    footer {
-      background: #182848;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      margin-top: 30px;
-    }
+.score-box {
+  text-align: center;
+  background: #eef5ff;
+  padding: 30px;
+  border-radius: 15px;
+  margin-top: 25px;
+}
 
-  </style>
+.score-number {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 10px;
+}
 
+/* CERTIFICATE */
+
+.certificate-wrapper {
+  padding: 10px;
+}
+
+.certificate {
+  position: relative;
+  max-width: 900px;
+  margin: 25px auto;
+  padding: 55px 35px;
+  text-align: center;
+  background: #fffdf4;
+  border: 12px double #c89b3c;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+  overflow: hidden;
+}
+
+.certificate::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 2px solid #d8b65c;
+  pointer-events: none;
+}
+
+.certificate-content {
+  position: relative;
+  z-index: 2;
+}
+
+.certificate-badge {
+  width: 95px;
+  height: 95px;
+  margin: auto;
+  border-radius: 50%;
+  background: #17264f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  border: 6px solid #d5aa45;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.certificate h1 {
+  color: #17264f;
+  font-size: 38px;
+  margin: 18px 0 5px;
+  letter-spacing: 2px;
+}
+
+.certificate-subtitle {
+  font-size: 18px;
+  letter-spacing: 3px;
+  color: #80651f;
+  font-weight: bold;
+}
+
+.certificate-presented {
+  margin-top: 30px;
+  font-size: 17px;
+}
+
+.student-name {
+  font-size: 42px;
+  color: #17264f;
+  font-family: Georgia, serif;
+  margin: 15px 0;
+  border-bottom: 2px solid #d5aa45;
+  display: inline-block;
+  padding: 0 35px 8px;
+}
+
+.course-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #17264f;
+}
+
+.certificate-text {
+  max-width: 650px;
+  margin: 15px auto;
+  line-height: 1.7;
+}
+
+.certificate-details {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.certificate-detail {
+  min-width: 150px;
+}
+
+.certificate-detail strong {
+  display: block;
+  font-size: 20px;
+  color: #17264f;
+}
+
+.signature-area {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 35px;
+  margin-top: 35px;
+}
+
+.signature {
+  width: 220px;
+  border-top: 2px solid #333;
+  padding-top: 8px;
+}
+
+.certificate-id {
+  font-size: 12px;
+  color: #777;
+  margin-top: 25px;
+}
+
+.gold-message {
+  color: #80651f;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+footer {
+  background: #17264f;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 30px;
+}
+
+/* PRINT */
+
+@media print {
+
+  body {
+    background: white;
+  }
+
+  header,
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+
+  section {
+    box-shadow: none;
+    margin: 0;
+  }
+
+  .certificate {
+    box-shadow: none;
+    margin: 0;
+    max-width: none;
+    min-height: 90vh;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  header h1 {
+    font-size: 30px;
+  }
+
+  .certificate h1 {
+    font-size: 28px;
+  }
+
+  .student-name {
+    font-size: 30px;
+  }
+
+  .certificate {
+    padding: 45px 20px;
+  }
+
+}
+
+</style>
 </head>
 
 
@@ -190,11 +383,11 @@
   <h2>👋 Welcome to LearnHub!</h2>
 
   <p>
-    Welcome to your personal learning platform.
+    Your learning journey starts here.
   </p>
 
   <p>
-    Start learning, complete lessons, take quizzes and track your progress.
+    Complete courses, test your knowledge and earn certificates.
   </p>
 
   <button onclick="showPage('courses')">
@@ -208,18 +401,18 @@
 
 <section id="courses" class="hidden">
 
-  <h2>📚 Courses</h2>
+  <h2>📚 LearnHub Courses</h2>
 
   <div class="card">
 
     <h3>🐍 Python Beginner Course</h3>
 
     <p>
-      Learn Python programming from the beginning.
+      Learn Python programming from beginner level.
     </p>
 
     <button onclick="showPage('python')">
-      ▶️ Start Python
+      ▶️ Open Python Course
     </button>
 
   </div>
@@ -245,10 +438,10 @@
     <h3>🤖 Artificial Intelligence</h3>
 
     <p>
-      Learn the basics of Artificial Intelligence.
+      Learn the foundations of AI.
     </p>
 
-    <button onclick="alert('🤖 AI Course is coming next!')">
+    <button onclick="alert('🤖 Artificial Intelligence course is coming next!')">
       🚀 Coming Next
     </button>
 
@@ -257,24 +450,22 @@
 </section>
 
 
-<!-- PYTHON -->
+<!-- PYTHON COURSE -->
 
 <section id="python" class="hidden">
 
   <h2>🐍 Python Beginner Course</h2>
 
   <p>
-    Complete the lessons below and then take the final quiz.
+    Complete all 12 lessons before taking the final quiz.
   </p>
 
 
-  <!-- LESSON 1 -->
-
   <div class="card">
 
-    <h3>Lesson 1: Hello World</h3>
+    <h3>Lesson 1 — Hello World</h3>
 
-    <pre><code>name = "LearnHub"
+<pre><code>name = "LearnHub"
 print(name)</code></pre>
 
     <button onclick="completeLesson(1)">
@@ -284,13 +475,11 @@ print(name)</code></pre>
   </div>
 
 
-  <!-- LESSON 2 -->
-
   <div class="card">
 
-    <h3>Lesson 2: Variables</h3>
+    <h3>Lesson 2 — Variables</h3>
 
-    <pre><code>name = "Tshepiso"
+<pre><code>name = "Tshepiso"
 age = 29
 
 print(name)
@@ -303,13 +492,11 @@ print(age)</code></pre>
   </div>
 
 
-  <!-- LESSON 3 -->
-
   <div class="card">
 
-    <h3>Lesson 3: Calculations</h3>
+    <h3>Lesson 3 — Calculations</h3>
 
-    <pre><code>a = 10
+<pre><code>a = 10
 b = 5
 
 print(a + b)
@@ -323,13 +510,11 @@ print(a * b)</code></pre>
   </div>
 
 
-  <!-- LESSON 4 -->
-
   <div class="card">
 
-    <h3>Lesson 4: If Statements</h3>
+    <h3>Lesson 4 — If Statements</h3>
 
-    <pre><code>age = 20
+<pre><code>age = 20
 
 if age >= 18:
     print("You are an adult")</code></pre>
@@ -341,13 +526,11 @@ if age >= 18:
   </div>
 
 
-  <!-- LESSON 5 -->
-
   <div class="card">
 
-    <h3>Lesson 5: Functions</h3>
+    <h3>Lesson 5 — Functions</h3>
 
-    <pre><code>def hello():
+<pre><code>def hello():
     print("Hello Tshepiso!")
 
 hello()</code></pre>
@@ -359,13 +542,11 @@ hello()</code></pre>
   </div>
 
 
-  <!-- LESSON 6 -->
-
   <div class="card">
 
-    <h3>Lesson 6: Lists</h3>
+    <h3>Lesson 6 — Lists</h3>
 
-    <pre><code>fruits = ["Apple", "Banana", "Orange"]
+<pre><code>fruits = ["Apple", "Banana", "Orange"]
 
 print(fruits)</code></pre>
 
@@ -376,13 +557,11 @@ print(fruits)</code></pre>
   </div>
 
 
-  <!-- LESSON 7 -->
-
   <div class="card">
 
-    <h3>Lesson 7: For Loops</h3>
+    <h3>Lesson 7 — For Loops</h3>
 
-    <pre><code>for number in [1, 2, 3]:
+<pre><code>for number in [1, 2, 3]:
     print(number)</code></pre>
 
     <button onclick="completeLesson(7)">
@@ -392,13 +571,11 @@ print(fruits)</code></pre>
   </div>
 
 
-  <!-- LESSON 8 -->
-
   <div class="card">
 
-    <h3>Lesson 8: While Loops</h3>
+    <h3>Lesson 8 — While Loops</h3>
 
-    <pre><code>number = 1
+<pre><code>number = 1
 
 while number <= 5:
     print(number)
@@ -411,13 +588,11 @@ while number <= 5:
   </div>
 
 
-  <!-- LESSON 9 -->
-
   <div class="card">
 
-    <h3>Lesson 9: Input</h3>
+    <h3>Lesson 9 — User Input</h3>
 
-    <pre><code>name = input("Enter your name: ")
+<pre><code>name = input("Enter your name: ")
 
 print("Hello " + name)</code></pre>
 
@@ -428,13 +603,11 @@ print("Hello " + name)</code></pre>
   </div>
 
 
-  <!-- LESSON 10 -->
-
   <div class="card">
 
-    <h3>Lesson 10: Dictionaries</h3>
+    <h3>Lesson 10 — Dictionaries</h3>
 
-    <pre><code>student = {
+<pre><code>student = {
     "name": "Tshepiso",
     "course": "Python"
 }
@@ -448,13 +621,11 @@ print(student["name"])</code></pre>
   </div>
 
 
-  <!-- LESSON 11 -->
-
   <div class="card">
 
-    <h3>Lesson 11: Parameters</h3>
+    <h3>Lesson 11 — Parameters</h3>
 
-    <pre><code>def greet(name):
+<pre><code>def greet(name):
     print("Hello " + name)
 
 greet("Tshepiso")</code></pre>
@@ -466,13 +637,11 @@ greet("Tshepiso")</code></pre>
   </div>
 
 
-  <!-- LESSON 12 -->
-
   <div class="card">
 
-    <h3>Lesson 12: Mini Project</h3>
+    <h3>Lesson 12 — Mini Project</h3>
 
-    <pre><code>def check_age(age):
+<pre><code>def check_age(age):
 
     if age >= 18:
         print("Adult")
@@ -495,22 +664,20 @@ check_age(20)</code></pre>
 </section>
 
 
-<!-- FINAL QUIZ -->
+<!-- QUIZ -->
 
 <section id="quiz" class="hidden">
 
   <h2>🧠 Python Final Quiz</h2>
 
   <p>
-    Answer all 5 questions.
+    Answer all five questions.
   </p>
 
   <p>
-    <strong>You need 4/5 to pass.</strong>
+    <strong>Pass mark: 4 / 5</strong>
   </p>
 
-
-  <!-- QUESTION 1 -->
 
   <div class="question">
 
@@ -534,8 +701,6 @@ check_age(20)</code></pre>
   </div>
 
 
-  <!-- QUESTION 2 -->
-
   <div class="question">
 
     <h3>2. Which word creates a function?</h3>
@@ -557,8 +722,6 @@ check_age(20)</code></pre>
 
   </div>
 
-
-  <!-- QUESTION 3 -->
 
   <div class="question">
 
@@ -582,8 +745,6 @@ check_age(20)</code></pre>
   </div>
 
 
-  <!-- QUESTION 4 -->
-
   <div class="question">
 
     <h3>4. What does an if statement do?</h3>
@@ -605,8 +766,6 @@ check_age(20)</code></pre>
 
   </div>
 
-
-  <!-- QUESTION 5 -->
 
   <div class="question">
 
@@ -630,28 +789,29 @@ check_age(20)</code></pre>
   </div>
 
 
-  <button onclick="calculateFinalScore()">
+  <button onclick="calculateScore()">
     📝 Submit Final Quiz
   </button>
 
 
-  <!-- SCORE -->
+  <div id="scoreBox" class="score-box hidden">
 
-  <div id="scoreBox" class="hidden">
+    <h2>📊 FINAL RESULTS</h2>
 
-    <h2>📊 Final Results</h2>
+    <div
+      id="scoreNumber"
+      class="score-number"
+    >
+      0 / 5
+    </div>
 
-    <h1 id="finalScore"></h1>
-
-    <h2 id="finalPercentage"></h2>
+    <h2 id="percentage">
+      0%
+    </h2>
 
     <h2 id="passFail"></h2>
 
     <p id="resultMessage"></p>
-
-    <button onclick="showPage('certificatePage')">
-      🏆 Go to Certificate
-    </button>
 
   </div>
 
@@ -664,10 +824,9 @@ check_age(20)</code></pre>
 
   <h2>📊 My Progress</h2>
 
-  <p id="lessonProgress">
+  <h3 id="lessonProgress">
     Lessons completed: 0 / 12
-  </p>
-
+  </h3>
 
   <div class="progress-container">
 
@@ -678,84 +837,204 @@ check_age(20)</code></pre>
 
   </div>
 
-
-  <p id="percentageProgress">
+  <p id="progressPercentage">
     0% completed
   </p>
 
 </section>
 
 
-<!-- CERTIFICATE -->
+<!-- CERTIFICATE PAGE -->
 
 <section id="certificatePage" class="hidden">
 
-  <h2>🏆 LearnHub Certificate</h2>
+  <div class="no-print">
 
-  <p>
-    Pass the final Python quiz before generating your certificate.
-  </p>
+    <h2>🏆 Your LearnHub Certificate</h2>
 
+    <p>
+      Pass the Python Final Quiz first, then enter your name.
+    </p>
 
-  <input
-    type="text"
-    id="studentName"
-    placeholder="Enter your full name"
-  >
+    <input
+      type="text"
+      id="studentName"
+      placeholder="Enter your full name"
+    >
 
+    <br>
 
-  <br>
+    <button onclick="generateCertificate()">
+      🎓 Generate My Certificate
+    </button>
 
-
-  <button onclick="generateCertificate()">
-    🎓 Generate Certificate
-  </button>
+  </div>
 
 
   <div
-    id="certificate"
-    class="hidden"
+    id="certificateWrapper"
+    class="certificate-wrapper hidden"
   >
 
-    <h1>🏆 CERTIFICATE OF COMPLETION</h1>
+    <div class="certificate">
 
-    <p>
-      This certificate is proudly presented to
-    </p>
+      <div class="certificate-content">
 
-    <h2 id="certificateName"></h2>
-
-    <p>
-      for successfully completing
-    </p>
-
-    <h2>
-      🐍 LearnHub Python Beginner Course
-    </h2>
-
-    <p>
-      Final Quiz Score:
-      <strong id="certificateScore"></strong>
-    </p>
-
-    <p>
-      Percentage:
-      <strong id="certificatePercentage"></strong>
-    </p>
-
-    <p>
-      Date:
-      <strong id="certificateDate"></strong>
-    </p>
-
-    <p>
-      🎉 Congratulations!
-    </p>
+        <div class="certificate-badge">
+          🐍
+        </div>
 
 
-    <button onclick="window.print()">
-      🖨️ Print Certificate
-    </button>
+        <div class="certificate-subtitle">
+          LEARNHUB ACADEMY
+        </div>
+
+
+        <h1>
+          CERTIFICATE
+        </h1>
+
+
+        <div class="certificate-subtitle">
+          OF COMPLETION
+        </div>
+
+
+        <p class="certificate-presented">
+          This certificate is proudly presented to
+        </p>
+
+
+        <div
+          id="certificateName"
+          class="student-name"
+        >
+          Student Name
+        </div>
+
+
+        <p>
+          for successfully completing the
+        </p>
+
+
+        <div class="course-title">
+          🐍 Python Beginner Course
+        </div>
+
+
+        <p class="certificate-text">
+
+          This learner has successfully completed
+          the LearnHub Python learning programme
+          and demonstrated understanding of
+          fundamental Python programming concepts.
+
+        </p>
+
+
+        <div class="certificate-details">
+
+          <div class="certificate-detail">
+
+            <span>FINAL SCORE</span>
+
+            <strong id="certificateScore">
+              5 / 5
+            </strong>
+
+          </div>
+
+
+          <div class="certificate-detail">
+
+            <span>RESULT</span>
+
+            <strong>
+              PASSED
+            </strong>
+
+          </div>
+
+
+          <div class="certificate-detail">
+
+            <span>PERCENTAGE</span>
+
+            <strong id="certificatePercentage">
+              100%
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <p class="gold-message">
+          🏆 Congratulations on your achievement!
+        </p>
+
+
+        <div class="signature-area">
+
+          <div class="signature">
+
+            <strong>LearnHub</strong>
+
+            <br>
+
+            Course Provider
+
+          </div>
+
+
+          <div class="signature">
+
+            <strong>Python Programme</strong>
+
+            <br>
+
+            Certification
+
+          </div>
+
+        </div>
+
+
+        <p>
+
+          <strong>Completion Date:</strong>
+
+          <span id="certificateDate"></span>
+
+        </p>
+
+
+        <p class="certificate-id">
+
+          Certificate ID:
+          <span id="certificateId"></span>
+
+        </p>
+
+
+        <p class="gold-message">
+          Learn • Practice • Grow 🚀
+        </p>
+
+
+      </div>
+
+    </div>
+
+
+    <div class="no-print">
+
+      <button onclick="window.print()">
+        🖨️ Print / Save Certificate
+      </button>
+
+    </div>
 
   </div>
 
@@ -827,7 +1106,7 @@ function showPage(pageId) {
 let completedLessons =
   Number(
     localStorage.getItem(
-      "completedPythonLessons"
+      "learnhubPythonLessons"
     )
   ) || 0;
 
@@ -842,7 +1121,7 @@ function completeLesson(number) {
 
 
   localStorage.setItem(
-    "completedPythonLessons",
+    "learnhubPythonLessons",
     completedLessons
   );
 
@@ -851,7 +1130,7 @@ function completeLesson(number) {
 
 
   alert(
-    "🎉 Python Lesson " +
+    "🎉 Lesson " +
     number +
     " completed! 🐍"
   );
@@ -862,7 +1141,7 @@ function completeLesson(number) {
 
 function updateProgress() {
 
-  let percentage =
+  const percentage =
     Math.round(
       (completedLessons / 12) * 100
     );
@@ -883,7 +1162,7 @@ function updateProgress() {
 
 
   document.getElementById(
-    "percentageProgress"
+    "progressPercentage"
   ).innerText =
     percentage +
     "% completed";
@@ -895,19 +1174,23 @@ updateProgress();
 
 
 
-/* FINAL SCORE */
+/* FINAL QUIZ */
 
-function calculateFinalScore() {
+function calculateScore() {
 
   let score = 0;
 
 
-  for (let i = 1; i <= 5; i++) {
+  for (
+    let question = 1;
+    question <= 5;
+    question++
+  ) {
 
-    let answer =
+    const answer =
       document.querySelector(
         'input[name="q' +
-        i +
+        question +
         '"]:checked'
       );
 
@@ -934,28 +1217,28 @@ function calculateFinalScore() {
   }
 
 
-  let percentage =
+  const percentage =
     score * 20;
 
 
-  let passed =
+  const passed =
     score >= 4;
 
 
   localStorage.setItem(
-    "pythonFinalScore",
+    "learnhubPythonScore",
     score
   );
 
 
   localStorage.setItem(
-    "pythonFinalPercentage",
+    "learnhubPythonPercentage",
     percentage
   );
 
 
   localStorage.setItem(
-    "pythonQuizPassed",
+    "learnhubPythonPassed",
     passed
   );
 
@@ -966,13 +1249,13 @@ function calculateFinalScore() {
 
 
   document.getElementById(
-    "finalScore"
+    "scoreNumber"
   ).innerText =
     score + " / 5";
 
 
   document.getElementById(
-    "finalPercentage"
+    "percentage"
   ).innerText =
     percentage + "%";
 
@@ -988,7 +1271,7 @@ function calculateFinalScore() {
     document.getElementById(
       "resultMessage"
     ).innerText =
-      "🎉 Congratulations! You passed the Python Final Quiz!";
+      "🎉 Excellent! You passed the LearnHub Python Final Quiz!";
 
   } else {
 
@@ -1001,7 +1284,7 @@ function calculateFinalScore() {
     document.getElementById(
       "resultMessage"
     ).innerText =
-      "📚 You need at least 4/5. Keep learning and try again!";
+      "📚 You need 4/5 to pass. Keep learning and try again.";
 
   }
 
@@ -1013,28 +1296,28 @@ function calculateFinalScore() {
 
 function generateCertificate() {
 
-  let passed =
+  const passed =
     localStorage.getItem(
-      "pythonQuizPassed"
+      "learnhubPythonPassed"
     );
 
 
   if (passed !== "true") {
 
     alert(
-      "📚 You must pass the final quiz first. You need 4/5."
+      "📚 Please pass the Final Quiz first. You need 4/5."
     );
+
+    showPage("quiz");
 
     return;
 
   }
 
 
-  let name =
+  const name =
     document
-      .getElementById(
-        "studentName"
-      )
+      .getElementById("studentName")
       .value
       .trim();
 
@@ -1042,7 +1325,7 @@ function generateCertificate() {
   if (name === "") {
 
     alert(
-      "⚠️ Please enter your name."
+      "⚠️ Please enter your full name."
     );
 
     return;
@@ -1050,20 +1333,25 @@ function generateCertificate() {
   }
 
 
-  let score =
+  const score =
     localStorage.getItem(
-      "pythonFinalScore"
+      "learnhubPythonScore"
     );
 
 
-  let percentage =
+  const percentage =
     localStorage.getItem(
-      "pythonFinalPercentage"
+      "learnhubPythonPercentage"
     );
 
 
-  let date =
+  const date =
     new Date().toLocaleDateString();
+
+
+  const certificateId =
+    "LH-PY-" +
+    Date.now().toString().slice(-8);
 
 
   document.getElementById(
@@ -1090,9 +1378,15 @@ function generateCertificate() {
     date;
 
 
+  document.getElementById(
+    "certificateId"
+  ).innerText =
+    certificateId;
+
+
   document
     .getElementById(
-      "certificate"
+      "certificateWrapper"
     )
     .classList.remove("hidden");
 
@@ -1100,7 +1394,7 @@ function generateCertificate() {
   alert(
     "🏆 Congratulations " +
     name +
-    "! Your certificate is ready."
+    "! Your LearnHub certificate is ready!"
   );
 
 }
@@ -1109,5 +1403,4 @@ function generateCertificate() {
 
 
 </body>
-
-  </html>
+    </html>
