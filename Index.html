@@ -1,513 +1,960 @@
-<!-- 🐍 LEARNHUB COMPLETE PYTHON COURSE -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>LearnHub Student Dashboard</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #182848;
+      color: white;
+      padding: 25px 15px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    header p {
+      margin-bottom: 0;
+    }
+
+    nav {
+      background: white;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav button {
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #182848;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav button:hover {
+      opacity: 0.85;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .hero {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .hero h2 {
+      margin-top: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .card button,
+    .primary-button {
+      background: #182848;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .progress-container {
+      background: #ddd;
+      height: 20px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 15px 0;
+    }
 
-<section id="python-course">
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: #28a745;
+      transition: width 0.5s;
+    }
 
-  <h1>🐍 LearnHub Python Course</h1>
-  <p>Learn Python from beginner level and test your knowledge.</p>
+    .course {
+      border-left: 5px solid #182848;
+    }
 
-  <!-- LESSON 1 -->
-  <section>
-    <h2>🐍 Lesson 1: Hello World</h2>
-    <p>Use print() to display information.</p>
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin: 8px 0;
+      font-size: 16px;
+    }
 
-    <pre><code>name = "LearnHub"
-print(name)</code></pre>
+    .profile-box {
+      text-align: center;
+    }
 
-    <button onclick="alert('LearnHub')">▶️ Try Python</button>
-    <button onclick="completePythonLesson(1)">✅ Complete Lesson 1</button>
-  </section>
+    .avatar {
+      width: 90px;
+      height: 90px;
+      background: #182848;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px auto;
+      font-size: 40px;
+    }
 
+    footer {
+      margin-top: 40px;
+      background: #182848;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
 
-  <!-- LESSON 2 -->
-  <section>
-    <h2>🐍 Lesson 2: Variables</h2>
-    <p>Variables store information.</p>
+    .hidden {
+      display: none;
+    }
 
-    <pre><code>name = "Tshepiso"
-age = 29
+  </style>
 
-print(name)
-print(age)</code></pre>
+</head>
 
-    <button onclick="alert('Tshepiso\\n29')">▶️ Run Python</button>
-    <button onclick="completePythonLesson(2)">✅ Complete Lesson 2</button>
-  </section>
 
+<body>
 
-  <!-- LESSON 3 -->
-  <section>
-    <h2>🐍 Lesson 3: Calculations</h2>
 
-    <pre><code>a = 10
-b = 5
+<header>
 
-print(a + b)
-print(a - b)
-print(a * b)
-print(a / b)</code></pre>
+  <h1>📚 LearnHub</h1>
 
-    <button onclick="alert('15\\n5\\n50\\n2')">▶️ Run Python</button>
-    <button onclick="completePythonLesson(3)">✅ Complete Lesson 3</button>
-  </section>
+  <p>Learn. Practice. Grow. 🚀</p>
 
+</header>
 
-  <!-- LESSON 4 -->
-  <section>
-    <h2>🐍 Lesson 4: If Statements</h2>
 
-    <pre><code>age = 20
+<nav>
 
-if age >= 18:
-    print("You are an adult")</code></pre>
+  <button onclick="showSection('home')">
+    🏠 Home
+  </button>
 
-    <button onclick="alert('You are an adult 🐍')">▶️ Run Python</button>
-    <button onclick="completePythonLesson(4)">✅ Complete Lesson 4</button>
-  </section>
+  <button onclick="showSection('courses')">
+    📚 Courses
+  </button>
 
+  <button onclick="showSection('progress')">
+    📊 Progress
+  </button>
 
-  <!-- LESSON 5 -->
-  <section>
-    <h2>🐍 Lesson 5: Functions</h2>
+  <button onclick="showSection('quiz')">
+    🧠 Quiz
+  </button>
 
-    <pre><code>def hello():
-    print("Hello Tshepiso!")
-    print("Welcome to LearnHub!")
+  <button onclick="showSection('certificate')">
+    🏆 Certificate
+  </button>
 
-hello()</code></pre>
+  <button onclick="showSection('profile')">
+    👤 Profile
+  </button>
 
-    <button onclick="alert('Hello Tshepiso! 🐍\\nWelcome to LearnHub!')">
-      ▶️ Run Python
-    </button>
+</nav>
 
-    <button onclick="completePythonLesson(5)">
-      ✅ Complete Lesson 5
-    </button>
-  </section>
 
+<main class="container">
 
-  <!-- LESSON 6 -->
-  <section>
-    <h2>🐍 Lesson 6: Lists</h2>
 
-    <pre><code>fruits = ["Apple", "Banana", "Orange"]
+<!-- HOME -->
 
-print(fruits)
-print(fruits[0])</code></pre>
+<section id="home">
 
-    <button onclick="alert('Apple, Banana, Orange\\nFirst fruit: Apple')">
-      ▶️ Run Python
-    </button>
+  <div class="hero">
 
-    <button onclick="completePythonLesson(6)">
-      ✅ Complete Lesson 6
-    </button>
-  </section>
+    <h2>👋 Welcome to LearnHub!</h2>
 
-
-  <!-- LESSON 7 -->
-  <section>
-    <h2>🐍 Lesson 7: For Loops</h2>
-
-    <pre><code>fruits = ["Apple", "Banana", "Orange"]
-
-for fruit in fruits:
-    print(fruit)</code></pre>
-
-    <button onclick="alert('Apple\\nBanana\\nOrange')">
-      ▶️ Run Python
-    </button>
-
-    <button onclick="completePythonLesson(7)">
-      ✅ Complete Lesson 7
-    </button>
-  </section>
-
-
-  <!-- LESSON 8 -->
-  <section>
-    <h2>🐍 Lesson 8: While Loops</h2>
-
-    <pre><code>number = 1
-
-while number <= 5:
-    print(number)
-    number = number + 1</code></pre>
-
-    <button onclick="alert('1\\n2\\n3\\n4\\n5')">
-      ▶️ Run Python
-    </button>
-
-    <button onclick="completePythonLesson(8)">
-      ✅ Complete Lesson 8
-    </button>
-  </section>
-
-
-  <!-- LESSON 9 -->
-  <section>
-    <h2>🐍 Lesson 9: User Input</h2>
-
-    <pre><code>name = input("What is your name?")
-
-print("Hello " + name)</code></pre>
-
-    <button onclick="let name = prompt('What is your name?'); if(name) alert('Hello ' + name + '! 🐍')">
-      ▶️ Try Python
-    </button>
-
-    <button onclick="completePythonLesson(9)">
-      ✅ Complete Lesson 9
-    </button>
-  </section>
-
-
-  <!-- LESSON 10 -->
-  <section>
-    <h2>🐍 Lesson 10: Dictionaries</h2>
-
-    <pre><code>student = {
-    "name": "Tshepiso",
-    "course": "Python",
-    "level": "Beginner"
-}
-
-print(student["name"])
-print(student["course"])</code></pre>
-
-    <button onclick="alert('Tshepiso\\nPython')">
-      ▶️ Run Python
-    </button>
-
-    <button onclick="completePythonLesson(10)">
-      ✅ Complete Lesson 10
-    </button>
-  </section>
-
-
-  <!-- LESSON 11 -->
-  <section>
-    <h2>🐍 Lesson 11: Function Parameters</h2>
-
-    <pre><code>def greet(name):
-    print("Hello " + name)
-
-greet("Tshepiso")</code></pre>
-
-    <button onclick="alert('Hello Tshepiso! 🐍')">
-      ▶️ Run Python
-    </button>
-
-    <button onclick="completePythonLesson(11)">
-      ✅ Complete Lesson 11
-    </button>
-  </section>
-
-
-  <!-- LESSON 12 -->
-  <section>
-    <h2>🐍 Lesson 12: Mini Project</h2>
-
-    <pre><code>def check_age(age):
-
-    if age >= 18:
-        print("You are an adult.")
-    else:
-        print("You are under 18.")
-
-check_age(20)</code></pre>
-
-    <button onclick="alert('You are an adult. 🐍')">
-      ▶️ Run Python
-    </button>
-
-    <button onclick="completePythonLesson(12)">
-      ✅ Complete Lesson 12
-    </button>
-  </section>
-
-
-  <!-- PROGRESS -->
-  <section>
-    <h2>📊 Python Progress</h2>
-
-    <p id="pythonProgress">
-      Lessons completed: 0 / 12
-    </p>
-  </section>
-
-
-  <!-- QUIZ -->
-  <section id="pythonQuiz">
-
-    <h2>🧠 Python Final Quiz</h2>
-
-    <p>Answer all 5 questions.</p>
-    <p><strong>You need 4/5 to pass.</strong></p>
-
-    <!-- QUESTION 1 -->
-    <h3>1. Which command displays text?</h3>
-
-    <label>
-      <input type="radio" name="q1" value="a">
-      print()
-    </label><br>
-
-    <label>
-      <input type="radio" name="q1" value="b">
-      display()
-    </label><br>
-
-    <label>
-      <input type="radio" name="q1" value="c">
-      show()
-    </label>
-
-
-    <!-- QUESTION 2 -->
-    <h3>2. Which word creates a function?</h3>
-
-    <label>
-      <input type="radio" name="q2" value="a">
-      function
-    </label><br>
-
-    <label>
-      <input type="radio" name="q2" value="b">
-      def
-    </label><br>
-
-    <label>
-      <input type="radio" name="q2" value="c">
-      create
-    </label>
-
-
-    <!-- QUESTION 3 -->
-    <h3>3. Which symbol means multiplication?</h3>
-
-    <label>
-      <input type="radio" name="q3" value="a">
-      +
-    </label><br>
-
-    <label>
-      <input type="radio" name="q3" value="b">
-      /
-    </label><br>
-
-    <label>
-      <input type="radio" name="q3" value="c">
-      *
-    </label>
-
-
-    <!-- QUESTION 4 -->
-    <h3>4. What does an if statement do?</h3>
-
-    <label>
-      <input type="radio" name="q4" value="a">
-      Checks a condition
-    </label><br>
-
-    <label>
-      <input type="radio" name="q4" value="b">
-      Deletes Python
-    </label><br>
-
-    <label>
-      <input type="radio" name="q4" value="c">
-      Creates a website
-    </label>
-
-
-    <!-- QUESTION 5 -->
-    <h3>5. Which one is a Python list?</h3>
-
-    <label>
-      <input type="radio" name="q5" value="a">
-      ["Apple", "Banana", "Orange"]
-    </label><br>
-
-    <label>
-      <input type="radio" name="q5" value="b">
-      "Apple", "Banana"
-    </label><br>
-
-    <label>
-      <input type="radio" name="q5" value="c">
-      {Apple Banana Orange}
-    </label>
-
-    <br><br>
-
-    <button type="button" onclick="checkPythonQuiz()">
-      📝 Submit Quiz
-    </button>
-
-    <div id="quizResult"></div>
-
-  </section>
-
-
-  <!-- FINAL CERTIFICATE -->
-  <section id="pythonCertificate">
-
-    <h2>🏆 Python Course Completion</h2>
-
-    <p id="certificateMessage">
-      Complete the quiz to unlock your Python completion message.
+    <p>
+      Your personal learning platform.
     </p>
 
-    <button onclick="finishPythonCourse()">
-      🏆 Finish Python Course
+    <p>
+      Choose a course and start building your skills.
+    </p>
+
+    <button
+      class="primary-button"
+      onclick="showSection('courses')"
+    >
+      🚀 Start Learning
     </button>
 
-  </section>
+  </div>
+
+
+  <div class="grid">
+
+    <div class="card">
+
+      <h3>📚 Courses</h3>
+
+      <p>
+        Learn new skills step by step.
+      </p>
+
+      <button onclick="showSection('courses')">
+        View Courses
+      </button>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>📊 Progress</h3>
+
+      <p>
+        Track your learning progress.
+      </p>
+
+      <button onclick="showSection('progress')">
+        View Progress
+      </button>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>🧠 Quizzes</h3>
+
+      <p>
+        Test what you have learned.
+      </p>
+
+      <button onclick="showSection('quiz')">
+        Take Quiz
+      </button>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>🏆 Certificates</h3>
+
+      <p>
+        Celebrate your achievements.
+      </p>
+
+      <button onclick="showSection('certificate')">
+        View Certificate
+      </button>
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- PYTHON COURSE JAVASCRIPT -->
+
+<!-- COURSES -->
+
+<section id="courses" class="hidden">
+
+  <div class="hero">
+
+    <h2>📚 LearnHub Courses</h2>
+
+    <p>
+      Choose your learning path.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+
+    <div class="card course">
+
+      <h3>🐍 Python</h3>
+
+      <p>
+        Learn programming from beginner level.
+      </p>
+
+      <p>
+        <strong>Level:</strong> Beginner
+      </p>
+
+      <button onclick="startCourse('Python')">
+        ▶️ Start Course
+      </button>
+
+    </div>
+
+
+    <div class="card course">
+
+      <h3>🌐 Web Development</h3>
+
+      <p>
+        Learn HTML, CSS and JavaScript.
+      </p>
+
+      <p>
+        <strong>Level:</strong> Beginner
+      </p>
+
+      <button onclick="startCourse('Web Development')">
+        ▶️ Start Course
+      </button>
+
+    </div>
+
+
+    <div class="card course">
+
+      <h3>🤖 Artificial Intelligence</h3>
+
+      <p>
+        Learn the basics of AI and modern technology.
+      </p>
+
+      <p>
+        <strong>Level:</strong> Beginner
+      </p>
+
+      <button onclick="startCourse('Artificial Intelligence')">
+        ▶️ Start Course
+      </button>
+
+    </div>
+
+
+    <div class="card course">
+
+      <h3>💼 Digital Skills</h3>
+
+      <p>
+        Build useful computer and workplace skills.
+      </p>
+
+      <p>
+        <strong>Level:</strong> Beginner
+      </p>
+
+      <button onclick="startCourse('Digital Skills')">
+        ▶️ Start Course
+      </button>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- PROGRESS -->
+
+<section id="progress" class="hidden">
+
+  <div class="hero">
+
+    <h2>📊 My Learning Progress</h2>
+
+    <p>
+      Track your journey on LearnHub.
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>Overall Progress</h3>
+
+    <div class="progress-container">
+
+      <div
+        id="progressBar"
+        class="progress-bar"
+      ></div>
+
+    </div>
+
+    <p id="progressText">
+      0% completed
+    </p>
+
+    <button onclick="increaseProgress()">
+      ➕ Complete Learning Activity
+    </button>
+
+  </div>
+
+
+  <br>
+
+
+  <div class="grid">
+
+    <div class="card">
+
+      <h3>🐍 Python</h3>
+
+      <p id="pythonProgress">
+        Not started
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>🌐 Web Development</h3>
+
+      <p>
+        Not started
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>🤖 Artificial Intelligence</h3>
+
+      <p>
+        Not started
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>💼 Digital Skills</h3>
+
+      <p>
+        Not started
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- QUIZ -->
+
+<section id="quiz" class="hidden">
+
+  <div class="hero">
+
+    <h2>🧠 LearnHub Quiz</h2>
+
+    <p>
+      Test your programming knowledge.
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>
+      What does Python use to display text?
+    </h3>
+
+
+    <label>
+
+      <input
+        type="radio"
+        name="quizAnswer"
+        value="wrong"
+      >
+
+      display()
+
+    </label>
+
+
+    <label>
+
+      <input
+        type="radio"
+        name="quizAnswer"
+        value="correct"
+      >
+
+      print()
+
+    </label>
+
+
+    <label>
+
+      <input
+        type="radio"
+        name="quizAnswer"
+        value="wrong"
+      >
+
+      text()
+
+    </label>
+
+
+    <br>
+
+
+    <button onclick="checkQuiz()">
+      📝 Submit Answer
+    </button>
+
+
+    <p id="quizResult"></p>
+
+  </div>
+
+</section>
+
+
+
+<!-- CERTIFICATE -->
+
+<section id="certificate" class="hidden">
+
+  <div class="hero">
+
+    <h2>🏆 LearnHub Certificate</h2>
+
+    <p>
+      Complete your learning journey and unlock your certificate.
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <h3>Enter Your Name</h3>
+
+    <input
+      type="text"
+      id="certificateNameInput"
+      placeholder="Your full name"
+    >
+
+
+    <button onclick="generateCertificate()">
+      🎓 Generate Certificate
+    </button>
+
+
+    <div id="certificateResult"></div>
+
+  </div>
+
+</section>
+
+
+
+<!-- PROFILE -->
+
+<section id="profile" class="hidden">
+
+  <div class="card profile-box">
+
+    <div class="avatar">
+      👤
+    </div>
+
+    <h2 id="profileName">
+      LearnHub Student
+    </h2>
+
+    <p>
+      Welcome to your student profile.
+    </p>
+
+
+    <input
+      type="text"
+      id="nameInput"
+      placeholder="Enter your name"
+    >
+
+
+    <button onclick="saveProfile()">
+      💾 Save Profile
+    </button>
+
+
+    <p id="profileMessage"></p>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+  <p>
+    🐍 📚 🤖 🌐 💼
+  </p>
+
+  <p>
+    © 2026 LearnHub
+  </p>
+
+  <p>
+    Learn. Practice. Grow. 🚀
+  </p>
+
+</footer>
+
+
 
 <script>
 
-let pythonCompleted = 0;
 
-function completePythonLesson(lessonNumber) {
+/* NAVIGATION */
 
-  pythonCompleted++;
+function showSection(sectionId) {
 
-  if (pythonCompleted > 12) {
-    pythonCompleted = 12;
-  }
+  const sections = [
+    "home",
+    "courses",
+    "progress",
+    "quiz",
+    "certificate",
+    "profile"
+  ];
 
-  document.getElementById("pythonProgress").innerHTML =
-    "Lessons completed: " +
-    pythonCompleted +
-    " / 12";
+
+  sections.forEach(function(section) {
+
+    document
+      .getElementById(section)
+      .classList.add("hidden");
+
+  });
+
+
+  document
+    .getElementById(sectionId)
+    .classList.remove("hidden");
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+
+/* START COURSE */
+
+function startCourse(courseName) {
 
   alert(
-    "🎉 Python Lesson " +
-    lessonNumber +
-    " completed! 🐍"
-  );
-}
-
-
-function checkPythonQuiz() {
-
-  let score = 0;
-
-  let q1 = document.querySelector(
-    'input[name="q1"]:checked'
-  );
-
-  let q2 = document.querySelector(
-    'input[name="q2"]:checked'
-  );
-
-  let q3 = document.querySelector(
-    'input[name="q3"]:checked'
-  );
-
-  let q4 = document.querySelector(
-    'input[name="q4"]:checked'
-  );
-
-  let q5 = document.querySelector(
-    'input[name="q5"]:checked'
+    "🚀 " +
+    courseName +
+    " course selected!\\n\\n" +
+    "Your lessons will appear here."
   );
 
 
-  if (q1 && q1.value === "a") {
-    score++;
-  }
-
-  if (q2 && q2.value === "b") {
-    score++;
-  }
-
-  if (q3 && q3.value === "c") {
-    score++;
-  }
-
-  if (q4 && q4.value === "a") {
-    score++;
-  }
-
-  if (q5 && q5.value === "a") {
-    score++;
-  }
-
-
-  let result = document.getElementById("quizResult");
-
-
-  if (score >= 4) {
-
-    result.innerHTML =
-      "<h2>🎉 YOU PASSED!</h2>" +
-      "<p>Your score: <strong>" +
-      score +
-      "/5</strong></p>" +
-      "<p>🏆 Excellent work, Tshepiso!</p>" +
-      "<p>You can now finish the Python course.</p>";
-
-    localStorage.setItem(
-      "pythonQuizPassed",
-      "true"
-    );
-
-  } else {
-
-    result.innerHTML =
-      "<h2>📚 Try Again</h2>" +
-      "<p>Your score: <strong>" +
-      score +
-      "/5</strong></p>" +
-      "<p>You need at least 4/5 to pass.</p>" +
-      "<p>Keep learning! 🐍</p>";
-
-    localStorage.removeItem(
-      "pythonQuizPassed"
-    );
-  }
-
-}
-
-
-function finishPythonCourse() {
-
-  let passed =
-    localStorage.getItem(
-      "pythonQuizPassed"
-    );
-
-
-  if (passed === "true") {
+  if (courseName === "Python") {
 
     document.getElementById(
-      "certificateMessage"
-    ).innerHTML =
-      "<h2>🏆 CONGRATULATIONS, TSHEPISO! 🎉</h2>" +
-      "<p>You successfully completed the LearnHub Python Course.</p>" +
-      "<p>🐍 Python Beginner Certificate Unlocked!</p>" +
-      "<p>⭐ Keep building and keep learning!</p>";
+      "pythonProgress"
+    ).innerText = "Started 🐍";
+
+  }
+
+}
+
+
+
+/* PROGRESS */
+
+let progress = 0;
+
+
+function increaseProgress() {
+
+  if (progress < 100) {
+
+    progress += 10;
+
+  }
+
+
+  document.getElementById(
+    "progressBar"
+  ).style.width = progress + "%";
+
+
+  document.getElementById(
+    "progressText"
+  ).innerText =
+    progress +
+    "% completed";
+
+
+  if (progress === 100) {
 
     alert(
-      "🏆 Congratulations Tshepiso! 🐍🎉\\n\\n" +
-      "You completed the LearnHub Python Course!"
-    );
-
-  } else {
-
-    alert(
-      "📚 Please pass the Python quiz first.\\n\\n" +
-      "You need 4/5 to complete the course."
+      "🏆 Amazing! You completed your learning progress!"
     );
 
   }
 
 }
 
-  </script>
+
+
+/* QUIZ */
+
+function checkQuiz() {
+
+  const answer =
+    document.querySelector(
+      'input[name="quizAnswer"]:checked'
+    );
+
+
+  const result =
+    document.getElementById(
+      "quizResult"
+    );
+
+
+  if (!answer) {
+
+    result.innerText =
+      "⚠️ Please select an answer.";
+
+    return;
+
+  }
+
+
+  if (answer.value === "correct") {
+
+    result.innerText =
+      "🎉 Correct! Great job! 🐍";
+
+  } else {
+
+    result.innerText =
+      "❌ Not quite. Try again!";
+
+  }
+
+}
+
+
+
+/* PROFILE */
+
+function saveProfile() {
+
+  const name =
+    document
+      .getElementById("nameInput")
+      .value
+      .trim();
+
+
+  if (name === "") {
+
+    alert(
+      "Please enter your name."
+    );
+
+    return;
+
+  }
+
+
+  localStorage.setItem(
+    "learnHubName",
+    name
+  );
+
+
+  document.getElementById(
+    "profileName"
+  ).innerText = name;
+
+
+  document.getElementById(
+    "profileMessage"
+  ).innerText =
+    "✅ Profile saved!";
+
+
+  alert(
+    "Welcome to LearnHub, " +
+    name +
+    "! 🎉"
+  );
+
+}
+
+
+
+/* LOAD PROFILE */
+
+const savedName =
+  localStorage.getItem(
+    "learnHubName"
+  );
+
+
+if (savedName) {
+
+  document.getElementById(
+    "profileName"
+  ).innerText = savedName;
+
+}
+
+
+
+/* CERTIFICATE */
+
+function generateCertificate() {
+
+  const name =
+    document
+      .getElementById(
+        "certificateNameInput"
+      )
+      .value
+      .trim();
+
+
+  if (name === "") {
+
+    alert(
+      "Please enter your name first."
+    );
+
+    return;
+
+  }
+
+
+  const date =
+    new Date().toLocaleDateString();
+
+
+  document.getElementById(
+    "certificateResult"
+  ).innerHTML =
+
+    "<br>" +
+
+    "<div class='hero'>" +
+
+    "<h1>🏆 CERTIFICATE</h1>" +
+
+    "<p>This certificate is proudly presented to</p>" +
+
+    "<h2>" +
+    name +
+    "</h2>" +
+
+    "<p>for participating in</p>" +
+
+    "<h2>📚 LearnHub</h2>" +
+
+    "<p>Learning. Skills. Growth.</p>" +
+
+    "<p><strong>Date:</strong> " +
+    date +
+    "</p>" +
+
+    "<p>🐍 🌐 🤖 💼</p>" +
+
+    "<button onclick='window.print()'>" +
+    "🖨️ Print Certificate" +
+    "</button>" +
+
+    "</div>";
+
+}
+
+
+</script>
+
+
+</body>
+
+  </html>
