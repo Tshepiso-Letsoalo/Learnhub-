@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>LearnHub Academy</title>
 
 <style>
@@ -11,7 +11,7 @@
 body{
 margin:0;
 font-family:Arial,Helvetica,sans-serif;
-background:#f3f6f5;
+background:#f4f7f6;
 color:#222;
 }
 
@@ -19,19 +19,22 @@ header{
 background:linear-gradient(135deg,#07543f,#0b7658);
 color:#fff;
 text-align:center;
-padding:28px 15px;
+padding:30px 15px;
 }
 
-header h1{margin:0;font-size:32px}
-header p{margin:8px 0 0}
+header h1{margin:0;font-size:34px}
+header p{margin:8px 0}
 
 nav{
 background:#063d2f;
 display:flex;
-flex-wrap:wrap;
 justify-content:center;
-gap:8px;
+flex-wrap:wrap;
+gap:7px;
 padding:12px;
+position:sticky;
+top:0;
+z-index:50;
 }
 
 nav button{
@@ -55,10 +58,10 @@ padding:25px 15px;
 
 .card{
 background:#fff;
+padding:24px;
 border-radius:16px;
-padding:25px;
-margin-bottom:20px;
 box-shadow:0 5px 18px rgba(0,0,0,.08);
+margin-bottom:20px;
 }
 
 .hero{
@@ -66,28 +69,43 @@ text-align:center;
 padding:45px 20px;
 }
 
-h2,h3{color:#07543f}
-
-button{
-cursor:pointer;
+.hero h2{
+font-size:32px;
+color:#07543f;
 }
 
-.primary{
-background:#07543f;
-color:#fff;
+h2,h3{
+color:#07543f;
+}
+
+.primary,.gold,.danger{
 border:0;
 border-radius:8px;
 padding:12px 18px;
 font-weight:bold;
+cursor:pointer;
+margin:4px;
+}
+
+.primary{
+background:#07543f;
+color:white;
 }
 
 .gold{
 background:#e5a72b;
 color:#07543f;
-border:0;
-border-radius:8px;
-padding:12px 18px;
-font-weight:bold;
+}
+
+.danger{
+background:#b42318;
+color:white;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:18px;
 }
 
 pre{
@@ -97,8 +115,6 @@ padding:15px;
 border-radius:8px;
 overflow:auto;
 }
-
-/* PROGRESS */
 
 .progress-track{
 height:20px;
@@ -112,6 +128,46 @@ height:100%;
 width:0;
 background:#07543f;
 transition:.3s;
+}
+
+.badge{
+display:inline-block;
+padding:6px 10px;
+border-radius:20px;
+font-size:11px;
+font-weight:bold;
+background:#e5f2ed;
+color:#07543f;
+}
+
+input,textarea,select{
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+border-radius:8px;
+font-family:inherit;
+}
+
+textarea{
+min-height:110px;
+resize:vertical;
+}
+
+.form-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.full{
+grid-column:1/-1;
+}
+
+label{
+font-weight:bold;
+color:#07543f;
+display:block;
+margin-bottom:6px;
 }
 
 /* PROFILE */
@@ -133,7 +189,7 @@ justify-content:center;
 font-size:45px;
 }
 
-.profile-info{flex:1}
+.profile-main{flex:1}
 
 .skill{
 display:inline-block;
@@ -146,9 +202,9 @@ font-size:13px;
 font-weight:bold;
 }
 
-/* CV BUILDER */
+/* CV */
 
-.cv-builder-header{
+.cv-header{
 background:linear-gradient(135deg,#07543f,#0b7658);
 color:white;
 padding:35px;
@@ -157,55 +213,12 @@ text-align:center;
 margin-bottom:20px;
 }
 
-.cv-builder-header h2{
+.cv-header h2{
 color:white;
 font-size:32px;
 }
 
-.form-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-}
-
-.form-group{
-display:flex;
-flex-direction:column;
-}
-
-.form-group.full{
-grid-column:1/-1;
-}
-
-.form-group label{
-font-weight:bold;
-color:#07543f;
-margin-bottom:6px;
-}
-
-.form-group input,
-.form-group textarea{
-padding:12px;
-border:1px solid #ccc;
-border-radius:8px;
-font-family:inherit;
-}
-
-.form-group textarea{
-min-height:110px;
-resize:vertical;
-}
-
-.cv-actions{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-top:20px;
-}
-
-/* GENERATED CV */
-
-#cvOutput{
+#cvPreview{
 display:none;
 }
 
@@ -231,11 +244,10 @@ margin-top:6px;
 }
 
 .cv-contact{
-margin-top:12px;
-padding-bottom:18px;
 border-bottom:3px solid #e5a72b;
-font-size:13px;
+padding:15px 0;
 line-height:1.8;
+font-size:13px;
 }
 
 .cv-section{
@@ -248,47 +260,19 @@ padding-bottom:6px;
 }
 
 .cv-section p{
-line-height:1.6;
 white-space:pre-line;
+line-height:1.6;
 }
 
-.cv-entry{
-margin-bottom:15px;
-}
+/* CAREER */
 
-.cv-entry strong{
-color:#07543f;
-font-size:16px;
-}
-
-.cv-entry small{
-display:block;
-color:#777;
-margin:4px 0;
-}
-
-/* CAREER CENTER */
-
-.search-box{
+.search-row{
 display:flex;
 gap:10px;
 margin-bottom:20px;
 }
 
-.search-box input,
-.search-box select{
-padding:12px;
-border:1px solid #ccc;
-border-radius:8px;
-}
-
-.search-box input{flex:1}
-
-.job-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:18px;
-}
+.search-row input{flex:1}
 
 .job-card{
 background:white;
@@ -297,14 +281,12 @@ border-radius:14px;
 box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
-.job-type{
-display:inline-block;
-padding:5px 10px;
-border-radius:20px;
-font-size:11px;
-font-weight:bold;
-background:#e5f2ed;
-color:#07543f;
+.job-card h3{
+margin-top:12px;
+}
+
+.saved{
+color:#e5a72b;
 }
 
 /* CERTIFICATE */
@@ -344,7 +326,7 @@ font-family:Georgia,serif;
 font-size:36px;
 }
 
-.certificate-info{
+.info-row{
 display:flex;
 justify-content:center;
 gap:20px;
@@ -402,11 +384,14 @@ height:110px;
 border:3px solid #07543f;
 padding:5px;
 background:white;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
-.qr-box img{
-width:100px;
-height:100px;
+.qr-box canvas{
+width:100px!important;
+height:100px!important;
 }
 
 .completed{
@@ -422,12 +407,14 @@ border-radius:50%;
 background:#07543f;
 border:5px solid #e5a72b;
 display:flex;
+flex-direction:column;
 align-items:center;
 justify-content:center;
-flex-direction:column;
 color:white;
 font-weight:bold;
 }
+
+/* FOOTER */
 
 footer{
 background:#07543f;
@@ -437,19 +424,25 @@ padding:25px;
 margin-top:30px;
 }
 
+/* MOBILE */
+
 @media(max-width:700px){
 
 .form-grid{
 grid-template-columns:1fr;
 }
 
-.form-group.full{
+.full{
 grid-column:auto;
 }
 
 .profile-top{
 flex-direction:column;
 text-align:center;
+}
+
+.search-row{
+flex-direction:column;
 }
 
 .signatures{
@@ -469,11 +462,9 @@ padding:25px 15px;
 padding:25px 18px;
 }
 
-.search-box{
-flex-direction:column;
 }
 
-}
+/* PRINT CV */
 
 @media print{
 
@@ -481,12 +472,12 @@ body *{
 visibility:hidden;
 }
 
-#cvOutput,
-#cvOutput *{
+#cvPreview,
+#cvPreview *{
 visibility:visible;
 }
 
-#cvOutput{
+#cvPreview{
 display:block!important;
 position:absolute;
 left:0;
@@ -510,13 +501,13 @@ box-shadow:none;
 </header>
 
 <nav>
-<button onclick="show('home')">🏠 Home</button>
-<button onclick="show('python')">🐍 Python</button>
-<button onclick="show('web')">🌐 Web</button>
-<button onclick="show('progress')">📊 Progress</button>
-<button onclick="show('profile')">👤 Career Profile</button>
-<button onclick="show('cv')">📄 CV Builder</button>
-<button onclick="show('career')">💼 Career Center</button>
+<button onclick="showSection('home')">🏠 Home</button>
+<button onclick="showSection('python')">🐍 Python</button>
+<button onclick="showSection('web')">🌐 Web</button>
+<button onclick="showSection('progress')">📊 Progress</button>
+<button onclick="showSection('profile')">👤 Profile</button>
+<button onclick="showSection('cv')">📄 CV Builder</button>
+<button onclick="showSection('career')">💼 Careers</button>
 <button onclick="showCertificate()">🏆 Certificate</button>
 </nav>
 
@@ -534,42 +525,59 @@ box-shadow:none;
 Your learning, skills and career platform.
 </p>
 
-<button class="primary" onclick="show('python')">
-🐍 Learn Python
+<p>
+Learn practical skills, build your professional
+profile, create your CV and grow your career.
+</p>
+
+<button class="primary"
+onclick="showSection('python')">
+🐍 Start Learning
 </button>
 
-<button class="primary" onclick="show('cv')">
+<button class="gold"
+onclick="showSection('cv')">
 📄 Build My CV
 </button>
 
 </div>
 
+<div class="grid">
+
 <div class="card">
-
-<h2>🚀 LearnHub Features</h2>
-
-<div class="job-grid">
-
-<div>
-<h3>🐍 Programming</h3>
-<p>Learn Python and practical programming.</p>
+<h3>🐍 Python</h3>
+<p>Learn programming fundamentals.</p>
+<button class="primary"
+onclick="showSection('python')">
+Open
+</button>
 </div>
 
-<div>
+<div class="card">
 <h3>🌐 Web Development</h3>
 <p>Learn HTML, CSS and JavaScript.</p>
+<button class="primary"
+onclick="showSection('web')">
+Open
+</button>
 </div>
 
-<div>
-<h3>👤 Career Profile</h3>
-<p>Create your professional profile.</p>
-</div>
-
-<div>
+<div class="card">
 <h3>📄 CV Builder</h3>
-<p>Create a professional CV from your information.</p>
+<p>Create a professional CV.</p>
+<button class="primary"
+onclick="showSection('cv')">
+Build CV
+</button>
 </div>
 
+<div class="card">
+<h3>💼 Career Center</h3>
+<p>Explore career opportunities.</p>
+<button class="primary"
+onclick="showSection('career')">
+Explore
+</button>
 </div>
 
 </div>
@@ -587,15 +595,18 @@ Your learning, skills and career platform.
 
 <h3>Lesson 1 — Python Basics</h3>
 
-<p>Python is a programming language used to build software and applications.</p>
+<p>
+Python is a programming language used to
+create software and applications.
+</p>
 
 <pre>name = "LearnHub"
 print(name)</pre>
 
-<button class="primary"
-id="python1"
-onclick="complete('python1')">
-✅ Complete Lesson 1
+<button id="python1"
+class="primary"
+onclick="completeLesson('python1')">
+✅ Complete Python Lesson 1
 </button>
 
 </div>
@@ -610,10 +621,10 @@ age = 18
 print(name)
 print(age)</pre>
 
-<button class="primary"
-id="python2"
-onclick="complete('python2')">
-✅ Complete Lesson 2
+<button id="python2"
+class="primary"
+onclick="completeLesson('python2')">
+✅ Complete Python Lesson 2
 </button>
 
 </div>
@@ -627,10 +638,10 @@ onclick="complete('python2')">
 if age >= 18:
     print("You are an adult")</pre>
 
-<button class="primary"
-id="python3"
-onclick="complete('python3')">
-✅ Complete Lesson 3
+<button id="python3"
+class="primary"
+onclick="completeLesson('python3')">
+✅ Complete Python Lesson 3
 </button>
 
 </div>
@@ -651,8 +662,9 @@ onclick="complete('python3')">
 <pre>&lt;h1&gt;Hello LearnHub&lt;/h1&gt;
 &lt;p&gt;Welcome to my website.&lt;/p&gt;</pre>
 
-<button class="primary"
-onclick="complete('web1')">
+<button id="web1"
+class="primary"
+onclick="completeLesson('web1')">
 ✅ Complete HTML Lesson
 </button>
 
@@ -667,8 +679,9 @@ onclick="complete('web1')">
   color: green;
 }</pre>
 
-<button class="primary"
-onclick="complete('web2')">
+<button id="web2"
+class="primary"
+onclick="completeLesson('web2')">
 ✅ Complete CSS Lesson
 </button>
 
@@ -682,8 +695,9 @@ onclick="complete('web2')">
   alert("Hello LearnHub!");
 }</pre>
 
-<button class="primary"
-onclick="complete('web3')">
+<button id="web3"
+class="primary"
+onclick="completeLesson('web3')">
 ✅ Complete JavaScript Lesson
 </button>
 
@@ -701,19 +715,21 @@ onclick="complete('web3')">
 <h2>📊 My Progress</h2>
 
 <p>
-Lessons completed:
-<strong id="count">0</strong>
+Completed lessons:
+<strong id="lessonCount">0</strong>
 </p>
 
 <div class="progress-track">
 
-<div id="progress"
+<div id="progressBar"
 class="progress-fill">
 </div>
 
 </div>
 
-<p id="percent">0% Complete</p>
+<p id="progressText">
+0% Complete
+</p>
 
 </div>
 
@@ -728,9 +744,11 @@ class="progress-fill">
 
 <div class="profile-top">
 
-<div class="avatar">👤</div>
+<div class="avatar">
+👤
+</div>
 
-<div class="profile-info">
+<div class="profile-main">
 
 <h2 id="profileName">
 Tshepiso Letsoalo
@@ -757,9 +775,9 @@ onclick="editProfile()">
 
 <h3>📝 Professional Summary</h3>
 
-<textarea
-id="summary"
-style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;min-height:120px;">Aspiring software developer building practical skills in Python, web development and technology.</textarea>
+<textarea id="profileSummary">
+Aspiring software developer building practical skills in Python, web development and technology.
+</textarea>
 
 </div>
 
@@ -772,6 +790,7 @@ style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;min-heigh
 <span class="skill">CSS</span>
 <span class="skill">JavaScript</span>
 <span class="skill">Web Development</span>
+<span class="skill">GitHub</span>
 
 </div>
 
@@ -779,9 +798,7 @@ style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;min-heigh
 
 <h3>🎓 Education</h3>
 
-<textarea
-id="education"
-style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;min-height:100px;"
+<textarea id="profileEducation"
 placeholder="Enter your education and qualifications..."></textarea>
 
 </div>
@@ -790,9 +807,7 @@ placeholder="Enter your education and qualifications..."></textarea>
 
 <h3>💼 Work Experience</h3>
 
-<textarea
-id="experience"
-style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;min-height:120px;"
+<textarea id="profileExperience"
 placeholder="Enter your work experience..."></textarea>
 
 </div>
@@ -803,23 +818,23 @@ onclick="saveProfile()">
 </button>
 
 <button class="gold"
-onclick="show('cv')">
-📄 Build My CV
+onclick="loadProfileToCV()">
+📄 Use Profile in CV
 </button>
 
 </section>
 
 
-<!-- ================= CV BUILDER ================= -->
+<!-- CV BUILDER -->
 
 <section id="cv" class="section">
 
-<div class="cv-builder-header">
+<div class="cv-header">
 
 <h2>📄 LearnHub CV Builder</h2>
 
 <p>
-Create your professional CV using your LearnHub profile.
+Create your professional CV in minutes.
 </p>
 
 </div>
@@ -830,70 +845,43 @@ Create your professional CV using your LearnHub profile.
 
 <div class="form-grid">
 
-<div class="form-group">
-
+<div>
 <label>Full Name</label>
-
-<input
-id="cvName"
-value="Tshepiso Letsoalo"
-placeholder="Your full name">
-
+<input id="cvName"
+value="Tshepiso Letsoalo">
 </div>
 
-<div class="form-group">
-
+<div>
 <label>Professional Title</label>
-
-<input
-id="cvTitle"
-value="Software Developer"
-placeholder="e.g. Software Developer">
-
+<input id="cvTitle"
+value="Software Developer">
 </div>
 
-<div class="form-group">
-
+<div>
 <label>Email</label>
-
-<input
-id="cvEmail"
-value="letsoalotshepiso221@gmail.com"
-type="email">
-
+<input id="cvEmail"
+value="letsoalotshepiso221@gmail.com">
 </div>
 
-<div class="form-group">
-
+<div>
 <label>Phone</label>
-
-<input
-id="cvPhone"
+<input id="cvPhone"
 value="079 945 9656 / 069 348 4366">
-
 </div>
 
-<div class="form-group">
-
+<div>
 <label>Location</label>
-
-<input
-id="cvLocation"
+<input id="cvLocation"
 value="Polokwane, Limpopo, South Africa">
-
 </div>
 
-<div class="form-group">
-
+<div>
 <label>LinkedIn</label>
-
-<input
-id="cvLinkedIn"
-placeholder="LinkedIn profile">
-
+<input id="cvLinkedIn"
+placeholder="Your LinkedIn profile">
 </div>
 
-<div class="form-group full">
+<div class="full">
 
 <label>Professional Summary</label>
 
@@ -910,15 +898,8 @@ placeholder="LinkedIn profile">
 
 <h2>🎓 Education</h2>
 
-<div class="form-group">
-
 <textarea id="cvEducation"
-placeholder="Example:
-NQF Level 5
-System Development
-Add your institution and dates here."></textarea>
-
-</div>
+placeholder="Enter your education and qualifications..."></textarea>
 
 </div>
 
@@ -927,15 +908,8 @@ Add your institution and dates here."></textarea>
 
 <h2>💼 Work Experience</h2>
 
-<div class="form-group">
-
 <textarea id="cvExperience"
-placeholder="Example:
-System Developer Intern
-Company Name
-Responsibilities and achievements..."></textarea>
-
-</div>
+placeholder="Enter your work experience..."></textarea>
 
 </div>
 
@@ -943,8 +917,6 @@ Responsibilities and achievements..."></textarea>
 <div class="card">
 
 <h2>🛠️ Skills</h2>
-
-<div class="form-group">
 
 <textarea id="cvSkills">Python
 HTML
@@ -957,21 +929,13 @@ Software Development</textarea>
 
 </div>
 
-</div>
-
 
 <div class="card">
 
 <h2>💻 Projects</h2>
 
-<div class="form-group">
-
 <textarea id="cvProjects"
-placeholder="Example:
-LearnHub Academy
-Developed a learning platform with courses, certificates and career features."></textarea>
-
-</div>
+placeholder="Enter your projects and achievements..."></textarea>
 
 </div>
 
@@ -980,14 +944,10 @@ Developed a learning platform with courses, certificates and career features."><
 
 <h2>🏆 Certificates</h2>
 
-<div class="form-group">
-
 <textarea id="cvCertificates">LearnHub Academy — Python Programming Basics
 Certificate ID: LH-CERT-2026-000125</textarea>
 
-</div>
-
-<div class="cv-actions">
+<br><br>
 
 <button class="primary"
 onclick="generateCV()">
@@ -995,26 +955,24 @@ onclick="generateCV()">
 </button>
 
 <button class="gold"
-onclick="loadProfileIntoCV()">
+onclick="loadProfileToCV()">
 ↻ Load My Profile
 </button>
 
 </div>
 
-</div>
 
-
-<div id="cvOutput">
+<div id="cvPreview">
 
 <div class="cv-paper">
 
-<h1 class="cv-name"
-id="outName">
+<h1 id="outName"
+class="cv-name">
 Tshepiso Letsoalo
 </h1>
 
-<div class="cv-title"
-id="outTitle">
+<div id="outTitle"
+class="cv-title">
 Software Developer
 </div>
 
@@ -1087,19 +1045,12 @@ Software Developer
 </div>
 
 
-<div class="cv-actions">
+<br>
 
 <button class="primary"
 onclick="window.print()">
 🖨️ Print / Save PDF
 </button>
-
-<button class="gold"
-onclick="editCV()">
-✏️ Edit CV
-</button>
-
-</div>
 
 </div>
 
@@ -1108,7 +1059,7 @@ onclick="editCV()">
 </section>
 
 
-<!-- CAREER -->
+<!-- CAREER CENTER -->
 
 <section id="career" class="section">
 
@@ -1117,20 +1068,19 @@ onclick="editCV()">
 <h2>💼 LearnHub Career Center</h2>
 
 <p>
-Explore career opportunities.
+Explore jobs, internships and learnership opportunities.
 </p>
 
-<div class="search-box">
+<div class="search-row">
 
-<input
-id="jobSearch"
-oninput="searchJobs()"
-placeholder="🔎 Search jobs, internships or learnerships">
+<input id="jobSearch"
+placeholder="🔎 Search opportunities..."
+oninput="filterJobs()">
 
 <select id="jobType"
-onchange="searchJobs()">
+onchange="filterJobs()">
 
-<option value="all">All</option>
+<option value="all">All Opportunities</option>
 <option value="job">Jobs</option>
 <option value="internship">Internships</option>
 <option value="learnership">Learnerships</option>
@@ -1141,23 +1091,26 @@ onchange="searchJobs()">
 
 </div>
 
-<div id="jobs" class="job-grid">
+
+<div id="jobGrid" class="grid">
 
 <div class="job-card"
 data-type="job"
 data-name="software developer">
 
-<span class="job-type">JOB</span>
+<span class="badge">💼 JOB</span>
 
 <h3>Junior Software Developer</h3>
 
-<p>Entry-level software development opportunity.</p>
+<p>
+Entry-level software development opportunity.
+</p>
 
 <p>📍 South Africa</p>
 
 <button class="primary"
-onclick="alert('💼 Opportunity selected. Connect this button to a verified application page when the employer is added.')">
-View Opportunity
+onclick="saveOpportunity('Junior Software Developer')">
+⭐ Save
 </button>
 
 </div>
@@ -1165,19 +1118,21 @@ View Opportunity
 
 <div class="job-card"
 data-type="internship"
-data-name="software it internship">
+data-name="it software internship">
 
-<span class="job-type">INTERNSHIP</span>
+<span class="badge">🎓 INTERNSHIP</span>
 
 <h3>IT & Software Internship</h3>
 
-<p>Gain practical workplace technology experience.</p>
+<p>
+Gain practical technology workplace experience.
+</p>
 
 <p>📍 South Africa</p>
 
 <button class="primary"
-onclick="alert('🎓 Internship opportunity selected.')">
-View Opportunity
+onclick="saveOpportunity('IT & Software Internship')">
+⭐ Save
 </button>
 
 </div>
@@ -1185,21 +1140,56 @@ View Opportunity
 
 <div class="job-card"
 data-type="learnership"
-data-name="business administration learnership">
+data-name="business administration">
 
-<span class="job-type">LEARNERSHIP</span>
+<span class="badge">📚 LEARNERSHIP</span>
 
 <h3>Business Administration Learnership</h3>
 
-<p>Develop practical business and administration skills.</p>
+<p>
+Develop workplace business skills.
+</p>
 
 <p>📍 South Africa</p>
 
 <button class="primary"
-onclick="alert('📚 Learnership opportunity selected.')">
-View Opportunity
+onclick="saveOpportunity('Business Administration Learnership')">
+⭐ Save
 </button>
 
+</div>
+
+
+<div class="job-card"
+data-type="learnership"
+data-name="logistics supply chain">
+
+<span class="badge">📚 LEARNERSHIP</span>
+
+<h3>Logistics & Supply Chain Learnership</h3>
+
+<p>
+Develop logistics and supply chain skills.
+</p>
+
+<p>📍 South Africa</p>
+
+<button class="primary"
+onclick="saveOpportunity('Logistics & Supply Chain Learnership')">
+⭐ Save
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>⭐ My Saved Opportunities</h3>
+
+<div id="savedJobs">
+No saved opportunities yet.
 </div>
 
 </div>
@@ -1215,7 +1205,9 @@ View Opportunity
 
 <div class="certificate-header">
 
-<div style="font-size:50px">🎓</div>
+<div style="font-size:50px">
+🎓
+</div>
 
 <h1>LEARNHUB ACADEMY</h1>
 
@@ -1223,17 +1215,22 @@ View Opportunity
 CERTIFICATE OF COMPLETION
 </div>
 
-<p>This certificate is proudly presented to</p>
+<p>
+This certificate is proudly presented to
+</p>
 
 </div>
+
 
 <div class="certificate-body">
 
 <h2>Tshepiso Letsoalo</h2>
 
-<p>for successfully completing</p>
+<p>
+for successfully completing
+</p>
 
-<h2 style="font-size:26px">
+<h2 style="font-size:27px">
 Python Programming Basics
 </h2>
 
@@ -1243,10 +1240,12 @@ of the required learning activities.
 </p>
 
 
-<!-- NO LEARNING HOURS -->
-<!-- NO FINAL SCORE -->
+<!-- IMPORTANT:
+NO LEARNING HOURS
+NO FINAL SCORE
+-->
 
-<div class="certificate-info">
+<div class="info-row">
 
 <div class="info-box">
 
@@ -1255,6 +1254,7 @@ of the required learning activities.
 <strong id="certificateDate"></strong>
 
 </div>
+
 
 <div class="info-box">
 
@@ -1273,7 +1273,9 @@ LH-CERT-2026-000125
 
 <div class="signature">
 
-<div style="font-size:30px">✍️</div>
+<div style="font-size:30px">
+✍️
+</div>
 
 <div class="signature-line">
 LearnHub Developer
@@ -1288,7 +1290,9 @@ Course & Platform Developer
 
 <div class="signature">
 
-<div style="font-size:30px">✍️</div>
+<div style="font-size:30px">
+✍️
+</div>
 
 <div class="signature-line">
 LearnHub Academy
@@ -1328,7 +1332,7 @@ Certificate ID: LH-CERT-2026-000125
 </div>
 
 
-<p style="margin-top:20px;color:#07543f;font-size:13px">
+<p style="margin-top:20px;color:#07543f">
 📧 letsoalotshepiso221@gmail.com
 </p>
 
@@ -1337,9 +1341,13 @@ Certificate ID: LH-CERT-2026-000125
 
 <div class="completed-badge">
 
-<div style="font-size:25px">✓</div>
+<div style="font-size:25px">
+✓
+</div>
 
-<div>COMPLETED</div>
+<div>
+COMPLETED
+</div>
 
 <div style="color:#e5a72b">
 ★ ★ ★
@@ -1384,17 +1392,17 @@ Learn. Build. Get Certified. Grow Your Career.
 
 /* ================= NAVIGATION ================= */
 
-function show(id){
+function showSection(id){
 
 document.querySelectorAll(".section")
-.forEach(function(s){
-s.style.display="none";
+.forEach(function(section){
+section.style.display="none";
 });
 
-const target=document.getElementById(id);
+const section=document.getElementById(id);
 
-if(target){
-target.style.display="block";
+if(section){
+section.style.display="block";
 }
 
 window.scrollTo({
@@ -1405,23 +1413,25 @@ behavior:"smooth"
 }
 
 
-/* ================= LESSONS ================= */
+/* ================= LESSON PROGRESS ================= */
 
-let completed=
+let completedLessons=
 JSON.parse(
 localStorage.getItem("learnhubLessons")
 )||[];
 
+const totalLessons=6;
 
-function complete(id){
 
-if(!completed.includes(id)){
+function completeLesson(id){
 
-completed.push(id);
+if(!completedLessons.includes(id)){
+
+completedLessons.push(id);
 
 localStorage.setItem(
 "learnhubLessons",
-JSON.stringify(completed)
+JSON.stringify(completedLessons)
 );
 
 alert("🎉 Lesson completed!");
@@ -1435,27 +1445,34 @@ updateProgress();
 
 function updateProgress(){
 
-const count=document.getElementById("count");
+const count=
+document.getElementById("lessonCount");
 
-const bar=document.getElementById("progress");
+const bar=
+document.getElementById("progressBar");
 
-const percent=document.getElementById("percent");
+const text=
+document.getElementById("progressText");
 
-const total=6;
-
-const value=completed.length;
+const completed=
+completedLessons.length;
 
 const percentage=
-Math.round((value/total)*100);
+Math.round(
+(completed/totalLessons)*100
+);
 
-if(count)count.textContent=value;
+if(count)
+count.textContent=completed;
 
-if(bar)bar.style.width=percentage+"%";
+if(bar)
+bar.style.width=percentage+"%";
 
-if(percent)
-percent.textContent=percentage+"% Complete";
+if(text)
+text.textContent=
+percentage+"% Complete";
 
-completed.forEach(function(id){
+completedLessons.forEach(function(id){
 
 const button=
 document.getElementById(id);
@@ -1492,4 +1509,19 @@ const career=prompt(
 "Enter your career title:",
 document.getElementById("profileCareer").textContent
 );
-  
+
+if(career){
+
+document.getElementById(
+"profileCareer"
+).textContent=career;
+
+}
+
+}
+
+
+function saveProfile(){
+
+localStorage.setItem(
+"le  
