@@ -1,186 +1,580 @@
 <!-- 🏆 LEARNHUB CERTIFICATE -->
 <section id="pythonCertificate" class="certificate-section">
 
+  <style>
+    .certificate-section {
+      padding: 30px 15px;
+      background: #f4f7f5;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .certificate-card {
+      max-width: 1200px;
+      margin: auto;
+      background: #fff;
+      border: 10px solid #063d2c;
+      border-right: 10px solid #063d2c;
+      box-shadow: 0 12px 35px rgba(0,0,0,.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .certificate-card::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 4px solid #f28c00;
+      pointer-events: none;
+    }
+
+    .certificate-content {
+      position: relative;
+      z-index: 2;
+      padding: 45px 55px 30px;
+    }
+
+    /* HEADER */
+    .certificate-header {
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    .certificate-logo {
+      font-size: 45px;
+      margin-bottom: 5px;
+    }
+
+    .academy-name {
+      color: #063d2c;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+
+    .academy-tagline {
+      color: #555;
+      margin: 4px 0 25px;
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+
+    .certificate-title {
+      color: #063d2c;
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin: 25px 0 10px;
+    }
+
+    .orange-line {
+      width: 55%;
+      height: 3px;
+      background: #f28c00;
+      margin: 15px auto 25px;
+      position: relative;
+    }
+
+    .orange-line::after {
+      content: "◆";
+      position: absolute;
+      left: 50%;
+      top: -13px;
+      transform: translateX(-50%);
+      color: #f28c00;
+      background: white;
+      padding: 0 10px;
+      font-size: 15px;
+    }
+
+    .certify-text {
+      color: #8c2118;
+      font-size: 22px;
+      margin: 10px 0;
+    }
+
+    .student-name {
+      color: #063d2c;
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin: 15px 0;
+    }
+
+    .completion-text {
+      color: #8c2118;
+      font-size: 20px;
+      margin: 8px 0;
+    }
+
+    .course-name {
+      color: #063d2c;
+      font-size: 30px;
+      font-weight: 800;
+      margin: 15px 0;
+    }
+
+    .course-description {
+      max-width: 850px;
+      margin: auto;
+      color: #7b2019;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    /* INFORMATION */
+    .certificate-info {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 35px 0 20px;
+      border-top: 2px solid #f28c00;
+      border-bottom: 2px solid #f28c00;
+      padding: 18px 0;
+    }
+
+    .info-box {
+      text-align: center;
+      border-right: 1px solid #f28c00;
+    }
+
+    .info-box:last-child {
+      border-right: none;
+    }
+
+    .info-label {
+      color: #063d2c;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .info-value {
+      color: #8c2118;
+      margin-top: 6px;
+      font-size: 15px;
+    }
+
+    /* BOTTOM AREA */
+    .certificate-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: end;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .signature {
+      text-align: center;
+    }
+
+    .signature-line {
+      width: 85%;
+      margin: 0 auto 8px;
+      border-bottom: 2px solid #f28c00;
+    }
+
+    .signature-script {
+      font-family: cursive;
+      font-size: 27px;
+      color: #111;
+      margin-bottom: 5px;
+    }
+
+    .signature-name {
+      font-weight: 800;
+      color: #063d2c;
+      font-size: 17px;
+    }
+
+    .signature-role {
+      color: #8c2118;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .center-logo {
+      text-align: center;
+      color: #063d2c;
+    }
+
+    .center-logo-icon {
+      font-size: 48px;
+    }
+
+    .center-logo-name {
+      font-size: 27px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .center-logo-name span {
+      color: #f28c00;
+    }
+
+    .center-logo-subtitle {
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-top: 5px;
+    }
+
+    /* COMPLETED + CERTIFICATE ID */
+    .completion-area {
+      text-align: center;
+    }
+
+    .completed-badge {
+      width: 105px;
+      height: 105px;
+      margin: auto;
+      border-radius: 50%;
+      border: 7px solid #f28c00;
+      outline: 3px solid #063d2c;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,.15);
+    }
+
+    .completed-check {
+      color: #063d2c;
+      font-size: 27px;
+      font-weight: bold;
+    }
+
+    .completed-text {
+      color: #063d2c;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .stars {
+      color: #f28c00;
+      font-size: 15px;
+      margin-top: 3px;
+    }
+
+    .certificate-id {
+      color: #8c2118;
+      font-size: 13px;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      margin-top: 25px;
+      border-top: 2px solid #f28c00;
+      padding-top: 15px;
+      text-align: center;
+    }
+
+    .contact-title {
+      color: #063d2c;
+      font-weight: 900;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .contact-details {
+      color: #333;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .contact-details strong {
+      color: #063d2c;
+    }
+
+    /* VERIFICATION */
+    .verification {
+      margin-top: 18px;
+      border-top: 2px solid #f28c00;
+      padding: 18px 10px 5px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .qr-placeholder {
+      width: 85px;
+      height: 85px;
+      border: 4px solid #063d2c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      text-align: center;
+      font-weight: bold;
+      color: #063d2c;
+    }
+
+    .verification-title {
+      color: #063d2c;
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+
+    .verification-text {
+      color: #333;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+
+      .certificate-content {
+        padding: 35px 25px 25px;
+      }
+
+      .certificate-title {
+        font-size: 32px;
+      }
+
+      .student-name {
+        font-size: 29px;
+      }
+
+      .course-name {
+        font-size: 23px;
+      }
+
+      .certificate-info {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .info-box:nth-child(2) {
+        border-right: none;
+      }
+
+      .certificate-bottom {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .completion-area {
+        order: 3;
+      }
+
+      .verification {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media print {
+      .certificate-section {
+        background: white;
+        padding: 0;
+      }
+
+      .certificate-card {
+        box-shadow: none;
+      }
+    }
+  </style>
+
+
   <div class="certificate-card">
 
-    <!-- HEADER -->
-    <div class="certificate-header">
+    <div class="certificate-content">
 
-      <div class="graduation-hat">🎓</div>
+      <!-- HEADER -->
+      <div class="certificate-header">
 
-      <h1>LEARNHUB ACADEMY</h1>
+        <div class="certificate-logo">🎓</div>
 
-      <p class="certificate-title">
-        CERTIFICATE OF COMPLETION
-      </p>
+        <h2 class="academy-name">
+          LEARNHUB ACADEMY
+        </h2>
 
-      <div class="coat-of-arms">
-        🇿🇦
-        <div>COAT OF ARMS</div>
-        <small>REPUBLIC OF SOUTH AFRICA</small>
+        <div class="academy-tagline">
+          — DIGITAL LEARNING & SKILLS DEVELOPMENT —
+        </div>
+
+        <h1 class="certificate-title">
+          CERTIFICATE OF COMPLETION
+        </h1>
+
+        <div class="orange-line"></div>
+
+        <p class="certify-text">
+          This is to certify that
+        </p>
+
+        <div class="student-name">
+          TSHEPISO LETSOALO
+        </div>
+
+        <p class="completion-text">
+          has successfully completed the training on
+        </p>
+
+        <div class="course-name">
+          Python Programming – Beginner Level
+        </div>
+
+        <p class="course-description">
+          An introductory course covering the fundamentals of Python
+          programming, including syntax, data types, variables,
+          control flow, functions and more.
+        </p>
+
       </div>
 
-    </div>
 
-    <!-- CERTIFICATE BODY -->
-    <div class="certificate-body">
+      <!-- CERTIFICATE INFORMATION -->
+      <div class="certificate-info">
 
-      <p class="certificate-intro">
-        This certificate is proudly presented to
-      </p>
+        <div class="info-box">
+          <div class="info-label">Learner ID</div>
+          <div class="info-value">LH-000125</div>
+        </div>
 
-      <h2 id="certificateLearnerName">
-        Tshepiso Letsoalo
-      </h2>
+        <div class="info-box">
+          <div class="info-label">Issued Date</div>
+          <div class="info-value">25 May 2026</div>
+        </div>
 
-      <p class="certificate-text">
-        for successfully completing the
-      </p>
+        <div class="info-box">
+          <div class="info-label">Verification Code</div>
+          <div class="info-value">LH-VR-8K42P</div>
+        </div>
 
-      <h3>
-        Python Programming
-      </h3>
-
-      <div class="level-badge">
-        LEVEL 01
-      </div>
-
-      <!-- COMPLETED CIRCLE -->
-      <div class="completed-area">
-
-        <div class="completed-circle">
-
-          <div class="stars">
-            ★ ★ ★
-          </div>
-
-          <div class="completed-text">
-            COMPLETED
-          </div>
-
+        <div class="info-box">
+          <div class="info-label">Learning Hours</div>
+          <div class="info-value">10 Hours</div>
         </div>
 
       </div>
 
-      <!-- CERTIFICATE DETAILS -->
-      <div class="certificate-details">
 
-        <div>
-          <span>Certificate ID</span>
-          <strong id="certificateID">
-            LH-PY-2026-001
-          </strong>
-        </div>
+      <!-- SIGNATURES + COMPLETED -->
+      <div class="certificate-bottom">
 
-        <div>
-          <span>Issue Date</span>
-          <strong id="certificateDate">
-            25 August 2026
-          </strong>
-        </div>
+        <!-- DEVELOPER SIGNATURE -->
+        <div class="signature">
 
-      </div>
-
-      <!-- SIGNATURES -->
-      <div class="signatures">
-
-        <div class="signature-box">
-
-          <div class="signature-line">
-            ✍️
+          <div class="signature-script">
+            Tshepiso Letsoalo
           </div>
+
+          <div class="signature-line"></div>
 
           <div class="signature-name">
-            LearnHub Developer
+            Tshepiso Letsoalo
           </div>
 
           <div class="signature-role">
-            Course & Platform Developer
+            Founder & Developer
           </div>
 
         </div>
 
-        <div class="signature-box">
 
-          <div class="signature-line">
-            ✍️
+        <!-- LEARNHUB LOGO -->
+        <div class="center-logo">
+
+          <div class="center-logo-icon">
+            🎓
           </div>
 
-          <div class="signature-name">
-            LearnHub Academy
+          <div class="center-logo-name">
+            LEARN<span>HUB</span>
           </div>
 
-          <div class="signature-role">
-            Digital Learning Platform
+          <div class="center-logo-subtitle">
+            ACADEMY
+          </div>
+
+          <div class="center-logo-subtitle">
+            Digital Learning & Skills Development
+          </div>
+
+        </div>
+
+
+        <!-- COMPLETED NOW AT BOTTOM RIGHT -->
+        <div class="completion-area">
+
+          <div class="completed-badge">
+
+            <div class="completed-check">
+              ✓
+            </div>
+
+            <div class="completed-text">
+              COMPLETED
+            </div>
+
+            <div class="stars">
+              ★ ★ ★
+            </div>
+
+          </div>
+
+          <div class="certificate-id">
+            Certificate ID:<br>
+            <strong>LH-CERT-2026-000125</strong>
           </div>
 
         </div>
 
       </div>
+
+
+      <!-- CONTACT DETAILS -->
+      <div class="contact-section">
+
+        <div class="contact-title">
+          LEARNHUB ACADEMY — OFFICIAL CONTACT
+        </div>
+
+        <div class="contact-details">
+
+          📧 <strong>Email:</strong>
+          letsoalotshepiso221@gmail.com
+
+          &nbsp;&nbsp; | &nbsp;&nbsp;
+
+          📱 <strong>Phone:</strong>
+          079 945 9656 / 069 348 4366
+
+        </div>
+
+      </div>
+
 
       <!-- VERIFICATION -->
       <div class="verification">
 
-        <div class="verification-title">
-          CERTIFICATE VERIFICATION
+        <div class="qr-placeholder">
+          QR<br>
+          VERIFY
         </div>
 
-        <div class="verification-text">
-          Certificate ID:
-          <strong id="verificationID">
-            LH-PY-2026-001
-          </strong>
-        </div>
+        <div>
 
-        <!-- QR CODE -->
-        <div class="qr-area">
-
-          <div class="qr-placeholder">
-            <div class="qr-pattern">
-              ▣ ▣ ▣ ▣ ▣<br>
-              ▣ ▫ ▣ ▫ ▣<br>
-              ▣ ▣ ▫ ▣ ▣<br>
-              ▫ ▣ ▣ ▫ ▣<br>
-              ▣ ▣ ▣ ▣ ▣
-            </div>
+          <div class="verification-title">
+            🔐 VERIFY THIS CERTIFICATE
           </div>
 
-          <div class="qr-text">
-            SCAN TO VERIFY
+          <div class="verification-text">
+            Scan the QR code to verify this certificate
+            or visit your LearnHub verification page.
+            <br>
+
+            <strong>
+              Certificate:
+              LH-CERT-2026-000125
+            </strong>
+
           </div>
 
         </div>
-
-        <div class="verification-text">
-          This certificate may be verified through the official
-          LearnHub certificate verification system.
-        </div>
-
-      </div>
-
-      <!-- CONTACT -->
-      <div class="certificate-contact">
-
-        <strong>LearnHub Academy</strong>
-
-        <br>
-
-        📧 letsoalotshepiso221@gmail.com
-
-        <br>
-
-        📞 079 945 9656 / 069 348 4366
-
-      </div>
-
-      <div class="certificate-footer">
-
-        © 2026 LearnHub Academy • Digital Learning & Skills Development
-
-        <br>
-
-        This is a LearnHub-issued educational certificate and does not by itself
-        constitute a government qualification or government endorsement.
 
       </div>
 
@@ -188,75 +582,4 @@
 
   </div>
 
-  <!-- BUTTONS -->
-  <div class="certificate-buttons">
-
-    <button onclick="window.print()">
-      🖨️ Print / Save Certificate
-    </button>
-
-    <button onclick="downloadCertificateInfo()">
-      📜 Certificate Details
-    </button>
-
-  </div>
-
-
-  <script>
-
-    function downloadCertificateInfo() {
-
-      const learner =
-        document.getElementById("certificateLearnerName").innerText;
-
-      const certificateID =
-        document.getElementById("certificateID").innerText;
-
-      const date =
-        document.getElementById("certificateDate").innerText;
-
-      const text =
-`LEARNHUB ACADEMY
-CERTIFICATE OF COMPLETION
-
-Learner: ${learner}
-
-Course: Python Programming
-
-Level: Level 01
-
-Status: COMPLETED
-
-Certificate ID: ${certificateID}
-
-Issue Date: ${date}
-
-Email: letsoalotshepiso221@gmail.com
-
-Phone: 079 945 9656 / 069 348 4366
-
-LearnHub Academy
-Digital Learning • Skills • Technology`;
-
-      const blob =
-        new Blob([text], {type: "text/plain"});
-
-      const url =
-        URL.createObjectURL(blob);
-
-      const link =
-        document.createElement("a");
-
-      link.href = url;
-
-      link.download =
-        "LearnHub-Certificate-Details.txt";
-
-      link.click();
-
-      URL.revokeObjectURL(url);
-    }
-
-  </script>
-
-</section>
+  </section>
