@@ -4,16 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>LearnHub | Learn. Grow. Succeed.</title>
+  <title>LearnHub - Learn. Build. Grow.</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
+      margin: 0;
       background: #f4f7fb;
       color: #222;
     }
@@ -22,16 +18,15 @@
       background: #2563eb;
       color: white;
       text-align: center;
-      padding: 35px 20px;
+      padding: 30px 15px;
     }
 
     header h1 {
-      margin: 0 0 10px;
-      font-size: 38px;
+      margin: 0;
+      font-size: 36px;
     }
 
     header p {
-      margin: 0;
       font-size: 18px;
     }
 
@@ -39,77 +34,56 @@
       background: white;
       padding: 15px;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    nav a {
-      margin: 0 10px;
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: bold;
+    nav button,
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      margin: 6px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    button:hover {
+      opacity: 0.9;
     }
 
     main {
       max-width: 900px;
       margin: auto;
-      padding: 25px 20px;
+      padding: 20px;
     }
 
     section {
       background: white;
-      margin: 25px 0;
+      margin: 20px 0;
       padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .course-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .course-card {
-      background: #f8fafc;
-      padding: 20px;
       border-radius: 12px;
-      border: 1px solid #ddd;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
     }
 
-    button {
-      display: block;
-      width: 100%;
-      max-width: 400px;
-      margin: 15px auto;
-      padding: 14px;
-      border: none;
-      border-radius: 10px;
-      background: #2563eb;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #1d4ed8;
+    .lesson {
+      border-left: 5px solid #2563eb;
     }
 
     pre {
       background: #111827;
-      color: white;
+      color: #f9fafb;
       padding: 15px;
-      border-radius: 10px;
+      border-radius: 8px;
       overflow-x: auto;
     }
 
     footer {
       text-align: center;
+      padding: 25px;
       background: #111827;
       color: white;
-      padding: 25px;
       margin-top: 30px;
     }
   </style>
@@ -118,359 +92,298 @@
 <body>
 
   <header>
-    <h1>🎓 LearnHub</h1>
-    <p>Learn. Grow. Succeed.</p>
+    <h1>🚀 LearnHub</h1>
+    <p>Learn. Build. Grow.</p>
   </header>
 
   <nav>
-    <a href="#courses">Courses</a>
-    <a href="#lessons">Lessons</a>
-    <a href="#progress">Progress</a>
-    <a href="#certificate">Certificate</a>
+    <button onclick="document.getElementById('web-course').scrollIntoView({behavior:'smooth'})">
+      💻 Web Development
+    </button>
+
+    <button onclick="document.getElementById('python-course').scrollIntoView({behavior:'smooth'})">
+      🐍 Python
+    </button>
+
+    <button onclick="showProgress()">
+      📊 My Progress
+    </button>
   </nav>
 
   <main>
 
-    <!-- COURSES -->
-    <section id="courses">
-      <h2>📚 LearnHub Courses</h2>
+    <!-- WEB DEVELOPMENT -->
+    <section id="web-course">
+      <h2>💻 Web Development</h2>
 
-      <div class="course-grid">
+      <p>
+        Learn the basics of building websites using HTML, CSS and JavaScript.
+      </p>
 
-        <div class="course-card">
-          <h3>💻 Web Development</h3>
-          <p>Learn HTML, CSS and JavaScript.</p>
-          <strong>Beginner</strong>
-          <button onclick="startLearning()">Start Course</button>
-        </div>
+      <div class="lesson">
+        <h3>Lesson 1: HTML Basics</h3>
 
-        <div class="course-card">
-          <h3>🐍 Python Programming</h3>
-          <p>Learn Python programming from the basics.</p>
-          <strong>Beginner</strong>
-          <button onclick="comingSoon('Python Programming')">
-            Start Course
-          </button>
-        </div>
+        <p>
+          HTML is used to create the structure of a webpage.
+        </p>
 
-        <div class="course-card">
-          <h3>🤖 Artificial Intelligence</h3>
-          <p>Learn AI and modern technology.</p>
-          <strong>Beginner</strong>
-          <button onclick="comingSoon('Artificial Intelligence')">
-            Start Course
-          </button>
-        </div>
+        <pre><code>
+&lt;h1&gt;Hello LearnHub!&lt;/h1&gt;
+&lt;p&gt;Welcome to my website.&lt;/p&gt;
+        </code></pre>
 
-        <div class="course-card">
-          <h3>💼 Career Skills</h3>
-          <p>Build useful skills for your career.</p>
-          <strong>Beginner</strong>
-          <button onclick="comingSoon('Career Skills')">
-            Start Course
-          </button>
-        </div>
+        <button onclick="alert('🎉 HTML is the structure of a webpage!')">
+          ▶️ Try Lesson
+        </button>
 
+        <button onclick="completeLesson('Web Development Lesson 1')">
+          ✅ Complete Lesson 1
+        </button>
+      </div>
+
+      <div class="lesson">
+        <h3>Lesson 2: CSS Basics</h3>
+
+        <p>
+          CSS is used to style webpages.
+        </p>
+
+        <pre><code>
+body {
+  background: lightblue;
+}
+        </code></pre>
+
+        <button onclick="alert('🎨 CSS makes websites look beautiful!')">
+          ▶️ Try Lesson
+        </button>
+
+        <button onclick="completeLesson('Web Development Lesson 2')">
+          ✅ Complete Lesson 2
+        </button>
+      </div>
+
+      <div class="lesson">
+        <h3>Lesson 3: JavaScript Basics</h3>
+
+        <p>
+          JavaScript makes webpages interactive.
+        </p>
+
+        <pre><code>
+alert("Hello from JavaScript!");
+        </code></pre>
+
+        <button onclick="alert('⚡ JavaScript makes websites interactive!')">
+          ▶️ Try Lesson
+        </button>
+
+        <button onclick="completeLesson('Web Development Lesson 3')">
+          ✅ Complete Lesson 3
+        </button>
       </div>
     </section>
 
-    <!-- LESSONS -->
-    <section id="lessons">
-      <h2>📖 Web Development Lessons</h2>
 
-      <h3 id="lesson1">Lesson 1: HTML Basics</h3>
+    <!-- PYTHON COURSE -->
+    <section id="python-course">
+
+      <h2>🐍 Python Basics</h2>
+
       <p>
-        HTML is used to create the structure of web pages.
+        Learn Python programming step by step.
       </p>
 
-      <ul>
-        <li>Headings</li>
-        <li>Paragraphs</li>
-        <li>Buttons</li>
-        <li>Images</li>
-        <li>Links</li>
-      </ul>
+      <!-- PYTHON LESSON 1 -->
+      <div class="lesson">
+        <h3>🐍 Lesson 1: Introduction to Python</h3>
 
-      <button onclick="completeLesson(1)">
-        ✅ Complete Lesson 1
-      </button>
-<!-- Python Lesson 2 -->
-<div class="lesson">
-  <h2>🐍 Python Lesson 2: Variables</h2>
+        <p>
+          Python is a programming language used for websites,
+          applications, automation and AI.
+        </p>
 
-  <p>A variable is used to store information in Python.</p>
+        <pre><code>
+name = "LearnHub"
+print(name)
+        </code></pre>
 
-  <pre><code>
-name = "Tshepiso Letsoalo"
-age = 35
+        <button onclick="alert('Hello from Python! 🐍')">
+          ▶️ Try Python
+        </button>
+
+        <button onclick="completeLesson('Python Lesson 1')">
+          ✅ Complete Python Lesson 1
+        </button>
+      </div>
+
+
+      <!-- PYTHON LESSON 2 -->
+      <div class="lesson">
+        <h3>🐍 Lesson 2: Variables</h3>
+
+        <p>
+          Variables store information in Python.
+        </p>
+
+        <pre><code>
+name = "Student"
+age = 18
 
 print(name)
 print(age)
-  </code></pre>
+        </code></pre>
 
-  <p>💡 <strong>Remember:</strong> Variables can store names, numbers, and other information.</p>
+        <button onclick="alert('Variables store information! 🐍')">
+          ▶️ Try Python
+        </button>
 
-  <button onclick="alert('name = Tshepiso\\nage = 29')">
-    ▶️ Try Python
-  </button>
+        <button onclick="completeLesson('Python Lesson 2')">
+          ✅ Complete Python Lesson 2
+        </button>
+      </div>
 
-  <button onclick="alert('🎉 Python Lesson 2 completed! 🐍')">
-    ✅ Complete Python Lesson 2
-  </button>
-</div><!-- Python Lesson 3 -->
-<div class="lesson">
-  <h2>🐍 Python Lesson 3: Input</h2>
 
-  <p>Python can ask the user for information using <strong>input()</strong>.</p>
+      <!-- PYTHON LESSON 3 -->
+      <div class="lesson">
+        <h3>🐍 Lesson 3: Input</h3>
 
-  <pre><code>
+        <p>
+          Python can ask the user for information using input().
+        </p>
+
+        <pre><code>
 name = input("What is your name? ")
 print("Hello " + name)
-  </code></pre>
+        </code></pre>
 
-  <p>💡 <strong>Remember:</strong> <code>input()</code> allows the user to type an answer.</p>
+        <button onclick="let name = prompt('What is your name?'); if (name) alert('Hello ' + name + '! 🐍');">
+          ▶️ Try Python
+        </button>
 
-  <button onclick="let name = prompt('What is your name?'); alert('Hello ' + name + '! 🐍')">
-    ▶️ Try Python
-  </button>
+        <button onclick="completeLesson('Python Lesson 3')">
+          ✅ Complete Python Lesson 3
+        </button>
+      </div>
 
-  <button onclick="alert('🎉 Python Lesson 3 completed! 🐍')">
-    ✅ Complete Python Lesson 3
-  </button>
-</div>
-      <hr>
 
-      <h3 id="lesson2">Lesson 2: CSS Basics</h3>
-      <p>
-        CSS is used to style and design websites.
-      </p>
+      <!-- PYTHON LESSON 4 -->
+      <div class="lesson">
+        <h3>🐍 Lesson 4: If Statements</h3>
 
-      <ul>
-        <li>🎨 Colors</li>
-        <li>🔤 Fonts</li>
-        <li>📏 Sizes</li>
-        <li>📦 Spacing</li>
-        <li>📐 Layout</li>
-      </ul>
+        <p>
+          An if statement allows Python to make decisions.
+        </p>
 
-      <pre><code>
-p {
-  color: blue;
-  font-size: 20px;
-}
-      </code></pre>
+        <pre><code>
+age = 18
 
-      <button onclick="completeLesson(2)">
-        ✅ Complete Lesson 2
-      </button>
+if age >= 18:
+    print("You are an adult")
+        </code></pre>
 
-      <hr>
+        <button onclick="alert('If the condition is true, Python runs the code! 🐍')">
+          ▶️ Try Python
+        </button>
 
-      <h3 id="lesson3">Lesson 3: JavaScript Basics</h3>
-      <p>
-        JavaScript makes websites interactive.
-      </p>
+        <button onclick="completeLesson('Python Lesson 4')">
+          ✅ Complete Python Lesson 4
+        </button>
+      </div>
 
-      <ul>
-        <li>🖱️ Button interactions</li>
-        <li>💬 Messages</li>
-        <li>🧮 Calculations</li>
-        <li>🎮 Interactive features</li>
-      </ul>
-
-      <pre><code>
-function sayHello() {
-  alert("Hello from LearnHub!");
-}
-      </code></pre>
-
-      <button onclick="alert('Hello from LearnHub!')">
-        ▶️ Try JavaScript
-      </button>
-
-      <button onclick="completeLesson(3)">
-        ✅ Complete Lesson 3
-      </button>
     </section>
+
 
     <!-- PROGRESS -->
     <section id="progress">
+
       <h2>📊 My Progress</h2>
 
       <p id="progressText">
-        Completed lessons: 0 / 3
+        Completed lessons: 0
       </p>
 
       <button onclick="showProgress()">
         📊 Check My Progress
       </button>
+
     </section>
+
 
     <!-- CERTIFICATE -->
     <section id="certificate">
+
       <h2>🏆 Course Certificate</h2>
 
       <p>
-        Complete all 3 Web Development lessons to unlock your certificate.
+        Keep completing lessons to unlock your LearnHub certificate.
       </p>
 
       <button onclick="showCertificate()">
         📜 Get My Certificate
       </button>
+
     </section>
-<section id="python-course">
-  <h2>🐍 Python Basics</h2>
 
-  <p>
-    Learn the basics of Python programming step by step.
-  </p>
-
-  <h3>Lesson 1: Introduction to Python</h3>
-
-  <p>
-    Python is a programming language used to build websites,
-    applications, automation tools, and AI systems.
-  </p>
-
-  <ul>
-    <li>🐍 Python basics</li>
-    <li>📦 Variables</li>
-    <li>🔢 Numbers</li>
-    <li>📝 Text and strings</li>
-  </ul>
-
-  <pre><code>
-name = "LearnHub"
-print(name)
-  </code></pre>
-
-  <button onclick="alert('Hello from Python! 🐍')">
-    ▶️ Try Python
-  </button><button onclick="alert('🎉 Python Lesson 1 completed! 🐍')">
-  ✅ Complete Python Lesson 1
-  </button>
-</section>
   </main>
 
+
   <footer>
-    <p>🎓 LearnHub — Learn. Grow. Succeed.</p>
+    <p>© 2026 LearnHub | Learn. Build. Grow. 🚀</p>
   </footer>
+
 
   <script>
 
     let completedLessons = [];
 
-    function startLearning() {
-      document.getElementById("lessons").scrollIntoView({
-        behavior: "smooth"
-      });
+    function completeLesson(lesson) {
 
-      alert("Welcome to Web Development! 🚀");
-    }
-
-    function comingSoon(courseName) {
-      alert(courseName + " is coming soon! 🚀");
-    }
-
-    function completeLesson(lessonNumber) {
-
-      if (!completedLessons.includes(lessonNumber)) {
-        completedLessons.push(lessonNumber);
+      if (!completedLessons.includes(lesson)) {
+        completedLessons.push(lesson);
       }
 
-      updateProgress();
+      document.getElementById("progressText").innerText =
+        "Completed lessons: " + completedLessons.length;
 
-      alert(
-        "🎉 Lesson " +
-        lessonNumber +
-        " completed!"
-      );
+      alert("🎉 " + lesson + " completed!");
     }
 
-    function updateProgress() {
-
-      document.getElementById("progressText").textContent =
-        "Completed lessons: " +
-        completedLessons.length +
-        " / 3";
-    }
 
     function showProgress() {
 
-      if (completedLessons.length === 3) {
+      if (completedLessons.length === 0) {
+        alert("📚 You haven't completed any lessons yet. Keep learning!");
+      } else {
+        alert(
+          "🎉 You have completed " +
+          completedLessons.length +
+          " lesson(s)!"
+        );
+      }
+
+    }
+
+
+    function showCertificate() {
+
+      if (completedLessons.length >= 7) {
 
         alert(
-          "📊 LEARNHUB PROGRESS\n\n" +
-          "Lesson 1: Completed ✅\n" +
-          "Lesson 2: Completed ✅\n" +
-          "Lesson 3: Completed ✅\n\n" +
-          "🏆 Course completed!\n" +
-          "Your certificate is now unlocked."
+          "🏆 Congratulations! You completed the LearnHub course!"
         );
 
       } else {
 
         alert(
-          "📊 LEARNHUB PROGRESS\n\n" +
-          "Completed: " +
-          completedLessons.length +
-          " / 3 lessons\n\n" +
-          "Keep learning! 🚀"
-        );
-      }
-    }
-
-    function showCertificate() {
-
-      if (completedLessons.length < 3) {
-
-        alert(
-          "🔒 Certificate Locked\n\n" +
-          "Please complete all 3 lessons first."
+          "📚 Keep learning! Complete all 7 lessons to unlock your certificate."
         );
 
-        return;
       }
 
-      const learnerName = prompt(
-        "Enter your full name:"
-      );
-
-      if (!learnerName) {
-
-        alert(
-          "Please enter your name to receive your certificate."
-        );
-
-        return;
-      }
-
-      const certificateNumber =
-        "LH-" +
-        Date.now();
-
-      const completionDate =
-        new Date().toLocaleDateString();
-
-      alert(
-        "🏆 LEARNHUB CERTIFICATE\n\n" +
-        "Certificate of Completion\n\n" +
-        "Awarded to:\n" +
-        learnerName +
-        "\n\n" +
-        "Course:\n" +
-        "Web Development\n\n" +
-        "Completion Date:\n" +
-        completionDate +
-        "\n\n" +
-        "Certificate No:\n" +
-        certificateNumber +
-        "\n\n" +
-        "🎉 Congratulations!"
-      );
     }
 
   </script>
 
 </body>
-</html>      
+</html>
