@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>LearnHub Certificate Verification</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .verification-card {
+      width: 100%;
+      max-width: 600px;
+      background: white;
+      border-radius: 20px;
+      padding: 35px 25px;
+      text-align: center;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+    }
+
+    .logo {
+      font-size: 55px;
+    }
+
+    h1 {
+      margin: 10px 0;
+      font-size: 30px;
+    }
+
+    .verified {
+      margin: 25px 0;
+      padding: 18px;
+      border-radius: 12px;
+      background: #e8f7ee;
+      color: #176b3a;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .details {
+      text-align: left;
+      margin-top: 25px;
+    }
+
+    .detail {
+      padding: 13px 5px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+
+    .invalid {
+      background: #fdeaea;
+      color: #a51d1d;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 13px 22px;
+      background: #222;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 13px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="verification-card">
+
+    <div class="logo">🎓</div>
+
+    <h1>LearnHub Academy</h1>
+
+    <p>Certificate Verification</p>
+
+    <div id="status" class="verified">
+      🔄 Checking certificate...
+    </div>
+
+    <div id="certificateDetails"
+         class="details"
+         style="display:none;">
+
+      <div class="detail">
+        <span class="label">👤 Learner:</span>
+        <span id="learnerName"></span>
+      </div>
+
+      <div class="detail">
+        <span class="label">🆔 Learner ID:</span>
+        <span id="learnerId"></span>
+      </div>
+
+      <div class="detail">
+        <span class="label">📜 Certificate ID:</span>
+        <span id="certificateId"></span>
+      </div>
+
+      <div class="detail">
+        <span class="label">🔐 Verification Code:</span>
+        <span id="verificationCode"></span>
+      </div>
+
+      <div class="detail">
+        <span class="label">📚 Course:</span>
+        <span id="course"></span>
+      </div>
+
+      <div class="detail">
+        <span class="label">📅 Status:</span>
+        <span>Valid Certificate</span>
+      </div>
+
+    </div>
+
+    <a href="index.html" class="back-button">
+      🏠 Back to LearnHub
+    </a>
+
+    <div class="footer">
+      © 2026 LearnHub Academy<br>
+      Digital Learning & Skills Development
+    </div>
+
+  </div>
+
+
+  <script>
+
+    /* =====================================
+       LEARNHUB CERTIFICATE VERIFICATION
+       ===================================== */
+
+    const params =
+      new URLSearchParams(window.location.search);
+
+
+    const certificate =
+      params.get("certificate");
+
+    const learner =
+      params.get("learner");
+
+    const code =
+      params.get("code");
+
+
+    const status =
+      document.getElementById("status");
+
+
+    const details =
+      document.getElementById("certificateDetails");
+
+
+    /*
+       Check whether the QR contains
+       the required certificate information.
+    */
+
+    if (certificate && learner && code) {
+
+      status.innerHTML =
+        "✅ CERTIFICATE VERIFIED";
+
+      status.classList.add("verified");
+
+
+      document.getElementById("learnerName")
+        .textContent = learner;
+
+
+      document.getElementById("certificateId")
+        .textContent = certificate;
+
+
+      document.getElementById("verificationCode")
+        .textContent = code;
+
+
+      /*
+         Learner ID and course can be
+         displayed from the certificate
+         system when those values are
+         later connected to a database.
+      */
+
+      document.getElementById("learnerId")
+        .textContent = "LearnHub Learner";
+
+
+      document.getElementById("course")
+        .textContent = "Python Programming";
+
+
+      details.style.display = "block";
+
+
+    } else {
+
+      status.innerHTML =
+        "❌ CERTIFICATE NOT VERIFIED";
+
+      status.classList.remove("verified");
+
+      status.classList.add("invalid");
+
+    }
+
+  </script>
+
+</body>
+</html>
