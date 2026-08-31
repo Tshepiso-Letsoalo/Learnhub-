@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>LearnHub | All-in-One Learning Platform</title>
-
-<style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>LearnHub | All-in-One Learning Platform</title><style>
 *{box-sizing:border-box}
 
 body{
@@ -145,21 +140,11 @@ pre{
   font-weight:bold;
 }
 
-.badge{
-  display:inline-block;
-  padding:7px 12px;
-  border-radius:20px;
-  background:#e5a72b;
-  color:#07543f;
-  font-weight:bold;
-}
-
 .certificate{
   background:white;
   border:10px solid #07543f;
   padding:30px;
   text-align:center;
-  position:relative;
   box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
@@ -226,14 +211,6 @@ pre{
   border-radius:10px;
 }
 
-footer{
-  background:#063d2f;
-  color:white;
-  text-align:center;
-  padding:25px;
-  margin-top:30px;
-}
-
 input{
   width:100%;
   padding:12px;
@@ -242,227 +219,460 @@ input{
   margin:8px 0;
 }
 
+footer{
+  background:#063d2f;
+  color:white;
+  text-align:center;
+  padding:25px;
+  margin-top:30px;
+}
+
 @media(max-width:600px){
   header h1{font-size:27px}
   nav button{font-size:12px}
   .certificate h1{font-size:27px}
   .cert-name{font-size:23px}
 }
-</style>
-</head>
-
-<body>
-
-<header>
+</style></head><body><header>
   <h1>🎓 LearnHub</h1>
   <p>Learn • Grow • Get Certified • Build Your Future</p>
-</header>
-
-<nav>
+</header><nav>
   <button onclick="show('home')">🏠 Home</button>
   <button onclick="show('learning')">📚 Learning</button>
   <button onclick="show('certificate')">🏆 Certificate</button>
   <button onclick="show('careers')">💼 Careers</button>
   <button onclick="show('services')">🧩 Services</button>
   <button onclick="show('community')">👥 Community</button>
-</nav>
-
-<main>
-
-<!-- HOME -->
-<section id="home" class="section active">
-
-<div class="card hero">
+</nav><main><!-- HOME --><section id="home" class="section active"><div class="card hero">
   <h2>Welcome to LearnHub</h2>
-  <p>Your all-in-one learning and career platform.</p>
-  <button class="primary" onclick="show('learning')">
+  <p>Your all-in-one learning and career platform.</p>  <button class="primary" onclick="show('learning')">
     🚀 Start Learning
   </button>
-</div>
-
-<div class="card">
-  <h2>📈 Your Learning Progress</h2>
-
-  <div class="progress-box">
+</div><div class="card">
+  <h2>📈 Your Learning Progress</h2>  <div class="progress-box">
     <div id="progressBar" class="progress-bar">0%</div>
-  </div>
-
-  <p id="progressText">0 of 6 lessons completed.</p>
-</div>
-
-<div class="service-grid">
-
-<div class="service">
+  </div>  <p id="progressText">0 of 6 lessons completed.</p>
+</div><div class="service-grid"><div class="service">
   <div class="icon">📚</div>
   <h3>Free Learning</h3>
   <p>Learn practical digital skills at your own pace.</p>
   <button class="primary" onclick="show('learning')">Learn</button>
-</div>
-
-<div class="service">
+</div><div class="service">
   <div class="icon">🏆</div>
   <h3>Certificates</h3>
   <p>Complete your lessons and unlock your certificate.</p>
   <button class="primary" onclick="show('certificate')">Certificate</button>
-</div>
-
-<div class="service">
+</div><div class="service">
   <div class="icon">💼</div>
   <h3>Career Centre</h3>
   <p>Explore careers, jobs and opportunities.</p>
   <button class="primary" onclick="show('careers')">Open</button>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- LEARNING -->
-<section id="learning" class="section">
-
-<div class="card">
+</div></div></section><!-- LEARNING --><section id="learning" class="section"><div class="card">
   <h2>📚 LearnHub Learning</h2>
-  <p>Complete all six lessons to unlock your certificate.</p>
-
-  <div class="progress-box">
+  <p>Complete all six lessons to unlock your certificate.</p>  <div class="progress-box">
     <div id="learningProgress" class="progress-bar">0%</div>
   </div>
-</div>
-
-
-<!-- WEB DEVELOPMENT -->
-
-<div class="card">
-  <h2>🌐 Web Development</h2>
-  <h3>Lesson 1 — HTML Basics</h3>
-
-  <p>HTML is used to create the structure of webpages.</p>
-
-  <pre>&lt;h1&gt;Hello LearnHub&lt;/h1&gt;
-&lt;p&gt;Welcome to my website.&lt;/p&gt;</pre>
-
-  <button class="primary" onclick="lessonDone('web1')">
+</div><!-- WEB DEVELOPMENT --><div class="card">
+  <h2>🌐 Web Development</h2>  <h3>Lesson 1 — HTML Basics</h3>  <p>HTML is used to create the structure of webpages.</p>  <pre>&lt;h1&gt;Hello LearnHub&lt;/h1&gt;
+&lt;p&gt;Welcome to my website.&lt;/p&gt;</pre>  <button class="primary" onclick="lessonDone('web1')">
     ✅ Complete Lesson
   </button>
-</div>
-
-
-<div class="card">
-  <h3>Lesson 2 — CSS Basics</h3>
-
-  <p>CSS controls the appearance and layout of a webpage.</p>
-
-  <pre>body {
+</div><div class="card">  <h3>Lesson 2 — CSS Basics</h3>  <p>CSS controls the appearance and layout of a webpage.</p>  <pre>body {
   background: green;
   color: white;
-}</pre>
-
-  <button class="primary" onclick="lessonDone('web2')">
+}</pre>  <button class="primary" onclick="lessonDone('web2')">
     ✅ Complete Lesson
   </button>
-</div>
-
-
-<div class="card">
-  <h3>Lesson 3 — JavaScript Basics</h3>
-
-  <p>JavaScript adds interaction and functionality to websites.</p>
-
-  <pre>function hello(){
+</div><div class="card">  <h3>Lesson 3 — JavaScript Basics</h3>  <p>JavaScript adds interaction and functionality to websites.</p>  <pre>function hello(){
   alert("Hello LearnHub!");
-}</pre>
-
-  <button class="primary" onclick="lessonDone('web3')">
+}</pre>  <button class="primary" onclick="lessonDone('web3')">
     ✅ Complete Lesson
   </button>
-</div>
-
-
-<!-- PYTHON -->
-
-<div class="card">
-  <h2>🐍 Python Basics</h2>
-  <h3>Lesson 1 — Introduction to Python</h3>
-
-  <p>Python is a programming language used to build software, websites and automation.</p>
-
-  <pre>name = "LearnHub"
-print(name)</pre>
-
-  <button class="primary" onclick="lessonDone('python1')">
+</div><!-- PYTHON --><div class="card">  <h2>🐍 Python Basics</h2>  <h3>Lesson 1 — Introduction to Python</h3>  <p>Python is a programming language used to build software, websites and automation.</p>  <pre>name = "LearnHub"
+print(name)</pre>  <button class="primary" onclick="lessonDone('python1')">
     ✅ Complete Lesson
   </button>
-</div>
-
-
-<div class="card">
-  <h3>Lesson 2 — Variables</h3>
-
-  <p>Variables store information that your program can use.</p>
-
-  <pre>name = "Tshepiso"
+</div><div class="card">  <h3>Lesson 2 — Variables</h3>  <p>Variables store information that your program can use.</p>  <pre>name = "Learner"
 age = 29
 
 print(name)
-print(age)</pre>
-
-  <button class="primary" onclick="lessonDone('python2')">
+print(age)</pre>  <button class="primary" onclick="lessonDone('python2')">
     ✅ Complete Lesson
   </button>
-</div>
-
-
-<div class="card">
-  <h3>Lesson 3 — Python Functions</h3>
-
-  <p>Functions allow you to organise reusable pieces of code.</p>
-
-  <pre>def greet():
+</div><div class="card">  <h3>Lesson 3 — Python Functions</h3>  <p>Functions allow you to organise reusable pieces of code.</p>  <pre>def greet():
     print("Welcome to LearnHub!")
 
-greet()</pre>
-
-  <button class="primary" onclick="lessonDone('python3')">
+greet()</pre>  <button class="primary" onclick="lessonDone('python3')">
     ✅ Complete Lesson
   </button>
-</div>
-
-
-<div class="card">
-  <h2>🎯 Course Completion</h2>
-  <p id="completionMessage">
+</div><div class="card">  <h2>🎯 Course Completion</h2>  <p id="completionMessage">
     Complete all lessons to unlock your certificate.
-  </p>
-
-  <button class="primary" onclick="showCertificate()">
+  </p>  <button class="primary" onclick="showCertificate()">
     🏆 Check Certificate
-  </button>
+  </button></div></section><!-- CERTIFICATE --><section id="certificate" class="section"><div class="card">  <h2>🏆 LearnHub Certificate</h2>  <p>
+    Complete all six lessons to unlock your certificate.
+  </p>  <div id="certificateArea"><div class="certificate">
+
+  <div class="certificate-inner">
+
+    <div class="coat">🇿🇦</div>
+
+    <h1>CERTIFICATE OF COMPLETION</h1>
+
+    <h2>LearnHub</h2>
+
+    <p>This certificate is proudly presented to</p>
+
+    <div id="certificateName" class="cert-name">
+      Learner Name
+    </div>
+
+    <p>for successfully completing</p>
+
+    <h2>Web Development & Python Basics</h2>
+
+    <p id="certificateDate"></p>
+
+    <div id="certificateId" class="cert-id"></div>
+
+    <div class="completed">
+      ✓ COURSE COMPLETED
+    </div>
+
+    <div class="signature-area">
+
+      <div class="signature">
+        LearnHub
+      </div>
+
+      <div class="signature">
+        Course Administrator
+      </div>
+
+    </div>
+
+    <div class="verification">
+      <strong>Certificate Verification</strong>
+      <p>
+        This certificate can be verified using the certificate ID.
+      </p>
+
+      <p id="verificationCode">
+        Verification ID will appear here.
+      </p>
+    </div>
+
+  </div>
+
 </div>
 
-</section>
+<button class="primary" onclick="printCertificate()">
+  🖨️ Print Certificate
+</button>
+
+  </div></div></section><!-- CAREERS --><section id="careers" class="section"><div class="card">  <h2>💼 LearnHub Career Centre</h2>  <p>Build your skills and discover new career opportunities.</p></div><div class="service-grid"><div class="service">
+  <div class="icon">💻</div>
+  <h3>Technology Jobs</h3>
+  <p>Explore opportunities in software, web development and IT.</p>
+</div><div class="service">
+  <div class="icon">🎓</div>
+  <h3>Internships</h3>
+  <p>Find internships and learnership opportunities.</p>
+</div><div class="service">
+  <div class="icon">📄</div>
+  <h3>CV Builder</h3>
+  <p>Create a professional CV for your next opportunity.</p>
+  <button class="primary" onclick="alert('CV Builder coming soon.')">
+    Open
+  </button>
+</div><div class="service">
+  <div class="icon">🎤</div>
+  <h3>Interview Preparation</h3>
+  <p>Prepare for interviews and improve your confidence.</p>
+</div></div></section><!-- SERVICES --><section id="services" class="section"><div class="card">  <h2>🧩 LearnHub Services</h2>  <p>Useful information and services in one place.</p></div><div class="service-grid"><div class="service">
+  <div class="icon">🏦</div>
+  <h3>Banking & Finance</h3>
+  <p>Access helpful banking and financial information.</p>
+</div><div class="service">
+  <div class="icon">🧾</div>
+  <h3>SARS & UIF</h3>
+  <p>Find guidance for tax, UIF and government services.</p>
+</div><div class="service">
+  <div class="icon">⚖️</div>
+  <h3>Legal Information</h3>
+  <p>Access general legal and court guidance.</p>
+</div><div class="service">
+  <div class="icon">🚨</div>
+  <h3>Emergency Help</h3>
+  <p>Important emergency information and contacts.</p>
+</div><div class="service">
+  <div class="icon">🌱</div>
+  <h3>Farming & Gardening</h3>
+  <p>Learn about gardening, crops and farming.</p>
+</div><div class="service">
+  <div class="icon">💡</div>
+  <h3>Business Opportunities</h3>
+  <p>Discover business and entrepreneurship information.</p>
+</div></div></section><!-- COMMUNITY --><section id="community" class="section"><div class="card">  <h2>👥 LearnHub Community</h2>  <p>Connect, learn and share with other learners.</p><input
+id="communityMessage"
+type="text"
+placeholder="Write a message..."
+
+«»
+
+  <button class="primary" onclick="postMessage()">
+    📤 Post
+  </button></div><div id="communityPosts"></div></section></main><footer><p>© 2026 LearnHub</p><p>
+Learn • Grow • Get Certified • Build Your Future
+</p></footer><script>
+
+const totalLessons = 6;
+
+let completedLessons =
+JSON.parse(localStorage.getItem("learnhubLessons")) || [];
 
 
-<!-- CERTIFICATE -->
-<section id="certificate" class="section">
+function show(sectionId){
 
-<div class="card">
+  document.querySelectorAll(".section").forEach(section => {
+    section.classList.remove("active");
+  });
 
-  <h2>🏆 LearnHub Certificate</h2>
+  const section =
+  document.getElementById(sectionId);
 
-  <p>
-    Your certificate becomes available after completing all six lessons.
-  </p>
+  if(section){
+    section.classList.add("active");
+  }
 
-  <div id="certificateArea">
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
-    <div class="certificate">
+}
 
-      <div class="certificate-inner">
 
-        <div class="coat">🇿🇦</div>
+function lessonDone(lesson){
 
-        <h1>CERTIFICATE OF COMPLETION</h1>
+  if(!completedLessons.includes(lesson)){
 
-       </body>
-      </html>
+    completedLessons.push(lesson);
+
+    localStorage.setItem(
+      "learnhubLessons",
+      JSON.stringify(completedLessons)
+    );
+
+    alert("Lesson completed successfully! 🎉");
+
+  }else{
+
+    alert("You have already completed this lesson.");
+
+  }
+
+  updateProgress();
+
+}
+
+
+function updateProgress(){
+
+  const completed = completedLessons.length;
+
+  const percentage =
+  Math.round((completed / totalLessons) * 100);
+
+  const progressBar =
+  document.getElementById("progressBar");
+
+  const learningProgress =
+  document.getElementById("learningProgress");
+
+  const progressText =
+  document.getElementById("progressText");
+
+  if(progressBar){
+
+    progressBar.style.width =
+    percentage + "%";
+
+    progressBar.textContent =
+    percentage + "%";
+
+  }
+
+  if(learningProgress){
+
+    learningProgress.style.width =
+    percentage + "%";
+
+    learningProgress.textContent =
+    percentage + "%";
+
+  }
+
+  if(progressText){
+
+    progressText.textContent =
+    completed +
+    " of " +
+    totalLessons +
+    " lessons completed.";
+
+  }
+
+  const message =
+  document.getElementById("completionMessage");
+
+  if(message){
+
+    if(completed === totalLessons){
+
+      message.innerHTML =
+      "🎉 Congratulations! You completed all six lessons. Your certificate is unlocked.";
+
+    }else{
+
+      message.innerHTML =
+      "Complete all six lessons to unlock your certificate.";
+
+    }
+
+  }
+
+}
+
+
+function showCertificate(){
+
+  if(completedLessons.length < totalLessons){
+
+    alert(
+      "Please complete all six lessons before unlocking your certificate."
+    );
+
+    show("learning");
+
+    return;
+
+  }
+
+  const learnerName =
+  prompt(
+    "Enter your full name for your certificate:"
+  );
+
+  if(!learnerName){
+
+    alert("Please enter your name.");
+
+    return;
+
+  }
+
+  const today =
+  new Date();
+
+  const date =
+  today.toLocaleDateString(
+    "en-ZA",
+    {
+      year:"numeric",
+      month:"long",
+      day:"numeric"
+    }
+  );
+
+  const certificateId =
+  "LH-" +
+  Date.now();
+
+  document.getElementById(
+    "certificateName"
+  ).textContent =
+  learnerName;
+
+  document.getElementById(
+    "certificateDate"
+  ).textContent =
+  "Completed on " + date;
+
+  document.getElementById(
+    "certificateId"
+  ).textContent =
+  "Certificate ID: " + certificateId;
+
+  document.getElementById(
+    "verificationCode"
+  ).textContent =
+  "Verification ID: " + certificateId;
+
+  show("certificate");
+
+}
+
+
+function printCertificate(){
+
+  window.print();
+
+}
+
+
+function postMessage(){
+
+  const input =
+  document.getElementById(
+    "communityMessage"
+  );
+
+  const message =
+  input.value.trim();
+
+  if(!message){
+
+    alert("Please write a message first.");
+
+    return;
+
+  }
+
+  const post =
+  document.createElement("div");
+
+  post.className =
+  "card";
+
+  post.innerHTML =
+  "<strong>LearnHub Learner</strong><p>" +
+  escapeHTML(message) +
+  "</p>";
+
+  document
+  .getElementById("communityPosts")
+  .prepend(post);
+
+  input.value = "";
+
+}
+
+
+function escapeHTML(text){
+
+  const div =
+  document.createElement("div");
+
+  div.textContent =
+  text;
+
+  return div.innerHTML;
+
+}
+
+
+updateProgress();
+
+</script></body>
+        </html>
