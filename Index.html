@@ -1,55 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>LearnHub | Learn. Grow. Get Hired.</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
 
-:root{
-  --primary:#1769aa;
-  --secondary:#0b8f55;
-  --dark:#102a43;
-  --light:#f4f8fb;
-  --white:#fff;
-  --text:#243b53;
-  --muted:#627d98;
-  --border:#d9e2ec;
-  --danger:#d64545;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:var(--light);
-  color:var(--text);
-  line-height:1.5;
+  background:#f4f7f6;
+  color:#222;
 }
 
-button,input,textarea,select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-.navbar{
-  background:var(--dark);
+nav{
+  background:#102a43;
   color:white;
-  padding:15px 5%;
+  padding:15px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:15px;
-  position:sticky;
-  top:0;
-  z-index:1000;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
 .logo{
-  font-size:24px;
+  font-size:25px;
   font-weight:bold;
 }
 
@@ -57,33 +41,23 @@ button{
   color:#4dd599;
 }
 
-.nav-links{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
-
-.nav-links button{
+nav button{
   background:transparent;
   color:white;
   border:0;
-  padding:9px 12px;
-  border-radius:7px;
-}
-
-.nav-links button:hover{
-  background:rgba(255,255,255,.15);
+  padding:9px;
+  cursor:pointer;
 }
 
 .container{
-  width:90%;
+  width:92%;
   max-width:1200px;
   margin:auto;
 }
 
 .page{
   display:none;
-  padding:35px 0 60px;
+  padding:30px 0;
 }
 
 .page.active{
@@ -91,162 +65,134 @@ button{
 }
 
 .hero{
-  background:linear-gradient(135deg,#102a43,#1769aa);
+  background:#1769aa;
   color:white;
-  padding:55px 30px;
-  border-radius:18px;
-  margin-bottom:30px;
+  padding:45px 25px;
+  border-radius:15px;
+  margin-bottom:25px;
 }
 
 .hero h1{
-  font-size:42px;
-  margin-bottom:12px;
+  font-size:40px;
+  margin-bottom:10px;
 }
 
 .hero p{
-  max-width:700px;
   font-size:18px;
-  opacity:.95;
-}
-
-.btn{
-  border:0;
-  border-radius:8px;
-  padding:11px 18px;
-  margin-top:15px;
-  font-weight:bold;
-}
-
-.btn-primary{
-  background:#1769aa;
-  color:white;
-}
-
-.btn-success{
-  background:#0b8f55;
-  color:white;
-}
-
-.btn-light{
-  background:white;
-  color:#1769aa;
-}
-
-.btn-danger{
-  background:#d64545;
-  color:white;
-}
-
-.section-title{
-  margin:25px 0 18px;
+  max-width:700px;
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:20px;
+  margin-top:20px;
 }
 
 .card{
   background:white;
-  border:1px solid var(--border);
-  border-radius:14px;
   padding:22px;
-  box-shadow:0 3px 12px rgba(0,0,0,.05);
+  border-radius:12px;
+  border:1px solid #ddd;
+  margin-bottom:18px;
 }
 
+.card h2,
 .card h3{
-  margin-bottom:8px;
-}
-
-.card p{
-  color:var(--muted);
-}
-
-.icon{
-  font-size:38px;
   margin-bottom:10px;
 }
 
-.stat{
-  text-align:center;
+.card p{
+  color:#555;
 }
 
-.stat strong{
-  display:block;
-  font-size:30px;
-  color:var(--primary);
+.icon{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.btn{
+  border:0;
+  padding:11px 17px;
+  border-radius:7px;
+  margin-top:12px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.primary{
+  background:#1769aa;
+  color:white;
+}
+
+.success{
+  background:#0b8f55;
+  color:white;
+}
+
+.light{
+  background:white;
+  color:#1769aa;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  padding:12px;
+  margin:7px 0 15px;
+  border:1px solid #ccc;
+  border-radius:7px;
+}
+
+textarea{
+  min-height:100px;
 }
 
 .progress{
-  background:#e5edf3;
-  height:12px;
+  width:100%;
+  height:13px;
+  background:#ddd;
   border-radius:20px;
   overflow:hidden;
-  margin:12px 0;
+  margin:10px 0;
 }
 
 .progress-bar{
   height:100%;
-  background:var(--secondary);
   width:0%;
-  transition:.3s;
+  background:#0b8f55;
 }
 
-input,textarea,select{
-  width:100%;
-  padding:12px;
-  border:1px solid var(--border);
-  border-radius:8px;
-  margin:7px 0 15px;
-  background:white;
-}
-
-label{
-  font-weight:bold;
+.badge{
+  display:inline-block;
+  background:#e5f7ed;
+  color:#087443;
+  padding:5px 9px;
+  border-radius:15px;
+  font-size:13px;
+  margin-top:8px;
 }
 
 .lesson{
-  border-left:5px solid var(--primary);
-  margin:15px 0;
+  border-left:5px solid #1769aa;
 }
 
 .lesson.completed{
-  border-left-color:var(--secondary);
-}
-
-.lesson-number{
-  color:var(--primary);
-  font-weight:bold;
-}
-
-.quiz-option{
-  display:block;
-  width:100%;
-  text-align:left;
-  background:white;
-  border:1px solid var(--border);
-  padding:12px;
-  margin:8px 0;
-  border-radius:8px;
-}
-
-.quiz-option:hover{
-  background:#eef6ff;
+  border-left-color:#0b8f55;
 }
 
 .certificate{
   background:white;
-  border:10px double #1769aa;
-  padding:45px;
+  border:8px double #1769aa;
+  padding:45px 20px;
   text-align:center;
-  min-height:450px;
   margin-top:20px;
 }
 
 .certificate h1{
-  font-size:40px;
   color:#1769aa;
+  font-size:38px;
   margin:20px 0;
 }
 
@@ -256,38 +202,12 @@ label{
   margin:20px;
 }
 
-.badge{
-  display:inline-block;
-  background:#e8f7ef;
-  color:#087443;
-  padding:5px 10px;
-  border-radius:20px;
-  font-size:13px;
-  font-weight:bold;
-}
-
-.search{
-  max-width:500px;
-}
-
-.job{
-  border-left:5px solid #0b8f55;
-}
-
-footer{
-  background:var(--dark);
-  color:white;
-  text-align:center;
-  padding:30px 10px;
-  margin-top:30px;
-}
-
 .modal{
   display:none;
   position:fixed;
+  z-index:1000;
   inset:0;
   background:rgba(0,0,0,.7);
-  z-index:2000;
   padding:20px;
   overflow:auto;
 }
@@ -295,62 +215,47 @@ footer{
 .modal-box{
   background:white;
   max-width:800px;
-  margin:40px auto;
-  border-radius:15px;
+  margin:30px auto;
   padding:25px;
+  border-radius:12px;
 }
 
 .close{
   float:right;
   border:0;
   background:#eee;
-  border-radius:50%;
   width:35px;
   height:35px;
+  border-radius:50%;
+  cursor:pointer;
 }
 
-.notice{
-  padding:14px;
-  background:#eef6ff;
-  border-left:5px solid var(--primary);
-  margin:15px 0;
+footer{
+  background:#102a43;
+  color:white;
+  text-align:center;
+  padding:30px;
+  margin-top:30px;
 }
 
-.success{
-  padding:14px;
-  background:#e8f7ef;
-  border-left:5px solid var(--secondary);
-  margin:15px 0;
-}
-
-@media(max-width:700px){
-  .navbar{
-    align-items:flex-start;
-    flex-direction:column;
-  }
-
-  .nav-links{
-    width:100%;
-  }
-
-  .nav-links button{
-    font-size:13px;
-  }
+@media(max-width:600px){
 
   .hero h1{
     font-size:30px;
   }
 
-  .certificate{
-    padding:25px 12px;
+  nav{
+    display:block;
   }
 
-  .certificate h1{
-    font-size:30px;
+  nav button{
+    margin-top:5px;
   }
+
 }
 
 @media print{
+
   body *{
     visibility:hidden;
   }
@@ -366,16 +271,18 @@ footer{
     top:0;
     width:100%;
   }
+
 }
+
 </style>
+
 </head>
 
 <body>
-
-<nav class="navbar">
+  <nav>
   <div class="logo">Learn<span>Hub</span></div>
 
-  <div class="nav-links">
+  <div>
     <button onclick="showPage('home')">Home</button>
     <button onclick="showPage('courses')">Courses</button>
     <button onclick="showPage('career')">Career</button>
@@ -392,113 +299,134 @@ footer{
 
   <div class="hero">
     <h1>Learn. Grow. Get Hired.</h1>
+
     <p>
-      Welcome to LearnHub — your all-in-one learning and career platform.
-      Learn practical skills, complete courses, earn certificates and prepare
-      yourself for employment.
+      Welcome to LearnHub — an all-in-one learning and career
+      platform. Learn practical skills, earn certificates and
+      prepare yourself for employment.
     </p>
 
-    <button class="btn btn-light" onclick="showPage('courses')">
+    <button class="btn light" onclick="showPage('courses')">
       Start Learning
     </button>
   </div>
 
   <div class="grid">
 
-    <div class="card stat">
-      <strong id="statCourses">2</strong>
-      Courses
-    </div>
-
-    <div class="card stat">
-      <strong id="statCompleted">0</strong>
-      Lessons Completed
-    </div>
-
-    <div class="card stat">
-      <strong id="statCertificates">0</strong>
-      Certificates
-    </div>
-
-    <div class="card stat">
-      <strong id="statApplications">0</strong>
-      Applications
-    </div>
-
-  </div>
-
-  <h2 class="section-title">What LearnHub Offers</h2>
-
-  <div class="grid">
-
     <div class="card">
       <div class="icon">📚</div>
-      <h3>Online Courses</h3>
-      <p>Learn useful digital and career skills at your own pace.</p>
+      <h3>Courses</h3>
+      <p>Learn practical digital and career skills.</p>
     </div>
 
     <div class="card">
       <div class="icon">🏆</div>
       <h3>Certificates</h3>
-      <p>Complete courses and generate printable certificates.</p>
+      <p>Complete courses and earn certificates.</p>
     </div>
 
     <div class="card">
       <div class="icon">💼</div>
       <h3>Career Centre</h3>
-      <p>Prepare your CV, interviews and job applications.</p>
+      <p>Prepare for jobs and interviews.</p>
     </div>
 
     <div class="card">
-      <div class="icon">🔎</div>
-      <h3>Certificate Verification</h3>
-      <p>Employers can check a LearnHub certificate number.</p>
+      <div class="icon">📄</div>
+      <h3>CV Builder</h3>
+      <p>Create a professional CV.</p>
     </div>
 
   </div>
+
 </section>
 
 
 <!-- COURSES -->
 <section id="courses" class="page">
 
-  <h1>📚 Courses</h1>
-  <p>Choose a course and start learning.</p>
+  <h1>📚 LearnHub Courses</h1>
+
+  <p>
+    Choose a course and start learning.
+  </p>
 
   <div class="grid">
 
     <div class="card">
+
       <div class="icon">💻</div>
-      <h3>Web Development</h3>
-      <p>Learn HTML, CSS and JavaScript basics.</p>
-      <span class="badge">Beginner</span>
+
+      <h2>Web Development</h2>
+
+      <p>
+        Learn HTML, CSS and JavaScript.
+      </p>
+
+      <span class="badge">
+        Beginner
+      </span>
+
       <br>
-      <button class="btn btn-primary"
-              onclick="openCourse('web')">
+
+      <button
+        class="btn primary"
+        onclick="openCourse('web')">
+
         Open Course
+
       </button>
+
     </div>
 
+
     <div class="card">
+
       <div class="icon">🐍</div>
-      <h3>Python Basics</h3>
-      <p>Learn programming fundamentals using Python.</p>
-      <span class="badge">Beginner</span>
+
+      <h2>Python Basics</h2>
+
+      <p>
+        Learn programming fundamentals
+        using Python.
+      </p>
+
+      <span class="badge">
+        Beginner
+      </span>
+
       <br>
-      <button class="btn btn-primary"
-              onclick="openCourse('python')">
+
+      <button
+        class="btn primary"
+        onclick="openCourse('python')">
+
         Open Course
+
       </button>
+
     </div>
 
+
     <div class="card">
-      <div class="icon">📈</div>
-      <h3>Coming Soon</h3>
-      <p>More practical courses will be added to LearnHub.</p>
-      <span class="badge">Soon</span>
+
+      <div class="icon">📊</div>
+
+      <h2>More Courses</h2>
+
+      <p>
+        More courses will be added to
+        LearnHub.
+      </p>
+
+      <span class="badge">
+        Coming Soon
+      </span>
+
     </div>
 
   </div>
+
 </section>
 
 
@@ -506,48 +434,100 @@ footer{
 <section id="career" class="page">
 
   <h1>🎯 Career Centre</h1>
-  <p>Prepare yourself for your next opportunity.</p>
+
+  <p>
+    Everything you need to prepare for employment.
+  </p>
 
   <div class="grid">
 
     <div class="card">
+
       <div class="icon">📄</div>
+
       <h3>CV Builder</h3>
-      <p>Create a professional CV using your information.</p>
-      <button class="btn btn-primary" onclick="showPage('cv')">
-        Build My CV
+
+      <p>
+        Create your professional CV.
+      </p>
+
+      <button
+        class="btn primary"
+        onclick="showPage('cv')">
+
+        Build CV
+
       </button>
+
     </div>
 
+
     <div class="card">
+
       <div class="icon">🎤</div>
+
       <h3>Interview Preparation</h3>
-      <p>Practice common interview questions.</p>
-      <button class="btn btn-primary" onclick="showPage('interview')">
+
+      <p>
+        Practice common interview questions.
+      </p>
+
+      <button
+        class="btn primary"
+        onclick="showPage('interview')">
+
         Practice
+
       </button>
+
     </div>
 
+
     <div class="card">
+
       <div class="icon">💼</div>
+
       <h3>Jobs & Learnerships</h3>
-      <p>Explore opportunities and keep track of applications.</p>
-      <button class="btn btn-primary" onclick="showPage('jobs')">
-        Find Opportunities
+
+      <p>
+        Find opportunities and save
+        applications.
+      </p>
+
+      <button
+        class="btn primary"
+        onclick="showPage('jobs')">
+
+        Opportunities
+
       </button>
+
     </div>
 
+
     <div class="card">
-      <div class="icon">🏢</div>
-      <h3>Employer Portal</h3>
-      <p>Verify a learner's LearnHub certificate.</p>
-      <button class="btn btn-primary"
-              onclick="showPage('verify')">
-        Verify Certificate
+
+      <div class="icon">🔎</div>
+
+      <h3>Certificate Verification</h3>
+
+      <p>
+        Employers can verify LearnHub
+        certificates.
+      </p>
+
+      <button
+        class="btn primary"
+        onclick="showPage('verify')">
+
+        Verify
+
       </button>
+
     </div>
 
   </div>
+
 </section>
 
 
@@ -555,56 +535,89 @@ footer{
 <section id="jobs" class="page">
 
   <h1>💼 Jobs & Learnerships</h1>
-  <p>Opportunity section for LearnHub learners.</p>
+
+  <p>
+    Explore opportunities available through
+    the LearnHub career centre.
+  </p>
 
   <input
-    class="search"
     id="jobSearch"
+    placeholder="Search jobs, internships or learnerships..."
     oninput="filterJobs()"
-    placeholder="Search jobs, learnerships or internships..."
   >
 
   <div id="jobsList">
 
     <div class="card job opportunity">
-      <h3>Junior Web Developer</h3>
-      <p><strong>Type:</strong> Entry Level</p>
-      <p><strong>Skills:</strong> HTML, CSS, JavaScript</p>
-      <p>Build websites and assist with web projects.</p>
-      <button class="btn btn-success"
-              onclick="applyJob('Junior Web Developer')">
-        Apply / Save
+
+      <h2>Junior Web Developer</h2>
+
+      <p>
+        Entry-level web development opportunity.
+      </p>
+
+      <p>
+        Skills: HTML, CSS, JavaScript
+      </p>
+
+      <button
+        class="btn success"
+        onclick="applyJob('Junior Web Developer')">
+
+        Save Opportunity
+
       </button>
+
     </div>
+
 
     <div class="card job opportunity">
-      <h3>IT Learnership</h3>
-      <p><strong>Type:</strong> Learnership</p>
-      <p><strong>Skills:</strong> Computer literacy, IT basics</p>
-      <p>Entry-level opportunity for people developing IT skills.</p>
-      <button class="btn btn-success"
-              onclick="applyJob('IT Learnership')">
-        Apply / Save
+
+      <h2>IT Learnership</h2>
+
+      <p>
+        Entry-level IT learning opportunity.
+      </p>
+
+      <p>
+        Skills: Computer literacy and IT basics
+      </p>
+
+      <button
+        class="btn success"
+        onclick="applyJob('IT Learnership')">
+
+        Save Opportunity
+
       </button>
+
     </div>
+
 
     <div class="card job opportunity">
-      <h3>Software Development Internship</h3>
-      <p><strong>Type:</strong> Internship</p>
-      <p><strong>Skills:</strong> Programming and problem solving</p>
-      <p>Gain practical experience in software development.</p>
-      <button class="btn btn-success"
-              onclick="applyJob('Software Development Internship')">
-        Apply / Save
+
+      <h2>Software Development Internship</h2>
+
+      <p>
+        Gain practical software development
+        experience.
+      </p>
+
+      <p>
+        Skills: Programming and problem solving
+      </p>
+
+      <button
+        class="btn success"
+        onclick="applyJob('Software Development Internship')">
+
+        Save Opportunity
+
       </button>
+
     </div>
 
-  </div>
-
-  <div class="notice">
-    <strong>Important:</strong>
-    These are demonstration opportunities inside the prototype.
-    Real-time job listings can be connected to external job APIs later.
   </div>
 
 </section>
@@ -618,44 +631,74 @@ footer{
   <div class="card">
 
     <label>Full Name</label>
-    <input id="profileName" placeholder="Enter your full name">
+
+    <input
+      id="profileName"
+      placeholder="Enter your full name"
+    >
+
 
     <label>Email</label>
-    <input id="profileEmail" type="email" placeholder="Enter your email">
+
+    <input
+      id="profileEmail"
+      type="email"
+      placeholder="Enter your email"
+    >
+
 
     <label>Location</label>
-    <input id="profileLocation" placeholder="City / Province">
+
+    <input
+      id="profileLocation"
+      placeholder="City / Province"
+    >
+
 
     <label>Skills</label>
+
     <textarea
       id="profileSkills"
       placeholder="HTML, CSS, JavaScript, Python..."
     ></textarea>
 
-    <button class="btn btn-success" onclick="saveProfile()">
+
+    <button
+      class="btn success"
+      onclick="saveProfile()">
+
       Save Profile
+
     </button>
 
     <div id="profileMessage"></div>
 
   </div>
 
+
   <div class="card">
-    <h2>Your Learning Progress</h2>
+
+    <h2>Learning Progress</h2>
 
     <div class="progress">
-      <div class="progress-bar" id="profileProgress"></div>
+
+      <div
+        class="progress-bar"
+        id="profileProgress">
+      </div>
+
     </div>
 
     <p id="profileProgressText">
       0% completed
     </p>
+
   </div>
 
 </section>
 
 
-<!-- CV -->
+<!-- CV BUILDER -->
 <section id="cv" class="page">
 
   <h1>📄 CV Builder</h1>
@@ -663,32 +706,67 @@ footer{
   <div class="card">
 
     <label>Full Name</label>
-    <input id="cvName" placeholder="Your name">
+
+    <input
+      id="cvName"
+      placeholder="Your full name"
+    >
+
 
     <label>Phone</label>
-    <input id="cvPhone" placeholder="Phone number">
+
+    <input
+      id="cvPhone"
+      placeholder="Phone number"
+    >
+
 
     <label>Email</label>
-    <input id="cvEmail" placeholder="Email address">
+
+    <input
+      id="cvEmail"
+      placeholder="Email address"
+    >
+
 
     <label>Professional Summary</label>
-    <textarea id="cvSummary"
-      placeholder="Write a short professional summary"></textarea>
+
+    <textarea
+      id="cvSummary"
+      placeholder="Write a short professional summary">
+    </textarea>
+
 
     <label>Education</label>
-    <textarea id="cvEducation"
-      placeholder="Your education"></textarea>
+
+    <textarea
+      id="cvEducation"
+      placeholder="Your education">
+    </textarea>
+
 
     <label>Skills</label>
-    <textarea id="cvSkills"
-      placeholder="Your skills"></textarea>
+
+    <textarea
+      id="cvSkills"
+      placeholder="Your skills">
+    </textarea>
+
 
     <label>Work Experience</label>
-    <textarea id="cvExperience"
-      placeholder="Your work experience"></textarea>
 
-    <button class="btn btn-primary" onclick="generateCV()">
+    <textarea
+      id="cvExperience"
+      placeholder="Your work experience">
+    </textarea>
+
+
+    <button
+      class="btn primary"
+      onclick="generateCV()">
+
       Generate CV
+
     </button>
 
   </div>
@@ -704,38 +782,68 @@ footer{
   <h1>🎤 Interview Preparation</h1>
 
   <div class="card">
+
     <h3>Question 1</h3>
-    <p>Tell me about yourself.</p>
-    <textarea placeholder="Write your answer here..."></textarea>
+
+    <p>
+      Tell me about yourself.
+    </p>
+
+    <textarea
+      placeholder="Write your answer...">
+    </textarea>
+
   </div>
 
+
   <div class="card">
+
     <h3>Question 2</h3>
-    <p>Why should we hire you?</p>
-    <textarea placeholder="Write your answer here..."></textarea>
+
+    <p>
+      Why should we hire you?
+    </p>
+
+    <textarea
+      placeholder="Write your answer...">
+    </textarea>
+
   </div>
 
+
   <div class="card">
+
     <h3>Question 3</h3>
-    <p>What are your strengths?</p>
-    <textarea placeholder="Write your answer here..."></textarea>
+
+    <p>
+      What are your strengths?
+    </p>
+
+    <textarea
+      placeholder="Write your answer...">
+    </textarea>
+
   </div>
+
 
   <div class="card">
-    <h3>Question 4</h3>
-    <p>Where do you see yourself in five years?</p>
-    <textarea placeholder="Write your answer here..."></textarea>
-  </div>
 
-  <div class="success">
-    💡 Tip: Keep your answers clear, honest and focused on your
-    skills and experience.
+    <h3>Question 4</h3>
+
+    <p>
+      Where do you see yourself in five years?
+    </p>
+
+    <textarea
+      placeholder="Write your answer...">
+    </textarea>
+
   </div>
 
 </section>
 
 
-<!-- VERIFY -->
+<!-- CERTIFICATE VERIFICATION -->
 <section id="verify" class="page">
 
   <h1>🔎 Certificate Verification</h1>
@@ -743,16 +851,20 @@ footer{
   <div class="card">
 
     <p>
-      Enter a LearnHub certificate number to verify a certificate
-      generated on this device.
+      Enter a LearnHub certificate number.
     </p>
 
-    <input id="verifyNumber"
-           placeholder="Example: LH-123456">
+    <input
+      id="verifyNumber"
+      placeholder="Example: LH-123456"
+    >
 
-    <button class="btn btn-primary"
-            onclick="verifyCertificate()">
-      Verify
+    <button
+      class="btn primary"
+      onclick="verifyCertificate()">
+
+      Verify Certificate
+
     </button>
 
     <div id="verificationResult"></div>
@@ -760,15 +872,12 @@ footer{
   </div>
 
 </section>
-
-
-<!-- COURSE MODAL -->
-<div class="modal" id="courseModal">
+<!-- COURSE WINDOW -->
+<div id="courseModal" class="modal">
 
   <div class="modal-box">
 
-    <button class="close"
-            onclick="closeCourse()">×</button>
+    <button class="close" onclick="closeCourse()">×</button>
 
     <div id="courseContent"></div>
 
@@ -777,7 +886,7 @@ footer{
 </div>
 
 
-<!-- CERTIFICATE -->
+<!-- CERTIFICATE PAGE -->
 <section id="certificatePage" class="page">
 
   <div id="certificateArea" class="certificate">
@@ -800,268 +909,946 @@ footer{
 
     <br>
 
-    <p>Completion Date:</p>
+    <p>Completion Date</p>
+
     <strong id="certificateDate"></strong>
 
     <br><br>
 
-    <p>Certificate Number:</p>
+    <p>Certificate Number</p>
+
     <strong id="certificateNumber"></strong>
 
     <br><br>
 
-    <p>LearnHub — Learn. Grow. Get Hired.</p>
+    <p>
+      LearnHub — Learn. Grow. Get Hired.
+    </p>
 
   </div>
 
-  <button class="btn btn-primary"
-          onclick="window.print()">
+  <button
+    class="btn primary"
+    onclick="window.print()">
+
     🖨️ Print Certificate
+
   </button>
 
-  <button class="btn btn-success"
-          onclick="showPage('courses')">
+  <button
+    class="btn success"
+    onclick="showPage('courses')">
+
     Back to Courses
+
   </button>
 
 </section>
+
 
 </main>
 
 
 <footer>
+
   <h3>LearnHub</h3>
-  <p>Learn. Grow. Get Hired.</p>
-  <p>© 2026 LearnHub. All rights reserved.</p>
+
+  <p>
+    Learn. Grow. Get Hired.
+  </p>
+
+  <p>
+    © 2026 LearnHub. All rights reserved.
+  </p>
+
 </footer>
 
 
 <script>
 
+
+// ===============================
+// LEARNHUB DATA
+// ===============================
+
 const webLessons = [
+
   {
     title:"HTML Basics",
-    text:"HTML is the standard language used to structure content on web pages. Learn headings, paragraphs, links, images and basic page structure."
+    text:
+    "HTML is the language used to structure web pages. Learn headings, paragraphs, links, images and basic page structure."
   },
+
   {
     title:"CSS Basics",
-    text:"CSS is used to style web pages. Learn colours, fonts, spacing, borders, layouts and responsive design."
+    text:
+    "CSS is used to style websites. Learn colours, fonts, spacing, borders, layouts and responsive design."
   },
+
   {
     title:"JavaScript Basics",
-    text:"JavaScript adds behaviour and interactivity to websites. Learn variables, functions, conditions and basic events."
+    text:
+    "JavaScript makes websites interactive. Learn variables, functions, conditions and basic events."
   }
+
 ];
+
 
 const pythonLessons = [
+
   {
     title:"Python Introduction",
-    text:"Python is a popular programming language used for web development, automation, data analysis and artificial intelligence."
+    text:
+    "Python is a popular programming language used for web development, automation, data analysis and artificial intelligence."
   },
+
   {
     title:"Python Variables",
-    text:"Variables store information. Learn strings, numbers, booleans and basic assignment."
+    text:
+    "Variables store information. Learn strings, numbers, booleans and basic assignment."
   },
+
   {
     title:"Python Conditions",
-    text:"Conditional statements allow programs to make decisions using if, elif and else."
+    text:
+    "Conditions allow programs to make decisions using if, elif and else."
   },
+
   {
     title:"Python Functions",
-    text:"Functions allow you to organise reusable pieces of code."
+    text:
+    "Functions allow programmers to organise reusable pieces of code."
   }
+
 ];
 
-let data = JSON.parse(
+
+// ===============================
+// SAVE USER DATA
+// ===============================
+
+let data =
+JSON.parse(
   localStorage.getItem("learnhubData")
 ) || {
+
   completed:[],
+
   certificates:[],
+
   applications:[],
+
   profile:{}
+
 };
 
 
 function saveData(){
+
   localStorage.setItem(
     "learnhubData",
     JSON.stringify(data)
   );
+
 }
 
+
+// ===============================
+// PAGE NAVIGATION
+// ===============================
 
 function showPage(id){
 
-  document.querySelectorAll(".page")
-    .forEach(p=>p.classList.remove("active"));
+  document
+    .querySelectorAll(".page")
+    .forEach(function(page){
 
-  const page=document.getElementById(id);
+      page.classList.remove("active");
+
+    });
+
+
+  const page =
+    document.getElementById(id);
+
 
   if(page){
+
     page.classList.add("active");
+
     window.scrollTo(0,0);
+
   }
 
+
   updateStats();
+
 }
 
+
+// ===============================
+// STATISTICS
+// ===============================
 
 function updateStats(){
 
-  document.getElementById("statCompleted").textContent =
-    data.completed.length;
-
-  document.getElementById("statCertificates").textContent =
-    data.certificates.length;
-
-  document.getElementById("statApplications").textContent =
-    data.applications.length;
-
-  const total =
+  const totalLessons =
     webLessons.length +
     pythonLessons.length;
 
+
+  const completed =
+    data.completed.length;
+
+
   const percentage =
-    Math.round((data.completed.length / total) * 100);
+    totalLessons === 0
+    ? 0
+    : Math.round(
+        (completed / totalLessons) * 100
+      );
 
-  const bar =
-    document.getElementById("profileProgress");
 
-  if(bar){
-    bar.style.width =
+  const progress =
+    document.getElementById(
+      "profileProgress"
+    );
+
+
+  if(progress){
+
+    progress.style.width =
       Math.min(percentage,100) + "%";
+
   }
 
-  const text =
-    document.getElementById("profileProgressText");
 
-  if(text){
-    text.textContent =
-      Math.min(percentage,100) + "% completed";
+  const progressText =
+    document.getElementById(
+      "profileProgressText"
+    );
+
+
+  if(progressText){
+
+    progressText.textContent =
+      percentage + "% completed";
+
   }
+
 }
 
+
+// ===============================
+// OPEN COURSE
+// ===============================
 
 function openCourse(course){
 
   const lessons =
     course === "web"
-      ? webLessons
-      : pythonLessons;
+    ? webLessons
+    : pythonLessons;
+
 
   const courseName =
     course === "web"
-      ? "Web Development"
-      : "Python Basics";
+    ? "Web Development"
+    : "Python Basics";
+
 
   let html = `
+
     <h1>${courseName}</h1>
-    <p>Complete every lesson to unlock your certificate.</p>
+
+    <p>
+      Complete every lesson to unlock
+      your certificate.
+    </p>
+
   `;
 
-  lessons.forEach((lesson,index)=>{
 
-    const key =
-      course + "-" + index;
+  lessons.forEach(
+    function(lesson,index){
 
-    const completed =
-      data.completed.includes(key);
+      const key =
+        course + "-" + index;
 
-    html += `
-      <div class="card lesson ${completed ? "completed":""}">
-        <span class="lesson-number">
-          Lesson ${index+1}
-        </span>
 
-        <h2>${lesson.title}</h2>
+      const completed =
+        data.completed.includes(key);
 
-        <p>${lesson.text}</p>
 
-        ${
-          completed
-          ? `<p class="badge">✓ Completed</p>`
-          : `
-            <button class="btn btn-success"
-              onclick="completeLesson('${course}',${index})">
-              Complete Lesson
-            </button>
-          `
-        }
-      </div>
-    `;
-  });
+      html += `
+
+        <div class="card lesson
+          ${completed ? "completed" : ""}">
+
+          <span class="lesson-number">
+            Lesson ${index + 1}
+          </span>
+
+          <h2>
+            ${lesson.title}
+          </h2>
+
+          <p>
+            ${lesson.text}
+          </p>
+
+          ${
+            completed
+
+            ?
+
+            `
+              <span class="badge">
+                ✓ Completed
+              </span>
+            `
+
+            :
+
+            `
+              <button
+                class="btn success"
+                onclick="
+                  completeLesson(
+                    '${course}',
+                    ${index}
+                  )
+                ">
+
+                Complete Lesson
+
+              </button>
+            `
+          }
+
+        </div>
+
+      `;
+
+    }
+  );
+
 
   const completedCount =
-    lessons.filter((_,i)=>
-      data.completed.includes(course+"-"+i)
+    lessons.filter(
+      function(_,index){
+
+        return data.completed.includes(
+          course + "-" + index
+        );
+
+      }
     ).length;
 
-  if(completedCount === lessons.length){
+
+  if(
+    completedCount ===
+    lessons.length
+  ){
 
     html += `
-      <div class="success">
-        🎉 You completed the ${courseName} course!
-        <br>
-        <button class="btn btn-primary"
-          onclick="generateCertificate('${course}')">
+
+      <div class="card">
+
+        <h2>
+          🎉 Course Completed!
+        </h2>
+
+        <p>
+          You completed all the lessons.
+        </p>
+
+        <button
+          class="btn primary"
+          onclick="
+            generateCertificate('${course}')
+          ">
+
           🏆 Get Certificate
+
         </button>
+
       </div>
+
     `;
+
   }
 
-  document.getElementById("courseContent").innerHTML =
-    html;
 
-  document.getElementById("courseModal").style.display =
-    "block";
+  document.getElementById(
+    "courseContent"
+  ).innerHTML = html;
+
+
+  document.getElementById(
+    "courseModal"
+  ).style.display = "block";
+
 }
 
+
+// ===============================
+// CLOSE COURSE
+// ===============================
 
 function closeCourse(){
 
-  document.getElementById("courseModal").style.display =
-    "none";
+  document.getElementById(
+    "courseModal"
+  ).style.display = "none";
+
 }
 
 
-function completeLesson(course,index){
+// ===============================
+// COMPLETE LESSON
+// ===============================
+
+function completeLesson(
+  course,
+  index
+){
 
   const key =
     course + "-" + index;
 
-  if(!data.completed.includes(key)){
+
+  if(
+    !data.completed.includes(key)
+  ){
 
     data.completed.push(key);
 
     saveData();
+
     updateStats();
 
     openCourse(course);
+
   }
+
 }
 
+
+// ===============================
+// CERTIFICATE
+// ===============================
 
 function generateCertificate(course){
 
   const lessons =
     course === "web"
-      ? webLessons
-      : pythonLessons;
+    ? webLessons
+    : pythonLessons;
+
 
   const courseName =
     course === "web"
-      ? "Web Development"
-      : "Python Basics";
+    ? "Web Development"
+    : "Python Basics";
+
 
   const complete =
-    lessons.every((_,i)=>
-      data.completed.includes(course+"-"+i)
+    lessons.every(
+      function(_,index){
+
+        return data.completed.includes(
+          course + "-" + index
+        );
+
+      }
     );
 
+
   if(!complete){
-    alert("Complete all lessons first.");
+
+    alert(
+      "Complete all lessons first."
+    );
+
     return;
+
   }
 
-  const 
+
+  const name =
+    data.profile.name ||
+    prompt(
+      "Enter your full name:"
+    );
+
+
+  if(!name){
+
+    return;
+
+  }
+
+
+  const number =
+    "LH-" +
+    Math.floor(
+      100000 +
+      Math.random() * 900000
+    );
+
+
+  const date =
+    new Date().toLocaleDateString();
+
+
+  const certificate = {
+
+    number:number,
+
+    name:name,
+
+    course:courseName,
+
+    date:date
+
+  };
+
+
+  data.certificates.push(
+    certificate
+  );
+
+
+  data.profile.name =
+    name;
+
+
+  saveData();
+
+
+  document.getElementById(
+    "certificateName"
+  ).textContent = name;
+
+
+  document.getElementById(
+    "certificateCourse"
+  ).textContent = courseName;
+
+
+  document.getElementById(
+    "certificateDate"
+  ).textContent = date;
+
+
+  document.getElementById(
+    "certificateNumber"
+  ).textContent = number;
+
+
+  closeCourse();
+
+
+  showPage(
+    "certificatePage"
+  );
+
+}
+
+
+// ===============================
+// PROFILE
+// ===============================
+
+function saveProfile(){
+
+  data.profile = {
+
+    name:
+      document.getElementById(
+        "profileName"
+      ).value,
+
+    email:
+      document.getElementById(
+        "profileEmail"
+      ).value,
+
+    location:
+      document.getElementById(
+        "profileLocation"
+      ).value,
+
+    skills:
+      document.getElementById(
+        "profileSkills"
+      ).value
+
+  };
+
+
+  saveData();
+
+
+  document.getElementById(
+    "profileMessage"
+  ).innerHTML = `
+
+    <div class="card">
+
+      <p>
+        ✓ Profile saved successfully.
+      </p>
+
+    </div>
+
+  `;
+
+}
+
+
+// ===============================
+// LOAD PROFILE
+// ===============================
+
+function loadProfile(){
+
+  const profile =
+    data.profile || {};
+
+
+  document.getElementById(
+    "profileName"
+  ).value =
+    profile.name || "";
+
+
+  document.getElementById(
+    "profileEmail"
+  ).value =
+    profile.email || "";
+
+
+  document.getElementById(
+    "profileLocation"
+  ).value =
+    profile.location || "";
+
+
+  document.getElementById(
+    "profileSkills"
+  ).value =
+    profile.skills || "";
+
+}
+
+
+// ===============================
+// CV BUILDER
+// ===============================
+
+function generateCV(){
+
+  const name =
+    document.getElementById(
+      "cvName"
+    ).value ||
+    "Your Name";
+
+
+  const phone =
+    document.getElementById(
+      "cvPhone"
+    ).value;
+
+
+  const email =
+    document.getElementById(
+      "cvEmail"
+    ).value;
+
+
+  const summary =
+    document.getElementById(
+      "cvSummary"
+    ).value;
+
+
+  const education =
+    document.getElementById(
+      "cvEducation"
+    ).value;
+
+
+  const skills =
+    document.getElementById(
+      "cvSkills"
+    ).value;
+
+
+  const experience =
+    document.getElementById(
+      "cvExperience"
+    ).value;
+
+
+  document.getElementById(
+    "cvResult"
+  ).innerHTML = `
+
+    <div class="card">
+
+      <h1>
+        ${name}
+      </h1>
+
+      <p>
+        ${phone} | ${email}
+      </p>
+
+      <hr>
+
+      <h2>
+        Professional Summary
+      </h2>
+
+      <p>
+        ${summary}
+      </p>
+
+      <h2>
+        Education
+      </h2>
+
+      <p>
+        ${education}
+      </p>
+
+      <h2>
+        Skills
+      </h2>
+
+      <p>
+        ${skills}
+      </p>
+
+      <h2>
+        Work Experience
+      </h2>
+
+      <p>
+        ${experience}
+      </p>
+
+      <button
+        class="btn primary"
+        onclick="window.print()">
+
+        🖨️ Print / Save CV
+
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+// ===============================
+// SAVE JOB
+// ===============================
+
+function applyJob(job){
+
+  if(
+    !data.applications.includes(job)
+  ){
+
+    data.applications.push(job);
+
+    saveData();
+
+    alert(
+      "Opportunity saved: " + job
+    );
+
+  }
+
+  else{
+
+    alert(
+      "You already saved this opportunity."
+    );
+
+  }
+
+}
+
+
+// ===============================
+// SEARCH JOBS
+// ===============================
+
+function filterJobs(){
+
+  const search =
+    document.getElementById(
+      "jobSearch"
+    ).value.toLowerCase();
+
+
+  document
+    .querySelectorAll(".opportunity")
+    .forEach(function(job){
+
+      const text =
+        job.textContent.toLowerCase();
+
+
+      if(text.includes(search)){
+
+        job.style.display =
+          "block";
+
+      }
+
+      else{
+
+        job.style.display =
+          "none";
+
+      }
+
+    });
+
+}
+
+
+// ===============================
+// VERIFY CERTIFICATE
+// ===============================
+
+function verifyCertificate(){
+
+  const number =
+    document.getElementById(
+      "verifyNumber"
+    ).value
+    .trim()
+    .toUpperCase();
+
+
+  const certificate =
+    data.certificates.find(
+      function(certificate){
+
+        return certificate.number === number;
+
+      }
+    );
+
+
+  const result =
+    document.getElementById(
+      "verificationResult"
+    );
+
+
+  if(certificate){
+
+    result.innerHTML = `
+
+      <div class="card">
+
+        <h2>
+          ✓ Certificate Verified
+        </h2>
+
+        <p>
+          <strong>Learner:</strong>
+          ${certificate.name}
+        </p>
+
+        <p>
+          <strong>Course:</strong>
+          ${certificate.course}
+        </p>
+
+        <p>
+          <strong>Date:</strong>
+          ${certificate.date}
+        </p>
+
+        <p>
+          <strong>Certificate Number:</strong>
+          ${certificate.number}
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+  else{
+
+    result.innerHTML = `
+
+      <div class="card">
+
+        <h3>
+          Certificate Not Found
+        </h3>
+
+        <p>
+          Please check the certificate number.
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+// ===============================
+// CLOSE MODAL WHEN CLICKING OUTSIDE
+// ===============================
+
+window.addEventListener(
+  "click",
+  function(event){
+
+    const modal =
+      document.getElementById(
+        "courseModal"
+      );
+
+
+    if(event.target === modal){
+
+      closeCourse();
+
+    }
+
+  }
+);
+
+
+// ===============================
+// START LEARNHUB
+// ===============================
+
+loadProfile();
+
+updateStats();
+
+</script>
+
+</body>
+
+  </html>
