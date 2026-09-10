@@ -4370,7 +4370,40 @@ document
     });
 
 </script>
+<script>
+function updateDashboard() {
+    const data = JSON.parse(localStorage.getItem("learnhubData")) || {};
 
+    const completed = data.completed ? data.completed.length : 0;
+    const total = typeof courseList !== "undefined" ? courseList.length : 0;
+
+    const percent = total > 0
+        ? Math.round((completed / total) * 100)
+        : 0;
+
+    const completedCount = document.getElementById("completedCount");
+    const completedCountLearning = document.getElementById("completedCountLearning");
+    const totalCourses = document.getElementById("totalCourses");
+    const progressPercent = document.getElementById("progressPercent");
+    const progressBar = document.getElementById("progressBar");
+    const courseCount = document.getElementById("courseCount");
+
+    if (completedCount) completedCount.textContent = completed;
+    if (completedCountLearning) completedCountLearning.textContent = completed;
+    if (totalCourses) totalCourses.textContent = total;
+    if (progressPercent) progressPercent.textContent = percent + "%";
+    if (progressBar) progressBar.style.width = percent + "%";
+    if (courseCount) courseCount.textContent = total;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    updateDashboard();
+
+    if (typeof loadProfile === "function") {
+        loadProfile();
+    }
+});
+</script>
 </body>
 </html>    
     
