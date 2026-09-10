@@ -1,1244 +1,4376 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LearnHub | Learn. Grow. Get Hired.</title><style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial,Helvetica,sans-serif;
-}
+<title>LearnHub | Learn. Grow. Get Hired.</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-    background:#f5f7fb;
-    color:#222;
-    line-height:1.6;
+font-family:Arial,Helvetica,sans-serif;
+background:#f4f7fb;
+color:#172033;
+line-height:1.5
 }
 
-nav{
-    background:#111827;
-    color:white;
-    padding:15px 5%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:10px;
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+
+header{
+background:linear-gradient(135deg,#111827,#2563eb);
+color:white;
+padding:16px;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 3px 15px rgba(0,0,0,.15)
+}
+
+.header{
+max-width:1250px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px
 }
 
 .logo{
-    font-size:25px;
-    font-weight:bold;
+font-size:25px;
+font-weight:800
+}
+
+.logo span{color:#fbbf24}
+
+nav{
+max-width:1250px;
+margin:14px auto 0;
+display:flex;
+gap:7px;
+overflow-x:auto
 }
 
 nav button{
-    background:none;
-    border:none;
-    color:white;
-    margin:4px;
-    padding:8px 10px;
-    cursor:pointer;
-    border-radius:6px;
+background:#ffffff18;
+color:white;
+border:0;
+padding:9px 12px;
+border-radius:8px;
+white-space:nowrap
 }
 
-nav button:hover{
-    background:#374151;
+nav button:hover{background:#ffffff35}
+
+.container{
+max-width:1250px;
+margin:auto;
+padding:25px 15px
 }
 
-.page{
-    display:none;
-    padding:35px 5%;
-    min-height:70vh;
-}
-
-.page.active{
-    display:block;
-}
+.section{display:none}
+.section.active{display:block}
 
 .hero{
-    background:#2563eb;
-    color:white;
-    padding:55px 25px;
-    border-radius:15px;
-    text-align:center;
-    margin-bottom:30px;
+background:linear-gradient(135deg,#2563eb,#111827);
+color:white;
+padding:45px 25px;
+border-radius:20px;
+margin-bottom:25px
 }
 
 .hero h1{
-    font-size:42px;
-    margin-bottom:10px;
+font-size:clamp(32px,7vw,55px);
+margin-bottom:12px
 }
 
 .hero p{
-    font-size:18px;
-    margin-bottom:20px;
+font-size:18px;
+max-width:800px
 }
 
 .btn{
-    background:#2563eb;
-    color:white;
-    border:none;
-    padding:11px 18px;
-    border-radius:7px;
-    cursor:pointer;
-    margin:5px 0;
+border:0;
+border-radius:9px;
+padding:11px 17px;
+font-weight:700;
+margin-top:12px
 }
 
-.btn:hover{
-    opacity:.9;
+.primary{background:#fbbf24;color:#111827}
+.blue{background:#2563eb;color:white}
+.green{background:#16a34a;color:white}
+.red{background:#dc2626;color:white}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+gap:15px;
+margin-bottom:25px
 }
 
-.btn.secondary{
-    background:#374151;
+.stat,.card,.academy{
+background:white;
+border-radius:15px;
+padding:20px;
+box-shadow:0 2px 10px rgba(0,0,0,.07)
 }
 
-.btn.success{
-    background:#15803d;
+.stat strong{
+display:block;
+font-size:28px;
+color:#2563eb
 }
 
-.btn.danger{
-    background:#dc2626;
+.search{
+width:100%;
+padding:14px;
+border:1px solid #cbd5e1;
+border-radius:10px;
+background:white;
+margin:15px 0 20px
 }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:20px;
-    margin-top:20px;
+.academy-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+gap:18px
 }
 
-.card{
-    background:white;
-    padding:22px;
-    border-radius:12px;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
+.academy{
+border-top:5px solid #2563eb
 }
 
-.card h3{
-    margin-bottom:8px;
+.academy h3{margin-bottom:7px}
+
+.academy-description{
+color:#64748b;
+font-size:14px;
+margin-bottom:12px
 }
 
-.card p{
-    color:#555;
+.course-list{
+display:grid;
+gap:7px
 }
 
-input,textarea,select{
-    width:100%;
-    padding:11px;
-    margin:7px 0 15px;
-    border:1px solid #ccc;
-    border-radius:7px;
+.course{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:8px;
+background:#f8fafc;
+border:1px solid #e2e8f0;
+padding:9px;
+border-radius:8px
 }
 
-textarea{
-    min-height:100px;
-    resize:vertical;
+.course-name{
+font-size:13px;
+font-weight:600
 }
 
-.progress-box{
-    background:#e5e7eb;
-    border-radius:20px;
-    height:18px;
-    overflow:hidden;
-    margin:10px 0 15px;
+.course button{
+background:#2563eb;
+color:white;
+border:0;
+padding:7px 9px;
+border-radius:7px;
+font-size:12px
+}
+
+.card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px
+}
+
+.form{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 2px 10px rgba(0,0,0,.07)
+}
+
+.group{margin-bottom:15px}
+.group label{display:block;font-weight:bold;margin-bottom:5px}
+
+.group input,.group textarea{
+width:100%;
+padding:12px;
+border:1px solid #cbd5e1;
+border-radius:8px
+}
+
+textarea{min-height:120px}
+
+.progress{
+height:12px;
+background:#e5e7eb;
+border-radius:20px;
+overflow:hidden;
+margin:12px 0
 }
 
 .progress-bar{
-    height:100%;
-    background:#2563eb;
-    width:0%;
-    transition:.3s;
+height:100%;
+background:#16a34a;
+width:0
 }
 
-.lesson{
-    border:1px solid #ddd;
-    padding:15px;
-    border-radius:8px;
-    margin:10px 0;
-    background:#fafafa;
-}
-
-.lesson.completed{
-    border-color:#16a34a;
-    background:#f0fdf4;
+.badge{
+display:inline-block;
+background:#dcfce7;
+color:#166534;
+padding:5px 9px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold
 }
 
 .modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.65);
-    z-index:1000;
-    padding:20px;
-    overflow:auto;
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.7);
+z-index:3000;
+padding:15px;
+overflow:auto
 }
 
-.modal-content{
-    background:white;
-    max-width:750px;
-    margin:30px auto;
-    padding:25px;
-    border-radius:12px;
+.modal.show{
+display:flex;
+align-items:center;
+justify-content:center
+}
+
+.modal-box{
+background:white;
+width:100%;
+max-width:750px;
+max-height:92vh;
+overflow:auto;
+border-radius:16px;
+padding:25px
 }
 
 .close{
-    float:right;
-    font-size:25px;
-    cursor:pointer;
+float:right;
+border:0;
+background:#fee2e2;
+color:#991b1b;
+padding:7px 10px;
+border-radius:7px
+}
+
+.lesson{
+border:1px solid #e2e8f0;
+padding:15px;
+margin:10px 0;
+border-radius:10px
+}
+
+.lesson.completed{
+background:#f0fdf4;
+border-color:#86efac
+}
+
+.price-box{
+background:#eff6ff;
+border:1px solid #bfdbfe;
+padding:20px;
+border-radius:14px;
+margin:20px 0
 }
 
 .certificate{
-    background:white;
-    border:10px solid #2563eb;
-    padding:45px;
-    text-align:center;
-    max-width:900px;
-    margin:20px auto;
-    box-shadow:0 4px 20px rgba(0,0,0,.15);
+background:white;
+border:8px double #d4af37;
+padding:35px 20px;
+text-align:center;
+max-width:900px;
+margin:auto
 }
 
 .certificate h1{
-    font-size:42px;
-    margin-bottom:15px;
+font-size:40px;
+color:#1e3a8a
 }
 
-.certificate .name{
-    font-size:32px;
-    font-weight:bold;
-    margin:20px 0;
+.certificate h2{
+color:#a87900;
+margin:15px 0
 }
 
-.job{
-    border-left:5px solid #2563eb;
+.hat{font-size:48px}
+
+.certificate-name{
+font-size:30px;
+font-weight:bold;
+border-bottom:2px solid #333;
+display:inline-block;
+padding:5px 25px;
+margin:20px
 }
 
-.saved{
-    color:#15803d;
-    font-weight:bold;
+.stars{
+color:#d4af37;
+font-size:25px
+}
+
+.completed{
+display:inline-block;
+background:#166534;
+color:white;
+padding:8px 15px;
+border-radius:7px;
+font-weight:bold;
+margin:10px
+}
+
+.qr{
+width:100px;
+height:100px;
+border:5px solid #111;
+margin:15px auto;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:11px;
+font-weight:bold
 }
 
 footer{
-    background:#111827;
-    color:white;
-    text-align:center;
-    padding:25px;
-    margin-top:30px;
+background:#111827;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:50px
 }
 
-@media(max-width:700px){
-    .hero h1{
-        font-size:31px;
-    }
-
-    nav{
-        justify-content:center;
-    }
-
-    .certificate{
-        padding:25px 15px;
-        border-width:6px;
-    }
-
-    .certificate h1{
-        font-size:30px;
-    }
-
-    .certificate .name{
-        font-size:24px;
-    }
+@media(max-width:650px){
+.hero{padding:30px 18px}
+.academy-grid{grid-template-columns:1fr}
+.course{align-items:flex-start}
 }
+</style>
+</head>
 
-@media print{
-    nav,footer,.no-print{
-        display:none !important;
-    }
+<body>
 
-    body{
-        background:white;
-    }
+<header>
+<div class="header">
 
-    .page{
-        display:none !important;
-    }
+<div class="logo">Learn<span>Hub</span></div>
 
-    #certificatePage{
-        display:block !important;
-        padding:0;
-    }
-
-    .certificate{
-        box-shadow:none;
-        margin:0;
-    }
-}
-</style></head><body><nav>
-    <div class="logo">LearnHub</div><div>
-    <button onclick="showPage('home')">Home</button>
-    <button onclick="showPage('courses')">Courses</button>
-    <button onclick="showPage('career')">Career</button>
-    <button onclick="showPage('jobs')">Jobs</button>
-    <button onclick="showPage('profile')">Profile</button>
-    <button onclick="showPage('cv')">CV Builder</button>
-</div>
-
-</nav><!-- HOME --><section id="home" class="page active"><div class="hero">
-    <h1>Learn. Grow. Get Hired.</h1>
-    <p>Your learning and career platform.</p>
-    <button class="btn" onclick="showPage('courses')">
-        Start Learning
-    </button>
-</div>
-
-<h2>Welcome to LearnHub</h2>
-
-<div class="cards">
-
-    <div class="card">
-        <h3>📚 Learn</h3>
-        <p>Learn practical skills through structured courses and lessons.</p>
-    </div>
-
-    <div class="card">
-        <h3>🏆 Certificates</h3>
-        <p>Complete courses and receive LearnHub certificates.</p>
-    </div>
-
-    <div class="card">
-        <h3>💼 Careers</h3>
-        <p>Build your CV and prepare yourself for employment.</p>
-    </div>
-
-    <div class="card">
-        <h3>🔎 Jobs</h3>
-        <p>Find sample jobs, internships and learnership opportunities.</p>
-    </div>
+<button onclick="show('home')" class="btn primary">
+🏠 Home
+</button>
 
 </div>
 
-<div class="card" style="margin-top:25px;">
-    <h3>Your Progress</h3>
+<nav>
+<button onclick="show('home')">Home</button>
+<button onclick="show('academies')">Academies</button>
+<button onclick="show('learning')">My Learning</button>
+<button onclick="show('career')">Career</button>
+<button onclick="show('jobs')">Jobs</button>
+<button onclick="show('certificate')">Certificate</button>
+<button onclick="show('cv')">CV Builder</button>
+<button onclick="show('services')">Services</button>
+<button onclick="show('community')">Community</button>
+<button onclick="show('profile')">Profile</button>
+</nav>
+</header>
 
-    <div class="progress-box">
-        <div id="homeProgress" class="progress-bar"></div>
-    </div>
+<main class="container">
 
-    <p id="progressText">0% completed</p>
+<section id="home" class="section active">
+
+<div class="hero">
+<h1>Learn. Grow. Get Hired.</h1>
+
+<p>
+LearnHub is an all-in-one learning, career and services platform.
+Build skills, track your learning, prepare for employment and work
+towards verified LearnHub certificates.
+</p>
+
+<button class="btn primary" onclick="show('academies')">
+Explore 1,000+ Courses
+</button>
 </div>
 
-</section><!-- COURSES --><section id="courses" class="page"><h1>Courses</h1>
-<p>Choose a course and start learning.</p>
+<div class="stats">
 
-<div class="cards">
-
-    <div class="card">
-        <h3>🌐 Web Development</h3>
-        <p>Learn HTML, CSS and JavaScript basics.</p>
-        <p><strong>3 Lessons</strong></p>
-        <button class="btn" onclick="openCourse('web')">
-            Open Course
-        </button>
-    </div>
-
-    <div class="card">
-        <h3>🐍 Python Basics</h3>
-        <p>Learn the foundations of Python programming.</p>
-        <p><strong>4 Lessons</strong></p>
-        <button class="btn" onclick="openCourse('python')">
-            Open Course
-        </button>
-    </div>
-
-    <div class="card">
-        <h3>🚀 More Courses</h3>
-        <p>More courses will be added to LearnHub.</p>
-    </div>
-
+<div class="stat">
+<strong id="academyTotal">20</strong>
+Academies
 </div>
 
-</section><!-- CAREER --><section id="career" class="page"><h1>Career Centre</h1>
+<div class="stat">
+<strong id="courseTotal">0</strong>
+Courses
+</div>
 
-<div class="cards">
+<div class="stat">
+<strong id="completedTotal">0</strong>
+Completed
+</div>
 
-    <div class="card">
-        <h3>📄 CV Builder</h3>
-        <p>Create a professional CV.</p>
-        <button class="btn" onclick="showPage('cv')">
-            Build CV
-        </button>
-    </div>
+<div class="stat">
+<strong>R500</strong>
+Registration
+</div>
 
-    <div class="card">
-        <h3>🎤 Interview Preparation</h3>
-        <p>Practice common interview questions.</p>
-        <button class="btn" onclick="showPage('interview')">
-            Practice
-        </button>
-    </div>
-
-    <div class="card">
-        <h3>💼 Jobs & Learnerships</h3>
-        <p>Explore opportunities.</p>
-        <button class="btn" onclick="showPage('jobs')">
-            View Jobs
-        </button>
-    </div>
-
-    <div class="card">
-        <h3>🔐 Certificate Verification</h3>
-        <p>Verify a LearnHub certificate number.</p>
-        <button class="btn" onclick="showPage('verify')">
-            Verify
-        </button>
-    </div>
+<div class="stat">
+<strong>R500</strong>
+Certificate
+</div>
 
 </div>
 
-</section><!-- JOBS --><section id="jobs" class="page"><h1>Jobs & Opportunities</h1>
+<div class="card-grid">
+
+<div class="card">
+<h3>📚 Learn</h3>
+<p>Study courses across 20 major career and skills academies.</p>
+</div>
+
+<div class="card">
+<h3>🏆 Get Certified</h3>
+<p>Work towards verified LearnHub certificates.</p>
+</div>
+
+<div class="card">
+<h3>💼 Get Career Ready</h3>
+<p>Build your CV, prepare for interviews and discover opportunities.</p>
+</div>
+
+<div class="card">
+<h3>🌍 One Platform</h3>
+<p>Learning, careers, employment and useful services in one place.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="academies" class="section">
+
+<h2>🎓 LearnHub Academies</h2>
+
+<p>
+20 permanent academies with a large and expandable course catalogue.
+</p>
 
 <input
-    type="text"
-    id="jobSearch"
-    placeholder="Search jobs..."
-    onkeyup="filterJobs()"
+id="search"
+class="search"
+placeholder="🔎 Search any course or academy..."
+oninput="renderAcademies()"
 >
 
-<div id="jobsList" class="cards">
+<div id="academyGrid" class="academy-grid"></div>
 
-    <div class="card job" data-job="junior web developer">
-        <h3>Junior Web Developer</h3>
-        <p><strong>Type:</strong> Entry Level</p>
-        <p><strong>Skills:</strong> HTML, CSS, JavaScript</p>
-        <button class="btn" onclick="applyJob('Junior Web Developer')">
-            Save Job
-        </button>
-        <p id="saved-Junior Web Developer"></p>
-    </div>
+</section>
 
-    <div class="card job" data-job="it learnership">
-        <h3>IT Learnership</h3>
-        <p><strong>Type:</strong> Learnership</p>
-        <p><strong>Skills:</strong> Computer Skills</p>
-        <button class="btn" onclick="applyJob('IT Learnership')">
-            Save Job
-        </button>
-        <p id="saved-IT Learnership"></p>
-    </div>
 
-    <div class="card job" data-job="software development internship">
-        <h3>Software Development Internship</h3>
-        <p><strong>Type:</strong> Internship</p>
-        <p><strong>Skills:</strong> Programming</p>
-        <button class="btn" onclick="applyJob('Software Development Internship')">
-            Save Job
-        </button>
-        <p id="saved-Software Development Internship"></p>
-    </div>
+<section id="learning" class="section">
 
-</div>
-
-</section><!-- PROFILE --><section id="profile" class="page"><h1>My Profile</h1>
+<h2>📚 My Learning</h2>
 
 <div class="card">
 
-    <label>Full Name</label>
-    <input id="profileName" placeholder="Enter your full name">
+<h3>Overall Progress</h3>
 
-    <label>Email</label>
-    <input id="profileEmail" type="email" placeholder="Enter your email">
+<div class="progress">
+<div id="progressBar" class="progress-bar"></div>
+</div>
 
-    <label>Location</label>
-    <input id="profileLocation" placeholder="Enter your location">
-
-    <label>Skills</label>
-    <textarea id="profileSkills" placeholder="HTML, CSS, JavaScript, Python..."></textarea>
-
-    <button class="btn success" onclick="saveProfile()">
-        Save Profile
-    </button>
-
-    <p id="profileMessage"></p>
+<p id="progressText"></p>
 
 </div>
 
-<div class="card" style="margin-top:20px;">
-    <h3>Learning Progress</h3>
+<br>
 
-    <div class="progress-box">
-        <div id="profileProgress" class="progress-bar"></div>
-    </div>
+<div id="completedCourses" class="card-grid"></div>
 
-    <p id="profileProgressText">0% completed</p>
+</section>
+
+
+<section id="career" class="section">
+
+<h2>💼 Career Centre</h2>
+
+<div class="card-grid">
+
+<div class="card">
+<h3>📝 CV Building</h3>
+<p>Create a professional CV.</p>
+<button class="btn blue" onclick="show('cv')">Build CV</button>
 </div>
 
-</section><!-- CV --><section id="cv" class="page"><h1>CV Builder</h1>
+<div class="card">
+<h3>🎤 Interview Preparation</h3>
+<p>Prepare for job interviews.</p>
+<button class="btn blue" onclick="info('Interview Preparation')">Explore</button>
+</div>
+
+<div class="card">
+<h3>🎯 Career Planning</h3>
+<p>Plan your career and identify suitable skills.</p>
+<button class="btn blue" onclick="info('Career Planning')">Explore</button>
+</div>
+
+<div class="card">
+<h3>💻 Remote Work</h3>
+<p>Learn about remote work and freelancing.</p>
+<button class="btn blue" onclick="info('Remote Work')">Explore</button>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="jobs" class="section">
+
+<h2>💼 Jobs & Opportunities</h2>
+
+<p>
+LearnHub can help users prepare for employment and discover
+opportunities. LearnHub does not guarantee employment.
+</p>
+
+<div class="card-grid">
+
+<div class="card">
+<h3>🇿🇦 South African Jobs</h3>
+<p>Prepare for and discover job opportunities.</p>
+<button class="btn blue" onclick="info('South African Jobs')">Explore</button>
+</div>
+
+<div class="card">
+<h3>🎓 Learnerships</h3>
+<p>Learnership application preparation.</p>
+<button class="btn blue" onclick="info('Learnerships')">Explore</button>
+</div>
+
+<div class="card">
+<h3>👨‍💻 Internships</h3>
+<p>Internship preparation and career guidance.</p>
+<button class="btn blue" onclick="info('Internships')">Explore</button>
+</div>
+
+<div class="card">
+<h3>🏛️ Government Jobs</h3>
+<p>Government employment information and application preparation.</p>
+<button class="btn blue" onclick="info('Government Jobs')">Explore</button>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="certificate" class="section">
+
+<h2>🏆 LearnHub Verified Certificate</h2>
+
+<div class="price-box">
+
+<h3>LearnHub Pricing</h3>
+
+<p>Registration: <strong>R500</strong></p>
+<p>Verified Certificate: <strong>R500</strong></p>
+<p>Certificate period: <strong>Every 3 months</strong></p>
+
+<p style="margin-top:10px">
+Certificate eligibility requires completion of the applicable
+course requirements.
+</p>
+
+</div>
+
+<div id="certificateArea"></div>
+
+</section>
+
+
+<section id="cv" class="section">
+
+<h2>📄 CV Builder</h2>
+
+<div class="form">
+
+<div class="group">
+<label>Full Name</label>
+<input id="cvName">
+</div>
+
+<div class="group">
+<label>Professional Title</label>
+<input id="cvTitle">
+</div>
+
+<div class="group">
+<label>Phone</label>
+<input id="cvPhone">
+</div>
+
+<div class="group">
+<label>Email</label>
+<input id="cvEmail">
+</div>
+
+<div class="group">
+<label>Professional Summary</label>
+<textarea id="cvSummary"></textarea>
+</div>
+
+<div class="group">
+<label>Skills</label>
+<textarea id="cvSkills"></textarea>
+</div>
+
+<div class="group">
+<label>Work Experience</label>
+<textarea id="cvExperience"></textarea>
+</div>
+
+<div class="group">
+<label>Education & Certificates</label>
+<textarea id="cvEducation"></textarea>
+</div>
+
+<button class="btn green" onclick="saveCV()">Save CV</button>
+<button class="btn blue" onclick="printCV()">Print CV</button>
+
+</div>
+
+</section>
+
+
+<section id="services" class="section">
+
+<h2>🛠️ LearnHub Services</h2>
+
+<div class="card-grid">
+
+<div class="card">
+<h3>🏛️ Government Services</h3>
+<p>Information about public services including SASSA, SARS, UIF,
+Home Affairs and licensing.</p>
+</div>
+
+<div class="card">
+<h3>🏥 Health</h3>
+<p>Health, wellness and healthcare information.</p>
+</div>
+
+<div class="card">
+<h3>🚗 Transport</h3>
+<p>Transport and mobility services.</p>
+</div>
+
+<div class="card">
+<h3>🛍️ Retail</h3>
+<p>Shopping and retail services.</p>
+</div>
+
+<div class="card">
+<h3>🔧 Trades</h3>
+<p>Technical and home services.</p>
+</div>
+
+<div class="card">
+<h3>🚨 Safety</h3>
+<p>Emergency, fraud and safety information.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="community" class="section">
+
+<h2>🌍 LearnHub Community</h2>
 
 <div class="card">
 
-    <label>Full Name</label>
-    <input id="cvName" placeholder="Full name">
+<h3>Community Guidelines</h3>
 
-    <label>Phone</label>
-    <input id="cvPhone" placeholder="Phone number">
+<ul style="margin:15px 0 15px 20px">
+<li>Respect other users.</li>
+<li>No harassment.</li>
+<li>No scams.</li>
+<li>No fraud.</li>
+<li>No hate or abusive content.</li>
+<li>Protect personal information.</li>
+<li>Report inappropriate content.</li>
+<li>Block users when necessary.</li>
+</ul>
 
-    <label>Email</label>
-    <input id="cvEmail" placeholder="Email address">
-
-    <label>Professional Summary</label>
-    <textarea id="cvSummary"
-        placeholder="Write a short professional summary"></textarea>
-
-    <label>Education</label>
-    <textarea id="cvEducation"
-        placeholder="Education and qualifications"></textarea>
-
-    <label>Skills</label>
-    <textarea id="cvSkills"
-        placeholder="Your skills"></textarea>
-
-    <label>Experience</label>
-    <textarea id="cvExperience"
-        placeholder="Work experience"></textarea>
-
-    <button class="btn" onclick="generateCV()">
-        Generate CV
-    </button>
-
-    <button class="btn secondary" onclick="printCV()">
-        Print CV
-    </button>
+<button class="btn blue" onclick="info('Community')">
+Community Features
+</button>
 
 </div>
 
-<div id="cvOutput"></div>
+</section>
 
-</section><!-- INTERVIEW --><section id="interview" class="page"><h1>Interview Preparation</h1>
 
-<div class="cards">
+<section id="profile" class="section">
 
-    <div class="card">
-        <h3>1. Tell us about yourself.</h3>
-        <p>Give a short summary of your education, skills and experience.</p>
-    </div>
+<h2>👤 My Profile</h2>
 
-    <div class="card">
-        <h3>2. Why should we hire you?</h3>
-        <p>Explain the skills and qualities you can bring to the company.</p>
-    </div>
+<div class="form">
 
-    <div class="card">
-        <h3>3. What are your strengths?</h3>
-        <p>Choose strengths that are relevant to the position.</p>
-    </div>
+<div class="group">
+<label>Full Name</label>
+<input id="profileName">
+</div>
 
-    <div class="card">
-        <h3>4. Where do you see yourself in five years?</h3>
-        <p>Talk about your career goals and professional development.</p>
-    </div>
+<div class="group">
+<label>Email</label>
+<input id="profileEmail">
+</div>
+
+<div class="group">
+<label>Phone</label>
+<input id="profilePhone">
+</div>
+
+<div class="group">
+<label>Career Goal</label>
+<input id="profileGoal">
+</div>
+
+<button class="btn green" onclick="saveProfile()">
+Save Profile
+</button>
 
 </div>
 
-</section><!-- VERIFY --><section id="verify" class="page"><h1>Certificate Verification</h1>
+</section>
 
-<div class="card">
+</main>
 
-    <p>Enter a LearnHub certificate number.</p>
 
-    <input
-        id="verifyNumber"
-        placeholder="Example: LH-123456"
-    >
+<footer>
+<h3>LearnHub</h3>
+<p>Learn. Grow. Get Hired.</p>
+<p>© 2026 LearnHub. All rights reserved.</p>
+</footer>
 
-    <button class="btn" onclick="verifyCertificate()">
-        Verify Certificate
-    </button>
 
-    <div id="verificationResult"></div>
+<div id="courseModal" class="modal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal()">✕ Close</button>
+
+<h2 id="courseTitle"></h2>
+<p id="courseAcademy"></p>
+
+<div id="lessons"></div>
+
+<button id="completeButton"
+class="btn green"
+onclick="completeCourse()">
+Mark Course Complete
+</button>
+
+</div>
+</div>
+
+
+<div id="infoModal" class="modal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeInfo()">✕ Close</button>
+
+<h2 id="infoTitle"></h2>
+
+<p id="infoBody" style="margin-top:15px"></p>
 
 </div>
 
-</section><!-- CERTIFICATE --><section id="certificatePage" class="page"><div class="certificate">
-
-    <h1>Certificate of Completion</h1>
-
-    <p>This certificate is proudly presented to</p>
-
-    <div id="certificateName" class="name">
-        Learner
-    </div>
-
-    <p>for successfully completing</p>
-
-    <h2 id="certificateCourse">
-        LearnHub Course
-    </h2>
-
-    <br>
-
-    <p>
-        Completion Date:
-        <strong id="certificateDate"></strong>
-    </p>
-
-    <p>
-        Certificate Number:
-        <strong id="certificateNumber"></strong>
-    </p>
-
-    <br>
-
-    <p>
-        LearnHub<br>
-        Learn. Grow. Get Hired.
-    </p>
-
-    <div class="no-print">
-        <button class="btn" onclick="window.print()">
-            Print Certificate
-        </button>
-
-        <button class="btn secondary" onclick="showPage('courses')">
-            Back to Courses
-        </button>
-    </div>
-
 </div>
 
-</section><!-- COURSE MODAL --><div id="courseModal" class="modal"><div class="modal-content">
 
-    <span class="close" onclick="closeCourse()">&times;</span>
+<script>
 
-    <h1 id="courseTitle">Course</h1>
+/* ============================================================
+   LEARNHUB MASTER CATALOGUE
+   EXACTLY 20 OFFICIAL ACADEMIES
+   50+ COURSES PER ACADEMY
+   1,000+ COURSES TOTAL
+============================================================ */
 
-    <p id="courseDescription"></p>
+const academies = [
 
-    <div id="lessonsContainer"></div>
+/* 1 */
+{
+name:"💻 Technology & AI",
+description:"Technology, programming, AI, software, computers and digital innovation.",
+courses:[
+"Web Development",
+"HTML Fundamentals",
+"CSS Fundamentals",
+"Responsive Web Design",
+"JavaScript Fundamentals",
+"Advanced JavaScript",
+"TypeScript",
+"Python Basics",
+"Advanced Python",
+"Java Programming",
+"C Programming",
+"C++ Programming",
+"C# Programming",
+"PHP Development",
+"Ruby Programming",
+"Go Programming",
+"Rust Programming",
+"Kotlin Programming",
+"Swift Programming",
+"SQL Fundamentals",
+"Database Design",
+"MySQL",
+"PostgreSQL",
+"MongoDB",
+"Mobile App Development",
+"Android Development",
+"iOS Development",
+"Flutter Development",
+"React Native",
+"Software Engineering",
+"Software Architecture",
+"Software Design Patterns",
+"Software Testing",
+"Quality Assurance",
+"Git & GitHub",
+"GitLab",
+"Network Engineering",
+"Computer Networking",
+"Cloud Computing",
+"AWS Fundamentals",
+"Microsoft Azure Fundamentals",
+"Google Cloud Fundamentals",
+"DevOps",
+"Linux Fundamentals",
+"Windows Administration",
+"IT Support",
+"Computer Hardware",
+"Operating Systems",
+"Cybersecurity Fundamentals",
+"Ethical Hacking",
+"Digital Forensics",
+"Data Analytics",
+"Data Science",
+"Artificial Intelligence Fundamentals",
+"Generative AI",
+"Prompt Engineering",
+"Machine Learning",
+"Deep Learning",
+"Computer Vision",
+"Natural Language Processing",
+"AI Automation",
+"Robotics",
+"Internet of Things",
+"Blockchain Fundamentals",
+"Game Development",
+"UI/UX Design",
+"Product Design",
+"API Development",
+"Backend Development",
+"Frontend Development",
+"Full Stack Development",
+"Microservices",
+"System Administration",
+"Virtualization",
+"Server Administration",
+"Technical Support",
+"Help Desk Management",
+"Information Systems",
+"Information Technology Management",
+"Digital Transformation",
+"Technology Project Management",
+"AI Ethics",
+"Responsible AI",
+"AI for Business",
+"AI for Education",
+"AI for Healthcare",
+"AI for Agriculture",
+"AI for Finance",
+"Data Visualization",
+"Excel for Data Analysis",
+"Power BI",
+"Tableau Fundamentals",
+"Cybersecurity Risk",
+"Network Security",
+"Cloud Security",
+"Application Security",
+"Identity & Access Management",
+"DevSecOps",
+"Secure Coding",
+"Web Security",
+"Mobile Security"
+]
+},
 
-    <button
-        id="certificateButton"
-        class="btn success"
-        onclick="generateCertificate()"
-        style="display:none;"
-    >
-        Get Certificate
-    </button>
+/* 2 */
+{
+name:"👩‍🏫 Teaching & Education",
+description:"Teaching, education, classroom management and learning development.",
+courses:[
+"Teaching Assistant Fundamentals",
+"Early Childhood Development",
+"Foundation Phase Teaching",
+"Intermediate Phase Teaching",
+"Senior Phase Teaching",
+"FET Teaching",
+"Classroom Management",
+"Lesson Planning",
+"Teaching Methods",
+"Educational Psychology",
+"Inclusive Education",
+"Special Needs Education",
+"Child Development",
+"Child Protection",
+"Literacy Teaching",
+"Reading Development",
+"Writing Development",
+"Mathematics Teaching",
+"Science Teaching",
+"Technology Teaching",
+"Social Sciences Teaching",
+"Life Orientation Teaching",
+"Arts Education",
+"Physical Education",
+"Digital Teaching",
+"Online Teaching",
+"Blended Learning",
+"Tutor Training",
+"Adult Education",
+"Adult Literacy",
+"Assessment Methods",
+"Educational Assessment",
+"Exam Preparation",
+"Curriculum Development",
+"Education Administration",
+"School Administration",
+"Education Leadership",
+"Teacher Leadership",
+"Teacher Professional Development",
+"Teaching English",
+"Teaching Mathematics",
+"Teaching Science",
+"Teaching Coding",
+"Teaching Computer Skills",
+"Teaching Entrepreneurship",
+"Teaching Agriculture",
+"Teaching Life Skills",
+"Educational Technology",
+"Learning Management Systems",
+"Online Course Development",
+"Instructional Design",
+"E-Learning Development",
+"Distance Education",
+"Student Support",
+"Academic Advising",
+"Education Counselling",
+"Classroom Communication",
+"Teacher Communication",
+"Parent Communication",
+"School Safety",
+"School Ethics",
+"Education Policy",
+"Education Research",
+"Research Methods in Education",
+"Learning Theories",
+"Behaviour Management",
+"Positive Discipline",
+"Child Psychology",
+"Adolescent Development",
+"Special Education Support",
+"Autism Awareness",
+"Learning Disabilities",
+"Visual Learning",
+"Audio Learning",
+"Project-Based Learning",
+"Problem-Based Learning",
+"STEM Education",
+"STEAM Education",
+"Environmental Education",
+"Financial Education",
+"Career Education",
+"Vocational Education",
+"Technical Education",
+"Education Entrepreneurship",
+"Private Tutoring",
+"Homework Support",
+"Study Skills Coaching",
+"Exam Invigilation Awareness",
+"School Records Administration",
+"Education Data Management",
+"Education Quality Assurance"
+]
+},
 
-</div>
+/* 3 */
+{
+name:"🏥 Health",
+description:"Health awareness, wellness, healthcare support and community health.",
+courses:[
+"Healthcare Fundamentals",
+"First Aid",
+"Basic Life Support Awareness",
+"Community Health",
+"Public Health",
+"Healthcare Administration",
+"Medical Reception",
+"Healthcare Customer Service",
+"Hospital Administration",
+"Clinic Administration",
+"Patient Administration",
+"Health Records Management",
+"Healthcare Communication",
+"Health & Hygiene",
+"Nutrition Fundamentals",
+"Nutrition for Families",
+"Food & Health",
+"Healthy Lifestyle",
+"Fitness Fundamentals",
+"Exercise Fundamentals",
+"Wellness Fundamentals",
+"Mental Health Awareness",
+"Stress Awareness",
+"Substance Abuse Awareness",
+"Health Promotion",
+"Disease Prevention",
+"Communicable Disease Awareness",
+"Non-Communicable Disease Awareness",
+"Maternal Health Awareness",
+"Child Health Awareness",
+"Women's Health Awareness",
+"Men's Health Awareness",
+"Elderly Care",
+"Childcare",
+"Disability Awareness",
+"Community Care",
+"Home Care Fundamentals",
+"Caregiver Fundamentals",
+"Patient Care Awareness",
+"Pharmacy Basics",
+"Medicine Safety Awareness",
+"Healthcare Ethics",
+"Healthcare Privacy",
+"Medical Terminology",
+"Anatomy Fundamentals",
+"Physiology Fundamentals",
+"Public Health Administration",
+"Environmental Health",
+"Occupational Health",
+"Health & Safety",
+"Emergency Preparedness",
+"Health Education",
+"School Health",
+"Workplace Wellness",
+"First Responder Awareness",
+"Ambulance Awareness",
+"Hospitality Health & Safety",
+"Healthcare Technology",
+"Digital Health",
+"Telehealth Awareness",
+"Health Data Awareness",
+"Health Research Fundamentals",
+"Health Statistics",
+"Community Nutrition",
+"Sports Nutrition",
+"Maternal Nutrition",
+"Child Nutrition",
+"Elderly Nutrition",
+"Personal Fitness",
+"Personal Wellness",
+"Sleep & Recovery",
+"Healthy Habits",
+"Personal Hygiene",
+"Oral Health Awareness",
+"Eye Health Awareness",
+"Hearing Health Awareness",
+"Skin Health Awareness",
+"Sexual Health Education",
+    ,
+"Healthcare Leadership",
+"Healthcare Teamwork",
+"Health Project Management",
+"Health Entrepreneurship",
+"Health Services Management"
+],
 
-</div><footer>
-    <p>© 2026 LearnHub. Learn. Grow. Get Hired.</p>
-</footer><script>
+"🏛️ Government & Public Services": [
+"South African Government Services",
+"e-Government",
+"SASSA",
+"SASSA Applications",
+"Social Grants",
+"Child Support Grant",
+"Older Persons Grant",
+"Disability Grant",
+"SARS",
+"SARS eFiling",
+"Income Tax",
+"Tax Registration",
+"UIF",
+"UIF Applications",
+"Labour Services",
+"Labour Department",
+"Employment Services",
+"ESSA",
+"Home Affairs",
+"Smart ID",
+"Passport Applications",
+"Birth Certificates",
+"Marriage Registration",
+"Death Registration",
+"Driver's Licence",
+"Licence Renewal",
+"Vehicle Licensing",
+"Vehicle Registration",
+"Traffic Fines",
+"Road Accident Reporting",
+"CIPC",
+"Company Registration",
+"Business Registration",
+"Municipal Services",
+"Municipal Accounts",
+"Water & Sanitation",
+"Eskom Services",
+"Electricity Services",
+"Public Employment Programmes",
+"Government Learnerships",
+"Government Internships",
+"Government Job Applications",
+"DPSA Jobs",
+"Public Service Ethics",
+"Batho Pele",
+"Public Administration",
+"Public Management",
+"Public Sector Leadership",
+"Public Procurement",
+"Public Finance",
+"POPIA",
+"Access to Information",
+"Labour Rights",
+"Employment Rights",
+"Constitution",
+"Constitutional Rights",
+"Civic Education",
+"Election & Voter Education",
+"Citizen Participation",
+"Community Development",
+"Fraud Awareness",
+"Scam Awareness",
+"Crime Reporting",
+"Emergency Services",
+"Police Services",
+"Fire Services",
+"Disaster Management",
+"Social Development Services",
+"Education Department Services",
+"Health Department Services",
+"Transport Department Services",
+"Agriculture Department Services",
+"Small Business Support",
+"SEDA",
+"SEFA",
+"NYDA",
+"Public Works",
+"EPWP",
+"Municipal Administration",
+"Government Communication",
+"Government Customer Care",
+"Government Digital Literacy",
+"Government Forms",
+"Government Advertisements"
+],
 
-const webLessons = [
-    {
-        title:"Lesson 1: HTML Basics",
-        content:"HTML is used to structure web pages. Learn headings, paragraphs, links, images and basic page structure."
+"💼 Business & Entrepreneurship": [
+"Business Management",
+"Business Administration",
+"Entrepreneurship",
+"Small Business Management",
+"Startup Fundamentals",
+"Business Planning",
+"Business Strategy",
+"Strategic Management",
+"Operations Management",
+"Project Management",
+"Project Planning",
+"Project Risk Management",
+"Project Monitoring",
+"Supply Chain Management",
+"Procurement",
+"Purchasing",
+"Inventory Management",
+"Human Resources",
+"Recruitment",
+"Employee Relations",
+"Performance Management",
+"Office Administration",
+"Records Management",
+"Document Management",
+"Leadership",
+"Strategic Leadership",
+"Team Leadership",
+"Management Skills",
+"Supervision",
+"Customer Service",
+"Customer Experience",
+"Sales Management",
+"Sales Fundamentals",
+"Marketing",
+"Digital Marketing",
+"Social Media Marketing",
+"Content Marketing",
+"Email Marketing",
+"Brand Management",
+"Public Relations",
+"E-Commerce",
+"Online Business",
+"Business Communication",
+"Negotiation",
+"Business Networking",
+"Business Ethics",
+"Corporate Governance",
+"Business Compliance",
+"Business Risk Management",
+"Business Continuity",
+"Business Analytics",
+"Business Intelligence",
+"Market Research",
+"Consumer Research",
+"Competitor Analysis",
+"Product Development",
+"Service Development",
+"Business Innovation",
+"Creative Entrepreneurship",
+"Social Entrepreneurship",
+"Green Entrepreneurship",
+"Technology Entrepreneurship",
+"Freelancing Business",
+"Small Business Finance",
+"Business Budgeting",
+"Pricing Strategy",
+"Sales Strategy",
+"Retail Management",
+"Hospitality Management",
+"Process Improvement",
+"Quality Management",
+"Lean Management",
+"Six Sigma",
+"Change Management",
+"Conflict Management",
+"Meeting Management",
+"Presentation Skills",
+"Business Report Writing",
+"Entrepreneurial Mindset",
+"Business Problem Solving",
+"Business Decision Making",
+"Small Business Marketing",
+"Business Growth",
+"Business Expansion",
+"Franchise Fundamentals",
+"Business Licensing",
+"Business Tax Awareness"
+],
+
+"💰 Finance & Accounting": [
+"Financial Literacy",
+"Personal Finance",
+"Budgeting",
+"Saving",
+"Debt Management",
+"Credit Management",
+"Banking Fundamentals",
+"Digital Banking",
+"Bank Accounts",
+"Bookkeeping",
+"Accounting Fundamentals",
+"Financial Accounting",
+"Management Accounting",
+"Cost Accounting",
+"Payroll",
+"Payroll Administration",
+"Tax Basics",
+"Income Tax",
+"VAT",
+"Tax Administration",
+"Auditing",
+"Internal Audit",
+"Financial Management",
+"Financial Planning",
+"Financial Analysis",
+"Financial Reporting",
+"Budget Management",
+"Cash Flow Management",
+"Investment Basics",
+"Investment Planning",
+"Stock Market",
+"Shares",
+"Bonds",
+"Retirement Planning",
+"Insurance Fundamentals",
+"Life Insurance",
+"Short-Term Insurance",
+"Risk Management",
+"Financial Risk",
+"Banking Operations",
+"Banking Customer Service",
+"Credit Administration",
+"Loan Administration",
+"Microfinance",
+"Economics",
+"Business Economics",
+"Macroeconomics",
+"Microeconomics",
+"Entrepreneurial Finance",
+"Small Business Accounting",
+"Small Business Bookkeeping",
+"Financial Software",
+"Excel for Accounting",
+"Excel for Finance",
+"Payroll Software",
+"Accounting Software",
+"Financial Ethics",
+"Fraud Prevention",
+"Financial Crime Awareness",
+"Anti-Money Laundering",
+"Financial Compliance",
+"Corporate Finance",
+"Capital Budgeting",
+"Investment Analysis",
+"Portfolio Management",
+"Wealth Planning",
+"Money Management",
+"Financial Goal Setting",
+"Household Budgeting",
+"Financial Decision Making",
+"Financial Mathematics",
+"Accounting Mathematics",
+"Financial Data Analysis",
+"Business Tax Planning",
+"Tax Compliance",
+"Finance Administration",
+"Accounts Payable",
+"Accounts Receivable",
+"Invoice Management",
+"Expense Management",
+"Financial Records",
+"Audit Preparation",
+"Finance Office Administration",
+"Finance Customer Service"
+],
+
+"⚖️ Law & Compliance": [
+"Introduction to Law",
+"Legal Studies",
+"Labour Law",
+"Employment Law",
+"Business Law",
+"Contract Law",
+"Consumer Law",
+"Consumer Rights",
+"Human Rights",
+"Constitutional Law",
+"Legal Administration",
+"Legal Office Administration",
+"Legal Research",
+"Legal Writing",
+"Legal Documentation",
+"Legal Ethics",
+"Compliance Fundamentals",
+"Corporate Compliance",
+"Workplace Compliance",
+"Financial Compliance",
+"Data Protection",
+"POPIA Compliance",
+"Corporate Governance",
+"Corporate Ethics",
+"Risk & Compliance",
+"Contract Administration",
+"Contract Management",
+"Procurement Compliance",
+"Public Procurement",
+"Employment Rights",
+"Employee Rights",
+"Employer Responsibilities",
+"Disciplinary Procedures",
+"Grievance Procedures",
+"Harassment Awareness",
+"Discrimination Awareness",
+"Health & Safety Law",
+"Consumer Protection",
+"Privacy Law",
+"Information Law",
+"Freedom of Information",
+"Intellectual Property",
+"Copyright",
+"Trademarks",
+"Patents",
+"Cyber Law",
+"Technology Law",
+"AI Law",
+"Digital Rights",
+"Internet Law",
+"Family Law",
+"Property Law",
+"Land Law",
+"Criminal Law",
+"Criminal Justice",
+"Evidence",
+"Legal Case Management",
+"Legal Client Service",
+"Legal Interviewing",
+"Legal Negotiation",
+"Alternative Dispute Resolution",
+"Mediation",
+"Arbitration",
+"Small Claims Court",
+"Court Procedures",
+"Police & Legal Processes",
+"Legal Aid",
+"Access to Justice",
+"Community Legal Awareness",
+"Humanitarian Law",
+"International Law",
+"Environmental Law",
+"Construction Law",
+"Transport Law",
+"Tax Law",
+"Company Law",
+"Employment Contracts",
+"Business Contracts",
+"Compliance Auditing",
+"Compliance Reporting",
+"Ethics & Governance"
+],
+
+"🏗️ Engineering & Construction": [
+"Civil Engineering",
+"Electrical Engineering",
+"Mechanical Engineering",
+"Chemical Engineering",
+"Industrial Engineering",
+"Structural Engineering",
+"Environmental Engineering",
+"Mining Engineering",
+"Agricultural Engineering",
+"Computer Engineering",
+"Engineering Mathematics",
+"Engineering Physics",
+"Engineering Drawing",
+"Technical Drawing",
+"CAD",
+"AutoCAD",
+"3D CAD",
+"Building Construction",
+"Construction Management",
+"Construction Planning",
+"Construction Estimating",
+"Construction Contracts",
+"Construction Safety",
+"Site Management",
+"Site Supervision",
+"Building Maintenance",
+"Building Inspection",
+"Quantity Surveying",
+"Land Surveying",
+"Surveying",
+"Road Construction",
+"Bridge Construction",
+"Concrete Technology",
+"Masonry",
+"Bricklaying",
+"Roofing",
+"Flooring",
+"Tiling",
+"Plastering",
+"Painting",
+"Carpentry Construction",
+"Plumbing Construction",
+"Electrical Construction",
+"HVAC Construction",
+"Construction Materials",
+"Building Materials",
+"Construction Procurement",
+"Construction Project Management",
+"Construction Cost Management",
+"Construction Quality",
+"Construction Risk Management",
+"Engineering Project Management",
+"Engineering Quality",
+"Engineering Risk",
+"Engineering Ethics",
+"Engineering Communication",
+"Engineering Report Writing",
+"Mechanical Maintenance",
+"Electrical Maintenance",
+"Industrial Maintenance",
+"Plant Maintenance",
+"Machine Maintenance",
+"Manufacturing Engineering",
+"Production Engineering",
+"Process Engineering",
+"Renewable Energy Engineering",
+"Solar Engineering",
+"Water Engineering",
+"Water Treatment",
+"Wastewater Engineering",
+"Geotechnical Engineering",
+"Transportation Engineering",
+"Traffic Engineering",
+"Materials Engineering",
+"Metallurgical Engineering",
+"Chemical Process Engineering",
+"Engineering Data Analysis",
+"Engineering Software",
+"Engineering Leadership",
+"Engineering Innovation",
+"Construction Administration",
+"Construction Documentation",
+"Green Building",
+"Sustainable Construction",
+"Energy Efficient Buildings"
+],
+
+"🚛 Transport & Logistics": [
+"Logistics Fundamentals",
+"Supply Chain Operations",
+"Warehouse Management",
+"Fleet Management",
+"Forklift Operations",
+"Professional Driving",
+"Heavy Vehicle Operations",
+"Shunter Operations",
+"Transport Management",
+"Road Safety",
+"Defensive Driving",
+"Commercial Driving",
+"Truck Driving",
+"Bus Driving",
+"Taxi Operations",
+"Delivery Operations",
+"Dispatch Management",
+"Transport Administration",
+"Freight Management",
+"Freight Forwarding",
+"Cargo Handling",
+"Cargo Security",
+"Warehouse Safety",
+"Warehouse Administration",
+"Inventory Control",
+"Stock Receiving",
+"Stock Dispatch",
+"Picking & Packing",
+"Distribution Management",
+"Transportation Planning",
+"Route Planning",
+"Fleet Scheduling",
+"Vehicle Scheduling",
+"Driver Management",
+"Driver Safety",
+"Transport Customer Service",
+"Logistics Customer Service",
+"Supply Chain Management",
+"Procurement Logistics",
+"Import & Export",
+"Customs Awareness",
+"Shipping Documentation",
+"Freight Documentation",
+"Transport Documentation",
+"Logistics Documentation",
+"Cold Chain Logistics",
+"Food Logistics",
+"Pharmaceutical Logistics",
+"Retail Logistics",
+"E-Commerce Logistics",
+"Last-Mile Delivery",
+"Courier Operations",
+"Parcel Management",
+"Warehouse Technology",
+"Barcode Systems",
+"Inventory Software",
+"Fleet Tracking",
+"GPS Fleet Management",
+"Transport Cost Management",
+"Fuel Management",
+"Vehicle Maintenance",
+"Transport Risk",
+"Transport Compliance",
+"Road Transport Law",
+"Accident Reporting",
+"Driver Incident Reporting",
+"Transport Security",
+"Loss Prevention",
+"Port Operations",
+"Rail Operations",
+"Railway Safety",
+"Shunting Safety",
+"Airport Ground Operations",
+"Air Cargo",
+"Maritime Logistics",
+"Public Transport Management",
+"Passenger Transport",
+"School Transport Safety",
+"Community Transport",
+"Transport Entrepreneurship",
+"Logistics Entrepreneurship",
+"Warehouse Leadership",
+"Logistics Team Management",
+"Transport Operations Management",
+"Supply Chain Analytics"
+],
+
+"🌱 Agriculture": [
+"Agriculture Fundamentals",
+"Small-Scale Farming",
+"Commercial Farming",
+"Farm Management",
+"Crop Production",
+"Vegetable Farming",
+"Fruit Farming",
+"Horticulture",
+"Organic Farming",
+"Organic Gardening",
+"Hydroponics",
+"Greenhouse Farming",
+"Irrigation",
+"Water Management",
+"Soil Management",
+"Soil Testing",
+"Composting",
+"Fertilizer Management",
+"Pest Management",
+"Disease Management",
+"Integrated Pest Management",
+"Farm Biosecurity",
+"Seed Management",
+"Nursery Management",
+"Plant Propagation",
+"Plant Nutrition",
+"Tomato Production",
+"Spinach Production",
+"Potato Production",
+"Onion Production",
+"Carrot Production",
+"Cabbage Production",
+"Pepper Production",
+"Chilli Production",
+"Okra Production",
+"Bean Production",
+"Maize Production",
+"Wheat Production",
+"Sunflower Production",
+"Peanut Production",
+"Pumpkin Production",
+"Watermelon Production",
+"Herb Farming",
+"Mushroom Farming",
+"Poultry Farming",
+"Chicken Farming",
+"Broiler Production",
+"Layer Production",
+"Egg Production",
+"Goat Farming",
+"Sheep Farming",
+"Cattle Farming",
+"Pig Farming",
+"Rabbit Farming",
+"Beekeeping",
+"Aquaculture",
+"Fish Farming",
+"Tilapia Farming",
+"Livestock Management",
+"Animal Nutrition",
+"Animal Health",
+"Pasture Management",
+"Feed Management",
+"Farm Machinery",
+"Tractor Fundamentals",
+"Farm Equipment Safety",
+"Drip Irrigation",
+"Sprinkler Irrigation",
+"Rainwater Harvesting",
+"Farm Records",
+"Farm Accounting",
+"Agribusiness",
+"Agricultural Marketing",
+"Food Processing",
+"Fruit Processing",
+"Vegetable Processing",
+"Atchar Production",
+"Jam Production",
+"Food Preservation",
+"Farm Packaging",
+"Agricultural Entrepreneurship",
+"Agri-Tourism",
+"Urban Farming",
+"Community Gardening",
+"Landscaping",
+"Sustainable Agriculture",
+"Climate-Smart Agriculture",
+"Regenerative Agriculture",
+"Conservation Agriculture",
+"Agroforestry",
+"Permaculture",
+"Farming Business Planning",
+"Farm Sales",
+"Farm Supply Management"
+],
+
+"🍳 Hospitality & Tourism": [
+"Cooking Fundamentals",
+"Professional Cooking",
+"Home Cooking",
+"Baking",
+"Professional Baking",
+"Pastry Making",
+"Bread Making",
+"Cake Decorating",
+"Food Preparation",
+"Food Safety",
+"Food Hygiene",
+"Food Handling",
+"Catering",
+"Event Catering",
+"Restaurant Management",
+"Restaurant Operations",
+"Hotel Management",
+"Hospitality Management",
+"Guest Relations",
+"Front Office",
+"Reception Skills",
+"Housekeeping",
+"Laundry Operations",
+"Room Service",
+"Waiter Training",
+"Food & Beverage Service",
+"Barista Skills",
+"Coffee Fundamentals",
+"Tea Service",
+"Menu Planning",
+"Menu Costing",
+"Kitchen Management",
+"Kitchen Safety",
+"Kitchen Hygiene",
+"Food Purchasing",
+"Food Storage",
+"Food Inventory",
+"Hospitality Customer Service",
+"Tourism Fundamentals",
+"Tour Guide Fundamentals",
+"Travel Operations",
+"Travel Agency",
+"Tourism Marketing",
+"Tourism Management",
+"Eco-Tourism",
+"Cultural Tourism",
+"Community Tourism",
+"Events Management",
+"Event Planning",
+"Event Coordination",
+"Wedding Planning",
+"Conference Management",
+"Exhibition Management",
+"Hotel Sales",
+"Hospitality Marketing",
+"Digital Hospitality Marketing",
+"Hotel Reservations",
+"Booking Administration",
+"Tourism Customer Service",
+"Travel Documentation",
+"Airport Hospitality",
+"Airline Customer Service",
+"Cruise Hospitality",
+"Food Business Entrepreneurship",
+"Hospitality Entrepreneurship",
+"Hotel Revenue",
+"Hospitality Finance",
+"Hospitality Leadership",
+"Hospitality Team Management",
+"Food Cost Control",
+"Restaurant Cost Control",
+"Food Production",
+"Pastry Business",
+"Baking Business",
+"Catering Business",
+"Food Truck Business",
+"Street Food Business",
+"Hospitality Safety",
+"Tourism Safety",
+"Sustainable Tourism",
+"Sustainable Hospitality",
+"Hospitality Technology",
+"Hotel Software",
+"Restaurant POS"
+],
+
+"🎨 Creative & Media": [
+"Graphic Design",
+"Graphic Design Fundamentals",
+"Digital Illustration",
+"Drawing",
+"Painting",
+"Photography",
+"Photography Fundamentals",
+"Portrait Photography",
+"Product Photography",
+"Landscape Photography",
+"Mobile Photography",
+"Videography",
+"Video Production",
+"Video Editing",
+"Mobile Video Editing",
+"Film Production",
+"Film Editing",
+"Scriptwriting",
+"Screenwriting",
+"Animation",
+"2D Animation",
+"3D Animation",
+"Motion Graphics",
+"3D Design",
+"3D Modelling",
+"Digital Art",
+"Fashion Design",
+"Fashion Illustration",
+"Fashion Marketing",
+"Interior Design",
+"Interior Decoration",
+"Architecture Visualization",
+"Music Production",
+"Music Theory",
+"Songwriting",
+"Sound Engineering",
+"Audio Production",
+"Podcast Production",
+"Podcast Editing",
+"Radio Production",
+"Broadcasting",
+"Television Production",
+"Journalism",
+"News Writing",
+"Investigative Journalism",
+"Digital Journalism",
+"Creative Writing",
+"Storytelling",
+"Copywriting",
+"Technical Writing",
+"Blog Writing",
+"Content Creation",
+"Social Media Content",
+"Social Media Design",
+"Public Relations",
+"Media Relations",
+"Brand Design",
+"Logo Design",
+"Advertising Design",
+"Marketing Design",
+"Presentation Design",
+"Canva",
+"Adobe Design",
+"Photoshop",
+"Illustrator",
+"Video Marketing",
+"Photography Business",
+"Creative Entrepreneurship",
+"Freelance Design",
+"Freelance Writing",
+"Freelance Photography",
+"Freelance Video",
+"Publishing",
+"Self-Publishing",
+"Book Design",
+"Magazine Design",
+"Newspaper Design",
+"Digital Publishing",
+"Media Management",
+"Media Ethics",
+"Copyright for Creatives",
+"Creative Business",
+"Creative Project Management",
+"Content Strategy",
+"Content Marketing",
+"Influencer Content",
+"Personal Branding",
+"Visual Storytelling",
+"Creative Portfolio"
+],
+
+"🛠️ Trades & Technical Skills": [
+"Plumbing",
+"Advanced Plumbing",
+"Welding",
+"Arc Welding",
+"MIG Welding",
+"TIG Welding",
+"Gas Welding",
+"Carpentry",
+"Furniture Carpentry",
+"Roof Carpentry",
+"Tiling",
+"Wall Tiling",
+"Floor Tiling",
+"Painting",
+"Building Painting",
+"Decorative Painting",
+"Masonry",
+"Bricklaying",
+"Block Laying",
+"Plastering",
+"Electrical Installation",
+"Basic Electrical",
+"Domestic Electrical",
+"Industrial Electrical",
+"Auto Mechanics",
+"Motor Vehicle Maintenance",
+"Auto Electrical",
+"Vehicle Diagnostics",
+"Engine Fundamentals",
+"Diesel Mechanics",
+"Petrol Mechanics",
+"Motorcycle Mechanics",
+"Tyre Services",
+"Wheel Alignment",
+"Battery Maintenance",
+"Refrigeration",
+"Air Conditioning",
+"HVAC",
+"Solar Installation",
+"Solar Maintenance",
+"Sewing",
+"Tailoring",
+"Fashion Sewing",
+"Upholstery",
+"Furniture Making",
+"Woodworking",
+"Cabinet Making",
+"Metalwork",
+"Metal Fabrication",
+"Sheet Metal",
+"Machining",
+"Lathe Operations",
+"Tool Safety",
+"Workshop Safety",
+"Hand Tools",
+"Power Tools",
+"Technical Drawing",
+"Machine Maintenance",
+"Pump Maintenance",
+"Generator Maintenance",
+"Small Engine Repair",
+"Appliance Repair",
+"Electronic Repair",
+"Phone Repair",
+"Computer Repair",
+"Computer Hardware Repair",
+"Network Cable Installation",
+"Fibre Installation",
+"Security Camera Installation",
+"Gate Motor Maintenance",
+"Locksmith Fundamentals",
+"Gardening",
+"Landscaping",
+"Irrigation Installation",
+"Water Tank Installation",
+"Solar Water Heating",
+"Pool Maintenance",
+"General Maintenance",
+"Property Maintenance",
+"Construction Tools",
+"Trade Mathematics",
+"Trade Measurement",
+"Technical Workplace Skills",
+"Technical Entrepreneurship",
+"Workshop Management",
+"Equipment Maintenance"
+],
+
+"👷 Safety & Security": [
+"Occupational Health & Safety",
+"Workplace Safety",
+"Safety Representative",
+"Fire Safety",
+"Fire Prevention",
+"Fire Awareness",
+"Emergency Preparedness",
+"Emergency Response",
+"First Aid Awareness",
+"Risk Management",
+"Risk Assessment",
+"Incident Reporting",
+"Accident Investigation",
+"Workplace Inspections",
+"Safety Auditing",
+"Safety Management",
+"Security Fundamentals",
+"Security Management",
+"Access Control",
+"Security Administration",
+"Loss Prevention",
+"Retail Security",
+"Warehouse Security",
+"Property Security",
+"Event Security",
+"Personal Security",
+"Crime Prevention",
+"Fraud Prevention",
+"Scam Prevention",
+"Cybersecurity Awareness",
+"Information Security",
+"Data Security",
+"Workplace Violence Prevention",
+"Conflict De-Escalation",
+"Emergency Communication",
+"Disaster Management",
+"Disaster Risk Reduction",
+"Evacuation Procedures",
+"Emergency Planning",
+"Business Continuity",
+"Occupational Hygiene",
+"Industrial Safety",
+"Construction Safety",
+"Mining Safety",
+"Warehouse Safety",
+"Transport Safety",
+"Road Safety",
+"Driver Safety",
+"Machine Safety",
+"Electrical Safety",
+"Chemical Safety",
+"Hazardous Materials",
+"PPE",
+"Manual Handling",
+"Ergonomics",
+"Working at Heights",
+"Confined Space",
+"Hot Work Safety",
+"Lockout Tagout",
+"Fire Warden",
+"Emergency Coordinator",
+"Safety Documentation",
+"Safety Communication",
+"Safety Training",
+"Safety Leadership",
+"Safety Culture",
+"Environmental Safety",
+"Public Safety",
+"Community Safety",
+"School Safety",
+"Healthcare Safety",
+"Food Safety",
+"Hospitality Safety",
+"Farm Safety",
+"Electrical Emergency",
+"Accident Scene Awareness",
+"Emergency Contact Planning",
+"Security Customer Service",
+"Security Ethics",
+"Security Reporting",
+"Security Risk Assessment",
+"Security Technology",
+"CCTV",
+"Alarm Systems",
+"Security Control Room",
+"Security Business Fundamentals"
+],
+"📚 Languages & Academic Skills": [
+"English Fundamentals",
+"English Grammar",
+"English Vocabulary",
+"English Reading",
+"English Writing",
+"Business English",
+"English for Work",
+"English Conversation",
+"English Pronunciation",
+"Academic English",
+"Academic Writing",
+"Essay Writing",
+"Report Writing",
+"Research Writing",
+"Technical Writing",
+"Creative Writing",
+"Public Speaking",
+"Presentation Skills",
+"Communication Skills",
+"Workplace Communication",
+"Interpersonal Communication",
+"Professional Communication",
+"Listening Skills",
+"Reading Skills",
+"Writing Skills",
+"Study Skills",
+"Study Planning",
+"Exam Preparation",
+"Note Taking",
+"Memory Techniques",
+"Time Management for Students",
+"Research Skills",
+"Research Methods",
+"Information Literacy",
+"Critical Reading",
+"Critical Writing",
+"Mathematics Fundamentals",
+"Basic Mathematics",
+"Arithmetic",
+"Algebra",
+"Geometry",
+"Statistics",
+"Probability",
+"Financial Mathematics",
+"Business Mathematics",
+"Science Fundamentals",
+"Biology",
+"Chemistry",
+"Physics",
+"Environmental Science",
+"Computer Literacy",
+"Digital Literacy",
+"IT Literacy",
+"Keyboard Skills",
+"Typing Skills",
+"Computer Applications",
+"Language Learning Methods",
+"South African Languages",
+"Sepedi",
+"Zulu",
+"Xhosa",
+"Sotho",
+"Tswana",
+"Afrikaans",
+"French",
+"Spanish",
+"Portuguese",
+"German",
+"Chinese",
+"Japanese",
+"Professional Vocabulary",
+"Interview Communication",
+"Telephone Communication",
+"Customer Communication",
+"Conflict Communication",
+"Academic Presentation",
+"Academic Research",
+"Library Skills",
+"Referencing",
+"Plagiarism Awareness",
+"Learning Strategies",
+"Problem Solving",
+"Logical Reasoning",
+"Numeracy Skills",
+"Literacy Skills",
+"Communication for Leadership",
+"Communication for Business",
+"Communication for Healthcare",
+"Communication for Teaching",
+"Communication for Sales",
+"Communication for Customer Service",
+"Language Teaching"
+],
+"💼 Career & Employment": [
+"CV Building",
+"CV Revamping",
+"Professional CV Writing",
+"Cover Letter Writing",
+"Job Searching",
+"Job Search Strategy",
+"Job Applications",
+"Online Job Applications",
+"Application Forms",
+"Interview Preparation",
+"Interview Questions",
+"Interview Confidence",
+"Telephone Interviews",
+"Video Interviews",
+"Assessment Centre Preparation",
+"Psychometric Tests",
+"LinkedIn Career Skills",
+"Professional Networking",
+"Personal Branding",
+"Career Planning",
+"Career Development",
+"Career Research",
+"Career Guidance",
+"Workplace Readiness",
+"Workplace Communication",
+"Workplace Ethics",
+"Professional Conduct",
+"Professional Appearance",
+"Workplace Teamwork",
+"Workplace Problem Solving",
+"Workplace Time Management",
+"Workplace Digital Skills",
+"Remote Work Skills",
+"Remote Job Preparation",
+"Freelancing",
+"Freelance Business",
+"Learnership Applications",
+"Internship Applications",
+"Graduate Programme Applications",
+"Government Job Applications",
+"DPSA Application Skills",
+"Job Advertisement Analysis",
+"Job Requirement Analysis",
+"Skills Matching",
+"Career Portfolio",
+"Professional Portfolio",
+"Certificate Portfolio",
+"Skills Profile",
+"Online Professional Profile",
+"Career Goal Setting",
+"Career Change",
+"Career Advancement",
+"Promotion Preparation",
+"Workplace Leadership",
+"Workplace Conflict Management",
+"Workplace Customer Service",
+"Workplace Safety",
+"Workplace Diversity",
+"Workplace Inclusion",
+"Employee Rights",
+"Employment Contracts",
+"Salary Negotiation",
+"Job Offer Evaluation",
+"Employment Benefits",
+"Resignation Preparation",
+"Workplace Exit Planning",
+"Professional Email Writing",
+"Professional Phone Skills",
+"Meeting Skills",
+"Work Presentation",
+"Work Report Writing",
+"Performance Review",
+"Career Mentoring",
+"Interview Roleplay",
+"Career Motivation",
+"Employment Scam Awareness",
+"Recruitment Scam Awareness",
+"Online Job Safety",
+"Remote Work Safety",
+"Freelancer Safety",
+"Career Social Media",
+"Workplace Adaptability",
+"Workplace Resilience",
+"Career Confidence",
+"Employability Skills",
+"Digital Employability",
+"AI Career Skills"
+],
+ "🧠 Personal Development": [
+"Critical Thinking",
+"Problem Solving",
+"Decision Making",
+"Emotional Intelligence",
+"Time Management",
+"Productivity",
+"Goal Setting",
+"Confidence Building",
+"Self-Confidence",
+"Personal Leadership",
+"Leadership Skills",
+"Life Skills",
+"Communication Skills",
+"Interpersonal Skills",
+"Teamwork",
+"Adaptability",
+"Resilience",
+"Professional Mindset",
+"Growth Mindset",
+"Positive Thinking",
+"Self-Awareness",
+"Self-Discipline",
+"Motivation",
+"Personal Organisation",
+"Planning Skills",
+"Daily Planning",
+"Personal Productivity",
+"Study Productivity",
+"Work Productivity",
+"Stress Management",
+"Work-Life Balance",
+"Healthy Habits",
+"Personal Wellness",
+"Financial Life Skills",
+"Digital Literacy",
+"Internet Safety",
+"Social Media Safety",
+"Online Privacy",
+"Cyber Awareness",
+"Information Literacy",
+"Media Literacy",
+"Leadership Communication",
+"Conflict Resolution",
+"Negotiation Skills",
+"Relationship Skills",
+"Listening Skills",
+"Empathy",
+"Respect",
+"Professional Etiquette",
+"Workplace Etiquette",
+"Public Speaking Confidence",
+"Presentation Confidence",
+"Interview Confidence",
+"Career Confidence",
+"Personal Branding",
+"Networking Skills",
+"Decision Making for Life",
+"Problem Solving for Life",
+"Creative Thinking",
+"Logical Thinking",
+"Analytical Thinking",
+"Financial Decision Making",
+"Career Decision Making",
+"Goal Achievement",
+"Habit Building",
+"Focus & Concentration",
+"Memory Improvement",
+"Learning How to Learn",
+"Self-Development Planning",
+"Personal Development Planning",
+"Leadership Development",
+"Young Adult Life Skills",
+"Adult Life Skills",
+"Parenting Awareness",
+"Community Leadership",
+"Volunteer Skills",
+"Entrepreneurial Mindset",
+"Professional Resilience",
+"Workplace Confidence",
+"Workplace Relationships",
+"Workplace Accountability",
+"Personal Accountability",
+"Responsible Citizenship",
+"Community Participation",
+"Personal Safety",
+"Emergency Preparedness",
+"Life Planning",
+"Future Planning",
+"Success Planning"
+],
+"🛍️ Retail & Sales": [
+"Retail Sales",
+"Retail Operations",
+"Retail Management",
+"Retail Customer Service",
+"Retail Administration",
+"Store Operations",
+"Store Management",
+"Cashier Training",
+"Point of Sale",
+"POS Systems",
+"Stock Control",
+"Inventory Control",
+"Stock Receiving",
+"Stock Dispatch",
+"Stock Counting",
+"Stock Reconciliation",
+"Merchandising",
+"Visual Merchandising",
+"Product Display",
+"Product Knowledge",
+"Sales Fundamentals",
+"Advanced Sales",
+"Sales Techniques",
+"Sales Psychology",
+"Sales Negotiation",
+"Sales Closing",
+"Customer Relations",
+"Customer Experience",
+"Complaint Handling",
+"Customer Service",
+"Retail Communication",
+"Retail Teamwork",
+"Retail Leadership",
+"Retail Supervision",
+"Retail Scheduling",
+"Workforce Management",
+"Retail Loss Prevention",
+"Retail Security",
+"Retail Fraud Prevention",
+"Cash Handling",
+"Cash Office",
+"Retail Accounting",
+"Retail Pricing",
+"Pricing Strategy",
+"Promotions Management",
+"Retail Marketing",
+"Digital Retail Marketing",
+"E-Commerce Retail",
+"Online Store Management",
+"Marketplace Selling",
+"Social Commerce",
+"Retail Data Analysis",
+"Retail Analytics",
+"Retail Reporting",
+"Retail Technology",
+"Barcode Systems",
+"Inventory Software",
+"Warehouse Retail Operations",
+"Supply Chain Retail",
+"Purchasing for Retail",
+"Supplier Management",
+"Retail Procurement",
+"Retail Compliance",
+"Consumer Rights",
+"Retail Ethics",
+"Retail Safety",
+"Store Safety",
+"Retail Emergency Procedures",
+"Food Retail",
+"Fashion Retail",
+"Electronics Retail",
+"Pharmacy Retail Awareness",
+"Hardware Retail",
+"Supermarket Operations",
+"Convenience Store Operations",
+"Clothing Store Operations",
+"Furniture Retail",
+"Automotive Retail",
+"Mobile Phone Retail",
+"Retail Entrepreneurship",
+"Small Retail Business",
+"Informal Retail Business",
+"Market Stall Sales",
+"Customer Follow-Up",
+"Customer Retention",
+"Customer Loyalty",
+"Retail Team Management",
+"Retail Performance",
+"Retail Career Skills",
+"Retail Interview Preparation",
+"Retail CV Skills",
+"Retail Workplace Readiness"
+],
+ "💄 Beauty & Wellness": [
+"Hairdressing",
+"Hair Styling",
+"Hair Cutting",
+"Hair Colouring Awareness",
+"Hair Treatment",
+"Natural Hair Care",
+"Hair Braiding",
+"Protective Hairstyles",
+"Barbering",
+"Men's Grooming",
+"Beard Grooming",
+"Nail Technology",
+"Manicure",
+"Pedicure",
+"Nail Art",
+"Beauty Therapy",
+"Skincare Basics",
+"Facial Treatments Awareness",
+"Makeup Fundamentals",
+"Professional Makeup",
+"Bridal Makeup",
+"Beauty Business",
+"Salon Management",
+"Salon Administration",
+"Salon Customer Service",
+"Salon Marketing",
+"Digital Beauty Marketing",
+"Beauty Entrepreneurship",
+"Spa Therapy",
+"Spa Management",
+"Wellness Fundamentals",
+"Personal Wellness",
+"Personal Grooming",
+"Skin Hygiene",
+"Hair Hygiene",
+"Nail Hygiene",
+"Beauty Hygiene",
+"Beauty Safety",
+"Salon Safety",
+"Beauty Equipment",
+"Beauty Product Knowledge",
+"Cosmetic Knowledge",
+"Beauty Consultation",
+"Client Consultation",
+"Customer Relations for Beauty",
+"Beauty Communication",
+"Beauty Ethics",
+"Beauty Pricing",
+"Beauty Stock Management",
+"Salon Inventory",
+"Salon Bookings",
+"Appointment Management",
+"Salon Finance",
+"Beauty Accounting",
+"Beauty Social Media",
+"Beauty Content Creation",
+"Beauty Photography",
+"Beauty Branding",
+"Beauty Portfolio",
+"Freelance Makeup",
+"Mobile Beauty Services",
+"Home Salon Business",
+"Barber Shop Business",
+"Nail Salon Business",
+"Hair Salon Business",
+"Spa Business",
+"Wellness Business",
+"Massage Awareness",
+"Relaxation Techniques",
+"Stress Reduction",
+"Fitness & Wellness",
+"Healthy Lifestyle",
+"Beauty Nutrition",
+"Skincare Business",
+"Natural Beauty Products",
+"Beauty Product Entrepreneurship",
+"Personal Styling",
+"Fashion Styling",
+"Image Consulting",
+"Colour Styling",
+"Wedding Beauty Services",
+"Beauty Event Services",
+"Beauty Career Skills",
+"Beauty Interview Preparation",
+"Beauty CV Skills",
+"Beauty Workplace Readiness",
+"Beauty Customer Retention"
+],
+"🌍 Environment & Sustainability": [
+"Environmental Management",
+"Environmental Awareness",
+"Sustainability Fundamentals",
+"Sustainable Development",
+"Climate Change",
+"Climate Awareness",
+"Recycling",
+"Waste Management",
+"Household Waste",
+"Industrial Waste",
+"Water Conservation",
+"Water Management",
+"Water Efficiency",
+"Rainwater Harvesting",
+"Renewable Energy",
+"Solar Energy",
+"Wind Energy",
+"Energy Efficiency",
+"Green Buildings",
+"Green Construction",
+"Environmental Compliance",
+"Environmental Impact",
+"Environmental Risk",
+"Environmental Auditing",
+"Environmental Monitoring",
+"Air Pollution",
+"Water Pollution",
+"Soil Pollution",
+"Plastic Pollution",
+"Ocean Conservation",
+"River Conservation",
+"Wetland Conservation",
+"Forest Conservation",
+"Wildlife Conservation",
+"Biodiversity",
+"Conservation Agriculture",
+"Organic Farming",
+"Organic Gardening",
+"Urban Farming",
+"Community Gardening",
+"Gardening",
+"Landscaping",
+"Landscape Maintenance",
+"Tree Planting",
+"Tree Care",
+"Permaculture",
+"Agroforestry",
+"Soil Conservation",
+"Composting",
+"Vermiculture",
+"Recycling Business",
+"Green Entrepreneurship",
+"Green Business",
+"Environmental Entrepreneurship",
+"Sustainable Agriculture",
+"Climate-Smart Agriculture",
+"Sustainable Tourism",
+"Sustainable Hospitality",
+"Sustainable Transport",
+"Green Logistics",
+"Green Supply Chains",
+"Carbon Awareness",
+"Carbon Footprint",
+"Energy Management",
+"Environmental Health",
+"Environmental Safety",
+"Community Environmental Projects",
+"Environmental Education",
+"School Environmental Projects",
+"Workplace Sustainability",
+"Sustainable Office Practices",
+"Green Procurement",
+"Sustainable Packaging",
+"Eco-Friendly Products",
+"Environmental Communication",
+"Environmental Campaigns",
+"Conservation Education",
+"Environmental Research",
+"Environmental Data",
+"Environmental Reporting",
+"Environmental Project Management",
+"Environmental Leadership",
+"Environmental Policy",
+"Natural Resource Management",
+"Land Management",
+"Water Resource Management",
+"Forest Management",
+"Wildlife Management",
+"Coastal Management",
+"Disaster Risk & Climate",
+"Climate Resilience",
+"Community Resilience",
+"Green Careers",
+"Green Skills",
+"Sustainable Business"
+]
+ };
+
+// ===============================
+// LEARNHUB COURSE SYSTEM
+// ===============================
+
+const academyNames = Object.keys(academies);
+
+const courseList = [];
+
+academyNames.forEach(academy => {
+    academies[academy].forEach(course => {
+        courseList.push({
+            academy: academy,
+            name: course
+        });
+    });
+});
+
+// Add structured learning levels
+const expandedCourses = [];
+
+courseList.forEach((course, index) => {
+    expandedCourses.push({
+        id: "LH-" + String(index + 1).padStart(4, "0"),
+        academy: course.academy,
+        name: course.name,
+        level: "Level 01",
+        type: "Foundation"
+    });
+
+    expandedCourses.push({
+        id: "LH-" + String(index + 1).padStart(4, "0") + "-02",
+        academy: course.academy,
+        name: course.name + " — Level 02",
+        level: "Level 02",
+        type: "Intermediate"
+    });
+
+    expandedCourses.push({
+        id: "LH-" + String(index + 1).padStart(4, "0") + "-03",
+        academy: course.academy,
+        name: course.name + " — Level 03",
+        level: "Level 03",
+        type: "Advanced"
+    });
+
+    expandedCourses.push({
+        id: "LH-" + String(index + 1).padStart(4, "0") + "-P",
+        academy: course.academy,
+        name: course.name + " — Practical Skills",
+        level: "Practical",
+        type: "Practical"
+    });
+});
+
+const totalCourses = expandedCourses.length;
+
+// ===============================
+// USER DATA
+// ===============================
+
+let learnhubData = JSON.parse(
+    localStorage.getItem("learnhubData")
+) || {
+    registered: false,
+    profile: {
+        name: "",
+        email: "",
+        phone: "",
+        location: "",
+        education: "",
+        skills: ""
     },
-    {
-        title:"Lesson 2: CSS Basics",
-        content:"CSS is used to style websites. Learn colors, fonts, spacing, borders and layouts."
-    },
-    {
-        title:"Lesson 3: JavaScript Basics",
-        content:"JavaScript adds interaction to websites. Learn variables, functions, events and basic DOM manipulation."
-    }
-];
-
-const pythonLessons = [
-    {
-        title:"Lesson 1: Python Introduction",
-        content:"Python is a popular programming language used for web development, automation, data and artificial intelligence."
-    },
-    {
-        title:"Lesson 2: Variables",
-        content:"Variables store information such as names, numbers and other values."
-    },
-    {
-        title:"Lesson 3: Conditions",
-        content:"Use if, elif and else statements to make decisions in Python programs."
-    },
-    {
-        title:"Lesson 4: Functions",
-        content:"Functions allow you to organize reusable pieces of Python code."
-    }
-];
-
-
-let data = JSON.parse(localStorage.getItem("learnhubData")) || {
-    profile:{
-        name:"",
-        email:"",
-        location:"",
-        skills:""
-    },
-    completed:{
-        web:[],
-        python:[]
-    },
-    certificates:[],
-    savedJobs:[]
+    completed: [],
+    certificates: [],
+    applications: []
 };
 
-
-let currentCourse = "web";
-
-
-function saveData(){
-
+function saveData() {
     localStorage.setItem(
         "learnhubData",
-        JSON.stringify(data)
+        JSON.stringify(learnhubData)
     );
-
 }
 
+// ===============================
+// HELPERS
+// ===============================
 
-function showPage(pageId){
+function escapeHTML(text) {
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
-    document.querySelectorAll(".page").forEach(function(page){
+function getCompletedCount() {
+    return learnhubData.completed.length;
+}
 
-        page.classList.remove("active");
+function isCompleted(courseId) {
+    return learnhubData.completed.includes(courseId);
+}
 
+// ===============================
+// COURSE SEARCH
+// ===============================
+
+function searchCourses() {
+
+    const searchInput =
+        document.getElementById("courseSearch");
+
+    const academyFilter =
+        document.getElementById("academyFilter");
+
+    const results =
+        document.getElementById("courseResults");
+
+    if (!results) return;
+
+    const search =
+        searchInput
+            ? searchInput.value.toLowerCase().trim()
+            : "";
+
+    const academy =
+        academyFilter
+            ? academyFilter.value
+            : "ALL";
+
+    const filtered = expandedCourses.filter(course => {
+
+        const matchesSearch =
+            course.name.toLowerCase().includes(search) ||
+            course.academy.toLowerCase().includes(search);
+
+        const matchesAcademy =
+            academy === "ALL" ||
+            course.academy === academy;
+
+        return matchesSearch && matchesAcademy;
     });
 
-    const page = document.getElementById(pageId);
+    results.innerHTML = "";
 
-    if(page){
-        page.classList.add("active");
+    if (filtered.length === 0) {
+        results.innerHTML = `
+            <div class="empty-state">
+                <h3>No courses found</h3>
+                <p>Try another search or academy.</p>
+            </div>
+        `;
+        return;
     }
 
-    updateStats();
+    filtered.slice(0, 100).forEach(course => {
 
-    window.scrollTo(0,0);
+        const card = document.createElement("div");
 
-}
+        card.className = "course-card";
 
+        card.innerHTML = `
+            <div class="course-academy">
+                ${escapeHTML(course.academy)}
+            </div>
 
-function updateStats(){
+            <h3>${escapeHTML(course.name)}</h3>
 
-    const totalLessons =
-        webLessons.length +
-        pythonLessons.length;
-
-    const completedLessons =
-        data.completed.web.length +
-        data.completed.python.length;
-
-    const percentage =
-        Math.round((completedLessons / totalLessons) * 100);
-
-    const homeProgress =
-        document.getElementById("homeProgress");
-
-    const profileProgress =
-        document.getElementById("profileProgress");
-
-    if(homeProgress){
-        homeProgress.style.width = percentage + "%";
-    }
-
-    if(profileProgress){
-        profileProgress.style.width = percentage + "%";
-    }
-
-    const progressText =
-        document.getElementById("progressText");
-
-    const profileProgressText =
-        document.getElementById("profileProgressText");
-
-    if(progressText){
-        progressText.textContent =
-            percentage + "% completed";
-    }
-
-    if(profileProgressText){
-        profileProgressText.textContent =
-            percentage + "% completed";
-    }
-
-}
-
-
-function openCourse(course){
-
-    currentCourse = course;
-
-    const lessons =
-        course === "web"
-        ? webLessons
-        : pythonLessons;
-
-    document.getElementById("courseTitle").textContent =
-        course === "web"
-        ? "Web Development"
-        : "Python Basics";
-
-    document.getElementById("courseDescription").textContent =
-        course === "web"
-        ? "Learn the basics of building websites."
-        : "Learn the foundations of Python programming.";
-
-    const container =
-        document.getElementById("lessonsContainer");
-
-    container.innerHTML = "";
-
-    lessons.forEach(function(lesson,index){
-
-        const completed =
-            data.completed[course].includes(index);
-
-        const div =
-            document.createElement("div");
-
-        div.className =
-            completed
-            ? "lesson completed"
-            : "lesson";
-
-        div.innerHTML = `
-
-            <h3>${escapeHTML(lesson.title)}</h3>
-
-            <p>${escapeHTML(lesson.content)}</p>
+            <p>
+                ${escapeHTML(course.level)}
+                • ${escapeHTML(course.type)}
+            </p>
 
             ${
-                completed
-                ?
-                `<p class="saved">✓ Lesson Completed</p>`
-                :
-                `<button
-                    class="btn"
-                    onclick="completeLesson(${index})">
-                    Complete Lesson
-                </button>`
+                isCompleted(course.id)
+                ? `<span class="completed-label">✓ COMPLETED</span>`
+                : `<button onclick="openCourse('${course.id}')">
+                    Start Course
+                  </button>`
             }
-
         `;
 
-        container.appendChild(div);
-
+        results.appendChild(card);
     });
-
-
-    const certificateButton =
-        document.getElementById("certificateButton");
-
-    const allCompleted =
-        data.completed[course].length === lessons.length;
-
-    certificateButton.style.display =
-        allCompleted
-        ? "inline-block"
-        : "none";
-
-
-    document.getElementById("courseModal").style.display =
-        "block";
-
 }
 
+// ===============================
+// ACADEMY FILTER
+// ===============================
 
-function closeCourse(){
+function loadAcademyFilter() {
 
-    document.getElementById("courseModal").style.display =
-        "none";
+    const filter =
+        document.getElementById("academyFilter");
 
+    if (!filter) return;
+
+    filter.innerHTML =
+        `<option value="ALL">All Academies</option>`;
+
+    academyNames.forEach(academy => {
+
+        const option =
+            document.createElement("option");
+
+        option.value = academy;
+        option.textContent = academy;
+
+        filter.appendChild(option);
+    });
 }
 
+// ===============================
+// COURSE MODAL
+// ===============================
 
-function completeLesson(index){
+function openCourse(courseId) {
 
-    if(!data.completed[currentCourse].includes(index)){
+    const course =
+        expandedCourses.find(
+            item => item.id === courseId
+        );
 
-        data.completed[currentCourse].push(index);
+    if (!course) return;
+
+    const modal =
+        document.getElementById("courseModal");
+
+    const content =
+        document.getElementById("courseModalContent");
+
+    if (!modal || !content) return;
+
+    const completed =
+        isCompleted(course.id);
+
+    content.innerHTML = `
+        <div class="modal-header">
+            <span>${escapeHTML(course.academy)}</span>
+
+            <button onclick="closeCourse()">
+                ✕
+            </button>
+        </div>
+
+        <h2>${escapeHTML(course.name)}</h2>
+
+        <p class="course-level">
+            ${escapeHTML(course.level)}
+        </p>
+
+        <div class="lesson">
+            <strong>Lesson 1</strong>
+            <p>Introduction to ${escapeHTML(course.name)}.</p>
+        </div>
+
+        <div class="lesson">
+            <strong>Lesson 2</strong>
+            <p>Core knowledge and important concepts.</p>
+        </div>
+
+        <div class="lesson">
+            <strong>Lesson 3</strong>
+            <p>Practical skills and real-world application.</p>
+        </div>
+
+        <div class="lesson">
+            <strong>Lesson 4</strong>
+            <p>Assessment and course completion.</p>
+        </div>
+
+        ${
+            completed
+            ? `
+                <div class="success-box">
+                    ✓ You have completed this course.
+                </div>
+              `
+            : `
+                <button
+                    class="complete-btn"
+                    onclick="completeCourse('${course.id}')">
+                    Mark Course Complete
+                </button>
+              `
+        }
+    `;
+
+    modal.classList.add("show");
+}
+
+function closeCourse() {
+
+    const modal =
+        document.getElementById("courseModal");
+
+    if (modal) {
+        modal.classList.remove("show");
+    }
+}
+
+// ===============================
+// COMPLETE COURSE
+// ===============================
+
+function completeCourse(courseId) {
+
+    if (!learnhubData.completed.includes(courseId)) {
+
+        learnhubData.completed.push(courseId);
 
         saveData();
-
     }
 
-    openCourse(currentCourse);
+    closeCourse();
 
-    updateStats();
+    updateDashboard();
+    searchCourses();
 
+    alert(
+        "Congratulations! Course completed successfully."
+    );
 }
 
+// ===============================
+// PROGRESS
+// ===============================
 
-function generateCertificate(){
+function updateDashboard() {
 
-    const lessons =
-        currentCourse === "web"
-        ? webLessons
-        : pythonLessons;
+    const completed =
+        getCompletedCount();
 
-    if(
-        data.completed[currentCourse].length !==
-        lessons.length
-    ){
+    const progress =
+        totalCourses > 0
+        ? Math.round((completed / totalCourses) * 100)
+        : 0;
 
-        alert("Complete all lessons first.");
+    const completedElement =
+        document.getElementById("completedCount");
+
+    const totalElement =
+        document.getElementById("totalCourses");
+
+    const progressElement =
+        document.getElementById("progressPercent");
+
+    const progressBar =
+        document.getElementById("progressBar");
+
+    if (completedElement)
+        completedElement.textContent = completed;
+
+    if (totalElement)
+        totalElement.textContent = totalCourses;
+
+    if (progressElement)
+        progressElement.textContent = progress + "%";
+
+    if (progressBar)
+        progressBar.style.width = progress + "%";
+
+    const courseCount =
+        document.getElementById("courseCount");
+
+    if (courseCount)
+        courseCount.textContent =
+            totalCourses.toLocaleString();
+}
+
+// ===============================
+// REGISTRATION
+// ===============================
+
+function registerLearnHub() {
+
+    const name =
+        document.getElementById("registerName");
+
+    const email =
+        document.getElementById("registerEmail");
+
+    if (!name || !email) return;
+
+    if (!name.value.trim() ||
+        !email.value.trim()) {
+
+        alert(
+            "Please enter your name and email address."
+        );
 
         return;
-
     }
 
+    learnhubData.registered = true;
 
-    let learnerName =
-        data.profile.name.trim();
+    learnhubData.profile.name =
+        name.value.trim();
 
+    learnhubData.profile.email =
+        email.value.trim();
 
-    if(!learnerName){
+    saveData();
 
-        learnerName =
-            prompt("Enter your name for the certificate:");
+    alert(
+        "Welcome to LearnHub! Registration fee: R500."
+    );
 
-        if(!learnerName){
+    showSection("home");
+}
 
-            return;
+// ===============================
+// CERTIFICATE
+// ===============================
 
-        }
+function generateCertificate() {
 
-        data.profile.name =
-            learnerName;
+    if (getCompletedCount() === 0) {
 
-        saveData();
+        alert(
+            "Complete at least one course before requesting a certificate."
+        );
 
+        return;
     }
 
+    const courseId =
+        learnhubData.completed[
+            learnhubData.completed.length - 1
+        ];
 
-    const certificateNumber =
-        "LH-" +
-        Math.floor(100000 + Math.random() * 900000);
+    const course =
+        expandedCourses.find(
+            item => item.id === courseId
+        );
 
+    if (!course) return;
+
+    const certificateId =
+        "LH-CERT-" +
+        Date.now().toString().slice(-8);
 
     const certificate = {
 
-        number:certificateNumber,
+        id: certificateId,
 
-        name:learnerName,
+        learnerId:
+            "LH-" +
+            Date.now().toString().slice(-6),
+
+        learner:
+            learnhubData.profile.name ||
+            "LearnHub Learner",
 
         course:
-            currentCourse === "web"
-            ? "Web Development"
-            : "Python Basics",
+            course.name,
 
-        date:new Date().toLocaleDateString()
+        academy:
+            course.academy,
 
+        date:
+            new Date().toLocaleDateString(
+                "en-ZA"
+            )
     };
 
-
-    data.certificates.push(certificate);
+    learnhubData.certificates.push(
+        certificate
+    );
 
     saveData();
 
-
-    closeCourse();
-
-
-    document.getElementById("certificateName").textContent =
-        certificate.name;
-
-    document.getElementById("certificateCourse").textContent =
-        certificate.course;
-
-    document.getElementById("certificateDate").textContent =
-        certificate.date;
-
-    document.getElementById("certificateNumber").textContent =
-        certificate.number;
-
-
-    showPage("certificatePage");
-
+    displayCertificate(certificate);
 }
 
+function displayCertificate(certificate) {
 
-function loadProfile(){
+    const certificateArea =
+        document.getElementById(
+            "certificateArea"
+        );
 
-    document.getElementById("profileName").value =
-        data.profile.name || "";
+    if (!certificateArea) return;
 
-    document.getElementById("profileEmail").value =
-        data.profile.email || "";
+    certificateArea.innerHTML = `
 
-    document.getElementById("profileLocation").value =
-        data.profile.location || "";
+        <div class="certificate">
 
-    document.getElementById("profileSkills").value =
-        data.profile.skills || "";
+            <div class="certificate-top">
 
+                <div class="coat">
+                    🇿🇦
+                    <small>
+                        SOUTH AFRICA
+                    </small>
+                </div>
+
+                <div class="graduation">
+                    🎓
+                </div>
+
+            </div>
+
+            <h1>LearnHub</h1>
+
+            <h2>CERTIFICATE OF COMPLETION</h2>
+
+            <div class="completed-badge">
+                COMPLETED
+            </div>
+
+            <p>
+                This certificate is proudly presented to
+            </p>
+
+            <h3 class="learner-name">
+                ${escapeHTML(certificate.learner)}
+            </h3>
+
+            <p>
+                for successfully completing
+            </p>
+
+            <h2 class="certificate-course">
+                ${escapeHTML(certificate.course)}
+            </h2>
+
+            <p>
+                Academy:
+                ${escapeHTML(certificate.academy)}
+            </p>
+
+            <div class="certificate-level">
+                LEVEL 01
+            </div>
+
+            <div class="stars">
+                ★ ★ ★
+            </div>
+
+            <div class="certificate-details">
+
+                <div>
+                    <strong>Certificate ID</strong>
+                    <br>
+                    ${certificate.id}
+                </div>
+
+                <div>
+                    <strong>Learner ID</strong>
+                    <br>
+                    ${certificate.learnerId}
+                </div>
+
+                <div>
+                    <strong>Completion Date</strong>
+                    <br>
+                    ${certificate.date}
+                </div>
+
+            </div>
+
+            <div class="verification-box">
+
+                <div class="qr-placeholder">
+                    QR
+                </div>
+
+                <p>
+                    Scan to verify certificate
+                </p>
+
+                <small>
+                    Public verification portal
+                    coming soon.
+                </small>
+
+            </div>
+
+            <div class="certificate-signatures">
+
+                <div>
+                    ______________________
+                    <br>
+                    LearnHub Developer
+                </div>
+
+                <div>
+                    ______________________
+                    <br>
+                    Course & Platform Developer
+                </div>
+
+            </div>
+
+            <p class="certificate-footer">
+                Verified LearnHub Certificate
+                • Proudly South African
+            </p>
+
+        </div>
+
+        <div class="certificate-actions">
+
+            <button onclick="window.print()">
+                🖨️ Print Certificate
+            </button>
+
+        </div>
+    `;
 }
 
+// ===============================
+// CV BUILDER
+// ===============================
 
-function saveProfile(){
+function saveCV() {
 
-    const name =
-        document.getElementById("profileName").value.trim();
+    const fields = [
+        "cvName",
+        "cvEmail",
+        "cvPhone",
+        "cvLocation",
+        "cvEducation",
+        "cvSkills",
+        "cvExperience",
+        "cvSummary"
+    ];
 
-    const email =
-        .getElementById("profileEmail").value.trim();
+    fields.forEach(id => {
 
-const location =
-document.getElementById("profileLocation").value.trim();
+        const element =
+            document.getElementById(id);
 
-const skills =
-document.getElementById("profileSkills").value.trim();
+        if (element) {
 
-data.profile = {
-name: name,
-email: email,
-location: location,
-skills: skills
-};
+            learnhubData.profile[
+                id.replace("cv", "")
+                    .toLowerCase()
+            ] = element.value;
+        }
+    });
 
-saveData();
-
-document.getElementById("profileMessage").textContent =
-"✓ Profile saved successfully.";
-
-updateStats();
-
-}
-
-function filterJobs(){
-
-const search =
-    document.getElementById("jobSearch").value.toLowerCase();
-
-document.querySelectorAll(".job").forEach(function(job){
-
-    const text =
-        job.getAttribute("data-job") || "";
-
-    job.style.display =
-        text.includes(search) ? "block" : "none";
-
-});
-
-}
-
-function applyJob(jobName){
-
-if(!data.savedJobs.includes(jobName)){
-
-    data.savedJobs.push(jobName);
     saveData();
 
+    alert(
+        "Your CV information has been saved."
+    );
 }
 
-const element =
-    document.getElementById("saved-" + jobName);
+function printCV() {
 
-if(element){
+    saveCV();
 
-    element.textContent = "✓ Job saved";
-    element.className = "saved";
-
+    window.print();
 }
 
+// ===============================
+// PROFILE
+// ===============================
+
+function loadProfile() {
+
+    const profile =
+        learnhubData.profile;
+
+    const mappings = {
+
+        profileName: profile.name,
+
+        profileEmail: profile.email,
+
+        profilePhone: profile.phone,
+
+        profileLocation:
+            profile.location
+    };
+
+    Object.keys(mappings).forEach(id => {
+
+        const element =
+            document.getElementById(id);
+
+        if (element)
+            element.textContent =
+                mappings[id] || "Not provided";
+    });
 }
 
-function renderSavedJobs(){
+// ===============================
+// NAVIGATION
+// ===============================
 
-data.savedJobs.forEach(function(jobName){
+function showSection(sectionId) {
 
-    const element =
-        document.getElementById("saved-" + jobName);
+    document
+        .querySelectorAll(".page-section")
+        .forEach(section => {
 
-    if(element){
+            section.classList.remove("active");
 
-        element.textContent = "✓ Job saved";
-        element.className = "saved";
+        });
 
+    const section =
+        document.getElementById(sectionId);
+
+    if (section) {
+
+        section.classList.add("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     }
 
-});
+    if (sectionId === "academies") {
+        searchCourses();
+    }
 
+    if (sectionId === "certificate") {
+
+        const latest =
+            learnhubData.certificates[
+                learnhubData.certificates.length - 1
+            ];
+
+        if (latest)
+            displayCertificate(latest);
+    }
+
+    if (sectionId === "profile") {
+        loadProfile();
+    }
 }
 
-function generateCV(){
+// ===============================
+// INITIALISE
+// ===============================
 
-const name =
-    document.getElementById("cvName").value.trim();
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
 
-const phone =
-    document.getElementById("cvPhone").value.trim();
+        loadAcademyFilter();
 
-const email =
-    document.getElementById("cvEmail").value.trim();
+        updateDashboard();
 
-const summary =
-    document.getElementById("cvSummary").value.trim();
+        searchCourses();
 
-const education =
-    document.getElementById("cvEducation").value.trim();
+        loadProfile();
 
-const skills =
-    document.getElementById("cvSkills").value.trim();
+        const search =
+            document.getElementById(
+                "courseSearch"
+            );
 
-const experience =
-    document.getElementById("cvExperience").value.trim();
+        const filter =
+            document.getElementById(
+                "academyFilter"
+            );
 
-document.getElementById("cvOutput").innerHTML = `
+        if (search) {
 
-    <div id="printableCV" class="card">
+            search.addEventListener(
+                "input",
+                searchCourses
+            );
+        }
 
-        <h1>${escapeHTML(name || "Your Name")}</h1>
+        if (filter) {
 
-        <p>${escapeHTML(phone)} | ${escapeHTML(email)}</p>
+            filter.addEventListener(
+                "change",
+                searchCourses
+            );
+        }
 
-        <hr><br>
+        if (
+            learnhubData.profile.name
+        ) {
 
-        <h2>Professional Summary</h2>
-        <p>${formatText(summary)}</p>
+            const registerName =
+                document.getElementById(
+                    "registerName"
+                );
 
-        <h2>Education</h2>
-        <p>${formatText(education)}</p>
+            if (registerName)
+                registerName.value =
+                    learnhubData.profile.name;
+        }
 
-        <h2>Skills</h2>
-        <p>${formatText(skills)}</p>
+        if (
+            learnhubData.profile.email
+        ) {
 
-        <h2>Experience</h2>
-        <p>${formatText(experience)}</p>
+            const registerEmail =
+                document.getElementById(
+                    "registerEmail"
+                );
+
+            if (registerEmail)
+                registerEmail.value =
+                    learnhubData.profile.email;
+        }
+    }
+);
+</script>
+
+<body>
+
+<!-- ==============================
+     LEARNHUB HEADER
+============================== -->
+
+<header class="top-header">
+
+    <div class="brand">
+        <span class="brand-hat">🎓</span>
+        <div>
+            <strong>LearnHub</strong>
+            <small>Learn. Grow. Get Hired.</small>
+        </div>
+    </div>
+
+    <button class="menu-btn" onclick="toggleMenu()">
+        ☰
+    </button>
+
+</header>
+
+
+<!-- ==============================
+     NAVIGATION
+============================== -->
+
+<nav id="mainNav">
+
+    <button onclick="showSection('home')">
+        🏠 Home
+    </button>
+
+    <button onclick="showSection('academies')">
+        🎓 Academies
+    </button>
+
+    <button onclick="showSection('learning')">
+        📚 My Learning
+    </button>
+
+    <button onclick="showSection('career')">
+        💼 Career
+    </button>
+
+    <button onclick="showSection('jobs')">
+        🔎 Jobs
+    </button>
+
+    <button onclick="showSection('certificate')">
+        🏆 Certificate
+    </button>
+
+    <button onclick="showSection('cv')">
+        📄 CV Builder
+    </button>
+
+    <button onclick="showSection('services')">
+        🛠️ Services
+    </button>
+
+    <button onclick="showSection('community')">
+        💬 Community
+    </button>
+
+    <button onclick="showSection('profile')">
+        👤 Profile
+    </button>
+
+</nav>
+
+
+<main>
+
+
+<!-- ==============================
+     HOME
+============================== -->
+
+<section id="home" class="page-section active">
+
+    <div class="hero">
+
+        <div class="hero-hat">
+            🎓
+        </div>
+
+        <h1>
+            Learn. Grow.<br>
+            Get Hired.
+        </h1>
+
+        <p>
+            Learn practical skills, build your career,
+            earn verified certificates and discover
+            opportunities with LearnHub.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                class="primary-btn"
+                onclick="showSection('academies')">
+                Explore Courses
+            </button>
+
+            <button
+                class="secondary-btn"
+                onclick="showSection('profile')">
+                Create Profile
+            </button>
+
+        </div>
 
     </div>
-`;
 
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <strong>20</strong>
+            <span>Academies</span>
+        </div>
+
+        <div class="stat-card">
+            <strong id="courseCount">0</strong>
+            <span>Courses</span>
+        </div>
+
+        <div class="stat-card">
+            <strong id="completedCount">0</strong>
+            <span>Completed</span>
+        </div>
+
+        <div class="stat-card">
+            <strong>R500</strong>
+            <span>Registration</span>
+        </div>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <h2>Why LearnHub?</h2>
+
+        <p>
+            One platform for learning, career development,
+            employment opportunities and useful services.
+        </p>
+
+        <div class="feature-grid">
+
+            <div>
+                📚
+                <strong>Learn</strong>
+                <p>Practical courses across 20 academies.</p>
+            </div>
+
+            <div>
+                🏆
+                <strong>Certificates</strong>
+                <p>Verified certificates for completed learning.</p>
+            </div>
+
+            <div>
+                💼
+                <strong>Career</strong>
+                <p>Build your CV and improve employability.</p>
+            </div>
+
+            <div>
+                🔎
+                <strong>Opportunities</strong>
+                <p>Discover jobs, internships and learnerships.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="pricing-card">
+
+        <h2>LearnHub Fees</h2>
+
+        <div class="price-row">
+
+            <div>
+                <strong>R500</strong>
+                <span>Registration</span>
+            </div>
+
+            <div>
+                <strong>R500</strong>
+                <span>Verified Certificate</span>
+            </div>
+
+        </div>
+
+        <p>
+            Certificate periods are based on a
+            3-month learning period and completion
+            of the relevant requirements.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     ACADEMIES
+============================== -->
+
+<section id="academies" class="page-section">
+
+    <div class="section-heading">
+
+        <h1>LearnHub Academies</h1>
+
+        <p>
+            Explore thousands of learning opportunities
+            across 20 professional academies.
+        </p>
+
+    </div>
+
+
+    <div class="search-box">
+
+        <input
+            type="search"
+            id="courseSearch"
+            placeholder="🔎 Search courses..."
+        >
+
+        <select id="academyFilter">
+            <option value="ALL">
+                All Academies
+            </option>
+        </select>
+
+    </div>
+
+
+    <div id="courseResults" class="course-grid"></div>
+
+</section>
+
+
+<!-- ==============================
+     MY LEARNING
+============================== -->
+
+<section id="learning" class="page-section">
+
+    <div class="section-heading">
+
+        <h1>My Learning</h1>
+
+        <p>
+            Track your LearnHub learning progress.
+        </p>
+
+    </div>
+
+
+    <div class="progress-card">
+
+        <h2>Your Progress</h2>
+
+        <div class="progress-track">
+
+            <div
+                id="progressBar"
+                class="progress-fill">
+            </div>
+
+        </div>
+
+        <strong id="progressPercent">
+            0%
+        </strong>
+
+        <p>
+            Completed courses:
+            <strong id="completedCountLearning">
+                0
+            </strong>
+        </p>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <h2>Keep Learning 🚀</h2>
+
+        <p>
+            Complete courses to build your skills
+            and strengthen your career profile.
+        </p>
+
+        <button
+            class="primary-btn"
+            onclick="showSection('academies')">
+            Browse Courses
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     CAREER
+============================== -->
+
+<section id="career" class="page-section">
+
+    <div class="section-heading">
+
+        <h1>Career Centre</h1>
+
+        <p>
+            Prepare yourself for the world of work.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <div class="service-card">
+
+            <h3>📄 CV Building</h3>
+
+            <p>
+                Create a professional CV that highlights
+                your skills and experience.
+            </p>
+
+            <button
+                onclick="showSection('cv')">
+                Build CV
+            </button>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>🎤 Interview Preparation</h3>
+
+            <p>
+                Improve your confidence and prepare
+                for common interview questions.
+            </p>
+
+            <button
+                onclick="showSection('academies')">
+                Learn Interview Skills
+            </button>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>💼 Career Development</h3>
+
+            <p>
+                Build workplace, leadership and
+                professional skills.
+            </p>
+
+            <button
+                onclick="showSection('academies')">
+                Explore Career Courses
+            </button>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>🎯 Skills Matching</h3>
+
+            <p>
+                Build a skills profile to help identify
+                suitable career opportunities.
+            </p>
+
+            <button
+                onclick="showSection('profile')">
+                Build Profile
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     JOBS
+============================== -->
+
+<section id="jobs" class="page-section">
+
+    <div class="section-heading">
+
+        <h1>Jobs & Opportunities</h1>
+
+        <p>
+            Discover employment opportunities,
+            internships and learnerships.
+        </p>
+
+    </div>
+
+
+    <div class="notice-card">
+
+        <h2>🔎 Job Matching</h2>
+
+        <p>
+            LearnHub can help you organise your skills
+            and career information so you can find
+            opportunities that match your profile.
+        </p>
+
+        <p>
+            LearnHub does not guarantee employment.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <div class="service-card">
+            <h3>💼 Jobs</h3>
+            <p>Search for suitable employment opportunities.</p>
+        </div>
+
+        <div class="service-card">
+            <h3>🎓 Learnerships</h3>
+            <p>Find learnership opportunities.</p>
+        </div>
+
+        <div class="service-card">
+            <h3>🏢 Internships</h3>
+            <p>Explore internship opportunities.</p>
+        </div>
+
+        <div class="service-card">
+            <h3>🚀 Graduate Programmes</h3>
+            <p>Prepare for graduate career opportunities.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     CERTIFICATE
+============================== -->
+
+<section id="certificate" class="page-section">
+
+    <div class="section-heading">
+
+        <h1>LearnHub Certificate</h1>
+
+        <p>
+            Request and view your LearnHub certificate.
+        </p>
+
+    </div>
+
+
+    <div class="certificate-fee-card">
+
+        <h2>Verified Certificate</h2>
+
+        <p>
+            Certificate fee:
+            <strong>R500</strong>
+        </p>
+
+        <p>
+            Certificates are available every
+            3-month learning period, subject to
+            completion of the relevant requirements.
+        </p>
+
+        <button
+            class="primary-btn"
+            onclick="generateCertificate()">
+            Generate Certificate
+        </button>
+
+    </div>
+
+
+    <div id="certificateArea"></div>
+
+</section>
+
+
+<!-- ==============================
+     CV BUILDER
+============================== -->
+
+<section id="cv" class="page-section">
+
+    <div class="section-heading">
+
+        <h1>CV Builder</h1>
+
+        <p>
+            Build your professional CV with LearnHub.
+        </p>
+
+    </div>
+
+
+    <div class="form-card">
+
+        <label>Full Name</label>
+
+        <input
+            id="cvName"
+            type="text"
+            placeholder="Your full name"
+        >
+
+
+        <label>Email</label>
+
+        <input
+            id="cvEmail"
+            type="email"
+            placeholder="Your email"
+        >
+
+
+        <label>Phone</label>
+
+        <input
+            id="cvPhone"
+            type="tel"
+            placeholder="Your phone number"
+        >
+
+
+        <label>Location</label>
+
+        <input
+            id="cvLocation"
+            type="text"
+            placeholder="City / Province"
+        >
+
+
+        <label>Education</label>
+
+        <textarea
+            id="cvEducation"
+            placeholder="Your education and qualifications">
+        </textarea>
+
+
+        <label>Skills</label>
+
+        <textarea
+            id="cvSkills"
+            placeholder="Your skills">
+        </textarea>
+
+
+        <label>Work Experience</label>
+
+        <textarea
+            id="cvExperience"
+            placeholder="Your work experience">
+        </textarea>
+
+
+        <label>Professional Summary</label>
+
+        <textarea
+            id="cvSummary"
+            placeholder="Write a short professional summary">
+        </textarea>
+
+
+        <div class="button-row">
+
+            <button
+                class="primary-btn"
+                onclick="saveCV()">
+                Save CV
+            </button>
+
+            <button
+                class="secondary-btn"
+                onclick="printCV()">
+                🖨️ Print CV
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     SERVICES
+============================== -->
+
+<section id="services" class="page-section">
+
+    <div class="section-heading">
+
+        <h1>LearnHub Services</h1>
+
+        <p>
+            Useful services and information in one place.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <div class="service-card">
+            <h3>🏛️ Government Services</h3>
+            <p>
+                Information about SASSA, SARS,
+                Home Affairs, UIF and other services.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <h3>💼 Business Services</h3>
+            <p>
+                Business, entrepreneurship and
+                small-business resources.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <h3>🌱 Agriculture</h3>
+            <p>
+                Farming, gardening and agricultural
+                learning resources.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <h3>🛠️ Technical Services</h3>
+            <p>
+                Trades and practical technical skills.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <h3>🚨 Safety</h3>
+            <p>
+                Safety, emergency preparedness and
+                security information.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <h3>🌍 Sustainability</h3>
+            <p>
+                Environmental and sustainability resources.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     COMMUNITY
+============================== -->
+
+<section id="community" class="page-section">
+
+    <div class="section-heading">
+
+        <h1>LearnHub Community</h1>
+
+        <p>
+            Connect, learn and support one another.
+        </p>
+
+    </div>
+
+
+    <div class="notice-card">
+
+        <h2>💬 Community Coming Soon</h2>
+
+        <p>
+            LearnHub will provide a moderated community
+            space where learners can communicate,
+            share opportunities and support each other.
+        </p>
+
+        <p>
+            Safety features will include reporting,
+            blocking and privacy controls.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     PROFILE
+============================== -->
+
+<section id="profile" class="page-section">
+
+    <div class="section-heading">
+
+        <h1>My Profile</h1>
+
+        <p>
+            Create your LearnHub learner profile.
+        </p>
+
+    </div>
+
+
+    <div class="form-card">
+
+        <label>Full Name</label>
+
+        <input
+            id="registerName"
+            type="text"
+            placeholder="Full name"
+        >
+
+
+        <label>Email Address</label>
+
+        <input
+            id="registerEmail"
+            type="email"
+            placeholder="Email address"
+        >
+
+
+        <label>Phone Number</label>
+
+        <input
+            id="profilePhone"
+            type="text"
+            placeholder="Phone number"
+        >
+
+
+        <label>Location</label>
+
+        <input
+            id="profileLocation"
+            type="text"
+            placeholder="City / Province"
+        >
+
+
+        <button
+            class="primary-btn"
+            onclick="registerLearnHub()">
+            Register / Save Profile
+        </button>
+
+    </div>
+
+
+    <div class="profile-card">
+
+        <h2>Profile Information</h2>
+
+        <p>
+            <strong>Name:</strong>
+            <span id="profileName">
+                Not provided
+            </span>
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <span id="profileEmail">
+                Not provided
+            </span>
+        </p>
+
+        <p>
+            <strong>Phone:</strong>
+            <span id="profilePhoneDisplay">
+                Not provided
+            </span>
+        </p>
+
+        <p>
+            <strong>Location:</strong>
+            <span id="profileLocationDisplay">
+                Not provided
+            </span>
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ==============================
+     COURSE MODAL
+============================== -->
+
+<div
+    id="courseModal"
+    class="modal">
+
+    <div
+        class="modal-content"
+        id="courseModalContent">
+    </div>
+
+</div>
+
+
+<!-- ==============================
+     FOOTER
+============================== -->
+
+<footer>
+
+    <div class="footer-brand">
+        🎓 <strong>LearnHub</strong>
+    </div>
+
+    <p>
+        Learn. Grow. Get Hired.
+    </p>
+
+    <p>
+        Verified learning • Career development •
+        Opportunities
+    </p>
+
+    <p>
+        © 2026 LearnHub. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+function toggleMenu() {
+
+    const nav =
+        document.getElementById("mainNav");
+
+    if (nav) {
+        nav.classList.toggle("open");
+    }
 }
 
-function escapeHTML(text){
 
-return String(text || "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+// Close mobile menu after navigation
 
-}
+document
+    .querySelectorAll("#mainNav button")
+    .forEach(button => {
 
-function formatText(text){
+        button.addEventListener(
+            "click",
+            function() {
 
-return escapeHTML(text).replace(/\n/g,"<br>");
+                const nav =
+                    document.getElementById(
+                        "mainNav"
+                    );
 
-}
+                if (nav) {
+                    nav.classList.remove("open");
+                }
 
-function printCV(){
-
-const cv =
-    document.getElementById("printableCV");
-
-if(!cv){
-
-    alert("Please generate your CV first.");
-    return;
-
-}
-
-const original = document.body.innerHTML;
-
-document.body.innerHTML = cv.outerHTML;
-
-window.print();
-
-document.body.innerHTML = original;
-
-loadProfile();
-updateStats();
-renderSavedJobs();
-
-}
-
-function verifyCertificate(){
-
-const number =
-    document.getElementById("verifyNumber")
-    .value.trim()
-    .toUpperCase();
-
-const result =
-    document.getElementById("verificationResult");
-
-const certificate =
-    data.certificates.find(function(item){
-
-        return item.number === number;
+            }
+        );
 
     });
 
-if(certificate){
+</script>
 
-    result.innerHTML = `
-
-        <div class="card">
-
-            <h3 class="saved">
-                ✓ Certificate Verified
-            </h3>
-
-            <p>
-                <strong>Learner:</strong>
-                ${escapeHTML(certificate.name)}
-            </p>
-
-            <p>
-                <strong>Course:</strong>
-                ${escapeHTML(certificate.course)}
-            </p>
-
-            <p>
-                <strong>Date:</strong>
-                ${escapeHTML(certificate.date)}
-            </p>
-
-            <p>
-                <strong>Certificate Number:</strong>
-                ${escapeHTML(certificate.number)}
-            </p>
-
-        </div>
-
-    `;
-
-}else{
-
-    result.innerHTML = `
-
-        <div class="card">
-
-            <h3 style="color:#dc2626;">
-                ✗ Certificate Not Found
-            </h3>
-
-            <p>
-                The certificate number could not be found.
-            </p>
-
-        </div>
-
-    `;
-
-}
-
-}
-
-window.onclick = function(event){
-
-const modal =
-    document.getElementById("courseModal");
-
-if(event.target === modal){
-
-    closeCourse();
-
-}
-
-};
-
-loadProfile();
-updateStats();
-renderSavedJobs();
-
-</script></body>
-</html>
+</body>
+</html>    
+    
