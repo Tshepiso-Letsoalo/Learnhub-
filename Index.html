@@ -2210,6 +2210,103 @@ loadProfile();
 renderInternships();
 renderInterview();
 renderCommunity();
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+
+const career=document.getElementById("career");
+if(career){
+career.innerHTML=`
+<h2>🎯 Career</h2>
+
+<div class="cards">
+<div class="card">
+<h3>📄 CV Builder</h3>
+<p>Create a professional CV for your job applications.</p>
+<button onclick="showPage('cv')">Build My CV</button>
+</div>
+
+<div class="card">
+<h3>🎤 Interview Preparation</h3>
+<p>Practice common interview questions and prepare with confidence.</p>
+<button onclick="showPage('interview')">Practice Interviews</button>
+</div>
+
+<div class="card">
+<h3>💼 Jobs</h3>
+<p>Explore available career opportunities.</p>
+<button onclick="showPage('jobs')">View Jobs</button>
+</div>
+
+<div class="card">
+<h3>🎓 Internships & Learnerships</h3>
+<p>Find opportunities to gain workplace experience.</p>
+<button onclick="showPage('opportunities')">View Opportunities</button>
+</div>
+</div>`;
+}
+
+const opportunities=document.getElementById("opportunities");
+if(opportunities){
+opportunities.innerHTML=`
+<h2>🎓 Internships & Learnerships</h2>
+
+<div class="card">
+<h3>Software Development Learnership</h3>
+<p>Build practical technology and programming skills.</p>
+<button onclick="alert('Application saved successfully.')">Apply</button>
+</div>
+
+<div class="card">
+<h3>IT Support Internship</h3>
+<p>Develop practical IT support and workplace technology skills.</p>
+<button onclick="alert('Application saved successfully.')">Apply</button>
+</div>
+
+<div class="card">
+<h3>Business Administration Internship</h3>
+<p>Develop administration, communication and office skills.</p>
+<button onclick="alert('Application saved successfully.')">Apply</button>
+</div>
+
+<div class="card">
+<h3>Safety Internship</h3>
+<p>Gain workplace experience in health and safety.</p>
+<button onclick="alert('Application saved successfully.')">Apply</button>
+</div>`;
+}
+
+const interview=document.getElementById("interview");
+if(interview){
+interview.innerHTML=`
+<h2>🎤 Interview Preparation</h2>
+
+<div class="card">
+<h3>1. Tell us about yourself.</h3>
+<p>Introduce yourself, your education, experience, skills and career goals.</p>
+</div>
+
+<div class="card">
+<h3>2. Why should we hire you?</h3>
+<p>Explain your relevant skills, willingness to learn and what you can contribute.</p>
+</div>
+
+<div class="card">
+<h3>3. What are your strengths?</h3>
+<p>Give two or three genuine strengths and examples.</p>
+</div>
+
+<div class="card">
+<h3>4. Where do you see yourself in five years?</h3>
+<p>Explain your career goals and the skills you want to develop.</p>
+</div>
+
+<div class="card">
+<h3>5. Tell us about a challenge you faced.</h3>
+<p>Explain the situation, what you did and what you learned.</p>
+</div>`;
+}
+
+});
 </script>
 
 </body>
