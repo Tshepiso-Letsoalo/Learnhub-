@@ -8,293 +8,293 @@
 <title>LearnHub | Learn. Grow. Get Hired.</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
 body{
-font-family:Arial,sans-serif;
-background:#f4f7fb;
-color:#222;
-line-height:1.5
+  font-family:Arial,sans-serif;
+  background:#f4f7fb;
+  color:#222;
+  line-height:1.5;
 }
+
 header{
-background:#0b5ed7;
-color:#fff;
-padding:16px;
-position:sticky;
-top:0;
-z-index:1000;
-box-shadow:0 2px 8px rgba(0,0,0,.15)
+  background:#0b5ed7;
+  color:#fff;
+  padding:15px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
+
 .header-inner{
-max-width:1150px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between
+  max-width:1150px;
+  margin:auto;
 }
-.logo{font-size:24px;font-weight:bold}
-.logo small{display:block;font-size:11px;font-weight:normal}
-.menu-btn{
-background:#fff;
-color:#0b5ed7;
-border:0;
-border-radius:7px;
-padding:8px 12px;
-font-size:20px
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
 }
+
+.tagline{
+  font-size:12px;
+  margin-top:2px;
+}
+
 nav{
-display:none;
-background:#fff;
-border-bottom:1px solid #ddd;
-padding:8px;
-position:sticky;
-top:66px;
-z-index:999
+  display:flex;
+  gap:7px;
+  overflow-x:auto;
+  margin-top:13px;
+  padding-bottom:3px;
 }
-nav.show{display:block}
-nav a{
-display:block;
-padding:9px;
-color:#0b5ed7;
-text-decoration:none;
-font-weight:bold;
-border-radius:5px
+
+nav button{
+  border:0;
+  border-radius:7px;
+  background:#084cae;
+  color:#fff;
+  padding:9px 12px;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:14px;
 }
-nav a:hover{background:#eef4ff}
-main{max-width:1150px;margin:auto;padding:20px}
-.page{display:none}
-.page.active{display:block}
+
+nav button:hover{
+  background:#063d8d;
+}
+
+main{
+  max-width:1150px;
+  margin:auto;
+  padding:20px;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
 .hero{
-background:linear-gradient(135deg,#0b5ed7,#063b8f);
-color:#fff;
-padding:40px 20px;
-border-radius:16px;
-text-align:center;
-margin-bottom:20px
+  background:#fff;
+  padding:35px 20px;
+  border-radius:14px;
+  text-align:center;
+  margin-bottom:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
 }
-.hero h1{font-size:36px;margin-bottom:8px}
-.hero p{margin-bottom:20px}
-button,.btn{
-background:#0b5ed7;
-color:#fff;
-border:0;
-border-radius:7px;
-padding:11px 16px;
-cursor:pointer;
-font-weight:bold
+
+.hero h2{
+  font-size:30px;
+  color:#0b5ed7;
+  margin-bottom:10px;
 }
-button:hover{opacity:.9}
-button:disabled{opacity:.6;cursor:not-allowed}
-.light-btn{background:#fff;color:#0b5ed7}
-.section{margin:28px 0}
-.section h2,h2{color:#063b8f;margin-bottom:15px}
-.stats{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px
+
+.hero p{
+  max-width:700px;
+  margin:0 auto 18px;
 }
-.stat{
-background:#fff;
-padding:18px;
-border-radius:10px;
-text-align:center;
-box-shadow:0 2px 8px rgba(0,0,0,.08)
+
+.btn{
+  display:inline-block;
+  border:0;
+  background:#0b5ed7;
+  color:#fff;
+  padding:11px 16px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:15px;
+  margin:4px;
 }
-.stat strong{
-display:block;
-font-size:24px;
-color:#0b5ed7
+
+.btn.secondary{
+  background:#198754;
 }
+
+.btn.dark{
+  background:#343a40;
+}
+
+.btn.light{
+  background:#e9f2ff;
+  color:#0b5ed7;
+}
+
 .cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:15px
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-top:15px;
 }
+
 .card{
-background:#fff;
-padding:18px;
-border-radius:12px;
-box-shadow:0 2px 8px rgba(0,0,0,.08)
+  background:#fff;
+  border-radius:12px;
+  padding:18px;
+  box-shadow:0 2px 8px rgba(0,0,0,.07);
+  margin-bottom:15px;
 }
-.card h3{color:#063b8f;margin-bottom:7px}
-.card p{color:#555;margin-bottom:12px}
-.badge{
-display:inline-block;
-background:#e8eef8;
-color:#063b8f;
-padding:4px 9px;
-border-radius:20px;
-font-size:12px;
-margin-bottom:9px
+
+.card h3{
+  color:#0b5ed7;
+  margin-bottom:7px;
 }
-.success-badge{
-background:#198754;
-color:#fff
+
+.card p{
+  margin-bottom:8px;
 }
-.warning-badge{
-background:#fff3cd;
-color:#856404
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin:20px 0;
 }
-.search-box,
-input,
-textarea,
-select{
-width:100%;
-padding:12px;
-border:1px solid #ccc;
-border-radius:7px;
-font:inherit;
-margin-bottom:10px
+
+.stat{
+  background:#fff;
+  padding:18px;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
 }
-textarea{resize:vertical}
-.filters{
-display:flex;
-gap:8px;
-overflow-x:auto;
-padding:5px 0 12px
+
+.stat strong{
+  display:block;
+  font-size:25px;
+  color:#0b5ed7;
 }
-.filters button{
-white-space:nowrap;
-background:#e8eef8;
-color:#063b8f
+
+.search{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;
+  margin:10px 0 15px;
 }
-.filters button.active{
-background:#0b5ed7;
-color:#fff
+
+input,textarea,select{
+  width:100%;
+  padding:12px;
+  margin:6px 0 12px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;
 }
-.notice{
-background:#fff3cd;
-border-radius:8px;
-padding:14px;
-margin:15px 0
+
+textarea{
+  min-height:120px;
 }
-.info{
-background:#e8f1ff;
-border-radius:8px;
-padding:14px;
-margin:15px 0
+
+label{
+  font-weight:bold;
+  display:block;
+  margin-top:8px;
 }
-.progress-box{
-background:#fff;
-padding:20px;
-border-radius:12px;
-box-shadow:0 2px 8px rgba(0,0,0,.08)
+
+.course{
+  border-left:5px solid #0b5ed7;
 }
+
+.progress{
+  background:#ddd;
+  height:10px;
+  border-radius:20px;
+  overflow:hidden;
+  margin:10px 0;
+}
+
 .progress-bar{
-height:15px;
-background:#ddd;
-border-radius:10px;
-overflow:hidden;
-margin:12px 0
+  background:#198754;
+  height:100%;
+  width:0%;
 }
-.progress-fill{
-height:100%;
-width:0%;
-background:#0b5ed7;
-transition:.3s
+
+.badge{
+  display:inline-block;
+  background:#e7f1ff;
+  color:#0b5ed7;
+  padding:4px 9px;
+  border-radius:20px;
+  font-size:12px;
+  margin:3px;
 }
-.price{
-font-size:20px;
-font-weight:bold;
-color:#198754;
-margin:8px 0
+
+.success{
+  background:#d1e7dd;
+  color:#0f5132;
+  padding:12px;
+  border-radius:8px;
+  margin:10px 0;
 }
-.application-status{
-background:#e8f7ee;
-color:#198754;
-padding:7px;
-border-radius:6px;
-font-weight:bold;
-display:inline-block;
-margin-bottom:10px
-}
+
 .certificate{
-background:#fff;
-border:8px solid #d4af37;
-padding:30px 15px;
-text-align:center;
-border-radius:10px
+  background:#fff;
+  border:8px double #c89b3c;
+  padding:35px 20px;
+  text-align:center;
+  min-height:480px;
 }
-.hat{font-size:45px}
-.certificate h1{
-color:#063b8f;
-margin:10px 0
+
+.certificate h2{
+  color:#0b5ed7;
+  font-size:30px;
+  margin:15px 0;
 }
-.certificate h2{color:#222}
-.completed{
-display:inline-block;
-background:#198754;
-color:#fff;
-padding:7px 13px;
-border-radius:20px;
-font-weight:bold;
-margin:10px
+
+.certificate .name{
+  font-size:28px;
+  font-weight:bold;
+  margin:20px 0;
 }
-.stars{
-color:#d4af37;
-font-size:25px
+
+.certificate-stars{
+  color:#c89b3c;
+  font-size:25px;
 }
-.profile-box{
-background:#fff;
-padding:20px;
-border-radius:12px
-}
-.question{
-background:#fff;
-padding:20px;
-border-radius:12px;
-margin-bottom:15px;
-box-shadow:0 2px 8px rgba(0,0,0,.08)
-}
-.option{
-display:block;
-width:100%;
-text-align:left;
-margin:7px 0;
-background:#f0f4fa;
-color:#222
-}
-.option.correct{background:#d1e7dd;color:#0f5132}
-.option.wrong{background:#f8d7da;color:#842029}
-.result{
-padding:15px;
-border-radius:8px;
-background:#e8f7ee;
-margin-top:12px
-}
-.community-post{
-border-left:4px solid #0b5ed7
-}
+
 footer{
-background:#062b63;
-color:#fff;
-text-align:center;
-padding:28px;
-margin-top:35px
+  text-align:center;
+  padding:25px;
+  background:#111827;
+  color:#fff;
+  margin-top:30px;
 }
-footer p{margin:5px}
-.empty{
-text-align:center;
-padding:30px;
-background:#fff;
-border-radius:10px;
-color:#666
+
+.hidden{
+  display:none;
 }
-.small{font-size:13px;color:#666}
-@media(min-width:700px){
-.menu-btn{display:none}
-nav{
-display:block;
-position:static;
-text-align:center
+
+.list-item{
+  padding:12px;
+  border-bottom:1px solid #ddd;
 }
-nav a{display:inline-block}
-.stats{grid-template-columns:repeat(4,1fr)}
-}
-@media print{
-header,nav,footer,button{display:none!important}
-main{padding:0}
-.page{display:none!important}
-#certificate{display:block!important}
+
+@media(max-width:700px){
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero h2{
+    font-size:25px;
+  }
+
+  main{
+    padding:12px;
+  }
 }
 </style>
 </head>
@@ -302,1899 +302,437 @@ main{padding:0}
 <body>
 
 <header>
-<div class="header-inner">
-<div class="logo">
-🎓 LearnHub
-<small>Learn. Grow. Get Hired.</small>
-</div>
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
-</div>
-</header>
+  <div class="header-inner">
+    <div class="logo">🎓 LearnHub</div>
+    <div class="tagline">Learn. Grow. Get Hired.</div>
 
-<nav id="navigation">
-<a href="#" onclick="showPage('home')">Home</a>
-<a href="#" onclick="showPage('academies')">Academies</a>
-<a href="#" onclick="showPage('learning')">My Learning</a>
-<a href="#" onclick="showPage('career')">Career</a>
-<a href="#" onclick="showPage('jobs')">Jobs</a>
-<a href="#" onclick="showPage('opportunities')">Internships</a>
-<a href="#" onclick="showPage('interview')">Interview Prep</a>
-<a href="#" onclick="showPage('certificate')">Certificate</a>
-<a href="#" onclick="showPage('cv')">CV Builder</a>
-<a href="#" onclick="showPage('services')">Services</a>
-<a href="#" onclick="showPage('community')">Community</a>
-<a href="#" onclick="showPage('profile')">Profile</a>
-</nav>
+    <nav>
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('academies')">Academies</button>
+      <button onclick="showPage('learning')">My Learning</button>
+      <button onclick="showPage('career')">Career</button>
+      <button onclick="showPage('jobs')">Jobs</button>
+      <button onclick="showPage('certificate')">Certificate</button>
+      <button onclick="showPage('cv')">CV Builder</button>
+      <button onclick="showPage('services')">Services</button>
+      <button onclick="showPage('community')">Community</button>
+      <button onclick="showPage('profile')">Profile</button>
+    </nav>
+  </div>
+</header>
 
 <main>
 
 <!-- HOME -->
 <section id="home" class="page active">
 
-<div class="hero">
-<h1>Welcome to LearnHub</h1>
-<p>Learn new skills, build your career and discover opportunities.</p>
-<button class="light-btn" onclick="showPage('academies')">
-Explore Academies
-</button>
-</div>
+  <div class="hero">
+    <h2>🎓 Welcome to LearnHub</h2>
+    <p>
+      Learn new skills, build your career, discover opportunities
+      and prepare for the world of work.
+    </p>
 
-<div class="stats">
-<div class="stat"><strong>20</strong>Academies</div>
-<div class="stat"><strong>Free</strong>Learning</div>
-<div class="stat"><strong>R500</strong>Registration</div>
-<div class="stat"><strong>R500</strong>Verified Certificate</div>
-</div>
+    <button class="btn" onclick="showPage('academies')">
+      Explore Academies
+    </button>
 
-<div class="section">
-<h2>Everything in One Place</h2>
+    <button class="btn secondary" onclick="showPage('career')">
+      Career Resources
+    </button>
+  </div>
 
-<div class="cards">
+  <div class="stats">
+    <div class="stat">
+      <strong>20</strong>
+      Academies
+    </div>
 
-<div class="card">
-<h3>📚 Learning</h3>
-<p>Learn practical knowledge and develop valuable skills.</p>
-<button onclick="showPage('academies')">Start Learning</button>
-</div>
+    <div class="stat">
+      <strong id="homeCourses">0</strong>
+      Courses Started
+    </div>
 
-<div class="card">
-<h3>💼 Jobs</h3>
-<p>Explore job opportunities and track applications.</p>
-<button onclick="showPage('jobs')">Find Jobs</button>
-</div>
+    <div class="stat">
+      <strong id="homeCompleted">0</strong>
+      Completed
+    </div>
 
-<div class="card">
-<h3>🎓 Internships & Learnerships</h3>
-<p>Explore opportunities for workplace experience and development.</p>
-<button onclick="showPage('opportunities')">Explore</button>
-</div>
+    <div class="stat">
+      <strong id="homeApplications">0</strong>
+      Applications
+    </div>
+  </div>
 
-<div class="card">
-<h3>🎤 Interview Preparation</h3>
-<p>Practice common interview questions and prepare with confidence.</p>
-<button onclick="showPage('interview')">Practice</button>
-</div>
+  <div class="cards">
 
-<div class="card">
-<h3>📄 CV Builder</h3>
-<p>Create and save your professional CV information.</p>
-<button onclick="showPage('cv')">Build CV</button>
-</div>
+    <div class="card">
+      <h3>📚 Learn</h3>
+      <p>Access practical learning opportunities across different fields.</p>
+      <button class="btn" onclick="showPage('academies')">Start Learning</button>
+    </div>
 
-<div class="card">
-<h3>👥 Community</h3>
-<p>Share achievements, ideas and career discussions.</p>
-<button onclick="showPage('community')">Join Community</button>
-</div>
+    <div class="card">
+      <h3>💼 Get Hired</h3>
+      <p>Prepare your CV, practise interviews and explore opportunities.</p>
+      <button class="btn" onclick="showPage('jobs')">Explore Jobs</button>
+    </div>
 
-</div>
-</div>
+    <div class="card">
+      <h3>🎓 Certificates</h3>
+      <p>Track your learning and access your LearnHub certificate area.</p>
+      <button class="btn" onclick="showPage('certificate')">My Certificate</button>
+    </div>
 
-<div class="section">
-<h2>LearnHub Registration</h2>
+    <div class="card">
+      <h3>👤 Your Profile</h3>
+      <p>Create your LearnHub learner profile and save your information.</p>
+      <button class="btn" onclick="showPage('profile')">My Profile</button>
+    </div>
 
-<div class="cards">
-
-<div class="card">
-<h3>Registration</h3>
-<p>Register for the LearnHub platform.</p>
-<div class="price">R500</div>
-<button onclick="registerUser()">Register</button>
-</div>
-
-<div class="card">
-<h3>Verified Certificate</h3>
-<p>Available every 3-month period, subject to completing the relevant course and requirements.</p>
-<div class="price">R500</div>
-<button onclick="showPage('certificate')">View Certificate</button>
-</div>
-
-</div>
-</div>
-
+  </div>
 </section>
+
 
 <!-- ACADEMIES -->
 <section id="academies" class="page">
 
-<h2>LearnHub Academies</h2>
-
-<input
-id="academySearch"
-class="search-box"
-placeholder="Search academies..."
-oninput="filterAcademies()"
->
-
-<div class="filters">
-<button class="active" onclick="filterCategory('all',this)">All</button>
-<button onclick="filterCategory('technology',this)">Technology</button>
-<button onclick="filterCategory('education',this)">Education</button>
-<button onclick="filterCategory('health',this)">Health</button>
-<button onclick="filterCategory('business',this)">Business</button>
-<button onclick="filterCategory('trades',this)">Trades</button>
-<button onclick="filterCategory('career',this)">Career</button>
-</div>
-
-<div id="academyCards" class="cards"></div>
-
-</section>
-
-<!-- LEARNING -->
-<section id="learning" class="page">
-
-<h2>My Learning</h2>
-
-<div class="progress-box">
-<p>Lessons completed:
-<strong id="completedCount">0 / 6</strong>
-</p>
-
-<div class="progress-bar">
-<div id="progressFill" class="progress-fill"></div>
-</div>
-
-<p id="progressText">0% complete</p>
-</div>
-
-<br>
-
-<div id="lessonList" class="cards"></div>
-
-</section>
-
-<!-- CAREER -->
-<section id="career" class="page">
-
-<h2>Career Development</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>🎯 Career Planning</h3>
-<p>Understand your interests, skills and career goals.</p>
-<button onclick="careerMessage('Career planning')">Explore</button>
-</div>
-
-<div class="card">
-<h3>📄 CV & Applications</h3>
-<p>Build your CV and prepare professional job applications.</p>
-<button onclick="showPage('cv')">Open CV Builder</button>
-</div>
-
-<div class="card">
-<h3>🎤 Interview Preparation</h3>
-<p>Practice interview questions and improve your preparation.</p>
-<button onclick="showPage('interview')">Practice Now</button>
-</div>
-
-<div class="card">
-<h3>💼 Opportunities</h3>
-<p>Explore jobs, internships and learnerships.</p>
-<button onclick="showPage('opportunities')">View Opportunities</button>
-</div>
-
-</div>
-
-</section>
-
-<!-- JOBS -->
-<section id="jobs" class="page">
-
-<h2>Jobs</h2>
-
-<div class="info">
-LearnHub helps learners discover opportunities. Always verify the employer and application details before applying.
-</div>
-
-<input id="jobSearch" class="search-box"
-placeholder="Search jobs..."
-oninput="renderJobs()">
-
-<div class="filters">
-<button class="active" onclick="setJobFilter('all',this)">All</button>
-<button onclick="setJobFilter('technology',this)">Technology</button>
-<button onclick="setJobFilter('administration',this)">Administration</button>
-<button onclick="setJobFilter('retail',this)">Retail</button>
-<button onclick="setJobFilter('safety',this)">Safety</button>
-<button onclick="setJobFilter('logistics',this)">Logistics</button>
-</div>
-
-<div id="jobCards" class="cards"></div>
-
-</section>
-
-<!-- INTERNSHIPS -->
-<section id="opportunities" class="page">
-
-<h2>Internships & Learnerships</h2>
-
-<div class="info">
-Opportunities may have different eligibility requirements and closing dates. Check the original employer or organisation before applying.
-</div>
-
-<input id="opportunitySearch"
-class="search-box"
-placeholder="Search internships or learnerships..."
-oninput="renderOpportunities()">
-
-<div class="filters">
-<button class="active" onclick="setOpportunityFilter('all',this)">All</button>
-<button onclick="setOpportunityFilter('internship',this)">Internships</button>
-<button onclick="setOpportunityFilter('learnership',this)">Learnerships</button>
-</div>
-
-<div id="opportunityCards" class="cards"></div>
-
-</section>
-
-<!-- INTERVIEW -->
-<section id="interview" class="page">
-
-<h2>Interview Preparation</h2>
-
-<div class="info">
-Practice the questions below. Think about your own experience and answer honestly.
-</div>
-
-<div id="interviewArea"></div>
-
-<div id="interviewScore"></div>
-
-<button onclick="startInterview()">Start / Restart Practice</button>
-
-</section>
-
-<!-- CERTIFICATE -->
-<section id="certificate" class="page">
-
-<h2>LearnHub Certificate</h2>
-
-<div class="certificate">
-
-<div class="hat">🎓</div>
-
-<p>LEARNHUB ACADEMY</p>
-
-<h1>CERTIFICATE OF COMPLETION</h1>
-
-<p>This certificate is presented to</p>
-
-<h2 id="certificateName">Learner Name</h2>
-
-<p>
-for successfully completing the relevant LearnHub learning requirements.
-</p>
-
-<div class="completed">COMPLETED</div>
-
-<div class="stars">★ ★ ★</div>
-
-<p><strong>Level 01</strong></p>
-
-<p>Certificate ID:
-<span id="certificateId"></span>
-</p>
-
-<p>Learner ID:
-<span id="learnerId"></span>
-</p>
-
-<br>
-
-<p>Course & Platform Developer</p>
-
-<br>
-
-<button onclick="window.print()">Print Certificate</button>
-
-</div>
-
-</section>
-
-<!-- CV -->
-<section id="cv" class="page">
-
-<h2>CV Builder</h2>
-
-<div class="profile-box">
-
-<label>Full Name</label>
-<input id="cvName" placeholder="Full name">
-
-<label>Career Goal</label>
-<input id="cvCareer" placeholder="Example: System Developer">
-
-<label>Professional Summary</label>
-<textarea id="cvSummary" rows="4"
-placeholder="Write a short professional summary"></textarea>
-
-<label>Skills</label>
-<textarea id="cvSkills" rows="5"
-placeholder="List your skills"></textarea>
-
-<label>Education & Certificates</label>
-<textarea id="cvEducation" rows="5"
-placeholder="Education and certificates"></textarea>
-
-<label>Work Experience</label>
-<textarea id="cvExperience" rows="6"
-placeholder="Work experience"></textarea>
-
-<button onclick="saveCV()">Save CV</button>
-
-<button onclick="showCV()" style="margin-left:5px">
-Preview
-</button>
-
-<div id="cvPreview"></div>
-
-</div>
-
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="page">
-
-<h2>LearnHub Services</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>🏥 Health</h3>
-<p>General health awareness, health communication and wellness information.</p>
-</div>
-
-<div class="card">
-<h3>🏛️ Government & Public Services</h3>
-<p>Information about public services and government-related resources.</p>
-</div>
-
-<div class="card">
-<h3>💰 Finance & Accounting</h3>
-<p>Financial literacy, accounting and business learning resources.</p>
-</div>
-
-<div class="card">
-<h3>🛠️ Trades</h3>
-<p>Technical, construction, agriculture and practical skills.</p>
-</div>
-
-<div class="card">
-<h3>🚚 Transport & Logistics</h3>
-<p>Transport, logistics and supply-chain learning resources.</p>
-</div>
-
-<div class="card">
-<h3>💄 Beauty & Wellness</h3>
-<p>Beauty, wellness and personal-care learning.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- COMMUNITY -->
-<section id="community" class="page">
-
-<h2>LearnHub Community</h2>
-
-<div class="info">
-Share learning achievements, career discussions and useful knowledge.
-Please keep posts respectful and do not share passwords, PINs, OTPs or banking information.
-</div>
-
-<div class="profile-box">
-
-<h3>Create a Post</h3>
-
-<input id="postName" placeholder="Your name">
-
-<textarea id="postText"
-rows="4"
-placeholder="What would you like to share?"></textarea>
-
-<button onclick="addPost()">Post</button>
-
-</div>
-
-<br>
-
-<div id="communityPosts"></div>
-
-</section>
-
-<!-- PROFILE -->
-<section id="profile" class="page">
-
-<h2>My Profile</h2>
-
-<div class="profile-box">
-
-<label>Name</label>
-<input id="profileName" placeholder="Your name">
-
-<label>Email</label>
-<input id="profileEmail" type="email" placeholder="Email">
-
-<label>Career Goal</label>
-<input id="profileCareer" placeholder="Example: System Developer">
-
-<label>Location</label>
-<input id="profileLocation" placeholder="City / Province">
-
-<button onclick="saveProfile()">Save Profile</button>
-
-<p id="profileMessage"></p>
-
-</div>
-
-</section>
-
-</main>
-
-<footer>
-<p><strong>🎓 LearnHub</strong></p>
-<p>Learn. Grow. Get Hired.</p>
-<p>© 2026 LearnHub Academy</p>
-<p class="small">
-LearnHub does not guarantee employment, admission or selection.
-</p>
-</footer>
-
-<script>
-
-const academies=[
-
-["Technology & AI","technology","AI, software development and digital skills."],
-["Teaching & Education","education","Teaching, education and learning skills."],
-["Health","health","Health awareness, communication and wellness."],
-["Government & Public Services","government","Public services and civic information."],
-["Business & Entrepreneurship","business","Business and entrepreneurship skills."],
-["Finance & Accounting","business","Finance, accounting and financial literacy."],
-["Law & Compliance","business","Law, compliance and workplace awareness."],
-["Engineering & Construction","trades","Engineering and construction fundamentals."],
-["Transport & Logistics","trades","Transport, logistics and supply-chain skills."],
-["Agriculture","trades","Farming and agricultural skills."],
-["Hospitality & Tourism","business","Hospitality and tourism skills."],
-["Creative & Media","creative","Creative and media skills."],
-["Trades & Technical Skills","trades","Practical technical and trade skills."],
-["Safety & Security","safety","Safety and security awareness."],
-["Languages & Academic Skills","education","Languages, communication and academic skills."],
-["Career & Employment","career","CV, interview and workplace preparation."],
-["Personal Development","career","Communication, confidence and personal development."],
-["Retail & Sales","business","Retail, sales and customer-service skills."],
-["Beauty & Wellness","health","Beauty, wellness and personal care."],
-["Environment & Sustainability","trades","Environmental awareness and sustainability."]
-];
-
-const lessons=[
-"Introduction to LearnHub",
-"Digital Skills",
-"Artificial Intelligence Basics",
-"Career Preparation",
-"CV & Interview Skills",
-"Workplace Communication"
-];
-
-const jobs=[
-
-{
-title:"Junior System Developer",
-company:"Technology Opportunity",
-category:"technology",
-location:"South Africa",
-type:"Entry Level",
-description:"Entry-level opportunity for candidates interested in software and system development."
-},
-
-{
-title:"IT Support Assistant",
-company:"Technology Opportunity",
-category:"technology",
-location:"South Africa",
-type:"Entry Level",
-description:"Support users with basic technology and computer-related tasks."
-},
-
-{
-title:"Administrative Assistant",
-company:"Administration Opportunity",
-category:"administration",
-location:"South Africa",
-type:"Entry Level",
-description:"Administrative support, documentation and office duties."
-},
-
-{
-title:"Retail Assistant",
-company:"Retail Opportunity",
-category:"retail",
-location:"South Africa",
-type:"Entry Level",
-description:"Customer service, stock and retail support duties."
-},
-
-{
-title:"Safety Assistant",
-company:"Safety Opportunity",
-category:"safety",
-location:"South Africa",
-type:"Entry Level",
-description:"Assist with workplace safety activities and documentation."
-},
-
-{
-title:"Logistics Assistant",
-company:"Logistics Opportunity",
-category:"logistics",
-location:"South Africa",
-type:"Entry Level",
-description:"Support logistics, transport and warehouse activities."
-}
-
-];
-
-const opportunities=[
-
-{
-title:"IT Graduate Internship",
-type:"internship",
-category:"technology",
-location:"South Africa",
-description:"Development opportunity for graduates interested in information technology."
-},
-
-{
-title:"Software Development Internship",
-type:"internship",
-category:"technology",
-location:"South Africa",
-description:"Workplace learning opportunity related to software development."
-},
-
-{
-title:"Business Administration Learnership",
-type:"learnership",
-category:"business",
-location:"South Africa",
-description:"Learnership focused on administration and workplace skills."
-},
-
-{
-title:"Retail Learnership",
-type:"learnership",
-category:"retail",
-location:"South Africa",
-description:"Retail workplace learning and customer-service development."
-},
-
-{
-title:"Safety Learnership",
-type:"learnership",
-category:"safety",
-location:"South Africa",
-description:"Opportunity to develop workplace safety knowledge."
-},
-
-{
-title:"Logistics Learnership",
-type:"learnership",
-category:"logistics",
-location:"South Africa",
-description:"Learn workplace skills in logistics and supply chain."
-}
-
-];
-const internships = [
-  {
-    title:"IT Support Learnership",
-    company:"LearnHub Careers",
-    location:"South Africa",
-    type:"Learnership",
-    description:"Build practical IT support and workplace technology skills."
-  },
-  {
-    title:"Business Administration Internship",
-    company:"LearnHub Careers",
-    location:"South Africa",
-    type:"Internship",
-    description:"Develop administration, communication and office skills."
-  },
-  {
-    title:"Safety Officer Internship",
-    company:"LearnHub Careers",
-    location:"South Africa",
-    type:"Internship",
-    description:"Gain workplace experience in health and safety."
-  },
-  {
-    title:"Software Development Learnership",
-    company:"LearnHub Careers",
-    location:"South Africa",
-    type:"Learnership",
-    description:"Develop programming and software development skills."
-  }
-];
-
-const interviewQuestions = [
-  {
-    question:"Tell us about yourself.",
-    answer:"Give a short introduction about your education, skills, experience and career goals."
-  },
-  {
-    question:"Why should we hire you?",
-    answer:"Explain your relevant skills, willingness to learn, reliability and how you can contribute."
-  },
-  {
-    question:"What are your strengths?",
-    answer:"Choose two or three genuine strengths and give a short example for each."
-  },
-  {
-    question:"Where do you see yourself in five years?",
-    answer:"Describe your career direction and the skills or experience you want to develop."
-  },
-  {
-    question:"Tell us about a challenge you faced.",
-    answer:"Explain the situation, what you did and what you learned from it."
-  }
-];
-
-const communityPosts = JSON.parse(
-  localStorage.getItem("learnhubCommunity") || "[]"
-);
-
-function saveCommunity(){
-  localStorage.setItem(
-    "learnhubCommunity",
-    JSON.stringify(communityPosts)
-  );
-}
-
-function showSection(id){
-  document.querySelectorAll(".section").forEach(section=>{
-    section.classList.remove("active");
-  });
-
-  const selected=document.getElementById(id);
-
-  if(selected){
-    selected.classList.add("active");
-    window.scrollTo(0,0);
-  }
-}
-function showPage(id){
-  showSection(id);
-  }
-function renderInternships(){
-  const box=document.getElementById("internshipList");
-
-  if(!box) return;
-
-  box.innerHTML=internships.map(item=>`
-    <div class="card">
-      <h3>${item.title}</h3>
-      <p><strong>${item.company}</strong></p>
-      <p>📍 ${item.location}</p>
-      <p>💼 ${item.type}</p>
-      <p>${item.description}</p>
-      <button onclick="applyOpportunity('${item.title}')">
-        Apply
-      </button>
-    </div>
-  `).join("");
-}
-
-function applyOpportunity(title){
-  const applications=JSON.parse(
-    localStorage.getItem("learnhubApplications") || "[]"
-  );
-
-  if(!applications.includes(title)){
-    applications.push(title);
-    localStorage.setItem(
-      "learnhubApplications",
-      JSON.stringify(applications)
-    );
-  }
-
-  alert("Your application has been saved in LearnHub.");
-}
-
-function renderInterview(){
-  const box=document.getElementById("interviewList");
-
-  if(!box) return;
-
-  box.innerHTML=interviewQuestions.map((item,index)=>`
-    <div class="card">
-      <h3>${index+1}. ${item.question}</h3>
-      <p><strong>How to answer:</strong></p>
-      <p>${item.answer}</p>
-    </div>
-  `).join("");
-}
-
-function renderCommunity(){
-  const box=document.getElementById("communityPosts");
-
-  if(!box) return;
-
-  if(communityPosts.length===0){
-    box.innerHTML=`
-      <div class="card">
-        <p>No community posts yet.</p>
-        <p>Be the first to share something with the LearnHub community.</p>
-      </div>
-    `;
-    return;
-  }
-
-  box.innerHTML=communityPosts.map(post=>`
-    <div class="card">
-      <h3>${post.name}</h3>
-      <p>${post.text}</p>
-      <small>${post.date}</small>
-    </div>
-  `).join("");
-}
-
-function addCommunityPost(){
-  const name=document.getElementById("communityName");
-  const text=document.getElementById("communityText");
-
-  if(!name || !text) return;
-
-  if(!name.value.trim() || !text.value.trim()){
-    alert("Please enter your name and message.");
-    return;
-  }
-
-  communityPosts.unshift({
-    name:name.value.trim(),
-    text:text.value.trim(),
-    date:new Date().toLocaleDateString()
-  });
-
-  saveCommunity();
-
-  name.value="";
-  text.value="";
-
-  renderCommunity();
-
-  alert("Your community post has been added.");
-}
-
-function searchAcademies(){
-  const input=document.getElementById("academySearch");
-
-  if(!input) return;
-
-  const term=input.value.toLowerCase();
-
-  document.querySelectorAll(".academy-card").forEach(card=>{
-    card.style.display=
-      card.innerText.toLowerCase().includes(term)
-      ? "block"
-      : "none";
-  });
-}
-
-function filterJobs(){
-  const input=document.getElementById("jobSearch");
-
-  if(!input) return;
-
-  const term=input.value.toLowerCase();
-
-  document.querySelectorAll(".job-card").forEach(card=>{
-    card.style.display=
-      card.innerText.toLowerCase().includes(term)
-      ? "block"
-      : "none";
-  });
-}
-
-document.addEventListener("DOMContentLoaded",()=>{
-  renderInternships();
-  renderInterview();
-  renderCommunity();
-
-  const search=document.getElementById("academySearch");
-
-  if(search){
-    search.addEventListener("input",searchAcademies);
-  }
-
-  const jobSearch=document.getElementById("jobSearch");
-
-  if(jobSearch){
-    jobSearch.addEventListener("input",filterJobs);
-  }
-});
-function openJob(title){
-  alert("Job selected: " + title);
-}
-
-function openInternship(title){
-  alert("Opportunity selected: " + title);
-}
-
-function completeLesson(id){
-  let data=JSON.parse(
-    localStorage.getItem("learnhubData") || 
-    '{"completed":[],"certificates":[],"applications":[],"profile":{}}'
-  );
-
-  if(!data.completed.includes(id)){
-    data.completed.push(id);
-  }
-
-  localStorage.setItem("learnhubData",JSON.stringify(data));
-  updateProgress();
-
-  alert("Lesson completed!");
-}
-
-function updateProgress(){
-  let data=JSON.parse(
-    localStorage.getItem("learnhubData") || 
-    '{"completed":[]}'
-  );
-
-  const count=data.completed ? data.completed.length : 0;
-
-  const progress=document.getElementById("progressCount");
-
-  if(progress){
-    progress.textContent=count;
-  }
-
-  const bar=document.getElementById("progressBar");
-
-  if(bar){
-    const percent=Math.min((count/6)*100,100);
-    bar.style.width=percent+"%";
-  }
-}
-
-function saveProfile(){
-  const name=document.getElementById("profileName");
-  const email=document.getElementById("profileEmail");
-  const phone=document.getElementById("profilePhone");
-
-  let data=JSON.parse(
-    localStorage.getItem("learnhubData") || 
-    '{"completed":[],"certificates":[],"applications":[],"profile":{}}'
-  );
-
-  data.profile={
-    name:name ? name.value : "",
-    email:email ? email.value : "",
-    phone:phone ? phone.value : ""
-  };
-
-  localStorage.setItem("learnhubData",JSON.stringify(data));
-
-  alert("Profile saved successfully.");
-}
-
-function loadProfile(){
-  let data=JSON.parse(
-    localStorage.getItem("learnhubData") || 
-    '{"profile":{}}'
-  );
-
-  if(!data.profile) return;
-
-  const name=document.getElementById("profileName");
-  const email=document.getElementById("profileEmail");
-  const phone=document.getElementById("profilePhone");
-
-  if(name) name.value=data.profile.name || "";
-  if(email) email.value=data.profile.email || "";
-  if(phone) phone.value=data.profile.phone || "";
-}
-
-function printCertificate(){
-  window.print();
-}
-
-function createCV(){
-  const name=document.getElementById("cvName");
-  const skills=document.getElementById("cvSkills");
-  const experience=document.getElementById("cvExperience");
-
-  const output=document.getElementById("cvOutput");
-
-  if(!output) return;
-
-  output.innerHTML=`
-    <h2>${name ? name.value : "My CV"}</h2>
-    <hr>
-    <h3>Skills</h3>
-    <p>${skills ? skills.value : ""}</p>
-    <h3>Experience</h3>
-    <p>${experience ? experience.value : ""}</p>
-  `;
-}
-
-function clearCommunity(){
-  localStorage.removeItem("learnhubCommunity");
-  communityPosts.length=0;
-  renderCommunity();
-}
-
-updateProgress();
-loadProfile();
-function showAcademy(name){
-  const title=document.getElementById("academyTitle");
-  const content=document.getElementById("academyContent");
-
-  if(title) title.textContent=name;
-
-  if(content){
-    content.innerHTML=`
-      <h3>${name}</h3>
-      <p>Explore courses, lessons and skills in this academy.</p>
-      <button onclick="showSection('learning')">
-        Start Learning
-      </button>
-    `;
-  }
-
-  showSection("academyView");
-}
-
-function registerUser(){
-  localStorage.setItem("learnhubRegistered","true");
-  alert("Registration saved. LearnHub registration: R500.");
-}
-
-function requestCertificate(){
-  let data=JSON.parse(
-    localStorage.getItem("learnhubData") ||
-    '{"completed":[]}'
-  );
-
-  if(!data.completed || data.completed.length<6){
-    alert("Complete the required learning first.");
-    return;
-  }
-
-  alert("Verified Certificate: R500.");
-}
-
-function submitJobApplication(title){
-  let data=JSON.parse(
-    localStorage.getItem("learnhubData") ||
-    '{"completed":[],"certificates":[],"applications":[],"profile":{}}'
-  );
-
-  if(!data.applications){
-    data.applications=[];
-  }
-
-  if(!data.applications.includes(title)){
-    data.applications.push(title);
-  }
-
-  localStorage.setItem(
-    "learnhubData",
-    JSON.stringify(data)
-  );
-
-  alert("Application saved successfully.");
-}
-
-function downloadCV(){
-  window.print();
-}
-
-function shareProfile(){
-  if(navigator.share){
-    navigator.share({
-      title:"LearnHub Profile",
-      text:"Check out my LearnHub learning profile."
-    });
-  }else{
-    alert("Profile sharing is not available on this device.");
-  }
-}
-
-function logout(){
-  alert("You can continue using LearnHub. Your saved progress remains on this device.");
-}
-
-const navButtons=document.querySelectorAll("[data-section]");
-
-navButtons.forEach(button=>{
-  button.addEventListener("click",()=>{
-    showSection(button.dataset.section);
-  });
-});
-const navButtons=document.querySelectorAll("[data-section]");
-
-navButtons.forEach(button=>{
-  button.addEventListener("click",()=>{
-    showSection(button.dataset.section);
-  });
-});
-
-function toggleMenu(){
-  const menu=document.getElementById("navMenu");
-
-  if(menu){
-    menu.classList.toggle("open");
-  }
-}
-
-function closeMenu(){
-  const menu=document.getElementById("navMenu");
-
-  if(menu){
-    menu.classList.remove("open");
-  }
-}
-
-function goHome(){
-  showSection("home");
-  closeMenu();
-}
-
-function goLearning(){
-  showSection("learning");
-  closeMenu();
-  updateProgress();
-}
-
-function goCareer(){
-  showSection("career");
-  closeMenu();
-}
-
-function goJobs(){
-  showSection("jobs");
-  closeMenu();
-}
-
-function goCertificate(){
-  showSection("certificate");
-  closeMenu();
-}
-
-function goCV(){
-  showSection("cv");
-  closeMenu();
-}
-
-function goServices(){
-  showSection("services");
-  closeMenu();
-}
-
-function goCommunity(){
-  showSection("community");
-  closeMenu();
-}
-
-function goProfile(){
-  showSection("profile");
-  closeMenu();
-}
-
-document.addEventListener("click",event=>{
-  const link=event.target.closest("[data-close-menu]");
-
-  if(link){
-    closeMenu();
-  }
-});
-
-const menuButton=document.getElementById("menuButton");
-
-if(menuButton){
-  menuButton.addEventListener("click",toggleMenu);
-}
-
-const registerButton=document.getElementById("registerButton");
-
-if(registerButton){
-  registerButton.addEventListener(
-    "click",
-    registerUser
-  );
-}
-
-const certificateButton=
-  document.getElementById("certificateButton");
-
-if(certificateButton){
-  certificateButton.addEventListener(
-    "click",
-    requestCertificate
-  );
-}
-
-const cvButton=document.getElementById("createCVButton");
-
-if(cvButton){
-  cvButton.addEventListener(
-    "click",
-    createCV
-  );
-}
-
-const profileButton=
-  document.getElementById("saveProfileButton");
-
-if(profileButton){
-  profileButton.addEventListener(
-    "click",
-    saveProfile
-  );
-  }
- const printButton=document.getElementById("printCertificateButton");
-
-if(printButton){
-  printButton.addEventListener(
-    "click",
-    printCertificate
-  );
-}
-
-const shareButton=document.getElementById("shareProfileButton");
-
-if(shareButton){
-  shareButton.addEventListener(
-    "click",
-    shareProfile
-  );
-}
-
-const cvDownload=document.getElementById("downloadCVButton");
-
-if(cvDownload){
-  cvDownload.addEventListener(
-    "click",
-    downloadCV
-  );
-}
-
-const communityButton=
-  document.getElementById("communityPostButton");
-
-if(communityButton){
-  communityButton.addEventListener(
-    "click",
-    addCommunityPost
-  );
-}
-
-document.querySelectorAll(".academy-card")
-.forEach(card=>{
-  card.addEventListener("click",()=>{
-    const name=card.dataset.name;
-
-    if(name){
-      showAcademy(name);
-    }
-  });
-});
-
-document.querySelectorAll(".lesson-button")
-.forEach(button=>{
-  button.addEventListener("click",()=>{
-    const id=button.dataset.lesson;
-
-    if(id){
-      completeLesson(id);
-    }
-  });
-});
-
-document.querySelectorAll(".job-button")
-.forEach(button=>{
-  button.addEventListener("click",()=>{
-    const title=button.dataset.title;
-
-    if(title){
-      submitJobApplication(title);
-    }
-  });
-});
-
-document.querySelectorAll(".internship-button")
-.forEach(button=>{
-  button.addEventListener("click",()=>{
-    const title=button.dataset.title;
-
-    if(title){
-      applyOpportunity(title);
-    }
-  });
-});
-
-updateProgress();
-loadProfile();
-renderInternships();
-renderInterview();
-renderCommunity();
-
-
-</script>
-
-<style>
-*{
-  box-sizing:border-box;
-}
-
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f5f7fb;
-  color:#222;
-}
-
-button{
-  cursor:pointer;
-  border:0;
-  border-radius:8px;
-  padding:10px 15px;
-  background:#111827;
-  color:white;
-}
-
-.card{
-  background:white;
-  padding:16px;
-  margin:12px 0;
-  border-radius:12px;
-  box-shadow:0 2px 8px rgba(0,0,0,.08);
-}
-
-.section{
-  display:none;
-  padding:20px;
-}
-
-.section.active{
-  display:block;
-}
-
-.academy-card{
-  display:inline-block;
-  width:45%;
-  margin:2%;
-  padding:15px;
-  background:white;
-  border-radius:12px;
-}
-
-#progressBar{
-  width:0;
-  height:10px;
-  background:#111827;
-  border-radius:10px;
-}
-<style>
-header{
-  background:#111827;
-  color:white;
-  padding:15px;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-
-header h1{
-  margin:0;
-  font-size:22px;
-}
-
-nav{
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  margin-top:12px;
-}
-
-nav button{
-  white-space:nowrap;
-  background:#374151;
-}
-
-.hero{
-  padding:25px 20px;
-  text-align:center;
-  background:white;
-}
-
-.hero h2{
-  font-size:28px;
-  margin:10px 0;
-}
-
-.hero p{
-  line-height:1.5;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-
-.grid .card{
-  margin:0;
-}
-
-input,textarea,select{
-  width:100%;
-  padding:12px;
-  margin:7px 0 12px;
-  border:1px solid #ccc;
-  border-radius:8px;
-  font-size:16px;
-}
-
-textarea{
-  min-height:100px;
-}
-
-.search{
-  margin-bottom:15px;
-}
-
-footer{
-  text-align:center;
-  padding:25px;
-  background:#111827;
-  color:white;
-  margin-top:30px;
-}
-
-@media(max-width:600px){
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .academy-card{
-    width:100%;
-    margin:6px 0;
-  }
-}
-</style>
- header{
-  background:#111827;
-  color:white;
-  padding:15px;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-
-header h1{
-  margin:0;
-  font-size:22px;
-}
-
-nav{
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  margin-top:12px;
-}
-
-nav button{
-  white-space:nowrap;
-  background:#374151;
-}
-
-.hero{
-  padding:25px 20px;
-  text-align:center;
-  background:white;
-}
-
-.hero h2{
-  font-size:28px;
-  margin:10px 0;
-}
-
-.hero p{
-  line-height:1.5;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-
-.grid .card{
-  margin:0;
-}
-
-input,textarea,select{
-  width:100%;
-  padding:12px;
-  margin:7px 0 12px;
-  border:1px solid #ccc;
-  border-radius:8px;
-  font-size:16px;
-}
-
-textarea{
-  min-height:100px;
-}
-
-.search{
-  margin-bottom:15px;
-}
-
-footer{
-  text-align:center;
-  padding:25px;
-  background:#111827;
-  color:white;
-  margin-top:30px;
-}
-
-@media(max-width:600px){
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .academy-card{
-    width:100%;
-    margin:6px 0;
-  }
-}
-</style>
-
-</head>
- <body>
-
-<header>
-  <h1>🎓 LearnHub</h1>
-
-  <nav id="navMenu">
-    <button onclick="goHome()">Home</button>
-    <button onclick="showSection('academies')">Academies</button>
-    <button onclick="goLearning()">My Learning</button>
-    <button onclick="goCareer()">Career</button>
-    <button onclick="goJobs()">Jobs</button>
-    <button onclick="goCertificate()">Certificate</button>
-    <button onclick="goCV()">CV Builder</button>
-    <button onclick="goServices()">Services</button>
-    <button onclick="goCommunity()">Community</button>
-    <button onclick="goProfile()">Profile</button>
-  </nav>
-</header>
-
-<main>
-
-<section id="home" class="section active">
-
   <div class="hero">
-    <h2>Learn. Grow. Get Hired.</h2>
-    <p>
-      LearnHub brings learning, careers, jobs and
-      opportunities together in one place.
-    </p>
-
-    <button id="registerButton">
-      Register — R500
-    </button>
+    <h2>📚 LearnHub Academies</h2>
+    <p>Explore learning areas and start building useful skills.</p>
   </div>
-
-  <div class="card">
-    <h3>Welcome to LearnHub 🎓</h3>
-    <p>
-      Build skills, complete courses, prepare for work
-      and grow your career.
-    </p>
-  </div>
-
-</section>
-
-<section id="academies" class="section">
-
-  <h2>Academies</h2>
 
   <input
     id="academySearch"
     class="search"
+    type="text"
     placeholder="Search academies..."
+    oninput="filterAcademies()"
   >
 
-  <div class="grid">
-     <div class="academy-card card" data-name="Technology & AI">
-      <h3>💻 Technology & AI</h3>
-      <p>Technology, AI, coding and digital skills.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Teaching & Education">
-      <h3>📚 Teaching & Education</h3>
-      <p>Teaching, education and learning skills.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Health">
-      <h3>❤️ Health</h3>
-      <p>Health awareness and communication.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Government & Public Services">
-      <h3>🏛️ Government & Public Services</h3>
-      <p>Public services and government skills.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Business & Entrepreneurship">
-      <h3>💼 Business & Entrepreneurship</h3>
-      <p>Business and entrepreneurship skills.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Finance & Accounting">
-      <h3>💰 Finance & Accounting</h3>
-      <p>Finance and accounting fundamentals.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Law & Compliance">
-      <h3>⚖️ Law & Compliance</h3>
-      <p>Legal and compliance fundamentals.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Engineering & Construction">
-      <h3>🏗️ Engineering & Construction</h3>
-      <p>Construction and engineering skills.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Transport & Logistics">
-      <h3>🚚 Transport & Logistics</h3>
-      <p>Transport, logistics and supply chain skills.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Agriculture">
-      <h3>🌱 Agriculture</h3>
-      <p>Farming and agricultural skills.</p>
-    </div>
-       <div class="academy-card card" data-name="Hospitality & Tourism">
-      <h3>🏨 Hospitality & Tourism</h3>
-      <p>Hospitality, tourism and customer service.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Creative & Media">
-      <h3>🎨 Creative & Media</h3>
-      <p>Creative, media and digital content skills.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Trades & Technical Skills">
-      <h3>🔧 Trades & Technical Skills</h3>
-      <p>Practical trades and technical skills.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Safety & Security">
-      <h3>🛡️ Safety & Security</h3>
-      <p>Safety, security and workplace awareness.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Languages & Academic Skills">
-      <h3>🗣️ Languages & Academic Skills</h3>
-      <p>Languages, communication and academic skills.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Career & Employment">
-      <h3>🎯 Career & Employment</h3>
-      <p>CVs, interviews and workplace preparation.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Personal Development">
-      <h3>🌟 Personal Development</h3>
-      <p>Confidence, communication and personal growth.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Retail & Sales">
-      <h3>🛒 Retail & Sales</h3>
-      <p>Retail, sales and customer service skills.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Beauty & Wellness">
-      <h3>💄 Beauty & Wellness</h3>
-      <p>Beauty, wellness and self-care skills.</p>
-    </div>
-
-    <div class="academy-card card" data-name="Environment & Sustainability">
-      <h3>🌍 Environment & Sustainability</h3>
-      <p>Environmental awareness and sustainability.</p>
-    </div>
-
-  </div>
+  <div id="academyList" class="cards"></div>
 
 </section>
- <section id="academyView" class="section">
-  <h2 id="academyTitle">Academy</h2>
 
-  <div id="academyContent" class="card">
-    <p>Select an academy to explore its courses.</p>
+
+<!-- MY LEARNING -->
+<section id="learning" class="page">
+
+  <div class="hero">
+    <h2>📖 My Learning</h2>
+    <p>Track the courses you have started and completed.</p>
   </div>
+
+  <div id="learningList"></div>
+
 </section>
 
-<section id="learning" class="section">
-  <h2>📚 My Learning</h2>
 
-  <div class="card">
-    <h3>Learning Progress</h3>
-    <p>
-      Lessons completed:
-      <strong id="progressCount">0</strong>/6
-    </p>
+<!-- CAREER -->
+<section id="career" class="page">
+
+  <div class="hero">
+    <h2>🎯 Career Resources</h2>
+    <p>Tools to help you prepare for employment and career growth.</p>
+  </div>
+
+  <div class="cards">
+
     <div class="card">
-      <div id="progressBar"></div>
+      <h3>📄 CV Builder</h3>
+      <p>Create and save your professional CV information.</p>
+      <button class="btn" onclick="showPage('cv')">Build My CV</button>
     </div>
+
+    <div class="card">
+      <h3>🎤 Interview Preparation</h3>
+      <p>Practise common interview questions.</p>
+      <button class="btn" onclick="showPage('interview')">Practise</button>
+    </div>
+
+    <div class="card">
+      <h3>💼 Jobs</h3>
+      <p>Explore job opportunities and record applications.</p>
+      <button class="btn" onclick="showPage('jobs')">View Jobs</button>
+    </div>
+
+    <div class="card">
+      <h3>🎓 Internships & Learnerships</h3>
+      <p>Explore workplace learning opportunities.</p>
+      <button class="btn" onclick="showPage('opportunities')">
+        View Opportunities
+      </button>
+    </div>
+
   </div>
 
-  <div class="card">
-    <h3>Web Development</h3>
-    <p>Lesson 1 — Introduction to Web Development</p>
-    <button class="lesson-button" data-lesson="web1">
-      Complete Lesson
-    </button>
-  </div>
-
-  <div class="card">
-    <h3>Web Development</h3>
-    <p>Lesson 2 — HTML & CSS Basics</p>
-    <button class="lesson-button" data-lesson="web2">
-      Complete Lesson
-    </button>
-  </div>
-
-  <div class="card">
-    <h3>Web Development</h3>
-    <p>Lesson 3 — JavaScript Basics</p>
-    <button class="lesson-button" data-lesson="web3">
-      Complete Lesson
-    </button>
-  </div>
-
-  <div class="card">
-    <h3>Python</h3>
-    <p>Lesson 1 — Python Introduction</p>
-    <button class="lesson-button" data-lesson="py1">
-      Complete Lesson
-    </button>
-  </div>
-
-  <div class="card">
-    <h3>Python</h3>
-    <p>Lesson 2 — Variables & Data</p>
-    <button class="lesson-button" data-lesson="py2">
-      Complete Lesson
-    </button>
-  </div>
-
-  <div class="card">
-    <h3>Python</h3>
-    <p>Lesson 3 — Python Practice</p>
-    <button class="lesson-button" data-lesson="py3">
-      Complete Lesson
-    </button>
-  </div>
-  </section>
-
-<section id="career" class="section">
-  <h2>🎯 Career</h2>
-
-  <div class="card">
-    <h3>Career Preparation</h3>
-    <p>Build your skills and prepare for your next opportunity.</p>
-    <button onclick="showSection('cv')">Build My CV</button>
-  </div>
-
-  <div class="card">
-    <h3>Interview Preparation</h3>
-    <p>Practice common interview questions.</p>
-  </div>
-
-  <div id="interviewList"></div>
 </section>
 
-<section id="jobs" class="section">
-  <h2>💼 Jobs</h2>
 
-  <input
-    id="jobSearch"
-    class="search"
-    placeholder="Search jobs..."
-  >
+<!-- JOBS -->
+<section id="jobs" class="page">
 
-  <div class="job-card card">
-    <h3>Junior System Developer</h3>
-    <p>Technology • South Africa</p>
-    <button
-      class="job-button"
-      data-title="Junior System Developer">
-      Apply
+  <div class="hero">
+    <h2>💼 Jobs</h2>
+    <p>Explore example career opportunities and keep track of applications.</p>
+  </div>
+
+  <div class="card">
+    <h3>Junior Software Developer</h3>
+    <p>Technology • Entry Level</p>
+    <button class="btn" onclick="applyJob('Junior Software Developer')">
+      Apply / Save
     </button>
   </div>
 
-  <div class="job-card card">
+  <div class="card">
     <h3>IT Support Assistant</h3>
-    <p>Information Technology • South Africa</p>
-    <button
-      class="job-button"
-      data-title="IT Support Assistant">
-      Apply
+    <p>Information Technology • Entry Level</p>
+    <button class="btn" onclick="applyJob('IT Support Assistant')">
+      Apply / Save
     </button>
   </div>
 
-  <div class="job-card card">
+  <div class="card">
     <h3>Administrator</h3>
-    <p>Administration • South Africa</p>
-    <button
-      class="job-button"
-      data-title="Administrator">
-      Apply
+    <p>Administration • Entry Level</p>
+    <button class="btn" onclick="applyJob('Administrator')">
+      Apply / Save
     </button>
   </div>
 
-  <h2>Internships & Learnerships</h2>
-
-  <div id="internshipList"></div>
-</section>
-<section id="certificate" class="section">
-  <h2>🎓 Certificate</h2>
-
   <div class="card">
-    <h3>LearnHub Academy</h3>
-    <p>Verified Certificate</p>
-    <p><strong>Level 01</strong></p>
-    <p>Certificate ID: LH-2026-001</p>
-    <p>Learner ID: LH-LEARNER-001</p>
-    <p>⭐⭐⭐</p>
-    <p><strong>COMPLETED</strong></p>
-
-    <button id="certificateButton">
-      Request Verified Certificate — R500
-    </button>
-
-    <button id="printCertificateButton">
-      Print Certificate
+    <h3>Safety Assistant</h3>
+    <p>Health & Safety • Entry Level</p>
+    <button class="btn" onclick="applyJob('Safety Assistant')">
+      Apply / Save
     </button>
   </div>
+
 </section>
 
-<section id="cv" class="section">
-  <h2>📄 CV Builder</h2>
+
+<!-- OPPORTUNITIES -->
+<section id="opportunities" class="page">
+
+  <div class="hero">
+    <h2>🎓 Internships & Learnerships</h2>
+    <p>Build practical workplace experience.</p>
+  </div>
 
   <div class="card">
+    <h3>Software Development Learnership</h3>
+    <p>Build practical technology and programming skills.</p>
+    <button class="btn" onclick="applyJob('Software Development Learnership')">
+      Apply / Save
+    </button>
+  </div>
+
+  <div class="card">
+    <h3>IT Support Internship</h3>
+    <p>Develop practical IT support skills.</p>
+    <button class="btn" onclick="applyJob('IT Support Internship')">
+      Apply / Save
+    </button>
+  </div>
+
+  <div class="card">
+    <h3>Business Administration Internship</h3>
+    <p>Develop administration and workplace skills.</p>
+    <button class="btn" onclick="applyJob('Business Administration Internship')">
+      Apply / Save
+    </button>
+  </div>
+
+  <div class="card">
+    <h3>Safety Internship</h3>
+    <p>Gain workplace experience in health and safety.</p>
+    <button class="btn" onclick="applyJob('Safety Internship')">
+      Apply / Save
+    </button>
+  </div>
+
+</section>
+
+
+<!-- INTERVIEW -->
+<section id="interview" class="page">
+
+  <div class="hero">
+    <h2>🎤 Interview Preparation</h2>
+    <p>Practise common interview questions.</p>
+  </div>
+
+  <div class="card">
+    <h3>1. Tell us about yourself.</h3>
+    <p>Introduce yourself, your experience, skills and career goals.</p>
+  </div>
+
+  <div class="card">
+    <h3>2. Why should we hire you?</h3>
+    <p>Explain your relevant skills, willingness to learn and contribution.</p>
+  </div>
+
+  <div class="card">
+    <h3>3. What are your strengths?</h3>
+    <p>Give genuine strengths and examples.</p>
+  </div>
+
+  <div class="card">
+    <h3>4. Where do you see yourself in five years?</h3>
+    <p>Explain your career goals and skills you want to develop.</p>
+  </div>
+
+  <div class="card">
+    <h3>5. Tell us about a challenge you faced.</h3>
+    <p>Explain the situation, what you did and what you learned.</p>
+  </div>
+
+</section>
+
+
+<!-- CERTIFICATE -->
+<section id="certificate" class="page">
+
+  <div class="hero">
+    <h2>🎓 LearnHub Certificate</h2>
+    <p>Complete your learning requirements to prepare your certificate.</p>
+  </div>
+
+  <div id="certificateArea"></div>
+
+</section>
+
+
+<!-- CV -->
+<section id="cv" class="page">
+
+  <div class="hero">
+    <h2>📄 CV Builder</h2>
+    <p>Enter your information and save your CV profile.</p>
+  </div>
+
+  <div class="card">
+
     <label>Full Name</label>
-    <input id="cvName" placeholder="Enter your name">
+    <input id="cvName" placeholder="Your full name">
+
+    <label>Career Goal</label>
+    <input id="cvGoal" placeholder="e.g. System Developer">
+
+    <label>Education</label>
+    <textarea id="cvEducation" placeholder="Your education and qualifications"></textarea>
 
     <label>Skills</label>
-    <textarea
-      id="cvSkills"
-      placeholder="Enter your skills">
-    </textarea>
+    <textarea id="cvSkills" placeholder="Your skills"></textarea>
 
-    <label>Experience</label>
-    <textarea
-      id="cvExperience"
-      placeholder="Enter your experience">
-    </textarea>
+    <label>Work Experience</label>
+    <textarea id="cvExperience" placeholder="Your work experience"></textarea>
 
-    <button id="createCVButton">
-      Create CV
-    </button>
+    <button class="btn" onclick="saveCV()">Save CV</button>
+    <button class="btn secondary" onclick="showCV()">View CV</button>
 
-    <button id="downloadCVButton">
-      Print / Save CV
-    </button>
   </div>
 
-  <div id="cvOutput" class="card"></div>
+  <div id="cvPreview"></div>
+
 </section>
-  <section id="services" class="section">
-  <h2>🛠️ Services</h2>
 
-  <div class="grid">
-    <div class="card">
-      <h3>CV Services</h3>
-      <p>Build and improve your CV.</p>
-    </div>
 
-    <div class="card">
-      <h3>Career Support</h3>
-      <p>Get help preparing for work.</p>
-    </div>
+<!-- SERVICES -->
+<section id="services" class="page">
 
-    <div class="card">
-      <h3>Learning Support</h3>
-      <p>Find courses and develop new skills.</p>
-    </div>
-
-    <div class="card">
-      <h3>Business Services</h3>
-      <p>Explore useful services and opportunities.</p>
-    </div>
+  <div class="hero">
+    <h2>🛠️ Services</h2>
+    <p>LearnHub services and useful support areas.</p>
   </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>💻 Technology</h3>
+      <p>Technology and digital skills resources.</p>
+    </div>
+
+    <div class="card">
+      <h3>📄 CV & Career</h3>
+      <p>Career preparation and CV support.</p>
+    </div>
+
+    <div class="card">
+      <h3>🎓 Education</h3>
+      <p>Learning and skills development resources.</p>
+    </div>
+
+    <div class="card">
+      <h3>🏢 Business</h3>
+      <p>Business and entrepreneurship learning resources.</p>
+    </div>
+
+  </div>
+
 </section>
 
-<section id="community" class="section">
-  <h2>👥 Community</h2>
+
+<!-- COMMUNITY -->
+<section id="community" class="page">
+
+  <div class="hero">
+    <h2>👥 Community</h2>
+    <p>Connect, learn and share opportunities responsibly.</p>
+  </div>
 
   <div class="card">
-    <input
-      id="communityName"
-      placeholder="Your name"
-    >
+
+    <label>Community Message</label>
 
     <textarea
-      id="communityText"
-      placeholder="Share something with the LearnHub community..."
+      id="communityMessage"
+      placeholder="Write a message..."
     ></textarea>
 
-    <button id="communityPostButton">
-      Post
+    <button class="btn" onclick="postCommunity()">
+      Post Message
     </button>
+
   </div>
 
   <div id="communityPosts"></div>
+
 </section>
-  <section id="profile" class="section">
-  <h2>👤 My Profile</h2>
+
+
+<!-- PROFILE -->
+<section id="profile" class="page">
+
+  <div class="hero">
+    <h2>👤 My Profile</h2>
+    <p>Save your basic learner profile.</p>
+  </div>
 
   <div class="card">
+
     <label>Full Name</label>
-    <input
-      id="profileName"
-      placeholder="Enter your full name"
-    >
+    <input id="profileName" placeholder="Your full name">
 
     <label>Email</label>
-    <input
-      id="profileEmail"
-      type="email"
-      placeholder="Enter your email"
-    >
+    <input id="profileEmail" type="email" placeholder="Your email">
 
-    <label>Phone</label>
-    <input
-      id="profilePhone"
-      type="tel"
-      placeholder="Enter your phone number"
-    >
+    <label>Career Goal</label>
+    <input id="profileCareer" placeholder="Your career goal">
 
-    <button id="saveProfileButton">
+    <button class="btn" onclick="saveProfile()">
       Save Profile
     </button>
 
-    <button id="shareProfileButton">
+    <button class="btn secondary" onclick="shareProfile()">
       Share Profile
     </button>
+
+    <div id="profileMessage"></div>
+
   </div>
+
 </section>
 
 </main>
@@ -2204,112 +742,650 @@ footer{
   <p>Learn. Grow. Get Hired.</p>
   <p>© 2026 LearnHub</p>
 </footer>
-  <script>
-updateProgress();
-loadProfile();
-renderInternships();
-renderInterview();
-renderCommunity();
+
+
 <script>
-document.addEventListener("DOMContentLoaded",function(){
 
-const career=document.getElementById("career");
-if(career){
-career.innerHTML=`
-<h2>🎯 Career</h2>
+const academies = [
+  "Technology & AI",
+  "Teaching & Education",
+  "Health",
+  "Government & Public Services",
+  "Business & Entrepreneurship",
+  "Finance & Accounting",
+  "Law & Compliance",
+  "Engineering & Construction",
+  "Transport & Logistics",
+  "Agriculture",
+  "Hospitality & Tourism",
+  "Creative & Media",
+  "Trades & Technical Skills",
+  "Safety & Security",
+  "Languages & Academic Skills",
+  "Career & Employment",
+  "Personal Development",
+  "Retail & Sales",
+  "Beauty & Wellness",
+  "Environment & Sustainability"
+];
 
-<div class="cards">
-<div class="card">
-<h3>📄 CV Builder</h3>
-<p>Create a professional CV for your job applications.</p>
-<button onclick="showPage('cv')">Build My CV</button>
-</div>
+const courses = [
+  {
+    id:"ai",
+    title:"Artificial Intelligence Fundamentals",
+    academy:"Technology & AI"
+  },
+  {
+    id:"web",
+    title:"Web Development Fundamentals",
+    academy:"Technology & AI"
+  },
+  {
+    id:"python",
+    title:"Python Programming Fundamentals",
+    academy:"Technology & AI"
+  },
+  {
+    id:"teaching",
+    title:"Teaching & Education Fundamentals",
+    academy:"Teaching & Education"
+  },
+  {
+    id:"government",
+    title:"Government & Public Services Fundamentals",
+    academy:"Government & Public Services"
+  },
+  {
+    id:"health",
+    title:"Health Communication Fundamentals",
+    academy:"Health"
+  },
+  {
+    id:"safety",
+    title:"Workplace Safety Fundamentals",
+    academy:"Safety & Security"
+  },
+  {
+    id:"business",
+    title:"Business Fundamentals",
+    academy:"Business & Entrepreneurship"
+  }
+];
 
-<div class="card">
-<h3>🎤 Interview Preparation</h3>
-<p>Practice common interview questions and prepare with confidence.</p>
-<button onclick="showPage('interview')">Practice Interviews</button>
-</div>
+let data = JSON.parse(
+  localStorage.getItem("learnhubData") ||
+  '{"completed":[],"started":[],"applications":[],"profile":{},"cv":{},"community":[]}'
+);
 
-<div class="card">
-<h3>💼 Jobs</h3>
-<p>Explore available career opportunities.</p>
-<button onclick="showPage('jobs')">View Jobs</button>
-</div>
-
-<div class="card">
-<h3>🎓 Internships & Learnerships</h3>
-<p>Find opportunities to gain workplace experience.</p>
-<button onclick="showPage('opportunities')">View Opportunities</button>
-</div>
-</div>`;
+function saveData(){
+  localStorage.setItem("learnhubData",JSON.stringify(data));
 }
 
-const opportunities=document.getElementById("opportunities");
-if(opportunities){
-opportunities.innerHTML=`
-<h2>🎓 Internships & Learnerships</h2>
+function showPage(id){
 
-<div class="card">
-<h3>Software Development Learnership</h3>
-<p>Build practical technology and programming skills.</p>
-<button onclick="alert('Application saved successfully.')">Apply</button>
-</div>
+  document.querySelectorAll(".page").forEach(page=>{
+    page.classList.remove("active");
+  });
 
-<div class="card">
-<h3>IT Support Internship</h3>
-<p>Develop practical IT support and workplace technology skills.</p>
-<button onclick="alert('Application saved successfully.')">Apply</button>
-</div>
+  const page=document.getElementById(id);
 
-<div class="card">
-<h3>Business Administration Internship</h3>
-<p>Develop administration, communication and office skills.</p>
-<button onclick="alert('Application saved successfully.')">Apply</button>
-</div>
+  if(page){
+    page.classList.add("active");
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
 
-<div class="card">
-<h3>Safety Internship</h3>
-<p>Gain workplace experience in health and safety.</p>
-<button onclick="alert('Application saved successfully.')">Apply</button>
-</div>`;
+  updateAll();
 }
 
-const interview=document.getElementById("interview");
-if(interview){
-interview.innerHTML=`
-<h2>🎤 Interview Preparation</h2>
+function renderAcademies(){
 
-<div class="card">
-<h3>1. Tell us about yourself.</h3>
-<p>Introduce yourself, your education, experience, skills and career goals.</p>
-</div>
+  const list=document.getElementById("academyList");
 
-<div class="card">
-<h3>2. Why should we hire you?</h3>
-<p>Explain your relevant skills, willingness to learn and what you can contribute.</p>
-</div>
+  if(!list) return;
 
-<div class="card">
-<h3>3. What are your strengths?</h3>
-<p>Give two or three genuine strengths and examples.</p>
-</div>
+  list.innerHTML=academies.map((academy,index)=>`
 
-<div class="card">
-<h3>4. Where do you see yourself in five years?</h3>
-<p>Explain your career goals and the skills you want to develop.</p>
-</div>
+    <div class="card academy-card">
 
-<div class="card">
-<h3>5. Tell us about a challenge you faced.</h3>
-<p>Explain the situation, what you did and what you learned.</p>
-</div>`;
+      <h3>📚 ${academy}</h3>
+
+      <p>
+        Explore learning resources and skills in
+        ${academy}.
+      </p>
+
+      <span class="badge">
+        Academy ${index+1}
+      </span>
+
+      <button
+        class="btn"
+        onclick="showAcademyCourses('${academy.replace(/'/g,"\\'")}')"
+      >
+        Explore
+      </button>
+
+    </div>
+
+  `).join("");
 }
+
+function filterAcademies(){
+
+  const search=
+    document.getElementById("academySearch")
+    .value
+    .toLowerCase();
+
+  document.querySelectorAll(".academy-card").forEach(card=>{
+    card.style.display=
+      card.textContent.toLowerCase().includes(search)
+      ? "block"
+      : "none";
+  });
+}
+
+function showAcademyCourses(academy){
+
+  const matching=courses.filter(
+    course=>course.academy===academy
+  );
+
+  const page=document.getElementById("learning");
+
+  if(matching.length===0){
+
+    page.innerHTML=`
+
+      <div class="hero">
+
+        <h2>📚 ${academy}</h2>
+
+        <p>
+          More courses for this academy can be added
+          in future LearnHub updates.
+        </p>
+
+        <button
+          class="btn"
+          onclick="showPage('academies')"
+        >
+          Back to Academies
+        </button>
+
+      </div>
+
+    `;
+
+  }else{
+
+    page.innerHTML=`
+
+      <div class="hero">
+
+        <h2>📚 ${academy}</h2>
+
+        <p>Select a course to begin learning.</p>
+
+      </div>
+
+      ${matching.map(course=>courseCard(course)).join("")}
+
+    `;
+
+  }
+
+  showPage("learning");
+}
+
+function courseCard(course){
+
+  const completed=data.completed.includes(course.id);
+  const started=data.started.includes(course.id);
+
+  return `
+
+    <div class="card course">
+
+      <h3>${course.title}</h3>
+
+      <p>${course.academy}</p>
+
+      <span class="badge">
+        ${completed ? "Completed" : started ? "In Progress" : "Not Started"}
+      </span>
+
+      <div class="progress">
+
+        <div
+          class="progress-bar"
+          style="width:${completed ? 100 : started ? 50 : 0}%"
+        ></div>
+
+      </div>
+
+      <button
+        class="btn"
+        onclick="startCourse('${course.id}')"
+      >
+        ${completed ? "Review Course" : "Start Course"}
+      </button>
+
+      ${
+        started && !completed
+        ?
+        `<button
+          class="btn secondary"
+          onclick="completeCourse('${course.id}')"
+        >
+          Mark Complete
+        </button>`
+        :
+        ""
+      }
+
+    </div>
+
+  `;
+}
+
+function startCourse(id){
+
+  if(!data.started.includes(id)){
+    data.started.push(id);
+  }
+
+  saveData();
+
+  const course=courses.find(c=>c.id===id);
+
+  alert(
+    "Course started: " +
+    (course ? course.title : "LearnHub course")
+  );
+
+  renderLearning();
+  updateAll();
+}
+
+function completeCourse(id){
+
+  if(!data.completed.includes(id)){
+    data.completed.push(id);
+  }
+
+  if(!data.started.includes(id)){
+    data.started.push(id);
+  }
+
+  saveData();
+
+  alert(
+    "Congratulations! Your course has been marked complete."
+  );
+
+  renderLearning();
+  updateAll();
+}
+
+function renderLearning(){
+
+  const list=document.getElementById("learningList");
+
+  if(!list) return;
+
+  const active=courses.filter(course=>
+    data.started.includes(course.id) ||
+    data.completed.includes(course.id)
+  );
+
+  if(active.length===0){
+
+    list.innerHTML=`
+
+      <div class="card">
+
+        <h3>No courses started yet.</h3>
+
+        <p>
+          Visit Academies and choose a course to begin.
+        </p>
+
+        <button
+          class="btn"
+          onclick="showPage('academies')"
+        >
+    Explore Academies
+</button>
+
+</div>
+
+`;
+
+return;
+}
+
+list.innerHTML=active.map(course=>courseCard(course)).join("");
+  }
+  function renderCertificate(){
+
+  const area=document.getElementById("certificateArea");
+
+  if(!area) return;
+
+  const completed=data.completed.length;
+
+  if(completed===0){
+
+    area.innerHTML=`
+
+      <div class="card">
+
+        <h3>📚 Keep Learning</h3>
+
+        <p>
+          Complete your relevant LearnHub course requirements
+          before preparing your certificate.
+        </p>
+
+        <button
+          class="btn"
+          onclick="showPage('academies')"
+        >
+          Continue Learning
+        </button>
+
+      </div>
+
+    `;
+
+    return;
+  }
+ const name=
+    data.profile.name ||
+    "LearnHub Learner";
+
+  area.innerHTML=`
+
+    <div class="certificate">
+
+      <div style="font-size:50px">🎓</div>
+
+      <p>LEARNHUB ACADEMY</p>
+
+      <h2>CERTIFICATE OF COMPLETION</h2>
+
+      <p>This certificate is presented to</p>
+
+      <div class="name">${name}</div>
+
+      <p>
+        for completing LearnHub learning requirements.
+      </p>
+
+      <div class="certificate-stars">
+        ★ ★ ★
+      </div>
+
+      <p style="margin-top:20px">
+        Completed Courses: ${completed}
+      </p>
+
+      <p>
+        Certificate ID:
+        LH-${Date.now().toString().slice(-8)}
+      </p>
+
+      <p style="margin-top:25px">
+        LearnHub Academy
+      </p>
+
+      <button
+        class="btn"
+        onclick="window.print()"
+      >
+        Print Certificate
+      </button>
+
+    </div>
+
+  `;  
+  function saveCV(){
+
+  data.cv={
+    name:document.getElementById("cvName").value,
+    goal:document.getElementById("cvGoal").value,
+    education:document.getElementById("cvEducation").value,
+    skills:document.getElementById("cvSkills").value,
+    experience:document.getElementById("cvExperience").value
+  };
+
+  saveData();
+
+  alert("Your CV information has been saved.");
+
+  showCV();
+}
+
+function showCV(){
+
+  const cv=data.cv;
+
+  document.getElementById("cvPreview").innerHTML=`
+
+    <div class="card">
+
+      <h2>${cv.name || "Your Name"}</h2>
+
+      <p>
+        <strong>Career Goal:</strong>
+        ${cv.goal || "Not added"}
+      </p>
+
+      <h3>Education</h3>
+      <p>${cv.education || "Not added"}</p>
+
+      <h3>Skills</h3>
+      <p>${cv.skills || "Not added"}</p>
+
+      <h3>Experience</h3>
+      <p>${cv.experience || "Not added"}</p>
+
+    </div>
+
+  `;
+  }  
+  function saveProfile(){
+
+  data.profile={
+    name:document.getElementById("profileName").value,
+    email:document.getElementById("profileEmail").value,
+    career:document.getElementById("profileCareer").value
+  };
+
+  saveData();
+
+  document.getElementById("profileMessage").innerHTML=`
+
+    <div class="success">
+      Profile saved successfully.
+    </div>
+
+  `;
+
+  renderCertificate();
+  updateAll();
+}
+
+function loadProfile(){
+
+  const profile=data.profile || {};
+
+  document.getElementById("profileName").value=
+    profile.name || "";
+
+  document.getElementById("profileEmail").value=
+    profile.email || "";
+
+  document.getElementById("profileCareer").value=
+    profile.career || "";
+
+  const cv=data.cv || {};
+
+  document.getElementById("cvName").value=
+    cv.name || "";
+
+  document.getElementById("cvGoal").value=
+    cv.goal || "";
+
+  document.getElementById("cvEducation").value=
+    cv.education || "";
+
+  document.getElementById("cvSkills").value=
+    cv.skills || "";
+
+  document.getElementById("cvExperience").value=
+    cv.experience || "";
+  }
+ function shareProfile(){
+
+  const name=data.profile.name || "LearnHub Learner";
+  const career=data.profile.career || "Career development";
+
+  const text=
+    name +
+    " is building their career with LearnHub. " +
+    "Career goal: " +
+    career;
+
+  if(navigator.share){
+
+    navigator.share({
+      title:"LearnHub Profile",
+      text:text
+    });
+
+  }else{
+
+    navigator.clipboard.writeText(text);
+
+    alert("Profile information copied.");
+
+  }
+}
+
+function applyJob(title){
+
+  if(!data.applications.includes(title)){
+    data.applications.push(title);
+  }
+
+  saveData();
+  updateAll();
+
+  alert(
+    "Application saved in your LearnHub profile."
+  );
+}
+
+function postCommunity(){
+
+  const input=
+    document.getElementById("communityMessage");
+
+  const message=input.value.trim();
+
+  if(!message){
+
+    alert("Please write a message first.");
+
+    return;
+  }
+
+  data.community.unshift({
+    message:message,
+    date:new Date().toLocaleDateString()
+  });
+
+  saveData();
+
+  input.value="";
+
+  renderCommunity();
+  }
+function renderCommunity(){
+
+  const area=
+    document.getElementById("communityPosts");
+
+  if(!area) return;
+
+  if(data.community.length===0){
+
+    area.innerHTML=`
+
+      <div class="card">
+
+        <p>
+          No community posts yet.
+        </p>
+
+      </div>
+
+    `;
+
+    return;
+  }
+
+  area.innerHTML=data.community.map(post=>`
+
+    <div class="card">
+
+      <p>${escapeHTML(post.message)}</p>
+
+      <small>${post.date}</small>
+
+    </div>
+
+  `).join("");
+}
+
+function escapeHTML(text){
+
+  const div=document.createElement("div");
+
+  div.textContent=text;
+
+  return div.innerHTML;
+}
+
+function updateAll(){
+
+  document.getElementById("homeCourses").textContent=
+    data.started.length;
+
+  document.getElementById("homeCompleted").textContent=
+    data.completed.length;
+
+  document.getElementById("homeApplications").textContent=
+    data.applications.length;
+
+  renderLearning();
+  renderCertificate();
+  } 
+  document.addEventListener("DOMContentLoaded",function(){
+
+  renderAcademies();
+  renderLearning();
+  renderCertificate();
+  renderCommunity();
+  loadProfile();
+  showCV();
+  updateAll();
 
 });
+
 </script>
 
 </body>
-</html> 
-  
-  
+</html>  
