@@ -1358,22 +1358,22 @@ function escapeHTML(text){
 
   return div.innerHTML;
 }
-
 function updateAll(){
 
-  document.getElementById("homeCourses").textContent=
+  document.getElementById("homeCourses").textContent =
     data.started.length;
 
-  document.getElementById("homeCompleted").textContent=
+  document.getElementById("homeCompleted").textContent =
     data.completed.length;
 
-  document.getElementById("homeApplications").textContent=
+  document.getElementById("homeApplications").textContent =
     data.applications.length;
 
   renderLearning();
   renderCertificate();
-  } 
-  document.addEventListener("DOMContentLoaded",function(){
+}
+
+document.addEventListener("DOMContentLoaded", function(){
 
   renderAcademies();
   renderLearning();
@@ -1382,15 +1382,9 @@ function updateAll(){
   loadProfile();
   showCV();
   updateAll();
- document.querySelectorAll("nav a").forEach(link => {
-  link.addEventListener("click", function(e) {
-    e.preventDefault();
-  });
-});   
 
-
-
+});
 </script>
 
 </body>
-</html>  
+</html>
